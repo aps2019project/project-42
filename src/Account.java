@@ -5,5 +5,6 @@ public class Account {
     String pass;
     ArrayList<MatchHistory> matchList;
     ArrayList<Deck> decks;
+    ArrayList<Card> cards;
     int mainDeckIndex;
 }

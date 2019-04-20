@@ -4,7 +4,8 @@ import java.util.Scanner;
 class Duelyst{
     ArrayList<Account> accounts;
     ArrayList<Card> source;
-    Scanner scanner=new Scanner(System.in);
+    static Scanner scanner=new Scanner(System.in);
+
     void mainMenu(Account account,Scanner scanner){
         switch (scanner.nextLine()){
             case("collection"): {

@@ -1,41 +1,134 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
-class Collection{
+class Collection {
     ArrayList<Card> cards;
-    void show(){
+    Account account;
+
+    Collection(Scanner scanner) {
+        while (true) {
+            String cm = scanner.nextLine();
+            String cmd = cm.trim();
+            String command = cmd.toLowerCase();
+            String[] commandArray = command.split("\\s+");
+            if (command.equals("end")) {
+                break;
+            } else if (command.equals("show")) {
+                show();
+            } else if (commandArray[0].equals("search")) {
+                search(commandArray[1]);
+            } else if (command.equals("save")) {
+
+            } else if (commandArray[0].equals("create") && commandArray[1].equals("deck")) {
+                createDeck(commandArray[2]);
+            } else if (commandArray[0].equals("delete") && commandArray[1].equals("deck")) {
+                deleteDeck(commandArray[2]);
+            } else if (command.equals("add(\\s+)(\\d+)to(\\s+)deck[a-z0-9]")) {
+                addToDeck(commandArray[1], commandArray[4]);
+            } else if (command.equals("remove(\\s+)(\\d+)from(\\s+)deck[a-z0-9]")) {
+                removeFromDeck(commandArray[1], commandArray[4]);
+            } else if (command.equals("validate(\\s+)deck(\\s+)[a-z0-9]")) {
+                validateDeck(commandArray[2]);
+            } else if (command.equals("select(\\s+)deck(\\s+)[a-z0-9]")) {
+                selectMainDeck(commandArray[2]);
+            } else if (command.equals("show(\\s+)all(\\s+)decks")) {
+                showAllDecks();
+            }else if (command.equals("show(\\s+)deck(\\s+)[a-z][0-9]")){
+                showDeck(commandArray[2]);
+            }
+            else if (command.equals("help")) {
+                help();
+            }
+        }
+    }
+
+    void show() {
+        for (Card card : cards) {
+
+        }
+    }
+
+    void search(String string) {
+        boolean checkCart = false;
+        for (Card card : cards) {
+            if (card.name.equals(string)) {
+                System.out.println(card.cardID);
+                checkCart = true;
+                break;
+            }
+        }
+        if (!checkCart) {
+            System.out.println("This cart doesn't exist in your collection");
+        }
+    }
+
+    void save() {
 
     }
-    void search(){
+
+    void createDeck(String string) {
+        Deck deck = new Deck(string, account);
+        if (!account.decks.contains(deck)) {
+            account.decks.add(deck);
+        } else {
+            System.out.println("A deck with this name is already exist");
+        }
+    }
+
+    void deleteDeck(String string) {
+        Deck deck = new Deck(string, account);
+        if (account.decks.contains(deck)) {
+            account.decks.remove(deck);
+        } else {
+            System.out.println("This deck name doesn't exist");
+        }
+    }
+
+    void addToDeck(String str1, String str2) {
+        Card card = new Card(str1);
+        Deck deck = new Deck(str2, account);
+        if (account.decks.contains(deck) && cards.contains(card) && !deck.cards.contains(card)) {
+            deck.cards.add(card);
+        } else if (!account.decks.contains(deck)) {
+            System.out.println("This deck doesn't exist.");
+        } else if (!cards.contains(card)) {
+            System.out.println("This card isn't in your collection.");
+        } else if (deck.cards.contains(card)) {
+            System.out.println("This card already exists in this deck.");
+        }
+    }
+
+    void removeFromDeck(String str1, String str2) {
+        Card card = new Card(str1);
+        Deck deck = new Deck(str2, account);
+        if (account.decks.contains(deck) && cards.contains(card) && deck.cards.contains(card)) {
+            deck.cards.add(card);
+        } else if (!account.decks.contains(deck)) {
+            System.out.println("This deck doesn't exist.");
+        } else if (!cards.contains(card)) {
+            System.out.println("This card isn't in your collection.");
+        } else if (!deck.cards.contains(card)) {
+            System.out.println("This card doesn't exists in this deck.");
+        }
+    }
+
+    void validateDeck(String string) {
 
     }
-    void save(){
+
+    void selectMainDeck(String string) {
 
     }
-    void createDeck(){
+
+    void showAllDecks() {
 
     }
-    void removeDeck(){
+
+    void showDeck(String string) {
 
     }
-    void addToDeck(){
 
-    }
-    void removeFromDeck(){
-
-    }
-    void validateDeck(){
-
-    }
-    void selectMainDeck(){
-
-    }
-    void showAllDecks(){
-
-    }
-    void showDeck(){
-
-    }
-    void help(){
+    void help() {
         System.out.println("to show your collection: show");
         System.out.println("to find a card id in your cards: search [card name]");
         System.out.println("to find an item id in your items: search [item name]");
@@ -52,7 +145,8 @@ class Collection{
         System.out.println("to return to main menu: exit");
 
     }
-    void exit(){
+
+    void exit() {
 
     }
 }

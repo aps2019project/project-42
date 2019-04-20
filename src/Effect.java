@@ -1,7 +1,7 @@
 enum Effect{
     disarm,
     dispel,
-    chngeAP,
+    changeAP,
     changeHP,
     stun,
     holy
