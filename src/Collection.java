@@ -12,31 +12,31 @@ class Collection {
             String command = cmd.toLowerCase();
             String[] commandArray = command.split("\\s+");
             if (command.equals("end")) {
+                exit();
                 break;
-            } else if (command.equals("show")) {
+            } else if (command.matches("show")) {
                 show();
             } else if (commandArray[0].equals("search")) {
                 search(commandArray[1]);
-            } else if (command.equals("save")) {
+            } else if (command.matches("save")) {
 
             } else if (commandArray[0].equals("create") && commandArray[1].equals("deck")) {
                 createDeck(commandArray[2]);
             } else if (commandArray[0].equals("delete") && commandArray[1].equals("deck")) {
                 deleteDeck(commandArray[2]);
-            } else if (command.equals("add(\\s+)(\\d+)to(\\s+)deck[a-z0-9]")) {
+            } else if (command.matches("add(\\s+)(\\d+)to(\\s+)deck[a-z0-9]")) {
                 addToDeck(commandArray[1], commandArray[4]);
-            } else if (command.equals("remove(\\s+)(\\d+)from(\\s+)deck[a-z0-9]")) {
+            } else if (command.matches("remove(\\s+)(\\d+)from(\\s+)deck[a-z0-9]")) {
                 removeFromDeck(commandArray[1], commandArray[4]);
-            } else if (command.equals("validate(\\s+)deck(\\s+)[a-z0-9]")) {
+            } else if (command.matches("validate(\\s+)deck(\\s+)[a-z0-9]")) {
                 validateDeck(commandArray[2]);
-            } else if (command.equals("select(\\s+)deck(\\s+)[a-z0-9]")) {
+            } else if (command.matches("select(\\s+)deck(\\s+)[a-z0-9]")) {
                 selectMainDeck(commandArray[2]);
-            } else if (command.equals("show(\\s+)all(\\s+)decks")) {
+            } else if (command.matches("show(\\s+)all(\\s+)decks")) {
                 showAllDecks();
-            }else if (command.equals("show(\\s+)deck(\\s+)[a-z][0-9]")){
+            } else if (command.matches("show(\\s+)deck(\\s+)[a-z][0-9]")) {
                 showDeck(commandArray[2]);
-            }
-            else if (command.equals("help")) {
+            } else if (command.matches("help")) {
                 help();
             }
         }
@@ -49,15 +49,10 @@ class Collection {
     }
 
     void search(String string) {
-        boolean checkCart = false;
-        for (Card card : cards) {
-            if (card.name.equals(string)) {
-                System.out.println(card.cardID);
-                checkCart = true;
-                break;
-            }
-        }
-        if (!checkCart) {
+        Card card=new Card(string);
+        if (cards.contains(card)){
+            System.out.println(card.ID);
+        } else {
             System.out.println("This cart doesn't exist in your collection");
         }
     }
@@ -89,8 +84,9 @@ class Collection {
         Deck deck = new Deck(str2, account);
         if (account.decks.contains(deck) && cards.contains(card) && !deck.cards.contains(card)) {
             deck.cards.add(card);
+            //card.owner=account.owner;
         } else if (!account.decks.contains(deck)) {
-            System.out.println("This deck doesn't exist.");
+            System.out.println("This deck doesn't exist in your collection.");
         } else if (!cards.contains(card)) {
             System.out.println("This card isn't in your collection.");
         } else if (deck.cards.contains(card)) {
@@ -104,7 +100,7 @@ class Collection {
         if (account.decks.contains(deck) && cards.contains(card) && deck.cards.contains(card)) {
             deck.cards.add(card);
         } else if (!account.decks.contains(deck)) {
-            System.out.println("This deck doesn't exist.");
+            System.out.println("This deck doesn't exist in your collection.");
         } else if (!cards.contains(card)) {
             System.out.println("This card isn't in your collection.");
         } else if (!deck.cards.contains(card)) {
@@ -112,20 +108,48 @@ class Collection {
         }
     }
 
-    void validateDeck(String string) {
+    boolean deckValidation(String string){
+        Deck deck = new Deck(string, account);
+        if (account.decks.contains(deck)){
+            return true;
+        } return false;
+    }
 
+    void validateDeck(String string) {
+        if (deckValidation(string)){
+            System.out.println("Valid deck.");
+        } else {
+            System.out.println("Invalid deck.");
+        }
     }
 
     void selectMainDeck(String string) {
-
+        Deck deck = new Deck(string, account);
+        if (account.decks.contains(deck)) {
+            account.mainDeck=deck;
+        } else {
+            System.out.println("This deck doesn't exist in your collection.");
+        }
     }
 
     void showAllDecks() {
-
+        if (account.mainDeck!=null){
+            System.out.println(account.mainDeck.name);
+            for (Deck deck:account.decks) {
+                if (deck.equals(account.mainDeck)) continue;
+                System.out.println();
+            }
+        } else {
+            for (Deck deck:account.decks) {
+                System.out.println();
+            }
+        }
     }
 
     void showDeck(String string) {
-
+        if (deckValidation(string)){
+            System.out.println();
+        }
     }
 
     void help() {

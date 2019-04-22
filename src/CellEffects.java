@@ -1,5 +1,5 @@
 enum CellEffects{
     poison,
-    firey,
+    fairy,
     holy
 }
