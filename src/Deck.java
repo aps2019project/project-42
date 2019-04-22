@@ -4,8 +4,7 @@ class Deck{
     String name;
     Account account;
     ArrayList<Card> cards;
-    public Deck(String name,Account account){
+    public Deck(String name){
         this.name=name;
-        this.account=account;
     }
 }

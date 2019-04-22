@@ -62,7 +62,7 @@ class Collection {
     }
 
     void createDeck(String string) {
-        Deck deck = new Deck(string, account);
+        Deck deck = new Deck(string);
         if (!account.decks.contains(deck)) {
             account.decks.add(deck);
         } else {
@@ -71,7 +71,7 @@ class Collection {
     }
 
     void deleteDeck(String string) {
-        Deck deck = new Deck(string, account);
+        Deck deck = new Deck(string);
         if (account.decks.contains(deck)) {
             account.decks.remove(deck);
         } else {
@@ -81,7 +81,7 @@ class Collection {
 
     void addToDeck(String str1, String str2) {
         Card card = new Card(str1);
-        Deck deck = new Deck(str2, account);
+        Deck deck = new Deck(str2);
         if (account.decks.contains(deck) && cards.contains(card) && !deck.cards.contains(card)) {
             deck.cards.add(card);
             //card.owner=account.owner;
@@ -96,7 +96,7 @@ class Collection {
 
     void removeFromDeck(String str1, String str2) {
         Card card = new Card(str1);
-        Deck deck = new Deck(str2, account);
+        Deck deck = new Deck(str2);
         if (account.decks.contains(deck) && cards.contains(card) && deck.cards.contains(card)) {
             deck.cards.add(card);
         } else if (!account.decks.contains(deck)) {
@@ -109,7 +109,7 @@ class Collection {
     }
 
     boolean deckValidation(String string){
-        Deck deck = new Deck(string, account);
+        Deck deck = new Deck(string);
         if (account.decks.contains(deck)){
             return true;
         } return false;
@@ -124,7 +124,7 @@ class Collection {
     }
 
     void selectMainDeck(String string) {
-        Deck deck = new Deck(string, account);
+        Deck deck = new Deck(string);
         if (account.decks.contains(deck)) {
             account.mainDeck=deck;
         } else {
