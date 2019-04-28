@@ -1,5 +1,4 @@
 enum TargetType{
     hero,
     minion,
-    ...
 }

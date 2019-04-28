@@ -4,6 +4,5 @@ enum Time{
     onAttack,
     onDefend,
     everyTurn,
-    ...,
-    ...
+
 }
