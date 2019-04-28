@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Duelyst{
-    ArrayList<Account> accounts;
+    static ArrayList<Account> accounts;
     ArrayList<Card> source;
     static Scanner scanner=new Scanner(System.in);
 

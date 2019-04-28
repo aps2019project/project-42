@@ -14,15 +14,15 @@ class Shop {
             if (command.matches("exit")) {
                 exit();
                 break;
-            } else if (command.matches("buy(\\s+)[0-9a-z]")) {
+            } else if (command.matches("buy(\\s+)[0-9a-z]+")) {
                 buyCard(commandArray[1]);
-            } else if (command.matches("sell(\\s+)[0-9a-z]")) {
+            } else if (command.matches("sell(\\s+)[0-9a-z]+")) {
                 sellCard(commandArray[1]);
             } else if (command.matches("show(\\s+)collection")) {
                 showCollection();
-            } else if (command.matches("search(\\s+)[0-9a-z]")) {
+            } else if (command.matches("search(\\s+)[0-9a-z]+")) {
                 searchShop(commandArray[1]);
-            } else if (command.matches("search(\\s+)collection(\\s+)[0-9a-z]")) {
+            } else if (command.matches("search(\\s+)collection(\\s+)[0-9a-z]+")) {
                 searchCollection(commandArray[2]);
             } else if (command.matches("show")) {
                 showShop();

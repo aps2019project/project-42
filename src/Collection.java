@@ -24,17 +24,17 @@ class Collection {
                 createDeck(commandArray[2]);
             } else if (commandArray[0].equals("delete") && commandArray[1].equals("deck")) {
                 deleteDeck(commandArray[2]);
-            } else if (command.matches("add(\\s+)(\\d+)to(\\s+)deck[a-z0-9]")) {
+            } else if (command.matches("add(\\s+)(\\d+)to(\\s+)deck[a-z0-9]+")) {
                 addToDeck(commandArray[1], commandArray[4]);
-            } else if (command.matches("remove(\\s+)(\\d+)from(\\s+)deck[a-z0-9]")) {
+            } else if (command.matches("remove(\\s+)(\\d+)from(\\s+)deck[a-z0-9]+")) {
                 removeFromDeck(commandArray[1], commandArray[4]);
-            } else if (command.matches("validate(\\s+)deck(\\s+)[a-z0-9]")) {
+            } else if (command.matches("validate(\\s+)deck(\\s+)[a-z0-9]+")) {
                 validateDeck(commandArray[2]);
-            } else if (command.matches("select(\\s+)deck(\\s+)[a-z0-9]")) {
+            } else if (command.matches("select(\\s+)deck(\\s+)[a-z0-9]+")) {
                 selectMainDeck(commandArray[2]);
             } else if (command.matches("show(\\s+)all(\\s+)decks")) {
                 showAllDecks();
-            } else if (command.matches("show(\\s+)deck(\\s+)[a-z][0-9]")) {
+            } else if (command.matches("show(\\s+)deck(\\s+)[a-z][0-9]+")) {
                 showDeck(commandArray[2]);
             } else if (command.matches("help")) {
                 help();

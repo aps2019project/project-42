@@ -18,11 +18,12 @@ class AccountPage {
                     String pass = scanner.nextLine();
                     createAccount(commandArray[2], pass);
                     System.out.println("welcome!");
-
                 } else if (command.matches("login(\\s+)[0-9a-z]+")) {
                     System.out.println("Please enter your password to enter your account.");
                     String pass = scanner.nextLine();
                     login(commandArray[1], pass);
+                    System.out.println("welcome!");
+
                 } else if (command.matches("show(\\s+)leaderboard")) {
                     showLeaderBoard();
                 } else if (command.matches("save")) {
@@ -42,11 +43,15 @@ class AccountPage {
 
 
     void createAccount(String user, String pass) {
-
+        Account account=new Account(user,pass);
+        Duelyst.accounts.add(account);
     }
 
     void login(String user, String pass) {
+        Account account=new Account(user,pass);
+        if (Duelyst.accounts.contains(account)){
 
+        }
     }
 
     void showLeaderBoard() {
