@@ -4,8 +4,10 @@ import java.util.Scanner;
 class Collection {
     ArrayList<Card> cards;
     Account account;
+    private Scanner scanner = Main.scanner;
 
-    Collection(Scanner scanner) {
+
+    private void collectionMenu() {
         while (true) {
             String cm = scanner.nextLine();
             String cmd = cm.trim();
