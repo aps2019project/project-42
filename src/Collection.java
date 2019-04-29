@@ -68,7 +68,7 @@ class Collection {
         if (!account.decks.contains(deck)) {
             account.decks.add(deck);
         } else {
-            System.out.println("A deck with this name is already exist");
+            System.out.println("A deck with this name already exists.");
         }
     }
 
