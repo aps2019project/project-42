@@ -1,35 +1,37 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Shop {
+class Shop extends Menu {
+    private static Shop shop = new Shop();
+
+    public static Shop getInstance() {
+        return shop;
+    }
+
     ArrayList<Card> cards;
     Account account;
+    private Scanner scanner = Main.scanner;
 
-    Shop(Scanner scanner) {
-        while (true) {
-            String cm = scanner.nextLine();
-            String cmd = cm.trim();
-            String command = cmd.toLowerCase();
-            String[] commandArray = command.split("\\s+");
-            if (command.matches("exit")) {
-                exit();
-                break;
-            } else if (command.matches("buy(\\s+)[0-9a-z]+")) {
-                buyCard(commandArray[1]);
-            } else if (command.matches("sell(\\s+)[0-9a-z]+")) {
-                sellCard(commandArray[1]);
-            } else if (command.matches("show(\\s+)collection")) {
-                showCollection();
-            } else if (command.matches("search(\\s+)[0-9a-z]+")) {
-                searchShop(commandArray[1]);
-            } else if (command.matches("search(\\s+)collection(\\s+)[0-9a-z]+")) {
-                searchCollection(commandArray[2]);
-            } else if (command.matches("show")) {
-                showShop();
-            } else if (command.matches("help")) {
-                help();
-            }
+    void shopMenu(String command) {
+        String[] commandArray = command.split("\\s+");
+        if (command.matches("exit")) {
+            exit();
+        } else if (command.matches("buy(\\s+)[0-9a-z]+")) {
+            buyCard(commandArray[1]);
+        } else if (command.matches("sell(\\s+)[0-9a-z]+")) {
+            sellCard(commandArray[1]);
+        } else if (command.matches("show(\\s+)collection")) {
+            showCollection();
+        } else if (command.matches("search(\\s+)[0-9a-z]+")) {
+            searchShop(commandArray[1]);
+        } else if (command.matches("search(\\s+)collection(\\s+)[0-9a-z]+")) {
+            searchCollection(commandArray[2]);
+        } else if (command.matches("show")) {
+            showShop();
+        } else if (command.matches("help")) {
+            help();
         }
+
     }
 
     void buyCard(String string) {
@@ -43,7 +45,7 @@ class Shop {
             System.out.println("This card already exists in your collection");
         } else {
             account.cards.add(card);
-            card.owner=account.owner;
+            card.owner = account.owner;
             account.money -= card.price;
             System.out.println("This card added to your collection successfully.");
         }
