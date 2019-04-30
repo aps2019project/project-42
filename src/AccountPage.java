@@ -16,17 +16,15 @@ class AccountPage extends Menu {
             if (command.matches("exit")) {
                 quit();
             } else if (command.matches("show(\\s+)menu")) {
-                System.out.println("login\ncreate account\nshow leader board\nsave\nlogout\nhelp\nexit");
+                showMenu();
             } else if (command.matches("create(\\s+)account(\\s+)[0-9a-z]+")) {
                 System.out.println("Please enter your password to create your account.");
                 String pass = scanner.nextLine();
-                System.out.println("welcome!");
                 createAccount(commandArray[2], pass);
             } else if (command.matches("login(\\s+)[0-9a-z]+")) {
                 System.out.println("Please enter your password to enter your account.");
                 String pass = scanner.nextLine();
                 login(commandArray[1], pass);
-                System.out.println("welcome!");
             } else if (command.matches("show(\\s+)leaderboard")) {
                 showLeaderBoard();
             } else if (command.matches("save")) {
@@ -44,32 +42,47 @@ class AccountPage extends Menu {
         }
     }
 
+    private void showMenu() {
+        System.out.println("login\ncreate account\nshow leader board\nsave\nlogout\nhelp\nexit");
+    }
+
 
     void createAccount(String user, String pass) {
         Account account = new Account(user, pass);
-        boolean check = true;
-        for (Account account1 : Duelyst.accounts) {
+        Account account1 = new Account(user);
+        if (Duelyst.accounts.contains(account1)) {
+            System.out.println("This username already exists.");
+        } else {
+            Duelyst.accounts.add(account);
+            Duelyst.currentMenu = MainMenu.getInstance();
+            System.out.println("welcome!");
+        }
+        /*for (Account account1 : Duelyst.accounts) {
             if (account1.getUser().equals(user)) {
-                System.out.println("This username already exists.");
                 check = false;
                 break;
             }
-        }
-        if (check) {
-            Duelyst.accounts.add(account);
-
-        }
+        }*/
+        /*if (check){
+            System.out.println("hi");
+        }*/
     }
 
     void login(String user, String pass) {
         Account account = new Account(user, pass);
-        boolean check = false;
-        for (Account account1 : Duelyst.accounts) {
+        if (Duelyst.accounts.contains(account)){
+            Duelyst.currentMenu = MainMenu.getInstance();
+            System.out.println("welcome!");
+        } else {
+            System.out.println("Invalid username or password.");
+        }
+        /*for (Account account1 : Duelyst.accounts) {
             if (account1.getUser().equals(user) && account1.getPass().equals(pass)) {
-                check = true;
+                Duelyst.currentMenu = MainMenu.getInstance();
+                System.out.println("welcome!");
                 break;
             }
-        }
+        }*/
     }
 
     void showLeaderBoard() {
@@ -81,7 +94,8 @@ class AccountPage extends Menu {
     }
 
     void logOut() {
-
+        Duelyst.currentMenu = AccountPage.getInstance();
+        System.out.println("You logged out.");
     }
 
     boolean validAccount(String user, String pass) {
@@ -97,6 +111,6 @@ class AccountPage extends Menu {
     }
 
     void quit() {
-
+        Duelyst.finishGame=true;
     }
 }

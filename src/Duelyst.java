@@ -2,11 +2,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Duelyst {
-    static ArrayList<Account> accounts;
+    static ArrayList<Account> accounts = new ArrayList<Account>();
     ArrayList<Card> source;
-    Menu currentMenu = new Menu();
+    public static Menu currentMenu = new Menu();
+    public static boolean finishGame=false;
+
     static Scanner scanner = new Scanner(System.in);
-    String command = scanner.nextLine().trim().toLowerCase();
+    String command;
 
     public void setCurrentMenu() {
         this.currentMenu = AccountPage.getInstance();
@@ -16,6 +18,7 @@ class Duelyst {
         AccountPage accountPage = new AccountPage();
         setCurrentMenu();
         while (true) {
+            command = scanner.nextLine().trim().toLowerCase();
             handler(currentMenu, command);
         }
     }
@@ -27,16 +30,18 @@ class Duelyst {
             collectionHandler(string);
         } else if (currentMenu.equals(Shop.getInstance())) {
             shopHandler(string);
+        } else if (currentMenu.equals(MainMenu.getInstance())) {
+            mainMenuHandler(string);
         }
     }
 
     private void shopHandler(String command) {
-        Shop shop=Shop.getInstance();
+        Shop shop = Shop.getInstance();
         shop.shopMenu(command);
     }
 
     private void collectionHandler(String command) {
-        Collection collection=Collection.getInstance();
+        Collection collection = Collection.getInstance();
         collection.collectionMenu(command);
     }
 
@@ -45,34 +50,14 @@ class Duelyst {
         accountPage.accountPageMenu(command);
     }
 
-
-    void mainMenu(Account account, Scanner scanner) {
-        switch (scanner.nextLine()) {
-            case ("collection"): {
-                break;
-            }
-            case ("shop"): {
-                break;
-            }
-            case ("battle"): {
-                break;
-            }
-            case ("exit"): {
-                break;
-            }
-            case ("help"): {
-                help();
-                break;
-            }
-        }
+    private void mainMenuHandler(String command) {
+        MainMenu mainMenu = MainMenu.getInstance();
+        mainMenu.mainMenu(command);
     }
 
-    private void help() {
-        System.out.println("to manage your cards: collection");
-        System.out.println("to buy or sell cards and items: shop");
-        System.out.println("to play game: battle");
-        System.out.println("to exit the game: exit");
-    }
+    /*public ArrayList<Account> getAccounts(){
+        return accounts;
+    }*/
 
     void addToSource(Card card) {
 

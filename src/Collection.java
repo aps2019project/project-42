@@ -15,9 +15,12 @@ class Collection extends Menu {
 
     void collectionMenu(String command) {
         String[] commandArray = command.split("\\s+");
-        if (command.equals("end")) {
+        if (command.equals("exit")) {
             exit();
-        } else if (command.matches("show")) {
+        } else if (command.matches("show(\\s+)menu")){
+            showMenu();
+        }
+        else if (command.matches("show")) {
             show();
         } else if (commandArray[0].equals("search")) {
             search(commandArray[1]);
@@ -41,8 +44,14 @@ class Collection extends Menu {
             showDeck(commandArray[2]);
         } else if (command.matches("help")) {
             help();
+        } else {
+            System.out.println("Invalid command.");
         }
 
+    }
+
+    private void showMenu() {
+        System.out.println("show collection\nsearch in collection\ncreate deck\ndelete deck\nremove from a deck\ndeck validation\nchoose main deck\nshow decks\nshow a single deck\nsave\nhelp\nexit");
     }
 
     void show() {
@@ -175,6 +184,6 @@ class Collection extends Menu {
     }
 
     void exit() {
-
+        Duelyst.currentMenu=MainMenu.getInstance();
     }
 }
