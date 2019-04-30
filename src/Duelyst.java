@@ -1,26 +1,66 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Duelyst{
+class Duelyst {
     static ArrayList<Account> accounts;
     ArrayList<Card> source;
-    static Scanner scanner=new Scanner(System.in);
+    Menu currentMenu = new Menu();
+    static Scanner scanner = new Scanner(System.in);
+    String command = scanner.nextLine().trim().toLowerCase();
 
-    void mainMenu(Account account,Scanner scanner){
-        switch (scanner.nextLine()){
-            case("collection"): {
+    public void setCurrentMenu() {
+        this.currentMenu = AccountPage.getInstance();
+    }
+
+    void main() {
+        AccountPage accountPage = new AccountPage();
+        setCurrentMenu();
+        while (true) {
+            handler(currentMenu, command);
+        }
+    }
+
+    void handler(Menu currentMenu, String string) {
+        if (currentMenu.equals(AccountPage.getInstance())) {
+            accountPageHandler(string);
+        } else if (currentMenu.equals(Collection.getInstance())) {
+            collectionHandler(string);
+        } else if (currentMenu.equals(Shop.getInstance())) {
+            shopHandler(string);
+        }
+    }
+
+    private void shopHandler(String command) {
+        Shop shop=Shop.getInstance();
+        shop.shopMenu(command);
+    }
+
+    private void collectionHandler(String command) {
+        Collection collection=Collection.getInstance();
+        collection.collectionMenu(command);
+    }
+
+    private void accountPageHandler(String command) {
+        AccountPage accountPage = AccountPage.getInstance();
+        accountPage.accountPageMenu(command);
+    }
+
+
+    void mainMenu(Account account, Scanner scanner) {
+        switch (scanner.nextLine()) {
+            case ("collection"): {
                 break;
             }
-            case("shop"): {
+            case ("shop"): {
                 break;
             }
-            case("battle"):{
+            case ("battle"): {
                 break;
             }
-            case ("exit"):{
+            case ("exit"): {
                 break;
             }
-            case ("help"):{
+            case ("help"): {
                 help();
                 break;
             }
@@ -34,10 +74,11 @@ class Duelyst{
         System.out.println("to exit the game: exit");
     }
 
-    void addToSource(Card card){
+    void addToSource(Card card) {
 
     }
-    void start(Scanner scanner){
+
+    void start(Scanner scanner) {
 
     }
 }
