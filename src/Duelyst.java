@@ -1,3 +1,6 @@
+import com.google.gson.Gson;
+
+import java.io.*;
 import java.util.*;
 
 class Duelyst {
@@ -15,8 +18,11 @@ class Duelyst {
         this.currentMenu = AccountPage.getInstance();
     }
 
-    void main() {
-        setCurrentMenu();
+    void main() throws IOException {
+        preStart();
+        /*for (Card card : Card.getAllHeroes()){
+            System.out.println(card);
+        }*/
         while (true) {
             if (finishGame) break;
             command = scanner.nextLine().trim().toLowerCase();
@@ -24,6 +30,42 @@ class Duelyst {
         }
     }
 
+    private void preStart() throws IOException {
+        setCurrentMenu();
+        final String[] names = {
+                "Heroes", "Items",
+        };
+        for (String name : names) {
+            File source = new File(name);
+            File[] sources = source.listFiles();
+            if (sources != null) {
+                for (File file : sources) {
+                    if (name.contains("Hero")) {
+                        addHero(file , Card.class , Card.getAllHeroes());
+                        //addCard(file, Card.class, Card.getAllHeroes());
+                    } /*else if (name.contains("Item")) {
+                        addCard(file, Card.class, Card.getAllItems());
+                    } else if (name.contains("Minion")) {
+                        addCard(file, Card.class, Card.getAllMinions());
+                    } else if (name.contains("Spell")) {
+                        addCard(file, Card.class, Card.getAllSpells());
+                    }*/
+                }
+            }
+        }
+    }
+
+    private <T> void addCard(File file, Class<T> classOfT, ArrayList<T> list) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        T card = new Gson().fromJson(reader, classOfT);
+        list.add(card);
+    }
+
+    private void addHero(File file , Class<Card> cardClass , ArrayList<Card> list ) throws FileNotFoundException {
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        Card card = new Gson().fromJson(reader, cardClass);
+        list.add(card);
+    }
     void handler(Menu currentMenu, String string) {
         if (currentMenu.equals(AccountPage.getInstance())) {
             accountPageHandler(string);
