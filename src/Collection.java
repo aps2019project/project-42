@@ -14,6 +14,7 @@ class Collection extends Menu {
 
 
     void collectionMenu(String command) {
+        CollectionMethods collectionMethods=new CollectionMethods();
         try {
             String[] commandArray = command.split("\\s+");
             if (command.equals("exit")) {
@@ -23,25 +24,25 @@ class Collection extends Menu {
             } else if (command.matches("show")) {
                 show();
             } else if (commandArray[0].equals("search")) {
-                search(commandArray[1]);
+                collectionMethods.search(commandArray[1]);
             } else if (command.matches("save")) {
 
             } else if (commandArray[0].equals("create") && commandArray[1].equals("deck")) {
-                createDeck(commandArray[2]);
+                collectionMethods.createDeck(commandArray[2]);
             } else if (commandArray[0].equals("delete") && commandArray[1].equals("deck")) {
-                deleteDeck(commandArray[2]);
+                collectionMethods.deleteDeck(commandArray[2]);
             } else if (command.matches("add(\\s+)(\\d+)to(\\s+)deck[a-z0-9]+")) {
-                addToDeck(commandArray[1], commandArray[4]);
+                collectionMethods.addToDeck(commandArray[1], commandArray[4]);
             } else if (command.matches("remove(\\s+)(\\d+)from(\\s+)deck[a-z0-9]+")) {
-                removeFromDeck(commandArray[1], commandArray[4]);
+                collectionMethods.removeFromDeck(commandArray[1], commandArray[4]);
             } else if (command.matches("validate(\\s+)deck(\\s+)[a-z0-9]+")) {
-                validateDeck(commandArray[2]);
+                collectionMethods.validateDeck(commandArray[2]);
             } else if (command.matches("select(\\s+)deck(\\s+)[a-z0-9]+")) {
-                selectMainDeck(commandArray[2]);
+                collectionMethods.selectMainDeck(commandArray[2]);
             } else if (command.matches("show(\\s+)all(\\s+)decks")) {
-                showAllDecks();
+                collectionMethods.showAllDecks();
             } else if (command.matches("show(\\s+)deck(\\s+)[a-z][0-9]+")) {
-                showDeck(commandArray[2]);
+                collectionMethods.showDeck(commandArray[2]);
             } else if (command.matches("help")) {
                 help();
             } else {
@@ -64,12 +65,7 @@ class Collection extends Menu {
     }
 
     void search(String string) {
-        Card card = new Card(string);
-        if (cards.contains(card)) {
-            System.out.println(card.ID);
-        } else {
-            System.out.println("This cart doesn't exist in your collection");
-        }
+
     }
 
     void save() {
