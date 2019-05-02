@@ -1,1 +1,8 @@
-{"name":"arash","AP":2,"HP":30,"price":10000,"typeOfHero":"ranged","specialPower":"make 4attack to all forces in its row"}
+{
+  "name": "arash",
+  "AP": 2,
+  "HP": 30,
+  "price": 10000,
+  "typeOfHero": "ranged",
+  "specialPower": "make 4attack to all forces in its row"
+}

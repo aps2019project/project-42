@@ -1,64 +1,61 @@
 import java.util.ArrayList;
 
 public class ShopMethods {
+    Console console = Console.getInstance();
     Account account = Duelyst.currentAccount;
     ArrayList<Card> cards;
 
     void buyCard(String string) {
         Card card = new Card(string);
         if (!cards.contains(card)) {
-            System.out.println("This card doesn't exist in shop.");
-        } else if (card.price > account.money) {
-            System.out.println("You don't have enough money.");
+            console.cardNotInShop();
+        } else if (Integer.parseInt(card.price) > account.money) {
+            console.insufficientMoney();
         } //else if (numOfItemsCheck)
         else if (account.cards.contains(card)) {
-            System.out.println("This card already exists in your collection");
+            console.cardInCollection();
         } else {
             account.cards.add(card);
             card.owner = account.owner;
-            account.money -= card.price;
-            System.out.println("This card added to your collection successfully.");
+            account.money -= Integer.parseInt(card.price);
+            console.cardAdded();
         }
     }
 
     void sellCard(String string) {
         Card card = new Card(string);
         if (!account.cards.contains(card)) {
-            System.out.println("This card doesn't exist in your collection.");
+            console.cardNotFound();
         } else {
             account.cards.remove(card);
-            account.money += card.price;
-            System.out.println("You sold this cart successfully.");
+            account.money += Integer.parseInt(card.price);
+            console.sold();
         }
     }
 
     void showCollection() {
-        for (Card card : account.cards) {
-            System.out.println();
-        }
+        console.showCollection();
     }
 
     void showShop() {
-        for (Card card : cards) {
-            System.out.println();
-        }
+        console.showShop();
     }
 
     void searchShop(String string) {
         Card card = new Card(string);
         if (cards.contains(card)) {
-            System.out.println(card.ID);
+            console.print(card.ID);
         } else {
-            System.out.println("This card doesn't exist in shop.");
+            console.cardNotInShop();
         }
     }
 
     void searchCollection(String string) {
         Card card = new Card(string);
         if (account.cards.contains(card)) {
-            System.out.println(card.ID);
+            console.print(card.ID);
         } else {
-            System.out.println("This card doesn't exist in shop.");
+            console.cardNotInShop();
         }
     }
 }

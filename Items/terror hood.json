@@ -1,1 +1,5 @@
-{"name":"terror hood","desc":"active a weakness buff with decreasing 2units from an enemy forces AP for one turn","price":5000}
+{
+  "name": "terror hood",
+  "desc": "active a weakness buff with decreasing 2units from an enemy forces AP for one turn",
+  "price": 5000
+}

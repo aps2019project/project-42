@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Shop extends Menu {
-
     Console console = Console.getInstance();
+
 
     private static Shop shop = new Shop();
 

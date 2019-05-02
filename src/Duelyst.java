@@ -7,10 +7,10 @@ class Duelyst {
     public static Account currentAccount;
 
     static ArrayList<Account> accounts = new ArrayList<Account>();
-    static HashMap<String,Integer> wins=new HashMap<>();
+    static HashMap<String, Integer> wins = new HashMap<>();
     ArrayList<Card> source;
     public static Menu currentMenu = new Menu();
-    static boolean finishGame=false;
+    static boolean finishGame = false;
     static Scanner scanner = new Scanner(System.in);
     String command;
 
@@ -33,7 +33,7 @@ class Duelyst {
     private void preStart() throws IOException {
         setCurrentMenu();
         final String[] names = {
-                "Heroes", "Items",
+                "Heroes", "Items", "Minions", "Spells"
         };
         for (String name : names) {
             File source = new File(name);
@@ -41,31 +41,43 @@ class Duelyst {
             if (sources != null) {
                 for (File file : sources) {
                     if (name.contains("Hero")) {
-                        addHero(file , Card.class , Card.getAllHeroes());
-                        //addCard(file, Card.class, Card.getAllHeroes());
-                    } /*else if (name.contains("Item")) {
-                        addCard(file, Card.class, Card.getAllItems());
+                        addHero(file, Hero.class, Card.getAllHeroes());
+                    } else if (name.contains("Item")) {
+                        addItem(file, Item.class, Card.getAllItems());
                     } else if (name.contains("Minion")) {
-                        addCard(file, Card.class, Card.getAllMinions());
+                        addMinion(file, Minion.class, Card.getAllMinions());
                     } else if (name.contains("Spell")) {
-                        addCard(file, Card.class, Card.getAllSpells());
-                    }*/
+                        addSpell(file, SpellCard.class, Card.getAllSpells());
+                    }
                 }
             }
         }
     }
 
-    private <T> void addCard(File file, Class<T> classOfT, ArrayList<T> list) throws IOException {
+    private void addSpell(File file, Class<SpellCard> cardClass, ArrayList<SpellCard> list) throws FileNotFoundException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
-        T card = new Gson().fromJson(reader, classOfT);
-        list.add(card);
+        SpellCard spell = new Gson().fromJson(reader, cardClass);
+        list.add(spell);
     }
 
-    private void addHero(File file , Class<Card> cardClass , ArrayList<Card> list ) throws FileNotFoundException {
+    private void addMinion(File file, Class<Minion> cardClass, ArrayList<Minion> list) throws FileNotFoundException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
-        Card card = new Gson().fromJson(reader, cardClass);
-        list.add(card);
+        Minion minion = new Gson().fromJson(reader, cardClass);
+        list.add(minion);
     }
+
+    private void addItem(File file, Class<Item> cardClass, ArrayList<Item> list) throws FileNotFoundException {
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        Item item = new Gson().fromJson(reader, cardClass);
+        list.add(item);
+    }
+
+    private void addHero(File file, Class<Hero> cardClass, ArrayList<Hero> list) throws FileNotFoundException {
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        Hero hero = new Gson().fromJson(reader, cardClass);
+        list.add(hero);
+    }
+
     void handler(Menu currentMenu, String string) {
         if (currentMenu.equals(AccountPage.getInstance())) {
             accountPageHandler(string);
@@ -98,9 +110,6 @@ class Duelyst {
         mainMenu.mainMenu(command);
     }
 
-    /*public ArrayList<Account> getAccounts(){
-        return accounts;
-    }*/
 
     void addToSource(Card card) {
 

@@ -1,1 +1,5 @@
-{"name":"king wisdom","desc":"add one mana in all turns","price":9000}
+{
+  "name": "king wisdom",
+  "desc": "add one mana in all turns",
+  "price": 9000
+}
