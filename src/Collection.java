@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Collection extends Menu {
+
+    Console console = Console.getInstance();
+
     private static Collection collection = new Collection();
 
     public static Collection getInstance() {
@@ -52,26 +55,12 @@ class Collection extends Menu {
     }
 
     private void showMenu() {
-        System.out.println("show collection\nsearch in collection\ncreate deck\ndelete deck\nremove from a deck\ndeck validation\nchoose main deck\nshow decks\nshow a single deck\nsave\nhelp\nexit");
+        console.collectionMenu();
     }
 
 
     void help() {
-        System.out.println("to show your collection: show");
-        System.out.println("to find a card id in your cards: search [card name]");
-        System.out.println("to find an item id in your items: search [item name]");
-        System.out.println("to create a deck: create deck [your selective name for deck]");
-        System.out.println("to delete a deck: delete deck [the name of the deck you want to delete]");
-        System.out.println("to add a card to a deck: add [card id] to deck [deck name]");
-        System.out.println("to add an item to a deck: add [item id] to deck [deck name]");
-        System.out.println("to remove a card from a deck: remove [card id] from deck [deck name]");
-        System.out.println("to remove an item from a deck: remove [item id] from deck [deck name]");
-        System.out.println("to check validity of a deck (have exactly 20 cards and 1 hero): validate deck [deck name]");
-        System.out.println("to select a deck to be main deck: select deck [deck name]");
-        System.out.println("to show cards and items in a deck: show deck [deck name]");
-        System.out.println("to save changes: save");
-        System.out.println("to return to main menu: exit");
-
+        console.collectionHelp();
     }
 
     void exit() {

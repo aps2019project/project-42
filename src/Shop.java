@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Shop extends Menu {
+
+    Console console = Console.getInstance();
+
     private static Shop shop = new Shop();
 
     public static Shop getInstance() {
@@ -43,22 +46,12 @@ class Shop extends Menu {
     }
 
     private void showMenu() {
-        System.out.println("show collection\nserach in collection\nshow shop\nsearch in shop\nbuy\nsell\nhelp\nexit");
+        console.shopMenu();
     }
 
 
     void help() {
-        System.out.println("to show your cards: show collection");
-        System.out.println("to find a card id in shop: search [card name]");
-        System.out.println("to find an item id in shop: search [item name]");
-        System.out.println("to find a card id in your collection: search collection [card name]");
-        System.out.println("to find an item id in your collection: search collection [item name]");
-        System.out.println("to buy a card: buy [card name]");
-        System.out.println("to buy an item: buy [item name]");
-        System.out.println("to sell your card: sell [card name]");
-        System.out.println("to sell your item: sell [item name]");
-        System.out.println("to see shop: show");
-        System.out.println("to return to mainMenu: exit");
+        console.shopHelp();
     }
 
     void exit() {
