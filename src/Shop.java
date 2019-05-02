@@ -13,28 +13,27 @@ class Shop extends Menu {
 
     ArrayList<Card> cards;
     Account account;
-    private Scanner scanner = Main.scanner;
 
     void shopMenu(String command) {
         try {
+            ShopMethods shopMethods = Duelyst.currentAccount.shopMethods;
             String[] commandArray = command.split("\\s+");
             if (command.matches("exit")) {
                 exit();
-            } else if (command.matches("show(\\s+)menu")){
+            } else if (command.matches("show(\\s+)menu")) {
                 showMenu();
-            }
-            else if (command.matches("buy(\\s+)[0-9a-z]+")) {
-                buyCard(commandArray[1]);
+            } else if (command.matches("buy(\\s+)[0-9a-z]+")) {
+                shopMethods.buyCard(commandArray[1]);
             } else if (command.matches("sell(\\s+)[0-9a-z]+")) {
-                sellCard(commandArray[1]);
+                shopMethods.sellCard(commandArray[1]);
             } else if (command.matches("show(\\s+)collection")) {
-                showCollection();
+                shopMethods.showCollection();
             } else if (command.matches("search(\\s+)[0-9a-z]+")) {
-                searchShop(commandArray[1]);
+                shopMethods.searchShop(commandArray[1]);
             } else if (command.matches("search(\\s+)collection(\\s+)[0-9a-z]+")) {
-                searchCollection(commandArray[2]);
+                shopMethods.searchCollection(commandArray[2]);
             } else if (command.matches("show")) {
-                showShop();
+                shopMethods.showShop();
             } else if (command.matches("help")) {
                 help();
             } else {
@@ -50,69 +49,12 @@ class Shop extends Menu {
         console.shopMenu();
     }
 
-    void buyCard(String string) {
-        Card card = new Card(string);
-        if (!cards.contains(card)) {
-            console.cardNotInShop();
-        } else if (card.price > account.money) {
-            console.insufficientMoney();
-        } //else if (numOfItemsCheck)
-        else if (account.cards.contains(card)) {
-            console.cardInCollection();
-        } else {
-            account.cards.add(card);
-            card.owner = account.owner;
-            account.money -= card.price;
-            console.cardAdded();
-        }
-    }
-
-    void sellCard(String string) {
-        Card card = new Card(string);
-        if (!account.cards.contains(card)) {
-            console.cardNotFound();
-        } else {
-            account.cards.remove(card);
-            account.money += card.price;
-            console.sold();
-        }
-    }
-
-    void showCollection() {
-        for (Card card : account.cards) {
-            System.out.println();
-        }
-    }
-
-    void showShop() {
-        for (Card card : cards) {
-            System.out.println();
-        }
-    }
-
-    void searchShop(String string) {
-        Card card = new Card(string);
-        if (cards.contains(card)) {
-            System.out.println(card.ID);
-        } else {
-            console.cardNotInShop();
-        }
-    }
-
-    void searchCollection(String string) {
-        Card card = new Card(string);
-        if (account.cards.contains(card)) {
-            System.out.println(card.ID);
-        } else {
-            console.cardNotInShop();
-        }
-    }
 
     void help() {
         console.shopHelp();
     }
 
     void exit() {
-        Duelyst.currentMenu=MainMenu.getInstance();
+        Duelyst.currentMenu = MainMenu.getInstance();
     }
 }

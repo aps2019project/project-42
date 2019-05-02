@@ -8,11 +8,10 @@ public class Account {
     ArrayList<Deck> decks;
     ArrayList<Card> cards;
     Deck mainDeck;
-    int money;
-
-    Account(String user) {
-        this.user = user;
-    }
+    int mainDeckIndex;
+    int money=15000;
+    CollectionMethods collectionMethods = new CollectionMethods();
+    ShopMethods shopMethods=new ShopMethods();
 
     public String getPass() {
         return this.pass;
@@ -34,4 +33,5 @@ public class Account {
         this.user = user;
         this.pass = pass;
     }
+
 }

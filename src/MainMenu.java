@@ -12,7 +12,6 @@ public class MainMenu extends Menu {
 
     void mainMenu(String command) {
         try {
-            String[] commandArray = command.split("\\s+");
             if (command.matches("enter(\\s+)collection")) {
                 Duelyst.currentMenu = Collection.getInstance();
             } else if (command.matches("enter(\\s+)battle")) {
