@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 class AccountPage extends Menu {
 
@@ -18,9 +18,12 @@ class AccountPage extends Menu {
             } else if (command.matches("show(\\s+)menu")) {
                 showMenu();
             } else if (command.matches("create(\\s+)account(\\s+)[0-9a-z]+")) {
-                System.out.println("Please enter your password to create your account.");
-                String pass = scanner.nextLine();
-                createAccount(commandArray[2], pass);
+                boolean check = isCheck(commandArray[2]);
+                if (check) {
+                    System.out.println("Please enter your password to create your account.");
+                    String pass = scanner.nextLine();
+                    createAccount(commandArray[2], pass);
+                }
             } else if (command.matches("login(\\s+)[0-9a-z]+")) {
                 System.out.println("Please enter your password to enter your account.");
                 String pass = scanner.nextLine();
@@ -42,6 +45,17 @@ class AccountPage extends Menu {
         }
     }
 
+    private boolean isCheck(String anObject) {
+        boolean check = true;
+        for (Account account1 : Duelyst.accounts) {
+            if (account1.getUser().equals(anObject)) {
+                System.out.println("This username already exists.");
+                check = false;
+            }
+        }
+        return check;
+    }
+
     private void showMenu() {
         System.out.println("login\ncreate account\nshow leader board\nsave\nlogout\nhelp\nexit");
     }
@@ -49,48 +63,36 @@ class AccountPage extends Menu {
 
     void createAccount(String user, String pass) {
         Account account = new Account(user, pass);
-        Account account1 = new Account(user);
-        if (Duelyst.accounts.contains(account1)) {
-            System.out.println("This username already exists.");
-        } else {
-            Duelyst.accounts.add(account);
-            Duelyst.currentMenu = MainMenu.getInstance();
-            System.out.println("welcome!");
-        }
-        /*for (Account account1 : Duelyst.accounts) {
-            if (account1.getUser().equals(user)) {
-                check = false;
-                break;
-            }
-        }*/
-        /*if (check){
-            System.out.println("hi");
-        }*/
+        Duelyst.wins.putIfAbsent(user, 0);
+        account.setUser(user);
+        account.setPass(pass);
+        Duelyst.accounts.add(account);
+        Duelyst.currentMenu = MainMenu.getInstance();
+        System.out.println("welcome!");
     }
 
     void login(String user, String pass) {
         Account account = new Account(user, pass);
-        if (Duelyst.accounts.contains(account)){
-            Duelyst.currentMenu = MainMenu.getInstance();
-            System.out.println("welcome!");
-        } else {
-            System.out.println("Invalid username or password.");
-        }
-        /*for (Account account1 : Duelyst.accounts) {
+        for (Account account1 : Duelyst.accounts) {
             if (account1.getUser().equals(user) && account1.getPass().equals(pass)) {
                 Duelyst.currentMenu = MainMenu.getInstance();
                 System.out.println("welcome!");
-                break;
+            } else {
+                System.out.println("Invalid username or password.");
             }
-        }*/
+        }
     }
 
     void showLeaderBoard() {
-
+        Map<String, Integer> w = sortByValue(Duelyst.wins);
+        int counter = 1;
+        for (Map.Entry<String, Integer> x : w.entrySet()) {
+            System.out.println(counter + " - username : " + x.getKey() + " - wins : " + x.getValue());
+            counter++;
+        }
     }
 
     void save() {
-
     }
 
     void logOut() {
@@ -102,6 +104,21 @@ class AccountPage extends Menu {
         return true;
     }
 
+    public static HashMap<String, Integer> sortByValue(HashMap<String, Integer> wins) {
+        List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(wins.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+            public int compare(Map.Entry<String, Integer> o1,
+                               Map.Entry<String, Integer> o2) {
+                return (o1.getValue()).compareTo(o2.getValue());
+            }
+        });
+        HashMap<String, Integer> temp = new LinkedHashMap<String, Integer>();
+        for (Map.Entry<String, Integer> aa : list) {
+            temp.put(aa.getKey(), aa.getValue());
+        }
+        return temp;
+    }
+
     void help() {
         System.out.println("to creat an account: create account [your selective username]");
         System.out.println("login: login [your username]");
@@ -111,6 +128,6 @@ class AccountPage extends Menu {
     }
 
     void quit() {
-        Duelyst.finishGame=true;
+        Duelyst.finishGame = true;
     }
 }

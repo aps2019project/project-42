@@ -14,38 +14,41 @@ class Collection extends Menu {
 
 
     void collectionMenu(String command) {
-        String[] commandArray = command.split("\\s+");
-        if (command.equals("exit")) {
-            exit();
-        } else if (command.matches("show(\\s+)menu")){
-            showMenu();
-        }
-        else if (command.matches("show")) {
-            show();
-        } else if (commandArray[0].equals("search")) {
-            search(commandArray[1]);
-        } else if (command.matches("save")) {
+        try {
+            String[] commandArray = command.split("\\s+");
+            if (command.equals("exit")) {
+                exit();
+            } else if (command.matches("show(\\s+)menu")) {
+                showMenu();
+            } else if (command.matches("show")) {
+                show();
+            } else if (commandArray[0].equals("search")) {
+                search(commandArray[1]);
+            } else if (command.matches("save")) {
 
-        } else if (commandArray[0].equals("create") && commandArray[1].equals("deck")) {
-            createDeck(commandArray[2]);
-        } else if (commandArray[0].equals("delete") && commandArray[1].equals("deck")) {
-            deleteDeck(commandArray[2]);
-        } else if (command.matches("add(\\s+)(\\d+)to(\\s+)deck[a-z0-9]+")) {
-            addToDeck(commandArray[1], commandArray[4]);
-        } else if (command.matches("remove(\\s+)(\\d+)from(\\s+)deck[a-z0-9]+")) {
-            removeFromDeck(commandArray[1], commandArray[4]);
-        } else if (command.matches("validate(\\s+)deck(\\s+)[a-z0-9]+")) {
-            validateDeck(commandArray[2]);
-        } else if (command.matches("select(\\s+)deck(\\s+)[a-z0-9]+")) {
-            selectMainDeck(commandArray[2]);
-        } else if (command.matches("show(\\s+)all(\\s+)decks")) {
-            showAllDecks();
-        } else if (command.matches("show(\\s+)deck(\\s+)[a-z][0-9]+")) {
-            showDeck(commandArray[2]);
-        } else if (command.matches("help")) {
-            help();
-        } else {
-            System.out.println("Invalid command.");
+            } else if (commandArray[0].equals("create") && commandArray[1].equals("deck")) {
+                createDeck(commandArray[2]);
+            } else if (commandArray[0].equals("delete") && commandArray[1].equals("deck")) {
+                deleteDeck(commandArray[2]);
+            } else if (command.matches("add(\\s+)(\\d+)to(\\s+)deck[a-z0-9]+")) {
+                addToDeck(commandArray[1], commandArray[4]);
+            } else if (command.matches("remove(\\s+)(\\d+)from(\\s+)deck[a-z0-9]+")) {
+                removeFromDeck(commandArray[1], commandArray[4]);
+            } else if (command.matches("validate(\\s+)deck(\\s+)[a-z0-9]+")) {
+                validateDeck(commandArray[2]);
+            } else if (command.matches("select(\\s+)deck(\\s+)[a-z0-9]+")) {
+                selectMainDeck(commandArray[2]);
+            } else if (command.matches("show(\\s+)all(\\s+)decks")) {
+                showAllDecks();
+            } else if (command.matches("show(\\s+)deck(\\s+)[a-z][0-9]+")) {
+                showDeck(commandArray[2]);
+            } else if (command.matches("help")) {
+                help();
+            } else {
+                System.out.println("Invalid command.");
+            }
+        } catch (NullPointerException e) {
+            e.getMessage();
         }
 
     }
@@ -184,6 +187,6 @@ class Collection extends Menu {
     }
 
     void exit() {
-        Duelyst.currentMenu=MainMenu.getInstance();
+        Duelyst.currentMenu = MainMenu.getInstance();
     }
 }

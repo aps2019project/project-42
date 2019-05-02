@@ -1,12 +1,11 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 class Duelyst {
     static ArrayList<Account> accounts = new ArrayList<Account>();
+    static HashMap<String,Integer> wins=new HashMap<>();
     ArrayList<Card> source;
     public static Menu currentMenu = new Menu();
-    public static boolean finishGame=false;
-
+    static boolean finishGame=false;
     static Scanner scanner = new Scanner(System.in);
     String command;
 
@@ -18,6 +17,7 @@ class Duelyst {
         AccountPage accountPage = new AccountPage();
         setCurrentMenu();
         while (true) {
+            if (finishGame) break;
             command = scanner.nextLine().trim().toLowerCase();
             handler(currentMenu, command);
         }
@@ -66,4 +66,5 @@ class Duelyst {
     void start(Scanner scanner) {
 
     }
+
 }

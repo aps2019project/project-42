@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MainMenu extends Menu {
@@ -10,26 +11,31 @@ public class MainMenu extends Menu {
     private Scanner scanner = Main.scanner;
 
     void mainMenu(String command) {
-        String[] commandArray = command.split("\\s+");
-        if (command.matches("enter(\\s+)collection")) {
-            Duelyst.currentMenu = Collection.getInstance();
-        } else if (command.matches("enter(\\s+)battle")) {
+        try {
+            String[] commandArray = command.split("\\s+");
+            if (command.matches("enter(\\s+)collection")) {
+                Duelyst.currentMenu = Collection.getInstance();
+            } else if (command.matches("enter(\\s+)battle")) {
 
-        } else if (command.matches("enter(\\s+)shop")) {
-            Duelyst.currentMenu = Shop.getInstance();
-        } else if (command.matches("enter(\\s+)help")) {
-            help();
-        } else if (command.matches("exit")) {
-            exit();
-        } else if (command.matches("show(\\s+)menu")) {
-            showMenu();
-        } else {
-            System.out.println("Invalid command.");
+            } else if (command.matches("enter(\\s+)shop")) {
+                Duelyst.currentMenu = Shop.getInstance();
+            } else if (command.matches("enter(\\s+)help")) {
+                help();
+            } else if (command.matches("exit")) {
+                exit();
+            } else if (command.matches("show(\\s+)menu")) {
+                showMenu();
+            } else {
+                System.out.println("Invalid command.");
+            }
+        } catch (NullPointerException e) {
+            e.getMessage();
         }
+
     }
 
     private void exit() {
-        Duelyst.finishGame = true;
+        Duelyst.currentMenu=AccountPage.getInstance();
     }
 
     private void showMenu() {

@@ -13,28 +13,32 @@ class Shop extends Menu {
     private Scanner scanner = Main.scanner;
 
     void shopMenu(String command) {
-        String[] commandArray = command.split("\\s+");
-        if (command.matches("exit")) {
-            exit();
-        } else if (command.matches("show(\\s+)menu")){
-            showMenu();
-        }
-        else if (command.matches("buy(\\s+)[0-9a-z]+")) {
-            buyCard(commandArray[1]);
-        } else if (command.matches("sell(\\s+)[0-9a-z]+")) {
-            sellCard(commandArray[1]);
-        } else if (command.matches("show(\\s+)collection")) {
-            showCollection();
-        } else if (command.matches("search(\\s+)[0-9a-z]+")) {
-            searchShop(commandArray[1]);
-        } else if (command.matches("search(\\s+)collection(\\s+)[0-9a-z]+")) {
-            searchCollection(commandArray[2]);
-        } else if (command.matches("show")) {
-            showShop();
-        } else if (command.matches("help")) {
-            help();
-        } else {
-            System.out.println("Invalid command.");
+        try {
+            String[] commandArray = command.split("\\s+");
+            if (command.matches("exit")) {
+                exit();
+            } else if (command.matches("show(\\s+)menu")){
+                showMenu();
+            }
+            else if (command.matches("buy(\\s+)[0-9a-z]+")) {
+                buyCard(commandArray[1]);
+            } else if (command.matches("sell(\\s+)[0-9a-z]+")) {
+                sellCard(commandArray[1]);
+            } else if (command.matches("show(\\s+)collection")) {
+                showCollection();
+            } else if (command.matches("search(\\s+)[0-9a-z]+")) {
+                searchShop(commandArray[1]);
+            } else if (command.matches("search(\\s+)collection(\\s+)[0-9a-z]+")) {
+                searchCollection(commandArray[2]);
+            } else if (command.matches("show")) {
+                showShop();
+            } else if (command.matches("help")) {
+                help();
+            } else {
+                System.out.println("Invalid command.");
+            }
+        } catch (NullPointerException e) {
+            e.getMessage();
         }
 
     }
