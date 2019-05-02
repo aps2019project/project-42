@@ -48,7 +48,6 @@ class AccountPage extends Menu {
         console.showBegMenu();
     }
 
-
     public void createAccount(String user, String pass) {
         Account account = new Account(user, pass);
         Account account1 = new Account(user);
@@ -57,7 +56,7 @@ class AccountPage extends Menu {
         } else {
             Duelyst.accounts.add(account);
             Duelyst.currentMenu = MainMenu.getInstance();
-            System.out.println("welcome!");
+            console.welcome();
         }
         /*for (Account account1 : Duelyst.accounts) {
             if (account1.getUser().equals(user)) {
