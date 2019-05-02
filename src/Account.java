@@ -19,7 +19,15 @@ public class Account {
         return this.pass;
     }
 
-    public String getUser(){
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getUser() {
         return this.user;
     }
 
