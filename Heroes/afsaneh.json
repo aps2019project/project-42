@@ -1,1 +1,8 @@
-{"name":"afsaneh","AP":3,"HP":40,"price":11000,"typeOfHero":"ranged","specialPower":"dispel one enemy force"}
+{
+  "name": "afsaneh",
+  "AP": 3,
+  "HP": 40,
+  "price": 11000,
+  "typeOfHero": "ranged",
+  "specialPower": "dispel one enemy force"
+}

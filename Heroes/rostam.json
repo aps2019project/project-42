@@ -1,1 +1,8 @@
-{"name":"rostam","AP":7,"HP":55,"price":8000,"typeOfHero":"hybrid","specialPower":""}
+{
+  "name": "rostam",
+  "AP": 7,
+  "HP": 55,
+  "price": 8000,
+  "typeOfHero": "hybrid",
+  "specialPower": ""
+}

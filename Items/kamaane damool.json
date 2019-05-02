@@ -1,1 +1,5 @@
-{"name":"kamaane damool","desc":"self hero with its attack, disarm enemy force for one turn(just for ranged and hybrids)","price":30000}
+{
+  "name": "kamaane damool",
+  "desc": "self hero with its attack, disarm enemy force for one turn(just for ranged and hybrids)",
+  "price": 30000
+}

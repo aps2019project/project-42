@@ -1,1 +1,5 @@
-{"name":"blades of agility","desc":"add 6 AP to a random force","price":"collectible"}
+{
+  "name": "blades of agility",
+  "desc": "add 6 AP to a random force",
+  "price": "collectible"
+}

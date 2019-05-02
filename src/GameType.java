@@ -1,5 +1,16 @@
 enum GameType{
-    story,
-    custom,
+    storyLvl1,
+    storyLvl2,
+    storyLvl3,
+    whiteGoblin,
+    phoenix,
+    sevenHeadedDragon,
+    rakhsh,
+    zahhak,
+    kaveh,
+    arash,
+    afsaneh,
+    esfandiyar,
+    rostam,
     multi
 }

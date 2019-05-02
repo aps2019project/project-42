@@ -11,13 +11,9 @@ class Collection extends Menu {
         return collection;
     }
 
-    ArrayList<Card> cards;
-    Account account;
-    private Scanner scanner = Main.scanner;
-
 
     void collectionMenu(String command) {
-        CollectionMethods collectionMethods=new CollectionMethods();
+        CollectionMethods collectionMethods = Duelyst.currentAccount.collectionMethods;
         try {
             String[] commandArray = command.split("\\s+");
             if (command.equals("exit")) {
@@ -25,8 +21,9 @@ class Collection extends Menu {
             } else if (command.matches("show(\\s+)menu")) {
                 showMenu();
             } else if (command.matches("show")) {
-                show();
+                collectionMethods.show();
             } else if (commandArray[0].equals("search")) {
+
                 collectionMethods.search(commandArray[1]);
             } else if (command.matches("save")) {
 
@@ -61,116 +58,6 @@ class Collection extends Menu {
         console.collectionMenu();
     }
 
-    void show() {
-        for (Card card : cards) {
-
-        }
-    }
-
-    void search(String string) {
-        Card card = new Card(string);
-        if (cards.contains(card)) {
-            System.out.println(card.ID);
-        } else {
-            console.cardNotFound();
-        }
-    }
-
-    void save() {
-
-    }
-
-    void createDeck(String string) {
-        Deck deck = new Deck(string);
-        if (!account.decks.contains(deck)) {
-            account.decks.add(deck);
-        } else {
-            console.deckExists();
-        }
-    }
-
-    void deleteDeck(String string) {
-        Deck deck = new Deck(string);
-        if (account.decks.contains(deck)) {
-            account.decks.remove(deck);
-        } else {
-            console.deckNameNotFound();
-        }
-    }
-
-    void addToDeck(String str1, String str2) {
-        Card card = new Card(str1);
-        Deck deck = new Deck(str2);
-        if (account.decks.contains(deck) && cards.contains(card) && !deck.cards.contains(card)) {
-            deck.cards.add(card);
-            //card.owner=account.owner;
-        } else if (!account.decks.contains(deck)) {
-            console.deckNotFound();
-        } else if (!cards.contains(card)) {
-            console.cardNotFound();
-        } else if (deck.cards.contains(card)) {
-            console.cardExists();
-        }
-    }
-
-    void removeFromDeck(String str1, String str2) {
-        Card card = new Card(str1);
-        Deck deck = new Deck(str2);
-        if (account.decks.contains(deck) && cards.contains(card) && deck.cards.contains(card)) {
-            deck.cards.add(card);
-        } else if (!account.decks.contains(deck)) {
-            console.deckNotFound();
-        } else if (!cards.contains(card)) {
-            console.cardNotFound();
-        } else if (!deck.cards.contains(card)) {
-            console.cardNotInDeck();
-        }
-    }
-
-    boolean deckValidation(String string) {
-        Deck deck = new Deck(string);
-        if (account.decks.contains(deck)) {
-            return true;
-        }
-        return false;
-    }
-
-    void validateDeck(String string) {
-        if (deckValidation(string)) {
-            console.validDeck();
-        } else {
-            console.notValidDeck();
-        }
-    }
-
-    void selectMainDeck(String string) {
-        Deck deck = new Deck(string);
-        if (account.decks.contains(deck)) {
-            account.mainDeck = deck;
-        } else {
-            console.deckNotFound();
-        }
-    }
-
-    void showAllDecks() {
-        if (account.mainDeck != null) {
-            System.out.println(account.mainDeck.name);
-            for (Deck deck : account.decks) {
-                if (deck.equals(account.mainDeck)) continue;
-                System.out.println();
-            }
-        } else {
-            for (Deck deck : account.decks) {
-                System.out.println();
-            }
-        }
-    }
-
-    void showDeck(String string) {
-        if (deckValidation(string)) {
-            System.out.println();
-        }
-    }
 
     void help() {
         console.collectionHelp();
