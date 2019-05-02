@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Shop extends Menu {
+
+    Console console = Console.getInstance();
+
     private static Shop shop = new Shop();
 
     public static Shop getInstance() {
@@ -44,34 +47,34 @@ class Shop extends Menu {
     }
 
     private void showMenu() {
-        System.out.println("show collection\nserach in collection\nshow shop\nsearch in shop\nbuy\nsell\nhelp\nexit");
+        console.shopMenu();
     }
 
     void buyCard(String string) {
         Card card = new Card(string);
         if (!cards.contains(card)) {
-            System.out.println("This card doesn't exist in shop.");
+            console.cardNotInShop();
         } else if (card.price > account.money) {
-            System.out.println("You don't have enough money.");
+            console.insufficientMoney();
         } //else if (numOfItemsCheck)
         else if (account.cards.contains(card)) {
-            System.out.println("This card already exists in your collection");
+            console.cardInCollection();
         } else {
             account.cards.add(card);
             card.owner = account.owner;
             account.money -= card.price;
-            System.out.println("This card added to your collection successfully.");
+            console.cardAdded();
         }
     }
 
     void sellCard(String string) {
         Card card = new Card(string);
         if (!account.cards.contains(card)) {
-            System.out.println("This card doesn't exist in your collection.");
+            console.cardNotFound();
         } else {
             account.cards.remove(card);
             account.money += card.price;
-            System.out.println("You sold this cart successfully.");
+            console.sold();
         }
     }
 
@@ -92,7 +95,7 @@ class Shop extends Menu {
         if (cards.contains(card)) {
             System.out.println(card.ID);
         } else {
-            System.out.println("This card doesn't exist in shop.");
+            console.cardNotInShop();
         }
     }
 
@@ -101,22 +104,12 @@ class Shop extends Menu {
         if (account.cards.contains(card)) {
             System.out.println(card.ID);
         } else {
-            System.out.println("This card doesn't exist in shop.");
+            console.cardNotInShop();
         }
     }
 
     void help() {
-        System.out.println("to show your cards: show collection");
-        System.out.println("to find a card id in shop: search [card name]");
-        System.out.println("to find an item id in shop: search [item name]");
-        System.out.println("to find a card id in your collection: search collection [card name]");
-        System.out.println("to find an item id in your collection: search collection [item name]");
-        System.out.println("to buy a card: buy [card name]");
-        System.out.println("to buy an item: buy [item name]");
-        System.out.println("to sell your card: sell [card name]");
-        System.out.println("to sell your item: sell [item name]");
-        System.out.println("to see shop: show");
-        System.out.println("to return to mainMenu: exit");
+        console.shopHelp();
     }
 
     void exit() {
