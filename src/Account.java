@@ -8,7 +8,6 @@ public class Account {
     ArrayList<Deck> decks;
     ArrayList<Card> cards;
     Deck mainDeck;
-    int mainDeckIndex;
     int money;
 
     Account(String user) {
