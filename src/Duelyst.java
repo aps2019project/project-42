@@ -2,6 +2,7 @@ import java.util.*;
 
 class Duelyst {
     public static Account currentAccount;
+
     static ArrayList<Account> accounts = new ArrayList<Account>();
     static HashMap<String,Integer> wins=new HashMap<>();
     ArrayList<Card> source;
@@ -15,7 +16,6 @@ class Duelyst {
     }
 
     void main() {
-        AccountPage accountPage = new AccountPage();
         setCurrentMenu();
         while (true) {
             if (finishGame) break;

@@ -8,13 +8,9 @@ class Collection extends Menu {
         return collection;
     }
 
-    ArrayList<Card> cards;
-    Account account;
-    private Scanner scanner = Main.scanner;
-
 
     void collectionMenu(String command) {
-        CollectionMethods collectionMethods=new CollectionMethods();
+        CollectionMethods collectionMethods = Duelyst.currentAccount.collectionMethods;
         try {
             String[] commandArray = command.split("\\s+");
             if (command.equals("exit")) {
@@ -22,8 +18,9 @@ class Collection extends Menu {
             } else if (command.matches("show(\\s+)menu")) {
                 showMenu();
             } else if (command.matches("show")) {
-                show();
+                collectionMethods.show();
             } else if (commandArray[0].equals("search")) {
+
                 collectionMethods.search(commandArray[1]);
             } else if (command.matches("save")) {
 
@@ -58,111 +55,6 @@ class Collection extends Menu {
         System.out.println("show collection\nsearch in collection\ncreate deck\ndelete deck\nremove from a deck\ndeck validation\nchoose main deck\nshow decks\nshow a single deck\nsave\nhelp\nexit");
     }
 
-    void show() {
-        for (Card card : cards) {
-
-        }
-    }
-
-    void search(String string) {
-
-    }
-
-    void save() {
-
-    }
-
-    void createDeck(String string) {
-        Deck deck = new Deck(string);
-        if (!account.decks.contains(deck)) {
-            account.decks.add(deck);
-        } else {
-            System.out.println("A deck with this name already exists.");
-        }
-    }
-
-    void deleteDeck(String string) {
-        Deck deck = new Deck(string);
-        if (account.decks.contains(deck)) {
-            account.decks.remove(deck);
-        } else {
-            System.out.println("This deck name doesn't exist");
-        }
-    }
-
-    void addToDeck(String str1, String str2) {
-        Card card = new Card(str1);
-        Deck deck = new Deck(str2);
-        if (account.decks.contains(deck) && cards.contains(card) && !deck.cards.contains(card)) {
-            deck.cards.add(card);
-            //card.owner=account.owner;
-        } else if (!account.decks.contains(deck)) {
-            System.out.println("This deck doesn't exist in your collection.");
-        } else if (!cards.contains(card)) {
-            System.out.println("This card isn't in your collection.");
-        } else if (deck.cards.contains(card)) {
-            System.out.println("This card already exists in this deck.");
-        }
-    }
-
-    void removeFromDeck(String str1, String str2) {
-        Card card = new Card(str1);
-        Deck deck = new Deck(str2);
-        if (account.decks.contains(deck) && cards.contains(card) && deck.cards.contains(card)) {
-            deck.cards.add(card);
-        } else if (!account.decks.contains(deck)) {
-            System.out.println("This deck doesn't exist in your collection.");
-        } else if (!cards.contains(card)) {
-            System.out.println("This card isn't in your collection.");
-        } else if (!deck.cards.contains(card)) {
-            System.out.println("This card doesn't exists in this deck.");
-        }
-    }
-
-    boolean deckValidation(String string) {
-        Deck deck = new Deck(string);
-        if (account.decks.contains(deck)) {
-            return true;
-        }
-        return false;
-    }
-
-    void validateDeck(String string) {
-        if (deckValidation(string)) {
-            System.out.println("Valid deck.");
-        } else {
-            System.out.println("Invalid deck.");
-        }
-    }
-
-    void selectMainDeck(String string) {
-        Deck deck = new Deck(string);
-        if (account.decks.contains(deck)) {
-            account.mainDeck = deck;
-        } else {
-            System.out.println("This deck doesn't exist in your collection.");
-        }
-    }
-
-    void showAllDecks() {
-        if (account.mainDeck != null) {
-            System.out.println(account.mainDeck.name);
-            for (Deck deck : account.decks) {
-                if (deck.equals(account.mainDeck)) continue;
-                System.out.println();
-            }
-        } else {
-            for (Deck deck : account.decks) {
-                System.out.println();
-            }
-        }
-    }
-
-    void showDeck(String string) {
-        if (deckValidation(string)) {
-            System.out.println();
-        }
-    }
 
     void help() {
         System.out.println("to show your collection: show");
