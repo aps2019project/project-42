@@ -38,6 +38,7 @@ class Battle{
         firstPlayer.battle=this;
         secondPlayer.battle=this;
         field=new Field();
+        field.battle=this;
         field.cells[2][0].force=firstPlayer.deck.hero;
         field.cells[2][8].force=firstPlayer.deck.hero;
         if(flagsNumber==1){
