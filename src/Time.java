@@ -1,8 +1,15 @@
 enum Time{
-    onSpawn,
-    onDeath,
-    onAttack,
-    onDefend,
-    everyTurn,
-
+    spawn,
+    minionSpawn,
+    death,
+    minionDeath,
+    attack,
+    heroAttack,
+    minionAttack,
+    forceAtack,
+    defend,
+    heroDefend,
+    minionDefend,
+    forceDefend,
+    continuous,
 }

@@ -3,6 +3,11 @@ enum Effect{
     dispel,
     changeAP,
     changeHP,
+    changeMP,
+    changeMana,
     stun,
-    holy
+    holy,
+    fiery,
+    poison,
+
 }
