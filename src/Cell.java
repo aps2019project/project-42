@@ -1,5 +1,4 @@
 class Cell{
-    CellEffects cellEffects;
     Item Collectible;
     boolean flag;
     Force force;
