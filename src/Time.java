@@ -6,7 +6,7 @@ enum Time{
     attack,
     heroAttack,
     minionAttack,
-    forceAtack,
+    forceAttack,
     defend,
     heroDefend,
     minionDefend,

@@ -1,5 +1,6 @@
 public enum TargetStatics {
     AP,
     HP,
-    MP
+    MP,
+    nothing
 }
