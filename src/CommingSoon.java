@@ -1,3 +1,0 @@
-class CommingSoon{
-    Card card;
-}

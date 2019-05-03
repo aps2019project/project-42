@@ -7,7 +7,7 @@ class Player {
     int turn;
     Hand hand;
     GraveYard graveYard;
-    CommingSoon commingSoon;
+    ComingSoon comingSoon;
     Deck deck;
     Item usable;
     Battle battle;
@@ -38,21 +38,22 @@ class Player {
         return shuffledDeck;
     }
 
-    void fillingHand(Deck deck, Hand hand, CommingSoon commingSoon) {
+    void fillingHand(Deck deck, Hand hand, ComingSoon comingSoon) {
         int sum = 0;
-        for (int j = 0; j < 5; j+=)
+        for (int j = 0; j < 5; j+=) {
             if (hand.cards[j].equals(null))
                 break;
-            else{
-                sum++;}
-        if (sum == 5)
-            return;
-
+            else {
+                sum++;
+            }
+            if (sum == 5)
+                return;
+        }
         int i = 0;
         while (!hand.cards[i].equals(null)) { i++;
             }
-            hand.cards[i] = commingSoon.card;
-            commingSoon.card = deck.cards.get(0);
+            hand.cards[i] = comingSoon.card;
+            comingSoon.card = deck.cards.get(0);
             deck.cards.remove(0);
 
     }
@@ -65,7 +66,7 @@ class Player {
         this.usable = account.mainDeck.usable;
         this.deck = shuffleDeck(this.deck);
         for (int i = 0; i < 5; i++) {
-            fillingHand(this.deck, this.hand, this.commingSoon);
+            fillingHand(this.deck, this.hand, this.comingSoon);
         }
     }
 

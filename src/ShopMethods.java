@@ -54,7 +54,7 @@ public class ShopMethods {
     }
 
     void showCollection() {
-        console.showCollection();
+        console.showCollection(account);
     }
 
     void showShop() {
