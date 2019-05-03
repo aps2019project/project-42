@@ -51,7 +51,7 @@ class AccountPage extends Menu {
         boolean check = true;
         for (Account account1 : Duelyst.accounts) {
             if (account1.getUser().equals(string)) {
-                System.out.println("This username already exists.");
+                console.userExists();
                 check = false;
             }
         }
@@ -96,7 +96,7 @@ class AccountPage extends Menu {
         Map<String, Integer> w = sortByValue(Duelyst.wins);
         int counter = 1;
         for (Map.Entry<String, Integer> x : w.entrySet()) {
-            System.out.println(counter + " - username : " + x.getKey() + " - wins : " + x.getValue());
+            System.out.println(counter + " - Username : " + x.getKey() + " - Wins : " + x.getValue());
             counter++;
         }
     }

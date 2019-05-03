@@ -220,4 +220,18 @@ class Console {
         System.out.println("Your destination is empty for attacking.");
     }
 
+    void invalidCommand(){
+        System.out.println("invalid command");
+    }
+
+    void showMainMenu(){
+        System.out.println("Collection\nShop\nBatlle\nExit\nHelp");
+    }
+
+    void showMainHelp(){
+        System.out.println("to manage your cards: enter collection");
+        System.out.println("to buy or sell cards and items: enter shop");
+        System.out.println("to play game: enter battle");
+        System.out.println("to exit the game: exit");
+    }
 }

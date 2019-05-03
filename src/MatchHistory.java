@@ -1,5 +1,5 @@
 class MatchHistory{
     Player enemy;
-    boolean resul;
+    boolean result;
     int date;
 }

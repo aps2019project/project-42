@@ -39,17 +39,22 @@ class Player {
     }
 
     void fillingHand(Deck deck, Hand hand, CommingSoon commingSoon) {
-        if (hand.cards.length == 5)
+        int sum = 0;
+        for (int j = 0; j < 5; j+=)
+            if (hand.cards[j].equals(null))
+                break;
+            else{
+                sum++;}
+        if (sum == 5)
             return;
-        else {
-            int i = 0;
-            while (!hand.cards[i].equals(null)) {
-                i++;
+
+        int i = 0;
+        while (!hand.cards[i].equals(null)) { i++;
             }
             hand.cards[i] = commingSoon.card;
             commingSoon.card = deck.cards.get(0);
             deck.cards.remove(0);
-        }
+
     }
 
     Player(Account account) {

@@ -14,7 +14,6 @@ public class CollectionMethods {
         Card card = new Card(string);
         if (account.cards.contains(card)) {
             console.print(card.ID);
-            System.out.println(card.ID);
         } else {
             console.cardNotFound();
         }
