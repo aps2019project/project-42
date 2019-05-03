@@ -11,11 +11,11 @@ class Card {
     String desc;//Description
     Player owner;
     int ID;//needed in shop
-    String price;
-    static ArrayList<Minion> allMinions = new ArrayList<>();
-    static ArrayList<SpellCard> allSpells = new ArrayList<>();
-    static ArrayList<Item> allItems = new ArrayList<>();
-    static ArrayList<Hero> allHeroes = new ArrayList<>();
+    int price;
+    private static ArrayList<Minion> allMinions = new ArrayList<>();
+    private static ArrayList<SpellCard> allSpells = new ArrayList<>();
+    private static ArrayList<Item> allItems = new ArrayList<>();
+    private static ArrayList<Hero> allHeroes = new ArrayList<>();
 
     public static ArrayList<Hero> getAllHeroes() {
         return allHeroes;
@@ -44,9 +44,7 @@ class Card {
         if (Hero.getAllHeroes().contains(this)) {
             string = " : name : " + this.name + " - AP : " + this.AP + " - HP : " + this.HP + " - class : " + this.typeOfHero + " - special power : " + this.specialPower + " - price : " + this.price;
         } else if (Card.getAllItems().contains(this)) {
-            if (this.price.matches("collectable")) {
-                string = " : name : " + this.name + " - desc : " + this.desc + " - price : collectible";
-            } else {
+            if (!(this.price==0)) {
                 string = " : name : " + this.name + " - desc : " + this.desc + " - price : " + this.price;
             }
         } else if (Card.getAllMinions().contains(this)) {

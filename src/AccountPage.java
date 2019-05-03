@@ -39,7 +39,7 @@ class AccountPage extends Menu {
             } else if (command.matches("help")) {
                 help();
             } else {
-                System.out.println("Invalid command");
+                console.invalidCommand();
             }
 
         } catch (NullPointerException e) {
@@ -51,7 +51,7 @@ class AccountPage extends Menu {
         boolean check = true;
         for (Account account1 : Duelyst.accounts) {
             if (account1.getUser().equals(string)) {
-                System.out.println("This username already exists.");
+                console.userExists();
                 check = false;
             }
         }
@@ -78,14 +78,16 @@ class AccountPage extends Menu {
             account.setPass(pass);
             Duelyst.accounts.add(account);
             Duelyst.currentMenu = MainMenu.getInstance();
-            System.out.println("welcome!");
+            console.welcome();
         }
     }
 
     void login(String user, String pass) {
+        Account account = new Account(user, pass);
         for (Account account1 : Duelyst.accounts) {
             if (account1.getUser().equals(user) && account1.getPass().equals(pass)) {
                 Duelyst.currentMenu = MainMenu.getInstance();
+                Duelyst.currentAccount=account;
                 console.welcome();
             } else {
                 console.loginError();
@@ -97,7 +99,7 @@ class AccountPage extends Menu {
         Map<String, Integer> w = sortByValue(Duelyst.wins);
         int counter = 1;
         for (Map.Entry<String, Integer> x : w.entrySet()) {
-            System.out.println(counter + " - username : " + x.getKey() + " - wins : " + x.getValue());
+            System.out.println(counter + " - Username : " + x.getKey() + " - Wins : " + x.getValue());
             counter++;
         }
     }
@@ -122,13 +124,11 @@ class AccountPage extends Menu {
     }
 
     void logOut() {
+        Duelyst.currentAccount = null;
         Duelyst.currentMenu = AccountPage.getInstance();
         console.logoutMessage();
     }
 
-    boolean validAccount(String user, String pass) {
-        return true;
-    }
 
     void help() {
         console.begHelp();

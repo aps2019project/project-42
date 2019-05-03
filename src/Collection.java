@@ -26,7 +26,7 @@ class Collection extends Menu {
 
                 collectionMethods.search(commandArray[1]);
             } else if (command.matches("save")) {
-
+                collectionMethods.save();
             } else if (commandArray[0].equals("create") && commandArray[1].equals("deck")) {
                 collectionMethods.createDeck(commandArray[2]);
             } else if (commandArray[0].equals("delete") && commandArray[1].equals("deck")) {
@@ -36,7 +36,7 @@ class Collection extends Menu {
             } else if (command.matches("remove(\\s+)(\\d+)from(\\s+)deck[a-z0-9]+")) {
                 collectionMethods.removeFromDeck(commandArray[1], commandArray[4]);
             } else if (command.matches("validate(\\s+)deck(\\s+)[a-z0-9]+")) {
-                collectionMethods.validateDeck(commandArray[2]);
+                collectionMethods.validationDeck(commandArray[2]);
             } else if (command.matches("select(\\s+)deck(\\s+)[a-z0-9]+")) {
                 collectionMethods.selectMainDeck(commandArray[2]);
             } else if (command.matches("show(\\s+)all(\\s+)decks")) {
@@ -46,7 +46,7 @@ class Collection extends Menu {
             } else if (command.matches("help")) {
                 help();
             } else {
-                System.out.println("Invalid command.");
+                console.invalidCommand();
             }
         } catch (NullPointerException e) {
             e.getMessage();

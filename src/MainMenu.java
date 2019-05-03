@@ -2,6 +2,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class MainMenu extends Menu {
+
+    Console console = Console.getInstance();
+
     private static MainMenu mainMenu = new MainMenu();
 
     public static MainMenu getInstance() {
@@ -25,7 +28,7 @@ public class MainMenu extends Menu {
             } else if (command.matches("show(\\s+)menu")) {
                 showMenu();
             } else {
-                System.out.println("Invalid command.");
+                console.invalidCommand();
             }
         } catch (NullPointerException e) {
             e.getMessage();
@@ -38,13 +41,10 @@ public class MainMenu extends Menu {
     }
 
     private void showMenu() {
-        System.out.println("battle\ncollection\nshop\nhelp\nexit");
+        console.showMainMenu();
     }
 
     private void help() {
-        System.out.println("to manage your cards: enter collection");
-        System.out.println("to buy or sell cards and items: enter shop");
-        System.out.println("to play game: enter battle");
-        System.out.println("to exit the game: exit");
+        console.showMainHelp();
     }
 }
