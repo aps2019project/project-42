@@ -8,6 +8,7 @@ class Field{
             for (int j=0;j<9;j++){
                 cells[i][j].setX(i);
                 cells[i][j].setY(j);
+                cells[i][j].force = null;
             }
         }
     }
