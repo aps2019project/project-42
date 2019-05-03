@@ -40,7 +40,7 @@ class Player {
 
     void fillingHand(Deck deck, Hand hand, ComingSoon comingSoon) {
         int sum = 0;
-        for (int j = 0; j < 5; j+=) {
+        for (int j = 0; j < 5; j++) {
             if (hand.cards[j].equals(null))
                 break;
             else {
