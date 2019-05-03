@@ -7,7 +7,7 @@ public class CollectionMethods {
     ArrayList<Card> cards;
 
     void show() {
-        console.showCollection();
+        console.showCollection(account);
     }
 
     void search(String string) {
