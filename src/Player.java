@@ -5,7 +5,7 @@ class Player {
     Account account;
     int mana;
     int turn;
-    Hand hand;
+    Hand hand = new Hand();
     GraveYard graveYard;
     ComingSoon comingSoon;
     Deck deck;
@@ -40,8 +40,8 @@ class Player {
 
     void fillingHand(Deck deck, Hand hand, ComingSoon comingSoon) {
         int sum = 0;
-        for (int j = 0; j < 5; j+=) {
-            if (hand.cards[j].equals(null))
+        for (int j = 0; j < 5; j++) {
+            if (hand.cards[j] == null)
                 break;
             else {
                 sum++;
@@ -50,7 +50,7 @@ class Player {
                 return;
         }
         int i = 0;
-        while (!hand.cards[i].equals(null)) { i++;
+        while (!(hand.cards[i] == null)) { i++;
             }
             hand.cards[i] = comingSoon.card;
             comingSoon.card = deck.cards.get(0);
@@ -82,11 +82,11 @@ class Player {
     }
 
     void move(Cell originCell, Cell destinationCell) {
-        if (originCell.force.equals(null)) {
+        if (originCell.force ==  null ) {
             console.noOrigin();
         } else if (Math.abs(destinationCell.getX() - originCell.getX()) + Math.abs(destinationCell.getY() - originCell.getY()) > 2) {
             console.tooFar();
-        } else if (!destinationCell.force.equals(null)) {
+        } else if (!(destinationCell.force == null)) {
             console.filledHouse();
         } else {
             destinationCell.force = originCell.force;
@@ -97,9 +97,9 @@ class Player {
     }
 
     void attack(Cell originCell, Cell destinationCell) {
-        if (destinationCell.force.equals(null)) {
+        if (destinationCell.force == null) {
             console.emptyDestination();
-        } else if (originCell.force.equals(null)) {
+        } else if (originCell.force == null) {
             console.noOrigin();
         } else if (!rangeValidation(originCell, destinationCell)) {
             console.tooFar();
