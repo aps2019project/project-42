@@ -6,12 +6,37 @@ public class Account {
     Player owner;
     ArrayList<MatchHistory> matchList;
     ArrayList<Deck> decks;
-    ArrayList<Card> cards;
+    //ArrayList<Card> cards;
+    ArrayList<Hero> accountHeroes=new ArrayList<>();
+    ArrayList<Item> accountItems=new ArrayList<>();
+    ArrayList<Minion> accountMinions=new ArrayList<>();
+    ArrayList<SpellCard> accountSpells=new ArrayList<>();
+
     Deck mainDeck;
     int mainDeckIndex;
     int money=15000;
     CollectionMethods collectionMethods = new CollectionMethods();
     ShopMethods shopMethods=new ShopMethods();
+
+    public ArrayList<Deck> getDecks() {
+        return decks;
+    }
+
+    public ArrayList<Hero> getAccountHeroes() {
+        return accountHeroes;
+    }
+
+    public ArrayList<Item> getAccountItems() {
+        return accountItems;
+    }
+
+    public ArrayList<Minion> getAccountMinions() {
+        return accountMinions;
+    }
+
+    public ArrayList<SpellCard> getAccountSpells() {
+        return accountSpells;
+    }
 
     public String getPass() {
         return this.pass;

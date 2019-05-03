@@ -4,18 +4,16 @@ public class CollectionMethods {
     Console console = Console.getInstance();
 
     Account account = Duelyst.currentAccount;
-    ArrayList<Card> cards;
 
     void show() {
-        console.showCollection();
+        console.showCollection(account);
     }
 
     void search(String string) {
         Card card = new Card(string);
-        if (account.cards.contains(card)) {
+        if (containingInCollection(card)) {
             console.print(card.ID);
-            System.out.println(card.ID);
-        } else {
+        }  else {
             console.cardNotFound();
         }
     }
@@ -26,8 +24,8 @@ public class CollectionMethods {
 
     void createDeck(String string) {
         Deck deck = new Deck(string);
-        if (!account.decks.contains(deck)) {
-            account.decks.add(deck);
+        if (!account.getDecks().contains(deck)) {
+            account.getDecks().add(deck);
             console.deckAdded();
         } else {
             console.deckExists();
@@ -36,8 +34,8 @@ public class CollectionMethods {
 
     void deleteDeck(String string) {
         Deck deck = new Deck(string);
-        if (account.decks.contains(deck)) {
-            account.decks.remove(deck);
+        if (account.getDecks().contains(deck)) {
+            account.getDecks().remove(deck);
             console.deckDeleted();
         } else {
             console.deckNameNotFound();
@@ -47,13 +45,37 @@ public class CollectionMethods {
     void addToDeck(String str1, String str2) {
         Card card = new Card(str1);
         Deck deck = new Deck(str2);
-        if (account.decks.contains(deck) && cards.contains(card) && !deck.cards.contains(card)) {
-            deck.cards.add(card);
-            console.addCardToDeck();
-            //card.owner=account.owner;
-        } else if (!account.decks.contains(deck)) {
+        if (account.getDecks().contains(deck) && containingInCollection(card) && !deck.cards.contains(card)) {
+            if (Card.getAllHeroes().contains(card)) {
+                if (deck.numOfHeroes < 1) {
+                    deck.cards.add(card);
+                    deck.numOfHeroes++;
+                    console.addCardToDeck();
+                } else {
+                    console.deckHasHero();
+                }
+            } else if (Card.getAllItems().contains(card)) {
+                if (deck.numOfItems < 1) {
+                    deck.numOfItems++;
+                    deck.cards.add(card);
+                    console.addCardToDeck();
+                } else {
+                    console.deckHasItem();
+                }
+
+            } else if ((Card.getAllMinions().contains(card) || Card.getAllSpells().contains(card))) {
+                if (deck.numOfCards < 20) {
+                    deck.numOfCards++;
+                    deck.cards.add(card);
+                    console.addCardToDeck();
+                } else {
+                    console.deckCardFull();
+                }
+
+            }
+        } else if (!account.getDecks().contains(deck)) {
             console.deckNameNotFound();
-        } else if (!cards.contains(card)) {
+        } else if (!containingInCollection(card)) {
             console.cardNotFound();
         } else if (deck.cards.contains(card)) {
             console.cardExists();
@@ -63,21 +85,42 @@ public class CollectionMethods {
     void removeFromDeck(String str1, String str2) {
         Card card = new Card(str1);
         Deck deck = new Deck(str2);
-        if (account.decks.contains(deck) && cards.contains(card) && deck.cards.contains(card)) {
-            deck.cards.add(card);
-            console.deleteCardFromDeck();
-        } else if (!account.decks.contains(deck)) {
+        if (account.getDecks().contains(deck) && containingInCollection(card) && deck.cards.contains(card)) {
+            if (Card.getAllHeroes().contains(card)) {
+                deck.cards.remove(card);
+                deck.numOfHeroes--;
+                console.deleteCardFromDeck();
+            } else if (Card.getAllItems().contains(card)) {
+                deck.numOfItems--;
+                deck.cards.remove(card);
+                console.deleteCardFromDeck();
+            } else if ((Card.getAllMinions().contains(card) || Card.getAllSpells().contains(card))) {
+                deck.numOfCards--;
+                deck.cards.remove(card);
+                console.deleteCardFromDeck();
+            }
+
+        } else if (!account.getDecks().contains(deck)) {
             console.deckNameNotFound();
-        } else if (!cards.contains(card)) {
+        } else if (!containingInCollection(card)) {
             console.cardNotFound();
         } else if (!deck.cards.contains(card)) {
             console.cardNotInDeck();
         }
     }
 
-    void validateDeck(String string) {
+
+    boolean validateDeck(String string) {
         Deck deck = new Deck(string);
-        if (account.decks.contains(deck)) {
+        if (account.getDecks().contains(deck) && deck.numOfHeroes == 1 && deck.numOfCards == 20) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    void validationDeck(String string) {
+        if (validateDeck(string)) {
             console.validDeck();
         } else {
             console.notValidDeck();
@@ -86,9 +129,11 @@ public class CollectionMethods {
 
     void selectMainDeck(String string) {
         Deck deck = new Deck(string);
-        if (account.decks.contains(deck)) {
+        if (account.getDecks().contains(deck) && validateDeck(string)) {
             account.mainDeck = deck;
             console.setMainDeck();
+        } else if (!validateDeck(string)) {
+            console.notValidDeck();
         } else {
             console.deckNameNotFound();
         }
@@ -96,20 +141,25 @@ public class CollectionMethods {
 
     void showAllDecks() {
         if (account.mainDeck != null) {
-            console.showDeckWithMainDeck();
+            console.showDeckWithMainDeck(account);
             /*System.out.println(account.mainDeck.name);
             for (Deck deck : account.decks) {
                 if (deck.equals(account.mainDeck)) continue;
                 System.out.println();
             }*/
         } else {
-            console.showDeckWithoutMainDeck();
+            console.showDeckWithoutMainDeck(account);
         }
     }
 
     void showDeck(String string) {
-        if (account.decks.contains(string)) {
-            console.showSingleDeck();
+        Deck deck=new Deck(string);
+        if (account.getDecks().contains(deck)) {
+            console.showSingleDeck(deck);
         }
+    }
+
+    private boolean containingInCollection(Card card) {
+        return account.getAccountHeroes().contains(card) || account.getAccountItems().contains(card) || account.getAccountMinions().contains(card) || account.getAccountSpells().contains(card);
     }
 }
