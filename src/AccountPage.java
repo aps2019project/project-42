@@ -39,7 +39,7 @@ class AccountPage extends Menu {
             } else if (command.matches("help")) {
                 help();
             } else {
-                System.out.println("Invalid command");
+                console.invalidCommand();
             }
 
         } catch (NullPointerException e) {
@@ -62,6 +62,7 @@ class AccountPage extends Menu {
         console.showBegMenu();
     }
 
+
     public void createAccount(String user, String pass) {
         boolean check = true;
         Account account = new Account(user, pass);
@@ -82,9 +83,11 @@ class AccountPage extends Menu {
     }
 
     void login(String user, String pass) {
+        Account account = new Account(user, pass);
         for (Account account1 : Duelyst.accounts) {
             if (account1.getUser().equals(user) && account1.getPass().equals(pass)) {
                 Duelyst.currentMenu = MainMenu.getInstance();
+                Duelyst.currentAccount=account;
                 console.welcome();
             } else {
                 console.loginError();
@@ -121,13 +124,11 @@ class AccountPage extends Menu {
     }
 
     void logOut() {
+        Duelyst.currentAccount = null;
         Duelyst.currentMenu = AccountPage.getInstance();
         console.logoutMessage();
     }
 
-    boolean validAccount(String user, String pass) {
-        return true;
-    }
 
     void help() {
         console.begHelp();

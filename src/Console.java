@@ -49,7 +49,29 @@ class Console {
         System.out.println("show collection\nsearch in collection\ncreate deck\ndelete deck\nremove from a deck\ndeck validation\nchoose main deck\nshow decks\nshow a single deck\nsave\nhelp\nexit");
     }
 
-    public void showCollection() {
+    public void showCollection(Account account) {
+        int counter=1;
+        System.out.println("heroes :");
+        for (Hero hero:account.getAccountHeroes()){
+            System.out.println(counter+" : "+hero);
+            counter++;
+        }
+        counter=1;
+        System.out.println("item :");
+        for (Item item:account.getAccountItems()){
+            System.out.println(counter+" : "+item);
+            counter++;
+        }
+        counter=1;
+        System.out.println("cards :");
+        for (SpellCard spell:account.getAccountSpells()){
+            System.out.println(counter+" : "+spell);
+            counter++;
+        }
+        for (Minion minion:account.getAccountMinions()){
+            System.out.println(counter+" : "+minion);
+            counter++;
+        }
     }
 
     void print(int id) {
@@ -72,11 +94,27 @@ class Console {
         System.out.println("This deck doesn't exist in your collection.");
     }
 
+    void collectibleItem() {
+        System.out.println("This item is collectible.");
+    }
+
+    void deckHasHero() {
+        System.out.println("Your deck has hero, you can't add another hero to it.");
+    }
+
+    void deckHasItem() {
+        System.out.println("Your deck has item, you can't add another item to it.");
+    }
+
+    void deckCardFull() {
+        System.out.println("Your deck has 20 cards, you can't add card to it anymore.");
+    }
+
     void deckDeleted() {
         System.out.println("Deck deleted successfully.");
     }
 
-    public void addCardToDeck() {
+    void addCardToDeck() {
         System.out.println("Card added to deck successfully.");
     }
 
@@ -104,13 +142,73 @@ class Console {
         System.out.println("You set your main deck.");
     }
 
-    void showDeckWithMainDeck() {
+    void showDeckWithMainDeck(Account account) {
+        int deckCounter = 1;
+        int cardCounter = 1;
+        System.out.println(deckCounter + " : " + account.mainDeck.name + " :");
+        deckShowing(account.mainDeck, cardCounter);
+        cardCounter = 1;
+        deckCounter++;
+        for (Deck deck : account.getDecks()) {
+            if (deck.equals(account.mainDeck)) continue;
+            System.out.println(deckCounter + " : " + deck.name + " :");
+            deckShowing(deck, cardCounter);
+            cardCounter = 1;
+            deckCounter ++;
+        }
     }
 
-    void showDeckWithoutMainDeck() {
+    void showDeckWithoutMainDeck(Account account) {
+        int deckCounter = 1;
+        int cardCounter = 1;
+        for (Deck deck : account.getDecks()) {
+            System.out.println(deckCounter + " : " + deck.name + " :");
+            deckShowing(deck, cardCounter);
+            cardCounter = 1;
+            deckCounter ++;
+        }
+
     }
 
-    void showSingleDeck() {
+    void showSingleDeck(Deck deck) {
+        int cardCounter = 1;
+        System.out.println(deck.name + " :");
+        deckShowing(deck, cardCounter);
+    }
+
+    private void deckShowing(Deck deck, int cardCounter) {
+        System.out.println("heroes :");
+        for (Card card : deck.cards) {
+            if (Card.getAllHeroes().contains(card)) {
+                Hero hero = (Hero) card;
+                System.out.println(cardCounter + " : " + hero);
+                cardCounter++;
+            }
+        }
+        cardCounter = 1;
+        for (Card card : deck.cards) {
+            if (Card.getAllItems().contains(card)) {
+                Item item = (Item) card;
+                System.out.println(cardCounter + " : " + item);
+                cardCounter++;
+            }
+        }
+        cardCounter = 1;
+        for (Card card : deck.cards) {
+            if (Card.getAllMinions().contains(card)) {
+                Minion minion = (Minion) card;
+                System.out.println(cardCounter + " : " + minion);
+                cardCounter++;
+            }
+        }
+        cardCounter = 1;
+        for (Card card : deck.cards) {
+            if (Card.getAllSpells().contains(card)) {
+                SpellCard spellCard = (SpellCard) card;
+                System.out.println(cardCounter + " : " + spellCard);
+                cardCounter++;
+            }
+        }
     }
 
     void collectionHelp() {
@@ -151,7 +249,6 @@ class Console {
         }
         counter = 1;
         System.out.println("Cards :");
-        System.out.println("Spells :");
         for (SpellCard spellCard : Card.getAllSpells()) {
             System.out.print(counter);
             System.out.println(spellCard);

@@ -36,7 +36,7 @@ class Collection extends Menu {
             } else if (command.matches("remove(\\s+)(\\d+)from(\\s+)deck[a-z0-9]+")) {
                 collectionMethods.removeFromDeck(commandArray[1], commandArray[4]);
             } else if (command.matches("validate(\\s+)deck(\\s+)[a-z0-9]+")) {
-                collectionMethods.validateDeck(commandArray[2]);
+                collectionMethods.validationDeck(commandArray[2]);
             } else if (command.matches("select(\\s+)deck(\\s+)[a-z0-9]+")) {
                 collectionMethods.selectMainDeck(commandArray[2]);
             } else if (command.matches("show(\\s+)all(\\s+)decks")) {
