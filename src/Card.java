@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 
 class Card {
-    int AP;
-    int HP;
-    int MP;
     String typeOfHero;
     String typeOfCard;
     String specialPower;
