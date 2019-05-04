@@ -3,5 +3,6 @@ public enum TargetRange {
     ranged,
     hybrid,
     hyged,
+    hylee,
     anyThing
 }

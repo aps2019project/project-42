@@ -6,6 +6,7 @@ class Spell{
     int staticQuantity;
     Time time;
     boolean immunity;
+    boolean continuous;
     Side side;
     boolean choice;//true means its choice base false means its random
     boolean goodness;//true means its good false means its bad

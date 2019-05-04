@@ -5,6 +5,7 @@ public class Force extends SpellCard {
     int HP;//Health Power
     RangeType rangeType;
     int range;
+    boolean exhaustion;
     ArrayList<Spell> castedSpells;
     //push sho dg :///
     public Force(String name) {

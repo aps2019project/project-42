@@ -5,7 +5,7 @@ enum Effect{
     changeHP,
     changeMP,
     changeMana,
-    stun,
+    stun,//change exhaustion
     holy,
     fiery,
     poison,
