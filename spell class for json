@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+
+public class Spell {
+    int targetNumber;
+    int targetDistance;
+    int effectQuantity;
+    int staticQuantity;
+    Time time;
+    Side side;
+    Effect effect;
+    StaticState staticState;
+    TargetRange targetRange;
+    TargetStatics targetStatic;
+    TargetKind targetKind;
+    boolean massacre;
+    boolean immunity;
+    boolean continuous;
+    boolean choice;
+    boolean goodness;
+    boolean eternity;
+    ArrayList<Integer> turns;
+    boolean[] locations;
+
+    public Spell(String targetNumber1, String targetDistance1, String effectQuantity1, String staticQuantity1, String time1, String side1, String effect1, String staticState1, String targetRange1, String targetStatic1, String targetKind1, String massacre1, String immunity1, String continuous1,String choice1, String goodness1, String eternity1,ArrayList turns,boolean[] locations) {
+        this.targetNumber = Integer.parseInt(targetNumber1);
+        this.targetDistance = Integer.parseInt(targetDistance1);
+        this.effectQuantity = Integer.parseInt(effectQuantity1);
+        this.staticQuantity = Integer.parseInt(staticQuantity1);
+        this.time = Time.values()[Integer.parseInt(time1)];
+        this.side = Side.values()[Integer.parseInt(side1)];
+        this.effect = Effect.values()[Integer.parseInt(effect1)];
+        this.staticState = StaticState.values()[Integer.parseInt(staticState1)];
+        this.targetRange = TargetRange.values()[Integer.parseInt(targetRange1)];
+        this.targetStatic = TargetStatics.values()[Integer.parseInt(targetStatic1)];
+        this.targetKind = TargetKind.values()[Integer.parseInt(targetKind1)];
+        this.massacre = massacre1.equals("1");
+        this.immunity = immunity1.equals("1");
+        this.continuous=continuous1.equals("1");
+        this.choice = choice1.equals("1");
+        this.goodness = goodness1.equals("1");
+        this.eternity = eternity1.equals("1");
+        this.turns=turns;
+        this.locations=locations;
+    }
+}
