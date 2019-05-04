@@ -13,16 +13,26 @@ public class MinionAdder {
             ArrayList<Spell> spells = new ArrayList<>();
             System.out.println("name:");
             String name = scanner.nextLine();
+            System.out.println("id:");
+            int ID=Integer.parseInt(scanner.nextLine());
             System.out.println("AP:");
             int AP = Integer.parseInt(scanner.nextLine());
             System.out.println("HP:");
             int HP = Integer.parseInt(scanner.nextLine());
+            System.out.println("rangeType:");
+            String rangeType=scanner.nextLine();
+            System.out.println("range:");
+            int range=Integer.parseInt(scanner.nextLine());
+            System.out.println("exhaustion:");
+            String exhaustion=scanner.nextLine();
             System.out.println("desc:");
             String desc = scanner.nextLine();
             System.out.println("price:");
             String price = scanner.nextLine();
             System.out.println("mana:");
             String mana = scanner.nextLine();
+            System.out.println("combo:");
+            String combo=scanner.nextLine();
             System.out.println("num of spells:");
             int num = scanner.nextInt();
             for (int i = 0; i < num; i++) {
@@ -55,6 +65,8 @@ public class MinionAdder {
                 String massacre = scanner.nextLine();
                 System.out.println("immunity:");
                 String immunity = scanner.nextLine();
+                System.out.println("continuous:");
+                String continuous=scanner.nextLine();
                 System.out.println("choice");
                 String choice = scanner.nextLine();
                 System.out.println("goodness");
@@ -73,10 +85,10 @@ public class MinionAdder {
                     String x = scanner.nextLine();
                     locations[j] = x.equals("1");
                 }
-                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, duration, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, choice, goodness, eternity, turns, locations);
+                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, duration, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity,continuous, choice, goodness, eternity, turns, locations);
                 spells.add(spell);
             }
-            Minion minion = new Minion(name, AP, HP, desc, Integer.parseInt(price), Integer.parseInt(mana), spells);
+            Minion minion = new Minion(name, ID,AP, HP,rangeType,range,exhaustion, desc, Integer.parseInt(price), Integer.parseInt(mana), combo,spells);
             String jsonString = gson.toJson(minion);
 
             FileWriter fileWriter = new FileWriter("/home/dorna/IdeaProjects/project-42/Minions/" + name + ".json");
@@ -89,18 +101,29 @@ public class MinionAdder {
 class Minion{
     String name;
     String desc;
+    int ID;
     int price;
     int AP;
     int HP;
     int MP;
+    boolean combo;
+    RangeType rangeType;
+    int range;
+    boolean exhaustion;
+
     ArrayList<Spell> spells;
-    Minion(String name,int AP,int HP, String desc, int price, int MP, ArrayList<Spell> spells) {
+    Minion(String name,int ID,int AP,int HP,String rangeType,int range,String exhaustion, String desc, int price, int MP,String combo, ArrayList<Spell> spells) {
         this.price = price;
         this.name = name;
+        this.ID=ID;
         this.AP=AP;
         this.HP=HP;
         this.desc = desc;
         this.MP = MP;
         this.spells=spells;
+        this.combo=combo.equals("1");
+        this.rangeType=RangeType.values()[Integer.parseInt(rangeType)];
+        this.range=range;
+        this.exhaustion=exhaustion.equals("1");
     }
 }

@@ -2,8 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 class Hero extends Force {
-    SpecialPower specialPower;
-    int cooldown;
+    int coolDown;
     public Hero(String name) {
         super(name);
     }

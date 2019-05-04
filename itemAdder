@@ -13,12 +13,12 @@ public class ItemAdder {
             ArrayList<Spell> spells = new ArrayList<>();
             System.out.println("name:");
             String name = scanner.nextLine();
+            System.out.println("id:");
+            int ID=Integer.parseInt(scanner.nextLine());
             System.out.println("desc:");
             String desc = scanner.nextLine();
             System.out.println("price:");
             String price = scanner.nextLine();
-            System.out.println("mana:");
-            String mana = scanner.nextLine();
             System.out.println("num of spells:");
             int num = scanner.nextInt();
             for (int i = 0; i < num; i++) {
@@ -51,6 +51,8 @@ public class ItemAdder {
                 String massacre = scanner.nextLine();
                 System.out.println("immunity:");
                 String immunity = scanner.nextLine();
+                System.out.println("continuous:");
+                String continuous=scanner.nextLine();
                 System.out.println("choice");
                 String choice = scanner.nextLine();
                 System.out.println("goodness");
@@ -69,10 +71,10 @@ public class ItemAdder {
                     String x = scanner.nextLine();
                     locations[j] = x.equals("1");
                 }
-                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, duration, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, choice, goodness, eternity, turns, locations);
+                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, duration, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity, turns, locations);
                 spells.add(spell);
             }
-            Item item = new Item(name, desc, Integer.parseInt(price), spells);
+            Item item = new Item(name, ID,desc, Integer.parseInt(price), spells);
             String jsonString = gson.toJson(item);
 
             FileWriter fileWriter = new FileWriter("/home/dorna/IdeaProjects/project-42/Items/" + name + ".json");
@@ -85,13 +87,15 @@ public class ItemAdder {
 class Item {
     String name;
     String desc;
+    int ID;
     int price;
     ArrayList<Spell> spells;
 
-    Item(String name, String desc, int price, ArrayList<Spell> spells) {
+    Item(String name,int ID, String desc, int price, ArrayList<Spell> spells) {
         this.name = name;
         this.desc = desc;
         this.price = price;
         this.spells = spells;
+        this.ID=ID;
     }
 }

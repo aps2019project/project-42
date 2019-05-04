@@ -13,6 +13,8 @@ public class SpellCardAdder {
             ArrayList<Spell> spells = new ArrayList<>();
             System.out.println("name:");
             String name = scanner.nextLine();
+            System.out.println("id:");
+            int ID=Integer.parseInt(scanner.nextLine());
             System.out.println("desc:");
             String desc = scanner.nextLine();
             System.out.println("price:");
@@ -51,6 +53,8 @@ public class SpellCardAdder {
                 String massacre = scanner.nextLine();
                 System.out.println("immunity:");
                 String immunity = scanner.nextLine();
+                System.out.println("continuous:");
+                String continuous=scanner.nextLine();
                 System.out.println("choice");
                 String choice = scanner.nextLine();
                 System.out.println("goodness");
@@ -69,10 +73,10 @@ public class SpellCardAdder {
                     String x = scanner.nextLine();
                     locations[j] = x.equals("1");
                 }
-                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, duration, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, choice, goodness, eternity,turns,locations);
+                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, duration, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity,continuous, choice, goodness, eternity,turns,locations);
                 spells.add(spell);
             }
-            SpellCard spellCard = new SpellCard(name,desc,Integer.parseInt(price),Integer.parseInt(mana),spells);
+            SpellCard spellCard = new SpellCard(name,ID,desc,Integer.parseInt(price),Integer.parseInt(mana),spells);
             String jsonString = gson.toJson(spellCard);
 
             FileWriter fileWriter = new FileWriter("/home/dorna/IdeaProjects/project-42/SpellCards/" + name + ".json");
@@ -87,10 +91,12 @@ class SpellCard {
     String desc;
     int price;
     int MP;
+    int ID;
     ArrayList<Spell> spells;
 
-    SpellCard(String name, String desc, int price, int MP, ArrayList<Spell> spells) {
+    SpellCard(String name,int ID, String desc, int price, int MP, ArrayList<Spell> spells) {
         this.name = name;
+        this.ID=ID;
         this.desc = desc;
         this.price = price;
         this.MP = MP;
