@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 class Card {
-    String typeOfHero;
+    /*String typeOfHero;
     String typeOfCard;
-    String specialPower;
+    String specialPower;*/
     String name;
     String desc;//Description
     Player owner;

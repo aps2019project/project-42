@@ -1,8 +1,0 @@
-{
-  "name": "simorgh",
-  "AP": 4,
-  "HP": 50,
-  "price": 9000,
-  "typeOfHero": "melee",
-  "specialPower": "stun all enemies for one turn"
-}

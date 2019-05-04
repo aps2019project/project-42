@@ -1,8 +1,0 @@
-{
-  "name": "zahhak",
-  "AP": 2,
-  "HP": 50,
-  "price": 10000,
-  "typeOfHero": "melee",
-  "specialPower": "poisoning person for 3 turns"
-}

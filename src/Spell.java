@@ -3,6 +3,7 @@ import java.util.ArrayList;
 class Spell{
     boolean massacre;//true when u kill every body, false when u kill
     int targetsNumber;
+    int staticQuantity;
     Time time;
     boolean immunity;
     Side side;
@@ -18,5 +19,4 @@ class Spell{
     int effectQuantity;
     TargetKind targetKind;
     ArrayList<Cell> location;
-    int duration;
 }
