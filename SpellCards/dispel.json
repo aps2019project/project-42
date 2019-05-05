@@ -1,9 +1,9 @@
 {
-  "name": "total disarm",
-  "desc": "disarm an enemy force until end of the game",
-  "price": 1000,
+  "name": "dispel",
+  "desc": "removing positive enemy buffs or negative self forces buffs",
+  "price": 2100,
   "MP": 0,
-  "ID": 101,
+  "ID": 112,
   "spells": [
     {
       "targetNumber": 1,
@@ -11,18 +11,18 @@
       "effectQuantity": 0,
       "staticQuantity": 0,
       "time": "spawn",
-      "side": "foe",
-      "effect": "disarm",
+      "side": "both",
+      "effect": "dispel",
       "staticState": "nothing",
       "targetRange": "anyThing",
       "targetStatic": "nothing",
-      "targetKind": "cell",
+      "targetKind": "force",
       "massacre": false,
       "immunity": false,
       "continuous": false,
       "choice": true,
-      "goodness": false,
-      "eternity": true,
+      "goodness": true,
+      "eternity": false,
       "turns": [
         0
       ],

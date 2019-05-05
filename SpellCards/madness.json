@@ -1,0 +1,65 @@
+{
+  "name": "madness",
+  "desc": "add 3 units to a self force AP, but it will get disarm",
+  "price": 650,
+  "MP": 0,
+  "ID": 109,
+  "spells": [
+    {
+      "targetNumber": 1,
+      "targetDistance": 0,
+      "effectQuantity": 4,
+      "staticQuantity": 0,
+      "time": "spawn",
+      "side": "friend",
+      "effect": "changeAP",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "AP",
+      "targetKind": "force",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": true,
+      "eternity": false,
+      "turns": [
+        0,
+        0,
+        0
+      ],
+      "locations": [
+        0,
+        0
+      ]
+    },
+    {
+      "targetNumber": 1,
+      "targetDistance": 0,
+      "effectQuantity": 0,
+      "staticQuantity": 0,
+      "time": "spawn",
+      "side": "friend",
+      "effect": "disarm",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "nothing",
+      "targetKind": "force",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": false,
+      "eternity": false,
+      "turns": [
+        0,
+        0,
+        0
+      ],
+      "locations": [
+        0,
+        0
+      ]
+    }
+  ]
+}

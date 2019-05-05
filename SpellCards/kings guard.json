@@ -1,9 +1,9 @@
 {
-  "name": "total disarm",
-  "desc": "disarm an enemy force until end of the game",
-  "price": 1000,
-  "MP": 0,
-  "ID": 101,
+  "name": "kings guard",
+  "desc": "kills a random enemy minion in 8 cells around self hero",
+  "price": 1750,
+  "MP": 9,
+  "ID": 119,
   "spells": [
     {
       "targetNumber": 1,
@@ -16,17 +16,33 @@
       "staticState": "nothing",
       "targetRange": "anyThing",
       "targetStatic": "nothing",
-      "targetKind": "cell",
-      "massacre": false,
+      "targetKind": "minion",
+      "massacre": true,
       "immunity": false,
       "continuous": false,
-      "choice": true,
+      "choice": false,
       "goodness": false,
-      "eternity": true,
+      "eternity": false,
       "turns": [
         0
       ],
       "locations": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0
       ]
