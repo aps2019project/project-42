@@ -14,7 +14,7 @@ public class CollectionMethods {
         Card card = new Card(string);
         if (containingInCollection(card)) {
             console.print(card.ID);
-        }  else {
+        } else {
             console.cardNotFound();
         }
     }
@@ -154,7 +154,7 @@ public class CollectionMethods {
     }
 
     void showDeck(String string) {
-        Deck deck=new Deck(string);
+        Deck deck = new Deck(string);
         if (account.getDecks().contains(deck)) {
             console.showSingleDeck(deck);
         }

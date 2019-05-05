@@ -50,26 +50,26 @@ class Console {
     }
 
     public void showCollection(Account account) {
-        int counter=1;
+        int counter = 1;
         System.out.println("heroes :");
-        for (Hero hero:account.getAccountHeroes()){
-            System.out.println(counter+" : "+hero);
+        for (Hero hero : account.getAccountHeroes()) {
+            System.out.println(counter + " : " + hero);
             counter++;
         }
-        counter=1;
+        counter = 1;
         System.out.println("item :");
-        for (Item item:account.getAccountItems()){
-            System.out.println(counter+" : "+item);
+        for (Item item : account.getAccountItems()) {
+            System.out.println(counter + " : " + item);
             counter++;
         }
-        counter=1;
+        counter = 1;
         System.out.println("cards :");
-        for (SpellCard spell:account.getAccountSpells()){
-            System.out.println(counter+" : "+spell);
+        for (SpellCard spell : account.getAccountSpells()) {
+            System.out.println(counter + " : " + spell);
             counter++;
         }
-        for (Minion minion:account.getAccountMinions()){
-            System.out.println(counter+" : "+minion);
+        for (Minion minion : account.getAccountMinions()) {
+            System.out.println(counter + " : " + minion);
             counter++;
         }
     }
@@ -154,7 +154,7 @@ class Console {
             System.out.println(deckCounter + " : " + deck.name + " :");
             deckShowing(deck, cardCounter);
             cardCounter = 1;
-            deckCounter ++;
+            deckCounter++;
         }
     }
 
@@ -165,7 +165,7 @@ class Console {
             System.out.println(deckCounter + " : " + deck.name + " :");
             deckShowing(deck, cardCounter);
             cardCounter = 1;
-            deckCounter ++;
+            deckCounter++;
         }
 
     }
@@ -317,15 +317,15 @@ class Console {
         System.out.println("Your destination is empty for attacking.");
     }
 
-    void invalidCommand(){
+    void invalidCommand() {
         System.out.println("invalid command");
     }
 
-    void showMainMenu(){
+    void showMainMenu() {
         System.out.println("Collection\nShop\nBatlle\nExit\nHelp");
     }
 
-    void showMainHelp(){
+    void showMainHelp() {
         System.out.println("to manage your cards: enter collection");
         System.out.println("to buy or sell cards and items: enter shop");
         System.out.println("to play game: enter battle");

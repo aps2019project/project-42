@@ -40,13 +40,13 @@ class Duelyst {
             File[] sources = source.listFiles();
             if (sources != null) {
                 for (File file : sources) {
-                    if (name.contains("Hero")) {
+                    if (name.contains("Heroes")) {
                         addHero(file, Hero.class, Card.getAllHeroes());
-                    } else if (name.contains("Item")) {
+                    } else if (name.contains("Items")) {
                         addItem(file, Item.class, Card.getAllItems());
-                    } else if (name.contains("Minion")) {
+                    } else if (name.contains("Minions")) {
                         addMinion(file, Minion.class, Card.getAllMinions());
-                    } else if (name.contains("Spell")) {
+                    } else if (name.contains("Spells")) {
                         addSpell(file, SpellCard.class, Card.getAllSpells());
                     }
                 }

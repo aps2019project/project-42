@@ -6,4 +6,9 @@ class Item extends Card{
     public Item(String name) {
         super(name);
     }
+
+    @Override
+    public String toString() {
+        return " : name : " + this.name + " - desc : " + this.desc + " - price : " + this.price;
+    }
 }

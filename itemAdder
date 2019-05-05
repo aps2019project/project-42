@@ -22,8 +22,8 @@ public class ItemAdder {
             System.out.println("num of spells:");
             int num = scanner.nextInt();
             for (int i = 0; i < num; i++) {
-                ArrayList<Integer> turns = new ArrayList<>();
-                boolean[] locations = new boolean[45];
+                ArrayList<String > turns = new ArrayList<>();
+                ArrayList<String > locations=new ArrayList<>();
                 System.out.println("targetsNumber:");
                 String nfdgmjdr = scanner.nextLine();
                 String targetNumber = scanner.nextLine();
@@ -31,8 +31,8 @@ public class ItemAdder {
                 String targetDistance = scanner.nextLine();
                 System.out.println("effectQuantity:");
                 String effectQuantity = scanner.nextLine();
-                System.out.println("duration:");
-                String duration = scanner.nextLine();
+                System.out.println("staticQuantity:");
+                String staticQuantity = scanner.nextLine();
                 System.out.println("index of time:");
                 String time = scanner.nextLine();
                 System.out.println("index of side:");
@@ -64,14 +64,16 @@ public class ItemAdder {
                 for (int j = 0; j < numt; j++) {
                     System.out.println("turns:");
                     String turn = scanner.nextLine();
-                    turns.add(Integer.parseInt(turn));
+                    turns.add(turn);
                 }
-                for (int j = 0; j < 45; j++) {
+                int row=scanner.nextInt();
+                int column=scanner.nextInt();
+                for (int j = 0; j < 2*row*column; j++) {
                     System.out.println("locations:");
                     String x = scanner.nextLine();
-                    locations[j] = x.equals("1");
+                    locations.add(x);
                 }
-                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, duration, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity, turns, locations);
+                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity, turns, locations);
                 spells.add(spell);
             }
             Item item = new Item(name, ID,desc, Integer.parseInt(price), spells);

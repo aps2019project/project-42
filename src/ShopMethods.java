@@ -10,7 +10,7 @@ public class ShopMethods {
             console.cardNotInShop();
         } else if (card.price > account.money) {
             console.insufficientMoney();
-        } else if (card.price==0) {
+        } else if (card.price == 0) {
             console.collectibleItem();
         } //else if (numOfItemsCheck)
         else if (containingInCollection(card)) {
@@ -36,7 +36,7 @@ public class ShopMethods {
         Card card = new Card(string);
         if (!containingInCollection(card)) {
             console.cardNotFound();
-        } else if (card.price==0) {
+        } else if (card.price == 0) {
             console.collectibleItem();
         } else {
             if (Card.getAllHeroes().contains(card)) {

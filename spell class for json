@@ -18,10 +18,10 @@ public class Spell {
     boolean choice;
     boolean goodness;
     boolean eternity;
-    ArrayList<Integer> turns;
-    boolean[] locations;
+    ArrayList<String> turns;
+    ArrayList<String> locations;
 
-    public Spell(String targetNumber1, String targetDistance1, String effectQuantity1, String staticQuantity1, String time1, String side1, String effect1, String staticState1, String targetRange1, String targetStatic1, String targetKind1, String massacre1, String immunity1, String continuous1,String choice1, String goodness1, String eternity1,ArrayList turns,boolean[] locations) {
+    public Spell(String targetNumber1, String targetDistance1, String effectQuantity1, String staticQuantity1, String time1, String side1, String effect1, String staticState1, String targetRange1, String targetStatic1, String targetKind1, String massacre1, String immunity1, String continuous1,String choice1, String goodness1, String eternity1,ArrayList<String> turns,ArrayList<String> locations) {
         this.targetNumber = Integer.parseInt(targetNumber1);
         this.targetDistance = Integer.parseInt(targetDistance1);
         this.effectQuantity = Integer.parseInt(effectQuantity1);
