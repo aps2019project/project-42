@@ -11,6 +11,8 @@ public class MinionAdder {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             ArrayList<Spell> spells = new ArrayList<>();
+            System.out.println("what u scan here doesn't matter!!!");
+            String a=scanner.nextLine();
             System.out.println("name:");
             String name = scanner.nextLine();
             System.out.println("type of minion:");
@@ -80,7 +82,9 @@ public class MinionAdder {
                 for (int j = 0; j < numt; j++) {
                     turns.add(0);
                 }
+                System.out.println("row:");
                 int row=scanner.nextInt();
+                System.out.println("column:");
                 int column=scanner.nextInt();
                 for (int j = 0; j < 2*row*column; j++) {
                     locations.add(0);
