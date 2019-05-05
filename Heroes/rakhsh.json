@@ -1,0 +1,39 @@
+{
+  "name": "rakhsh",
+  "typeOfHero": "melee",
+  "desc": "stun an enemy force for 1 turn",
+  "ID": 204,
+  "coolDown": 2,
+  "price": 8000,
+  "AP": 4,
+  "HP": 50,
+  "MP": 1,
+  "spells": [
+    {
+      "targetNumber": 1,
+      "targetDistance": 0,
+      "effectQuantity": 0,
+      "staticQuantity": 0,
+      "time": "spawn",
+      "side": "foe",
+      "effect": "stun",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "nothing",
+      "targetKind": "force",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": false,
+      "eternity": false,
+      "turns": [
+        0
+      ],
+      "locations": [
+        0,
+        0
+      ]
+    }
+  ]
+}

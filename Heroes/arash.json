@@ -1,0 +1,55 @@
+{
+  "name": "arash",
+  "typeOfHero": "ranged",
+  "desc": "attack 4units to all forces in its row",
+  "ID": 207,
+  "coolDown": 2,
+  "price": 10000,
+  "AP": 2,
+  "HP": 30,
+  "MP": 2,
+  "spells": [
+    {
+      "targetNumber": 9,
+      "targetDistance": 6,
+      "effectQuantity": 4,
+      "staticQuantity": 0,
+      "time": "spawn",
+      "side": "both",
+      "effect": "changeHP",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "HP",
+      "targetKind": "force",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": false,
+      "eternity": false,
+      "turns": [
+        0
+      ],
+      "locations": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

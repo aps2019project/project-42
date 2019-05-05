@@ -1,0 +1,43 @@
+{
+  "name": "esfandiar",
+  "typeOfHero": "hybrid",
+  "desc": "having 3 holy buffs continously",
+  "ID": 209,
+  "coolDown": 0,
+  "price": 12000,
+  "AP": 3,
+  "HP": 35,
+  "MP": 0,
+  "spells": [
+    {
+      "targetNumber": 3,
+      "targetDistance": 3,
+      "effectQuantity": 0,
+      "staticQuantity": 0,
+      "time": "spawn",
+      "side": "both",
+      "effect": "holy",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "nothing",
+      "targetKind": "force",
+      "massacre": false,
+      "immunity": false,
+      "continuous": true,
+      "choice": true,
+      "goodness": true,
+      "eternity": true,
+      "turns": [
+        0
+      ],
+      "locations": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

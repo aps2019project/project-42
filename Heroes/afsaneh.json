@@ -1,0 +1,39 @@
+{
+  "name": "afsaneh",
+  "typeOfHero": "ranged",
+  "desc": "dispel an enemy force",
+  "ID": 208,
+  "coolDown": 2,
+  "price": 11000,
+  "AP": 3,
+  "HP": 40,
+  "MP": 1,
+  "spells": [
+    {
+      "targetNumber": 1,
+      "targetDistance": 3,
+      "effectQuantity": 0,
+      "staticQuantity": 0,
+      "time": "spawn",
+      "side": "foe",
+      "effect": "dispel",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "nothing",
+      "targetKind": "force",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": false,
+      "eternity": false,
+      "turns": [
+        0
+      ],
+      "locations": [
+        0,
+        0
+      ]
+    }
+  ]
+}

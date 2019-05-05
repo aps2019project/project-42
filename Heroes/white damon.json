@@ -1,0 +1,39 @@
+{
+  "name": "white damon",
+  "typeOfHero": "melee",
+  "desc": "make a power buff with adding 4 units to its AP frequently",
+  "ID": 201,
+  "coolDown": 2,
+  "price": 8000,
+  "AP": 4,
+  "HP": 50,
+  "MP": 1,
+  "spells": [
+    {
+      "targetNumber": 1,
+      "targetDistance": 0,
+      "effectQuantity": 4,
+      "staticQuantity": 0,
+      "time": "spawn",
+      "side": "friend",
+      "effect": "changeAP",
+      "staticState": "nothing",
+      "targetRange": "melee",
+      "targetStatic": "AP",
+      "targetKind": "hero",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": true,
+      "eternity": true,
+      "turns": [
+        0
+      ],
+      "locations": [
+        0,
+        0
+      ]
+    }
+  ]
+}

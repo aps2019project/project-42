@@ -1,0 +1,39 @@
+{
+  "name": "7head dragon",
+  "typeOfHero": "melee",
+  "desc": "disarm a force",
+  "ID": 203,
+  "coolDown": 1,
+  "price": 8000,
+  "AP": 4,
+  "HP": 50,
+  "MP": 0,
+  "spells": [
+    {
+      "targetNumber": 1,
+      "targetDistance": 0,
+      "effectQuantity": 0,
+      "staticQuantity": 0,
+      "time": "spawn",
+      "side": "both",
+      "effect": "disarm",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "nothing",
+      "targetKind": "force",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": false,
+      "eternity": false,
+      "turns": [
+        0
+      ],
+      "locations": [
+        0,
+        0
+      ]
+    }
+  ]
+}

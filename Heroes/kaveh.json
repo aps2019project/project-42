@@ -1,0 +1,41 @@
+{
+  "name": "kaveh",
+  "typeOfHero": "melee",
+  "desc": "make a cell holy for 3 turns",
+  "ID": 206,
+  "coolDown": 3,
+  "price": 8000,
+  "AP": 4,
+  "HP": 50,
+  "MP": 1,
+  "spells": [
+    {
+      "targetNumber": 1,
+      "targetDistance": 0,
+      "effectQuantity": 0,
+      "staticQuantity": 0,
+      "time": "spawn",
+      "side": "both",
+      "effect": "holy",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "nothing",
+      "targetKind": "cell",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": true,
+      "eternity": false,
+      "turns": [
+        0,
+        0,
+        0
+      ],
+      "locations": [
+        0,
+        0
+      ]
+    }
+  ]
+}
