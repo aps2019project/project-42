@@ -13,6 +13,8 @@ public class MinionAdder {
             ArrayList<Spell> spells = new ArrayList<>();
             System.out.println("name:");
             String name = scanner.nextLine();
+            System.out.println("type of minion:");
+            String typeOfMinion=scanner.nextLine();
             System.out.println("id:");
             int ID=Integer.parseInt(scanner.nextLine());
             System.out.println("AP:");
@@ -90,7 +92,7 @@ public class MinionAdder {
                 Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity,continuous, choice, goodness, eternity, turns, locations);
                 spells.add(spell);
             }
-            Minion minion = new Minion(name, ID,AP, HP,rangeType,range,exhaustion, desc, Integer.parseInt(price), Integer.parseInt(mana), combo,spells);
+            Minion minion = new Minion(name,typeOfMinion, ID,AP, HP,rangeType,range,exhaustion, desc, Integer.parseInt(price), Integer.parseInt(mana), combo,spells);
             String jsonString = gson.toJson(minion);
 
             FileWriter fileWriter = new FileWriter("/home/dorna/IdeaProjects/project-42/Minions/" + name + ".json");
@@ -103,6 +105,7 @@ public class MinionAdder {
 class Minion{
     String name;
     String desc;
+    String typeOfMinion;
     int ID;
     int price;
     int AP;
@@ -114,9 +117,10 @@ class Minion{
     boolean exhaustion;
 
     ArrayList<Spell> spells;
-    Minion(String name,int ID,int AP,int HP,String rangeType,int range,String exhaustion, String desc, int price, int MP,String combo, ArrayList<Spell> spells) {
+    Minion(String name,String typeOfMinion,int ID,int AP,int HP,String rangeType,int range,String exhaustion, String desc, int price, int MP,String combo, ArrayList<Spell> spells) {
         this.price = price;
         this.name = name;
+        this.typeOfMinion=typeOfMinion;
         this.ID=ID;
         this.AP=AP;
         this.HP=HP;

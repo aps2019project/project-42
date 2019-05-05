@@ -13,6 +13,8 @@ public class HeroAdder {
             ArrayList<Spell> spells = new ArrayList<>();
             System.out.println("name:");
             String name = scanner.nextLine();
+            System.out.println("type of hero:");
+            String typeOfHero=scanner.nextLine();
             System.out.println("id:");
             int ID=Integer.parseInt(scanner.nextLine());
             System.out.println("AP:");
@@ -82,7 +84,7 @@ public class HeroAdder {
                 Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity, turns, locations);
                 spells.add(spell);
             }
-            Hero hero = new Hero(name,ID,AP,HP,desc,Integer.parseInt(price),Integer.parseInt(mana),spells);
+            Hero hero = new Hero(name,typeOfHero,ID,AP,HP,desc,Integer.parseInt(price),Integer.parseInt(mana),spells);
             String jsonString = gson.toJson(hero);
 
             FileWriter fileWriter = new FileWriter("/home/dorna/IdeaProjects/project-42/Heroes/" + name + ".json");
@@ -94,6 +96,7 @@ public class HeroAdder {
 
 class Hero {
     String name;
+    String typeOfHero;
     String desc;
     int ID;
     int price;
@@ -102,7 +105,7 @@ class Hero {
     int MP;
     ArrayList<Spell> spells;
 
-    Hero(String name,int ID,int AP,int HP, String desc, int price, int MP, ArrayList<Spell> spells) {
+    Hero(String name,String typeOfHero,int ID,int AP,int HP, String desc, int price, int MP, ArrayList<Spell> spells) {
         this.price = price;
         this.ID=ID;
         this.name = name;
@@ -110,6 +113,7 @@ class Hero {
         this.HP=HP;
         this.desc = desc;
         this.MP = MP;
+        this.typeOfHero=typeOfHero;
         this.spells=spells;
     }
 }
