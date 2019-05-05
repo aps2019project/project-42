@@ -22,8 +22,8 @@ public class ItemAdder {
             System.out.println("num of spells:");
             int num = scanner.nextInt();
             for (int i = 0; i < num; i++) {
-                ArrayList<String > turns = new ArrayList<>();
-                ArrayList<String > locations=new ArrayList<>();
+                ArrayList<Integer > turns = new ArrayList<>();
+                ArrayList<Integer > locations=new ArrayList<>();
                 System.out.println("targetsNumber:");
                 String nfdgmjdr = scanner.nextLine();
                 String targetNumber = scanner.nextLine();
@@ -62,16 +62,12 @@ public class ItemAdder {
                 System.out.println("num of turns:");
                 int numt = scanner.nextInt();
                 for (int j = 0; j < numt; j++) {
-                    System.out.println("turns:");
-                    String turn = scanner.nextLine();
-                    turns.add(turn);
+                    turns.add(0);
                 }
                 int row=scanner.nextInt();
                 int column=scanner.nextInt();
                 for (int j = 0; j < 2*row*column; j++) {
-                    System.out.println("locations:");
-                    String x = scanner.nextLine();
-                    locations.add(x);
+                    locations.add(0);
                 }
                 Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity, turns, locations);
                 spells.add(spell);
