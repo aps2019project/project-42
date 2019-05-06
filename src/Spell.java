@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class Spell{
+class Spell {
     boolean massacre;//true when u kill every body, false when u kill
     boolean choice;//true means its choice base false means its random
     boolean immunity;

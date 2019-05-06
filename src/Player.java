@@ -5,6 +5,8 @@ class Player {
     Account account;
     int mana;
     int turn;
+    int mood2counter=0;
+    int mood3counter=0;
     Hand hand = new Hand();
     GraveYard graveYard;
     ComingSoon comingSoon;
@@ -19,16 +21,23 @@ class Player {
             cell.force = null;
         }
     }
-
+    void targetValidation(Spell spell,Force force){
+        if(spell.locationImportance){
+            boolean b=;
+            for(Cell c:spell.location){
+                if(c.equals(force.))
+            }
+        }
+    }
     void castSpell(Battle battle,Card card,Spell spell){
-        if(spell.choice){
+        if(spell.targetKind.equals(TargetKind.player)&&){
+
+        }
+        else if (spell.choice){
             for(int i=0;i<spell.targetsNumber;i++){
 
             }
         }
-        /*else if (){
-
-        }
         else if (){
 
         }
@@ -55,7 +64,10 @@ class Player {
         }
         else if (){
 
-        }*/
+        }
+        else if (){
+
+        }
     }
 
     boolean rangeValidation(Cell originCell, Cell destinationCell) {
@@ -114,7 +126,53 @@ class Player {
             fillingHand(this.deck, this.hand, this.comingSoon);
         }
     }
-
+    void gameEnding(){
+        if(battle.flagsNumber==0){
+            if(battle.secondPlayer.deck.hero.HP==0&&battle.firstPlayer.deck.hero.HP==0){
+                battle.draw=true;
+                battle.lasting=false;
+            }
+            else if (battle.firstPlayer.deck.hero.HP==0){
+                battle.lasting=false;
+                battle.looser=battle.firstPlayer;
+                battle.winner=battle.secondPlayer;
+            }
+            else if (battle.secondPlayer.deck.hero.HP==0){
+                battle.lasting=false;
+                battle.winner=battle.firstPlayer;
+                battle.looser=battle.secondPlayer;
+            }
+        }
+        else if(battle.flagsNumber==1){
+            if(this.battle.field.cells[2][4].force.owner.mood2counter==8){
+                System.out.println("u lost piece of shit");
+                battle.looser=this;
+                battle.endGame();
+                battle.lasting=false;
+            }
+        }
+        else {
+            battle.firstPlayer.mood3counter=0;
+            battle.secondPlayer.mood3counter=0;
+            for(int i=0;i<5;i++){
+                for (int j=0;j<9;j++){
+                    if(battle.field.cells[i][j].flag==true&&battle.field.cells[i][j].force!=null){
+                        battle.field.cells[i][j].force.owner.mood3counter++;
+                    }
+                }
+            }
+            if(battle.firstPlayer.mood3counter>battle.flagsNumber/2){
+                battle.winner=battle.firstPlayer;
+                battle.looser=battle.secondPlayer;
+                battle.lasting=false;
+            }
+            else if (battle.secondPlayer.mood3counter>battle.flagsNumber/2){
+                battle.looser=battle.firstPlayer;
+                battle.winner=battle.secondPlayer;
+                battle.lasting=false;
+            }
+        }
+    }
     void deploy(Force force,Cell cell) {
         int index=findInHand(hand,force);
         if (index==-1) {
@@ -176,6 +234,7 @@ class Player {
             }
             goinOrNotGoin(destinationCell);
             goinOrNotGoin(originCell);
+            gameEnding();
         }
     }
 
@@ -200,6 +259,7 @@ class Player {
                     goinOrNotGoin(originCells[i]);
                 }
                 goinOrNotGoin(destinationCell);
+                gameEnding();
             }
         }
     }
@@ -209,7 +269,21 @@ class Player {
     }
 
     void endTurn() {
+        if(this.battle.field.cells[2][4].force!=null){
+            int i=this.battle.field.cells[2][4].force.owner.mood2counter;
+            this.battle.firstPlayer.mood2counter=0;
+            this.battle.secondPlayer.mood2counter=0;
+            this.battle.field.cells[2][4].force.owner.mood2counter=i+1;
+        }
+        gameEnding();
         this.battle.turn++;
+    }
+
+    void conceit(){
+        System.out.println("u lost piece of shit");
+        battle.looser=this;
+        battle.endGame();
+        battle.lasting=false;
     }
 
     void gameInfo() {
@@ -273,7 +347,7 @@ class Player {
     void exit() {
 
     }
-
+// intelj asghal push kon
     void showMenu() {
 
     }
