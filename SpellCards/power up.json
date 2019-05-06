@@ -1,5 +1,5 @@
 {
-  "name": "power up",
+  "name": "powerup",
   "desc": "give a power buff to a self force with 6 units adding to its AP",
   "price": 2500,
   "MP": 2,

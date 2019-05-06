@@ -26,7 +26,7 @@ class Player {
 
             }
         }
-        else if (){
+        /*else if (){
 
         }
         else if (){
@@ -55,7 +55,7 @@ class Player {
         }
         else if (){
 
-        }
+        }*/
     }
 
     boolean rangeValidation(Cell originCell, Cell destinationCell) {

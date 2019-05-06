@@ -1,5 +1,5 @@
 {
-  "name": "area dispel",
+  "name": "areadispel",
   "desc": "removing positive enemy buffs and negative self forces buffs in a 2*2 square which it is in top and left cell of it",
   "price": 1500,
   "MP": 2,
