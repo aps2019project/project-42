@@ -29,10 +29,12 @@ public class HeroAdder {
             String price = scanner.nextLine();
             System.out.println("mana:");
             String mana = scanner.nextLine();
+            System.out.println("coolDown:");
+            int coolDown=Integer.parseInt(scanner.nextLine());
             System.out.println("num of spells:");
             int num = scanner.nextInt();
             for (int i = 0; i < num; i++) {
-                ArrayList<Integer> turns = new ArrayList<>();
+                ArrayList<Integer > turns = new ArrayList<>();
                 ArrayList<Integer > locations=new ArrayList<>();
                 System.out.println("targetsNumber:");
                 String nfdgmjdr = scanner.nextLine();
@@ -69,6 +71,8 @@ public class HeroAdder {
                 String goodness = scanner.nextLine();
                 System.out.println("eternity");
                 String eternity = scanner.nextLine();
+                System.out.println("locationImportance:");
+                String locationImportance=scanner.nextLine();
                 System.out.println("num of turns:");
                 int numt = scanner.nextInt();
                 for (int j = 0; j < numt; j++) {
@@ -81,10 +85,10 @@ public class HeroAdder {
                 for (int j = 0; j < 2*row*column; j++) {
                     locations.add(0);
                 }
-                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity, turns, locations);
+                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity,locationImportance, turns, locations);
                 spells.add(spell);
             }
-            Hero hero = new Hero(name,typeOfHero,ID,AP,HP,desc,Integer.parseInt(price),Integer.parseInt(mana),spells);
+            Hero hero = new Hero(name,typeOfHero,ID,AP,HP,desc,Integer.parseInt(price),Integer.parseInt(mana),coolDown,spells);
             String jsonString = gson.toJson(hero);
 
             FileWriter fileWriter = new FileWriter("/home/dorna/IdeaProjects/project-42/Heroes/" + name + ".json");
@@ -99,15 +103,17 @@ class Hero {
     String typeOfHero;
     String desc;
     int ID;
+    int coolDown;
     int price;
     int AP;
     int HP;
     int MP;
     ArrayList<Spell> spells;
 
-    Hero(String name,String typeOfHero,int ID,int AP,int HP, String desc, int price, int MP, ArrayList<Spell> spells) {
+    Hero(String name,String typeOfHero,int ID,int AP,int HP, String desc, int price, int MP,int coolDown, ArrayList<Spell> spells) {
         this.price = price;
         this.ID=ID;
+        this.coolDown=coolDown;
         this.name = name;
         this.AP=AP;
         this.HP=HP;

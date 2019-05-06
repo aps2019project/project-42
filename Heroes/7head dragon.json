@@ -1,5 +1,5 @@
 {
-  "name": "7head dragon",
+  "name": "7headdragon",
   "typeOfHero": "melee",
   "desc": "disarm a force",
   "ID": 203,
@@ -27,6 +27,7 @@
       "choice": true,
       "goodness": false,
       "eternity": false,
+      "locationImportance":false,
       "turns": [
         0
       ],

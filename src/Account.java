@@ -5,7 +5,7 @@ public class Account {
     private String pass;
     Player owner;
     ArrayList<MatchHistory> matchList;
-    ArrayList<Deck> decks;
+    ArrayList<Deck> decks=new ArrayList<>();
     //ArrayList<Card> cards;
     ArrayList<Hero> accountHeroes=new ArrayList<>();
     ArrayList<Item> accountItems=new ArrayList<>();

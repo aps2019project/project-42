@@ -78,8 +78,6 @@ public class CollectionMethods {
             console.deckNameNotFound();
         } else if (!containingInCollection(card)) {
             console.cardNotFound();
-        } else if (deck.cards.contains(card)) {
-            console.cardExists();
         }
     }
 

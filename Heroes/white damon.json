@@ -1,5 +1,5 @@
 {
-  "name": "white damon",
+  "name": "whitedamon",
   "typeOfHero": "melee",
   "desc": "make a power buff with adding 4 units to its AP frequently",
   "ID": 201,
@@ -27,6 +27,7 @@
       "choice": true,
       "goodness": true,
       "eternity": true,
+      "locationImportance":false ,
       "turns": [
         0
       ],

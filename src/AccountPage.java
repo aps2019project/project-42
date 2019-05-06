@@ -88,7 +88,7 @@ class AccountPage extends Menu {
             if (account1.getUser().equals(user) && account1.getPass().equals(pass)) {
                 Duelyst.currentMenu = MainMenu.getInstance();
                 Duelyst.currentAccount=account;
-                System.out.println(account.getUser());
+                //System.out.println(account.getUser());
                 console.welcome();
                 ok = true;
             }

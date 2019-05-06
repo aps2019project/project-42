@@ -65,6 +65,9 @@ class Player {
         else if (){
 
         }
+        else if (){
+
+        }
     }
 
     boolean rangeValidation(Cell originCell, Cell destinationCell) {

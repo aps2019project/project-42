@@ -38,6 +38,7 @@ class Console {
     }
 
     void begHelp() {
+        System.out.println("Account page commands:");
         System.out.println("to creat an account: create account [your selective username]");
         System.out.println("login: login [your username]");
         System.out.println("to see leaderBoard sorted by number of wins: show leaderboard");
@@ -46,7 +47,7 @@ class Console {
     }
 
     void collectionMenu() {
-        System.out.println("show collection\nsearch in collection\ncreate deck\ndelete deck\nremove from a deck\ndeck validation\nchoose main deck\nshow decks\nshow a single deck\nsave\nhelp\nexit");
+        System.out.println("Collection:\nshow collection\nsearch in collection\ncreate deck\ndelete deck\nremove from a deck\ndeck validation\nchoose main deck\nshow decks\nshow a single deck\nsave\nhelp\nexit");
     }
 
     public void showCollection(Account account) {
@@ -87,7 +88,7 @@ class Console {
     }
 
     void cardNotFound() {
-        System.out.println("This cart doesn't exist in your collection");
+        System.out.println("This cart doesn't exist in your collection.");
     }
 
     void deckAdded() {
@@ -102,9 +103,6 @@ class Console {
         System.out.println("This deck doesn't exist in your collection.");
     }
 
-    void collectibleItem() {
-        System.out.println("This item is collectible.");
-    }
 
     void deckHasHero() {
         System.out.println("Your deck has hero, you can't add another hero to it.");
@@ -126,9 +124,6 @@ class Console {
         System.out.println("Card added to deck successfully.");
     }
 
-    void cardExists() {
-        System.out.println("This card already exists in this deck.");
-    }
 
     void deleteCardFromDeck() {
         System.out.println("Card deleted from deck successfully.");
@@ -220,6 +215,7 @@ class Console {
     }
 
     void collectionHelp() {
+        System.out.println("Collection commands:");
         System.out.println("To show your collection: show");
         System.out.println("To find a card id in your cards: search [card name]");
         System.out.println("To find an item id in your items: search [item name]");
@@ -232,6 +228,7 @@ class Console {
         System.out.println("To check validity of a deck (have exactly 20 cards and 1 hero): validate deck [deck name]");
         System.out.println("To select a deck to be main deck: select deck [deck name]");
         System.out.println("To show cards and items in a deck: show deck [deck name]");
+        System.out.println("To see your decks: show all decks");
         System.out.println("To save changes: save");
         System.out.println("To return to main menu: exit");
     }
@@ -274,19 +271,16 @@ class Console {
         System.out.println("You don't have enough money.");
     }
 
-    void cardInCollection() {
-        System.out.println("This card already exists in your collection");
-    }
-
     void cardAdded(int money) {
         System.out.println("This card added to your collection successfully. Your remaining money : "+money);
     }
 
-    void sold() {
-        System.out.println("You sold this cart successfully.");
+    void sold(int money) {
+        System.out.println("You sold this cart successfully. Your remaining money : "+money);
     }
 
     void shopHelp() {
+        System.out.println("Shop commands:");
         System.out.println("To show your cards: show collection");
         System.out.println("To find a card id in shop: search [card name]");
         System.out.println("To find an item id in shop: search [item name]");
@@ -329,6 +323,7 @@ class Console {
     }
 
     void showMainHelp() {
+        System.out.println("Main menu commands:");
         System.out.println("To manage your cards: enter collection");
         System.out.println("To buy or sell cards and items: enter shop");
         System.out.println("To play game: enter battle");
@@ -340,7 +335,7 @@ class Console {
     }
 
     public void creation() {
-        System.out.println("You can login to enter your account.");
+        System.out.println("Welcome. You can login to enter your account.");
     }
 
     public void savedAccount() {

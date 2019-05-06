@@ -27,6 +27,7 @@
       "choice": true,
       "goodness": true,
       "eternity": true,
+      "locationImportance":false ,
       "turns": [
         0
       ],

@@ -2,69 +2,62 @@ import java.util.ArrayList;
 
 public class ShopMethods {
     Console console = Console.getInstance();
-    Account account = Duelyst.currentAccount;
 
     void buyCard(String string) {
         Card card = Card.getCardByName(string);
-        System.out.println(card.price);
-        System.out.println(account);
-        //System.out.println(account.money);
-        //System.out.println(card);
-        if (card==null) {
-            System.out.println(1);
+        if (card == null) {
             console.cardNotInShop();
-        } else if (card.price > account.money) {
-            System.out.println(2);
+        } else if (card.price > Duelyst.currentAccount.money) {
             console.insufficientMoney();
-        } else if (Duelyst.getAllItems().contains(card) && account.itemCounter==3){
-            System.out.println(3);
+        } else if (Duelyst.getAllItems().contains(card) && Duelyst.currentAccount.itemCounter == 3) {
             console.cantBuyItem();
-        }
-        else {
+        } else {
             if (Duelyst.getAllHeroes().contains(card)) {
-                System.out.println(4);
-                account.getAccountHeroes().add((Hero) card);
+                Duelyst.currentAccount.getAccountHeroes().add((Hero) card);
             } else if (Duelyst.getAllItems().contains(card)) {
-                System.out.println(5);
-                account.getAccountItems().add((Item) card);
-                account.itemCounter++;
+                Duelyst.currentAccount.getAccountItems().add((Item) card);
+                Duelyst.currentAccount.itemCounter++;
             } else if (Duelyst.getAllMinions().contains(card)) {
-                System.out.println(6);
-                account.getAccountMinions().add((Minion) card);
+                Duelyst.currentAccount.getAccountMinions().add((Minion) card);
             } else if (Duelyst.getAllSpellCards().contains(card)) {
-                System.out.println(7);
-                account.getAccountSpellCards().add((SpellCard) card);
+                Duelyst.currentAccount.getAccountSpellCards().add((SpellCard) card);
             }
-            card.owner = account.owner;
-            account.money -= card.price;
-            console.cardAdded(account.money);
+            card.owner = Duelyst.currentAccount.owner;
+            Duelyst.currentAccount.money -= card.price;
+            console.cardAdded(Duelyst.currentAccount.money);
         }
     }
 
 
-    void sellCard(String string) {
-        Card card = new Card(string);
-        if (!containingInCollection(card)) {
+    void sellCard(int id) {
+        Card card = getCardByIdInCollection(id);
+        if (card == null) {
             console.cardNotFound();
-        } else if (card.price == 0) {
-            console.collectibleItem();
         } else {
-            if (Duelyst.getAllHeroes().contains(card)) {
-                account.getAccountHeroes().remove(card);
-            } else if (Duelyst.getAllItems().contains(card)) {
-                account.getAccountItems().remove(card);
-            } else if (Duelyst.getAllMinions().contains(card)) {
-                account.getAccountMinions().remove(card);
-            } else if (Duelyst.getAllSpellCards().contains(card)) {
-                account.getAccountSpellCards().remove(card);
+            ArrayList<Deck> tempAccountDecks=new ArrayList<>(Duelyst.currentAccount.getDecks());
+            if (!tempAccountDecks.isEmpty()) {
+                for (Deck deck : tempAccountDecks) {
+                    if (deck.cards.contains(card)) {
+                        deck.cards.remove(card);
+                    }
+                }
             }
-            account.money += card.price;
-            console.sold();
+            if (Duelyst.getAllHeroes().contains(card)) {
+                Duelyst.currentAccount.getAccountHeroes().remove(card);
+            } else if (Duelyst.getAllItems().contains(card)) {
+                Duelyst.currentAccount.getAccountItems().remove(card);
+            } else if (Duelyst.getAllMinions().contains(card)) {
+                Duelyst.currentAccount.getAccountMinions().remove(card);
+            } else if (Duelyst.getAllSpellCards().contains(card)) {
+                Duelyst.currentAccount.getAccountSpellCards().remove(card);
+            }
+            Duelyst.currentAccount.money += card.price;
+            console.sold(Duelyst.currentAccount.money);
         }
     }
 
     void showCollection() {
-        console.showCollection(account);
+        console.showCollection(Duelyst.currentAccount);
     }
 
     void showShop() {
@@ -72,7 +65,7 @@ public class ShopMethods {
     }
 
     void searchShop(String string) {
-        Card card = new Card(string);
+        Card card = Card.getCardByName(string);
         if (Duelyst.getAllHeroes().contains(card)) {
             console.print(card.ID);
         } else if (Duelyst.getAllItems().contains(card)) {
@@ -88,37 +81,58 @@ public class ShopMethods {
     }
 
     void searchCollection(String string) {
-        Card card = new Card(string);
-        if (containingInCollection(card)) {
+        Card card = getCardByNameInCollection(string);
+        if (card != null) {
             console.print(card.ID);
         } else {
             console.cardNotInShop();
         }
     }
 
-    boolean containingInCollection(Card card) {
-        return account.getAccountHeroes().contains(card) || account.getAccountItems().contains(card) || account.getAccountMinions().contains(card) || account.getAccountSpellCards().contains(card);
+    public Card getCardByNameInCollection(String name) {
+        for (Hero hero : Duelyst.currentAccount.accountHeroes) {
+            if (hero.name.equals(name)) {
+                return hero;
+            }
+        }
+        for (SpellCard spell : Duelyst.currentAccount.getAccountSpellCards()) {
+            if (spell.name.equals(name)) {
+                return spell;
+            }
+        }
+        for (Minion minion : Duelyst.currentAccount.getAccountMinions()) {
+            if (minion.name.equals(name)) {
+                return minion;
+            }
+        }
+        for (Item item : Duelyst.currentAccount.getAccountItems()) {
+            if (item.name.equals(name)) {
+                return item;
+            }
+        }
+        return null;
     }
-
-    boolean containingInShop(String string) {
-        boolean exist = false;
-        for (Hero hero : Duelyst.getAllHeroes()) {
-            if (hero.name.equals(string))
-                exist = true;
+    public Card getCardByIdInCollection(int id){
+        for (Hero hero : Duelyst.currentAccount.accountHeroes) {
+            if (hero.ID==id) {
+                return hero;
+            }
         }
-        for (Item item : Duelyst.getAllItems()) {
-            if (item.name.equals(string))
-                exist = true;
+        for (SpellCard spell : Duelyst.currentAccount.getAccountSpellCards()) {
+            if (spell.ID==id) {
+                return spell;
+            }
         }
-        for (Minion minion : Duelyst.getAllMinions()) {
-            if (minion.name.equals(string))
-                exist = true;
+        for (Minion minion : Duelyst.currentAccount.getAccountMinions()) {
+            if (minion.ID==id) {
+                return minion;
+            }
         }
-        for (SpellCard spellCard : Duelyst.getAllSpellCards()) {
-            if (spellCard.name.equals(string))
-                exist = true;
+        for (Item item : Duelyst.currentAccount.getAccountItems()) {
+            if (item.ID==id) {
+                return item;
+            }
         }
-        return exist;
-        //return Duelyst.getAllHeroes().contains(card) || Duelyst.getAllItems().contains(card) || Duelyst.getAllMinions().contains(card) || Duelyst.getAllSpellCards().contains(card);
+        return null;
     }
 }

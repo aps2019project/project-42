@@ -7,7 +7,7 @@ class Battle{
                 return true;
         return false;
     }
-    void fillCollectables(Field field){
+    void fillCollectibles(Field field){
 
     }
     void fillFlags(Field field){
