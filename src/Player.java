@@ -21,7 +21,7 @@ class Player {
             cell.force = null;
         }
     }
-    void targetValidation(Spell spell,Force force){
+    /*void targetValidation(Spell spell,Force force){
         if(spell.locationImportance){
             boolean b=;
             for(Cell c:spell.location){
@@ -69,7 +69,7 @@ class Player {
 
         }
     }
-
+*/
     boolean rangeValidation(Cell originCell, Cell destinationCell) {
         if (((originCell.force.rangeType.equals(RangeType.melee)) && ((Math.abs(destinationCell.getX() - originCell.getX()) > 1) || (Math.abs(destinationCell.getY() - originCell.getY()) > 1))) || ((originCell.force.rangeType.equals(RangeType.ranged)) && ((Math.abs(destinationCell.getX() - originCell.getX()) + Math.abs(destinationCell.getY() - originCell.getY()) > originCell.force.range) || ((Math.abs(destinationCell.getX() - originCell.getX()) > 1) || (Math.abs(destinationCell.getY() - originCell.getY()) < 2)))) || ((originCell.force.rangeType.equals(RangeType.hybrid)) && (Math.abs(destinationCell.getX() - originCell.getX()) + Math.abs(destinationCell.getY() - originCell.getY()) > originCell.force.range)))
             return false;
@@ -173,7 +173,7 @@ class Player {
             }
         }
     }
-    void deploy(Force force,Cell cell) {
+    /*void deploy(Force force,Cell cell) {
         int index=findInHand(hand,force);
         if (index==-1) {
         }
@@ -200,7 +200,7 @@ class Player {
                 castSpell(battle, spellCard, spellCard.spells.get(i));
             }
         }
-    }
+    }*/
     void move(Cell originCell, Cell destinationCell) {
         if (originCell.force ==  null ) {
             console.noOrigin();

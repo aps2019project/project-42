@@ -12,11 +12,15 @@ class Duelyst {
     private static ArrayList<SpellCard> allSpells = new ArrayList<>();
     private static ArrayList<Item> allItems = new ArrayList<>();
     private static ArrayList<Hero> allHeroes = new ArrayList<>();
-    ArrayList<Card> source;
+    private static ArrayList<Item> allCollectibleItems = new ArrayList<>();
     public static Menu currentMenu = new Menu();
     static boolean finishGame = false;
     static Scanner scanner = new Scanner(System.in);
     String command;
+
+    public static ArrayList<Item> getAllCollectibleItems() {
+        return allCollectibleItems;
+    }
 
     public static ArrayList<Hero> getAllHeroes() {
         return allHeroes;
@@ -50,7 +54,7 @@ class Duelyst {
     private void preStart() throws IOException {
         setCurrentMenu();
         final String[] names = {
-                "Heroes", "Items", "Minions", "SpellCards"
+                "Heroes", "Items", "Minions", "SpellCards", "CollectibleItems"
         };
         for (String name : names) {
             File source = new File(name);
@@ -65,6 +69,8 @@ class Duelyst {
                         addMinion(file, Minion.class, Duelyst.getAllMinions());
                     } else if (name.contains("SpellCards")) {
                         addSpell(file, SpellCard.class, Duelyst.getAllSpellCards());
+                    } else if (name.contains("CollectibleItems")) {
+                        addItem(file, Item.class, Duelyst.getAllCollectibleItems());
                     }
                 }
             }
