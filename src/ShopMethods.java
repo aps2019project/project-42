@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class ShopMethods {
     Console console = Console.getInstance();
-    private Account account = Duelyst.currentAccount;
 
     void buyCard(String string) {
         Card card = Card.getCardByName(string);
@@ -30,11 +29,19 @@ public class ShopMethods {
     }
 
 
-    void sellCard(String string) {
-        Card card = getCardByNameInCollection(string);
+    void sellCard(int id) {
+        Card card = getCardByIdInCollection(id);
         if (card == null) {
             console.cardNotFound();
         } else {
+            ArrayList<Deck> tempAccountDecks=new ArrayList<>(Duelyst.currentAccount.getDecks());
+            if (!tempAccountDecks.isEmpty()) {
+                for (Deck deck : tempAccountDecks) {
+                    if (deck.cards.contains(card)) {
+                        deck.cards.remove(card);
+                    }
+                }
+            }
             if (Duelyst.getAllHeroes().contains(card)) {
                 Duelyst.currentAccount.getAccountHeroes().remove(card);
             } else if (Duelyst.getAllItems().contains(card)) {
@@ -43,11 +50,6 @@ public class ShopMethods {
                 Duelyst.currentAccount.getAccountMinions().remove(card);
             } else if (Duelyst.getAllSpellCards().contains(card)) {
                 Duelyst.currentAccount.getAccountSpellCards().remove(card);
-            }
-            for (Deck deck : Duelyst.currentAccount.decks) {
-                if (deck.cards.contains(card)){
-                    deck.cards.remove(card);
-                }
             }
             Duelyst.currentAccount.money += card.price;
             console.sold(Duelyst.currentAccount.money);
@@ -80,16 +82,13 @@ public class ShopMethods {
 
     void searchCollection(String string) {
         Card card = getCardByNameInCollection(string);
-        if (card!=null) {
+        if (card != null) {
             console.print(card.ID);
         } else {
             console.cardNotInShop();
         }
     }
 
-    /*boolean containingInCollection(Card card) {
-        return account.getAccountHeroes().contains(card) || account.getAccountItems().contains(card) || account.getAccountMinions().contains(card) || account.getAccountSpellCards().contains(card);
-    }*/
     public Card getCardByNameInCollection(String name) {
         for (Hero hero : Duelyst.currentAccount.accountHeroes) {
             if (hero.name.equals(name)) {
@@ -113,26 +112,27 @@ public class ShopMethods {
         }
         return null;
     }
-
-    /*boolean containingInShop(String string) {
-        boolean exist = false;
-        for (Hero hero : Duelyst.getAllHeroes()) {
-            if (hero.name.equals(string))
-                exist = true;
+    public Card getCardByIdInCollection(int id){
+        for (Hero hero : Duelyst.currentAccount.accountHeroes) {
+            if (hero.ID==id) {
+                return hero;
+            }
         }
-        for (Item item : Duelyst.getAllItems()) {
-            if (item.name.equals(string))
-                exist = true;
+        for (SpellCard spell : Duelyst.currentAccount.getAccountSpellCards()) {
+            if (spell.ID==id) {
+                return spell;
+            }
         }
-        for (Minion minion : Duelyst.getAllMinions()) {
-            if (minion.name.equals(string))
-                exist = true;
+        for (Minion minion : Duelyst.currentAccount.getAccountMinions()) {
+            if (minion.ID==id) {
+                return minion;
+            }
         }
-        for (SpellCard spellCard : Duelyst.getAllSpellCards()) {
-            if (spellCard.name.equals(string))
-                exist = true;
+        for (Item item : Duelyst.currentAccount.getAccountItems()) {
+            if (item.ID==id) {
+                return item;
+            }
         }
-        return exist;
-        //return Duelyst.getAllHeroes().contains(card) || Duelyst.getAllItems().contains(card) || Duelyst.getAllMinions().contains(card) || Duelyst.getAllSpellCards().contains(card);
-    }*/
+        return null;
+    }
 }
