@@ -23,7 +23,7 @@ class Shop extends Menu {
             } else if (command.matches("buy(\\s+)[0-9a-z]+")) {
                 shopMethods.buyCard(commandArray[1]);
             } else if (command.matches("sell(\\s+)[0-9a-z]+")) {
-                shopMethods.sellCard(commandArray[1]);
+                shopMethods.sellCard(Integer.parseInt(commandArray[1]));
             } else if (command.matches("show(\\s+)collection")) {
                 shopMethods.showCollection();
             } else if (command.matches("search(\\s+)[0-9a-z]+")) {
