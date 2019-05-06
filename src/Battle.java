@@ -24,7 +24,22 @@ class Battle{
             field.cells[a/4][8-a%4].flag=true;
         }
     }
+    void endGame(){
+        if(winner.equals(firstPlayer)||looser.equals(secondPlayer)){
+            looser=secondPlayer;
+            winner=firstPlayer;
+        }
+        else {
+            winner=secondPlayer;
+            looser=firstPlayer;
+        }
+
+    }
     GameType gameType;
+    boolean lasting=true;
+    boolean draw=false;
+    Player winner;
+    Player looser;
     int flagsNumber;
     int turn = 1;
     Player firstPlayer;
