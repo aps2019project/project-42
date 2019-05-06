@@ -6,7 +6,7 @@ class Deck {
     int numOfItems = 0;
     String name;
     Account account;
-    ArrayList<Card> cards;
+    ArrayList<SpellCard> cards;
     Hero hero;
     Item usable;
 
