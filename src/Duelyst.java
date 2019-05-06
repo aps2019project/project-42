@@ -8,11 +8,31 @@ class Duelyst {
 
     static ArrayList<Account> accounts = new ArrayList<Account>();
     static HashMap<String, Integer> wins = new HashMap<>();
+    private static ArrayList<Minion> allMinions = new ArrayList<>();
+    private static ArrayList<SpellCard> allSpells = new ArrayList<>();
+    private static ArrayList<Item> allItems = new ArrayList<>();
+    private static ArrayList<Hero> allHeroes = new ArrayList<>();
     ArrayList<Card> source;
     public static Menu currentMenu = new Menu();
     static boolean finishGame = false;
     static Scanner scanner = new Scanner(System.in);
     String command;
+
+    public static ArrayList<Hero> getAllHeroes() {
+        return allHeroes;
+    }
+
+    public static ArrayList<Item> getAllItems() {
+        return allItems;
+    }
+
+    public static ArrayList<Minion> getAllMinions() {
+        return allMinions;
+    }
+
+    public static ArrayList<SpellCard> getAllSpellCards() {
+        return allSpells;
+    }
 
     public void setCurrentMenu() {
         this.currentMenu = AccountPage.getInstance();
@@ -20,7 +40,7 @@ class Duelyst {
 
     void main() throws IOException {
         preStart();
-        /*for (Card card : Card.getAllHeroes()){
+        /*for (Card card : Duelyst.getAllHeroes()){
             System.out.println(card);
         }*/
         while (true) {
@@ -33,7 +53,7 @@ class Duelyst {
     private void preStart() throws IOException {
         setCurrentMenu();
         final String[] names = {
-                "Heroes", "Items", "Minions", "Spells"
+                "Heroes", "Items", "Minions", "SpellCards"
         };
         for (String name : names) {
             File source = new File(name);
@@ -41,13 +61,13 @@ class Duelyst {
             if (sources != null) {
                 for (File file : sources) {
                     if (name.contains("Heroes")) {
-                        addHero(file, Hero.class, Card.getAllHeroes());
+                        addHero(file, Hero.class, Duelyst.getAllHeroes());
                     } else if (name.contains("Items")) {
-                        addItem(file, Item.class, Card.getAllItems());
+                        addItem(file, Item.class, Duelyst.getAllItems());
                     } else if (name.contains("Minions")) {
-                        addMinion(file, Minion.class, Card.getAllMinions());
-                    } else if (name.contains("Spells")) {
-                        addSpell(file, SpellCard.class, Card.getAllSpells());
+                        addMinion(file, Minion.class, Duelyst.getAllMinions());
+                    } else if (name.contains("SpellCards")) {
+                        addSpell(file, SpellCard.class, Duelyst.getAllSpellCards());
                     }
                 }
             }
@@ -108,11 +128,6 @@ class Duelyst {
     private void mainMenuHandler(String command) {
         MainMenu mainMenu = MainMenu.getInstance();
         mainMenu.mainMenu(command);
-    }
-
-
-    void addToSource(Card card) {
-
     }
 
     void start(Scanner scanner) {

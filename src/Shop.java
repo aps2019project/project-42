@@ -11,8 +11,6 @@ class Shop extends Menu {
         return shop;
     }
 
-    ArrayList<Card> cards;
-    Account account;
 
     void shopMenu(String command) {
         try {

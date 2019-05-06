@@ -12,6 +12,6 @@ class Minion extends Force {
 
     @Override
     public String toString() {
-        return  " type : minion name : " + this.name + " class : " + this.typeOfMinion + " - AP : " + this.AP + " - HP : " + this.HP + " MP : " + this.MP + " - special power : " + this.desc + " - price : " + this.price;
+        return  " type : minion - name : " + this.name + " - class : " + this.typeOfMinion + " - AP : " + this.AP + " - HP : " + this.HP + " - MP : " + this.MP + " - special power : " + this.desc + " - price : " + this.price;
     }
 }

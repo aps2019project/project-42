@@ -11,10 +11,10 @@ public class Account {
     ArrayList<Item> accountItems=new ArrayList<>();
     ArrayList<Minion> accountMinions=new ArrayList<>();
     ArrayList<SpellCard> accountSpells=new ArrayList<>();
-
     Deck mainDeck;
     int mainDeckIndex;
     int money=15000;
+    int itemCounter=0;
     CollectionMethods collectionMethods = new CollectionMethods();
     ShopMethods shopMethods=new ShopMethods();
 
@@ -34,7 +34,7 @@ public class Account {
         return accountMinions;
     }
 
-    public ArrayList<SpellCard> getAccountSpells() {
+    public ArrayList<SpellCard> getAccountSpellCards() {
         return accountSpells;
     }
 

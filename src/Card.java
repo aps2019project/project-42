@@ -6,26 +6,33 @@ class Card {
     Player owner;
     int ID;//needed in shop
     int price;
-    private static ArrayList<Minion> allMinions = new ArrayList<>();
-    private static ArrayList<SpellCard> allSpells = new ArrayList<>();
-    private static ArrayList<Item> allItems = new ArrayList<>();
-    private static ArrayList<Hero> allHeroes = new ArrayList<>();
 
-    public static ArrayList<Hero> getAllHeroes() {
-        return allHeroes;
+
+    public static Card getCardByName(String name) {
+        for (Hero hero : Duelyst.getAllHeroes()) {
+            if (hero.name.equals(name)) {
+                return hero;
+            }
+        }
+        for (SpellCard spell : Duelyst.getAllSpellCards()) {
+            if (spell.name.equals(name)) {
+                return spell;
+            }
+        }
+        for (Minion minion : Duelyst.getAllMinions()) {
+            if (minion.name.equals(name)) {
+                return minion;
+            }
+        }
+        for (Item item:Duelyst.getAllItems()){
+            if (item.name.equals(name)){
+                return item;
+            }
+        }
+        return null;
     }
 
-    public static ArrayList<Item> getAllItems() {
-        return allItems;
-    }
 
-    public static ArrayList<Minion> getAllMinions() {
-        return allMinions;
-    }
-
-    public static ArrayList<SpellCard> getAllSpells() {
-        return allSpells;
-    }
 
     public Card(String name) {
         this.name = name;

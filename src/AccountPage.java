@@ -77,21 +77,24 @@ class AccountPage extends Menu {
             account.setUser(user);
             account.setPass(pass);
             Duelyst.accounts.add(account);
-            Duelyst.currentMenu = MainMenu.getInstance();
-            console.welcome();
+            console.creation();
         }
     }
 
     void login(String user, String pass) {
         Account account = new Account(user, pass);
+        boolean ok = false;
         for (Account account1 : Duelyst.accounts) {
             if (account1.getUser().equals(user) && account1.getPass().equals(pass)) {
                 Duelyst.currentMenu = MainMenu.getInstance();
                 Duelyst.currentAccount=account;
+                System.out.println(account.getUser());
                 console.welcome();
-            } else {
-                console.loginError();
+                ok = true;
             }
+        }
+        if (!ok){
+            console.loginError();
         }
     }
 
@@ -120,11 +123,10 @@ class AccountPage extends Menu {
     }
 
     void save() {
-
+        console.savedAccount();
     }
 
     void logOut() {
-        Duelyst.currentAccount = null;
         Duelyst.currentMenu = AccountPage.getInstance();
         console.logoutMessage();
     }

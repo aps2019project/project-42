@@ -47,7 +47,7 @@ public class CollectionMethods {
         Card card = new Card(str1);
         Deck deck = new Deck(str2);
         if (account.getDecks().contains(deck) && containingInCollection(card) && !deck.cards.contains(card)) {
-            if (Card.getAllHeroes().contains(card)) {
+            if (Duelyst.getAllHeroes().contains(card)) {
                 if (deck.numOfHeroes < 1) {
                     deck.cards.add(card);
                     deck.numOfHeroes++;
@@ -55,7 +55,7 @@ public class CollectionMethods {
                 } else {
                     console.deckHasHero();
                 }
-            } else if (Card.getAllItems().contains(card)) {
+            } else if (Duelyst.getAllItems().contains(card)) {
                 if (deck.numOfItems < 1) {
                     deck.numOfItems++;
                     deck.cards.add(card);
@@ -64,7 +64,7 @@ public class CollectionMethods {
                     console.deckHasItem();
                 }
 
-            } else if ((Card.getAllMinions().contains(card) || Card.getAllSpells().contains(card))) {
+            } else if ((Duelyst.getAllMinions().contains(card) || Duelyst.getAllSpellCards().contains(card))) {
                 if (deck.numOfCards < 20) {
                     deck.numOfCards++;
                     deck.cards.add(card);
@@ -87,15 +87,15 @@ public class CollectionMethods {
         Card card = new Card(str1);
         Deck deck = new Deck(str2);
         if (account.getDecks().contains(deck) && containingInCollection(card) && deck.cards.contains(card)) {
-            if (Card.getAllHeroes().contains(card)) {
+            if (Duelyst.getAllHeroes().contains(card)) {
                 deck.cards.remove(card);
                 deck.numOfHeroes--;
                 console.deleteCardFromDeck();
-            } else if (Card.getAllItems().contains(card)) {
+            } else if (Duelyst.getAllItems().contains(card)) {
                 deck.numOfItems--;
                 deck.cards.remove(card);
                 console.deleteCardFromDeck();
-            } else if ((Card.getAllMinions().contains(card) || Card.getAllSpells().contains(card))) {
+            } else if ((Duelyst.getAllMinions().contains(card) || Duelyst.getAllSpellCards().contains(card))) {
                 deck.numOfCards--;
                 deck.cards.remove(card);
                 console.deleteCardFromDeck();
@@ -161,6 +161,6 @@ public class CollectionMethods {
     }
 
     private boolean containingInCollection(Card card) {
-        return account.getAccountHeroes().contains(card) || account.getAccountItems().contains(card) || account.getAccountMinions().contains(card) || account.getAccountSpells().contains(card);
+        return account.getAccountHeroes().contains(card) || account.getAccountItems().contains(card) || account.getAccountMinions().contains(card) || account.getAccountSpellCards().contains(card);
     }
 }
