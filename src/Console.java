@@ -282,8 +282,8 @@ class Console {
         System.out.println("This card added to your collection successfully. Your remaining money : "+money);
     }
 
-    void sold() {
-        System.out.println("You sold this cart successfully.");
+    void sold(int money) {
+        System.out.println("You sold this cart successfully. Your remaining money : "+money);
     }
 
     void shopHelp() {
@@ -340,7 +340,7 @@ class Console {
     }
 
     public void creation() {
-        System.out.println("You can login to enter your account.");
+        System.out.println("Welcome. You can login to enter your account.");
     }
 
     public void savedAccount() {
