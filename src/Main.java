@@ -5,8 +5,9 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) throws IOException {
-        Duelyst duelyst=new Duelyst();
+        Duelyst duelyst = new Duelyst();
         duelyst.main();
     }
 }

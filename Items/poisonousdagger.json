@@ -1,1 +1,32 @@
-{"name":"poisonousdagger","desc":"on a friendly attack, for 1 turn, activates a poison buff on a random enemy force","ID":308,"price":7000,"spells":[{"targetNumber":1,"targetDistance":0,"effectQuantity":0,"staticQuantity":0,"time":"attack","side":"foe","effect":"poison","staticState":"nothing","targetRange":"anyThing","targetStatic":"nothing","targetKind":"minion","massacre":false,"immunity":false,"continuous":false,"choice":false,"goodness":false,"eternity":false,"locationImportance":false,"turns":[0],"locations":[]}]}
+{
+  "name": "poisonousdagger",
+  "desc": "on a friendly attack, for 1 turn, activates a poison buff on a random enemy force",
+  "ID": 308,
+  "price": 7000,
+  "spells": [
+    {
+      "targetNumber": 1,
+      "targetDistance": 0,
+      "effectQuantity": 0,
+      "staticQuantity": 0,
+      "time": "attack",
+      "side": "foe",
+      "effect": "poison",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "nothing",
+      "targetKind": "minion",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": false,
+      "goodness": false,
+      "eternity": false,
+      "locationImportance": false,
+      "turns": [
+        0
+      ],
+      "locations": []
+    }
+  ]
+}

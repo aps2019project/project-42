@@ -11,8 +11,6 @@ public class MainMenu extends Menu {
         return mainMenu;
     }
 
-    private Scanner scanner = Main.scanner;
-
     void mainMenu(String command) {
         try {
             if (command.matches("enter(\\s+)collection")) {
@@ -37,7 +35,7 @@ public class MainMenu extends Menu {
     }
 
     private void exit() {
-        Duelyst.currentMenu=AccountPage.getInstance();
+        Duelyst.currentMenu = AccountPage.getInstance();
     }
 
     private void showMenu() {

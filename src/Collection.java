@@ -23,7 +23,6 @@ class Collection extends Menu {
             } else if (command.matches("show")) {
                 collectionMethods.show();
             } else if (commandArray[0].equals("search")) {
-
                 collectionMethods.search(commandArray[1]);
             } else if (command.matches("save")) {
                 collectionMethods.save();

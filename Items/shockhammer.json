@@ -1,1 +1,32 @@
-{"name":"shockhammer","desc":"on attack, hero disarms enemy force for one turn.","ID":309,"price":15000,"spells":[{"targetNumber":1,"targetDistance":0,"effectQuantity":0,"staticQuantity":0,"time":"heroAttack","side":"foe","effect":"disarm","staticState":"nothing","targetRange":"anyThing","targetStatic":"nothing","targetKind":"minion","massacre":false,"immunity":false,"continuous":false,"choice":true,"goodness":false,"eternity":false,"locationImportance":false,"turns":[0],"locations":[]}]}
+{
+  "name": "shockhammer",
+  "desc": "on attack, hero disarms enemy force for one turn.",
+  "ID": 309,
+  "price": 15000,
+  "spells": [
+    {
+      "targetNumber": 1,
+      "targetDistance": 0,
+      "effectQuantity": 0,
+      "staticQuantity": 0,
+      "time": "heroAttack",
+      "side": "foe",
+      "effect": "disarm",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "nothing",
+      "targetKind": "minion",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": false,
+      "eternity": false,
+      "locationImportance": false,
+      "turns": [
+        0
+      ],
+      "locations": []
+    }
+  ]
+}

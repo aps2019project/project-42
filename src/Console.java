@@ -341,4 +341,8 @@ class Console {
     public void savedAccount() {
         System.out.println("Your account saved successfully.");
     }
+
+    public void collectionSave() {
+        System.out.println("Your collection changes saved successfully.");
+    }
 }
