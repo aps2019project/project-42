@@ -62,6 +62,8 @@ public class SpellCardAdder {
                 System.out.println("goodness");
                 String goodness = scanner.nextLine();
                 System.out.println("eternity");
+                System.out.println("locationImportance:");
+                                String locationImportance=scanner.nextLine();
                 String eternity = scanner.nextLine();
                 System.out.println("num of turns:");
                 int numt=scanner.nextInt();
@@ -77,7 +79,7 @@ public class SpellCardAdder {
                 for (int j = 0; j < 2*row*column; j++) {
                     locations.add(0);
                 }
-                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity,continuous, choice, goodness, eternity,turns,locations);
+                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity,continuous, choice, goodness, eternity,locationImportance,turns,locations);
                 spells.add(spell);
             }
             SpellCard spellCard = new SpellCard(name,ID,desc,Integer.parseInt(price),Integer.parseInt(mana),spells);

@@ -40,9 +40,6 @@ class Duelyst {
 
     void main() throws IOException {
         preStart();
-        /*for (Card card : Duelyst.getAllHeroes()){
-            System.out.println(card);
-        }*/
         while (true) {
             if (finishGame) break;
             command = scanner.nextLine().trim().toLowerCase();

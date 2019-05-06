@@ -61,6 +61,8 @@ public class ItemAdder {
                 String goodness = scanner.nextLine();
                 System.out.println("eternity");
                 String eternity = scanner.nextLine();
+                System.out.println("locationImportance:");
+                String locationImportance=scanner.nextLine();
                 System.out.println("num of turns:");
                 int numt = scanner.nextInt();
                 for (int j = 0; j < numt; j++) {
@@ -73,7 +75,7 @@ public class ItemAdder {
                 for (int j = 0; j < 2*row*column; j++) {
                     locations.add(0);
                 }
-                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity, turns, locations);
+                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity,locationImportance, turns, locations);
                 spells.add(spell);
             }
             Item item = new Item(name, ID,desc, Integer.parseInt(price), spells);
