@@ -26,21 +26,21 @@ class Battle {
             field.cells[a / 4][8 - a % 4].flag = true;
         }
     }
-    void endGame(){
-        if(winner.equals(firstPlayer)||looser.equals(secondPlayer)){
-            looser=secondPlayer;
-            winner=firstPlayer;
-        }
-        else {
-            winner=secondPlayer;
-            looser=firstPlayer;
+
+    void endGame() {
+        if (winner.equals(firstPlayer) || looser.equals(secondPlayer)) {
+            looser = secondPlayer;
+            winner = firstPlayer;
+        } else {
+            winner = secondPlayer;
+            looser = firstPlayer;
         }
 
     }
 
     GameType gameType;
-    boolean lasting=true;
-    boolean draw=false;
+    boolean lasting = true;
+    boolean draw = false;
     Player winner;
     Player looser;
     int flagsNumber;
@@ -49,7 +49,7 @@ class Battle {
     Player secondPlayer;
     Field field;
 
-    Battle(GameType gameType1, int flagNumber1, Account first, Account second) {
+    void Battle(GameType gameType1, int flagNumber1, Account first, Account second) {
         gameType = gameType1;
         flagsNumber = flagNumber1;
         firstPlayer = new Player(first);

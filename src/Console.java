@@ -347,4 +347,32 @@ class Console {
     public void noDeck() {
         System.out.println("You don't have any deck in your account");
     }
+
+    public void invalidMainDeck() {
+        System.out.println("selected deck is invalid.");
+    }
+
+    public void chooseHero() {
+        System.out.println("choose your hero.");
+    }
+
+    public void chooseMood() {
+        System.out.println("Choose your mode:");
+    }
+
+    public void moods() {
+        System.out.println("mode1\nmode2\nmode3");
+    }
+
+    public void storyGame() {
+        System.out.println("level1\nlevel2\nlevel3");
+    }
+
+    public void chooseOpponent() {
+        System.out.println("choose your opponent");
+    }
+
+    public void showUser(Account account) {
+        System.out.println(account.getUser());
+    }
 }
