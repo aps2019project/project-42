@@ -85,7 +85,7 @@ public class ShopMethods {
         if (card != null) {
             console.print(card.ID);
         } else {
-            console.cardNotInShop();
+            console.cardNotFound();
         }
     }
 
