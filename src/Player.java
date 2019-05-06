@@ -20,6 +20,44 @@ class Player {
         }
     }
 
+    void castSpell(Battle battle,Card card,Spell spell){
+        if(spell.choice){
+            for(int i=0;i<spell.targetsNumber;i++){
+
+            }
+        }
+        else if (){
+
+        }
+        else if (){
+
+        }
+        else if (){
+
+        }
+        else if (){
+
+        }
+        else if (){
+
+        }
+        else if (){
+
+        }
+        else if (){
+
+        }
+        else if (){
+
+        }
+        else if (){
+
+        }
+        else if (){
+
+        }
+    }
+
     boolean rangeValidation(Cell originCell, Cell destinationCell) {
         if (((originCell.force.rangeType.equals(RangeType.melee)) && ((Math.abs(destinationCell.getX() - originCell.getX()) > 1) || (Math.abs(destinationCell.getY() - originCell.getY()) > 1))) || ((originCell.force.rangeType.equals(RangeType.ranged)) && ((Math.abs(destinationCell.getX() - originCell.getX()) + Math.abs(destinationCell.getY() - originCell.getY()) > originCell.force.range) || ((Math.abs(destinationCell.getX() - originCell.getX()) > 1) || (Math.abs(destinationCell.getY() - originCell.getY()) < 2)))) || ((originCell.force.rangeType.equals(RangeType.hybrid)) && (Math.abs(destinationCell.getX() - originCell.getX()) + Math.abs(destinationCell.getY() - originCell.getY()) > originCell.force.range)))
             return false;
@@ -58,6 +96,13 @@ class Player {
 
     }
 
+    int findInHand(Hand hand,Card card){
+        for (int i=0;i<5;i++)
+            if(card.ID==hand.cards[i].ID)
+                return i;
+        return -1;
+    }
+
     Player(Account account) {
         this.turn = 1;
         this.account = account;
@@ -70,17 +115,34 @@ class Player {
         }
     }
 
-    void deploy(Minion minion, Cell cell) {
-        if (this.mana < minion.MP) {
+    void deploy(Force force,Cell cell) {
+        int index=findInHand(hand,force);
+        if (index==-1) {
+        }
+        else if(this.mana < force.MP){
             console.notEnoughMana();
-        } else {
-            this.mana -= minion.MP;
-            cell.force = minion;
-            // minion.x=cell.getX();
-            // minion.y=cell.getY();
+        }
+        else {
+            this.mana -= force.MP;
+            cell.force = force;
+            hand.cards[index]=null;
+            for(int i=0;i<force.spells.size();i++){
+                if(force.spells.get(i).time.equals(Time.spawn)){
+                    castSpell(battle,force,force.spells.get(i));
+                }
+            }
         }
     }
 
+    void deploy(SpellCard spellCard,Cell cell) {
+        if (this.mana < spellCard.MP) {
+            console.notEnoughMana();
+        } else {
+            for (int i = 0; i < spellCard.spells.size(); i++) {
+                castSpell(battle, spellCard, spellCard.spells.get(i));
+            }
+        }
+    }
     void move(Cell originCell, Cell destinationCell) {
         if (originCell.force ==  null ) {
             console.noOrigin();
