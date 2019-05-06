@@ -2,5 +2,6 @@ enum TargetKind {
     hero,
     minion,
     force,
-    cell
+    cell,
+    player
 }
