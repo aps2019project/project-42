@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class Spell{
+class Spell {
     boolean massacre;//true when u kill every body, false when u kill
     boolean choice;//true means its choice base false means its random
     boolean immunity;
@@ -17,7 +17,7 @@ class Spell{
     StaticState staticState;
     TargetRange targetRange;
     TargetStatics targetStatics;
-    int targetDistance;// zero by default, natural number when it needs to be
+    int targetDistance;// zero by default, natural number when it needs to be, index for change MP effect
     int effectQuantity;
     TargetKind targetKind;
     ArrayList<Cell> location;

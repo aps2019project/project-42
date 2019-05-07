@@ -11,14 +11,16 @@ public class MainMenu extends Menu {
         return mainMenu;
     }
 
-    private Scanner scanner = Main.scanner;
-
     void mainMenu(String command) {
         try {
             if (command.matches("enter(\\s+)collection")) {
                 Duelyst.currentMenu = Collection.getInstance();
             } else if (command.matches("enter(\\s+)battle")) {
-
+                if (Duelyst.currentAccount.mainDeck!=null){
+                    Duelyst.currentMenu=BattleMenu.getInstance();
+                } else {
+                    console.invalidMainDeck();
+                }
             } else if (command.matches("enter(\\s+)shop")) {
                 Duelyst.currentMenu = Shop.getInstance();
             } else if (command.matches("enter(\\s+)help")) {
@@ -37,7 +39,7 @@ public class MainMenu extends Menu {
     }
 
     private void exit() {
-        Duelyst.currentMenu=AccountPage.getInstance();
+        Duelyst.currentMenu = AccountPage.getInstance();
     }
 
     private void showMenu() {

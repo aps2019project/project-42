@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Force extends SpellCard {
     int AP;//Attack Power
     int HP;//Health Power
+    Cell cell;
     RangeType rangeType;
     int range;
     boolean exhaustion;

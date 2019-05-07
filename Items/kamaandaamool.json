@@ -1,1 +1,32 @@
-{"name":"kamaandaamool","desc":"only for ranged and hybrid: when your hero attacks, the enemy force beomes disarmed.","ID":303,"price":30000,"spells":[{"targetNumber":1,"targetDistance":0,"effectQuantity":0,"staticQuantity":0,"time":"heroAttack","side":"foe","effect":"disarm","staticState":"nothing","targetRange":"hyged","targetStatic":"nothing","targetKind":"minion","massacre":false,"immunity":false,"continuous":false,"choice":true,"goodness":false,"eternity":false,"locationImportance":false,"turns":[0],"locations":[]}]}
+{
+  "name": "kamaandaamool",
+  "desc": "only for ranged and hybrid: when your hero attacks, the enemy force beomes disarmed.",
+  "ID": 303,
+  "price": 30000,
+  "spells": [
+    {
+      "targetNumber": 1,
+      "targetDistance": 0,
+      "effectQuantity": 0,
+      "staticQuantity": 0,
+      "time": "heroAttack",
+      "side": "foe",
+      "effect": "disarm",
+      "staticState": "nothing",
+      "targetRange": "hyged",
+      "targetStatic": "nothing",
+      "targetKind": "minion",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": false,
+      "eternity": false,
+      "locationImportance": false,
+      "turns": [
+        0
+      ],
+      "locations": []
+    }
+  ]
+}

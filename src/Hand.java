@@ -1,5 +1,5 @@
 class Hand{
-    Card[] cards=new Card[5];
+    SpellCard[] cards=new SpellCard[5];
     Hand(){
         for (Card card: cards){
             card = null;

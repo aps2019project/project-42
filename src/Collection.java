@@ -23,7 +23,6 @@ class Collection extends Menu {
             } else if (command.matches("show")) {
                 collectionMethods.show();
             } else if (commandArray[0].equals("search")) {
-
                 collectionMethods.search(commandArray[1]);
             } else if (command.matches("save")) {
                 collectionMethods.save();
@@ -31,10 +30,10 @@ class Collection extends Menu {
                 collectionMethods.createDeck(commandArray[2]);
             } else if (commandArray[0].equals("delete") && commandArray[1].equals("deck")) {
                 collectionMethods.deleteDeck(commandArray[2]);
-            } else if (command.matches("add(\\s+)(\\d+)to(\\s+)deck[a-z0-9]+")) {
-                collectionMethods.addToDeck(commandArray[1], commandArray[4]);
-            } else if (command.matches("remove(\\s+)(\\d+)from(\\s+)deck[a-z0-9]+")) {
-                collectionMethods.removeFromDeck(commandArray[1], commandArray[4]);
+            } else if (command.matches("add(\\s+)[0-9]+(\\s+)to(\\s+)deck(\\s+)[a-z0-9]+")) {
+                collectionMethods.addToDeck(Integer.parseInt(commandArray[1]), commandArray[4]);
+            } else if (command.matches("remove(\\s+)[0-9]+(\\s+)from(\\s+)deck(\\s+)[a-z0-9]+")) {
+                collectionMethods.removeFromDeck(Integer.parseInt(commandArray[1]), commandArray[4]);
             } else if (command.matches("validate(\\s+)deck(\\s+)[a-z0-9]+")) {
                 collectionMethods.validationDeck(commandArray[2]);
             } else if (command.matches("select(\\s+)deck(\\s+)[a-z0-9]+")) {

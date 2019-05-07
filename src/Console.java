@@ -112,9 +112,6 @@ class Console {
         System.out.println("Your deck has item, you can't add another item to it.");
     }
 
-    void deckCardFull() {
-        System.out.println("Your deck has 20 cards, you can't add card to it anymore.");
-    }
 
     void deckDeleted() {
         System.out.println("Deck deleted successfully.");
@@ -184,31 +181,32 @@ class Console {
         for (Card card : deck.cards) {
             if (Duelyst.getAllHeroes().contains(card)) {
                 Hero hero = (Hero) card;
-                System.out.println(cardCounter + " : " + hero);
+                System.out.println(cardCounter + "" + hero);
                 cardCounter++;
             }
         }
         cardCounter = 1;
+        System.out.println("items :");
         for (Card card : deck.cards) {
             if (Duelyst.getAllItems().contains(card)) {
                 Item item = (Item) card;
-                System.out.println(cardCounter + " : " + item);
+                System.out.println(cardCounter + "" + item);
                 cardCounter++;
             }
         }
         cardCounter = 1;
+        System.out.println("cards :");
         for (Card card : deck.cards) {
             if (Duelyst.getAllMinions().contains(card)) {
                 Minion minion = (Minion) card;
-                System.out.println(cardCounter + " : " + minion);
+                System.out.println(cardCounter + "" + minion);
                 cardCounter++;
             }
         }
-        cardCounter = 1;
         for (Card card : deck.cards) {
             if (Duelyst.getAllSpellCards().contains(card)) {
                 SpellCard spellCard = (SpellCard) card;
-                System.out.println(cardCounter + " : " + spellCard);
+                System.out.println(cardCounter + "" + spellCard);
                 cardCounter++;
             }
         }
@@ -340,5 +338,41 @@ class Console {
 
     public void savedAccount() {
         System.out.println("Your account saved successfully.");
+    }
+
+    public void collectionSave() {
+        System.out.println("Your collection changes saved successfully.");
+    }
+
+    public void noDeck() {
+        System.out.println("You don't have any deck in your account");
+    }
+
+    public void invalidMainDeck() {
+        System.out.println("selected deck is invalid.");
+    }
+
+    public void chooseHero() {
+        System.out.println("choose your hero.");
+    }
+
+    public void chooseMood() {
+        System.out.println("Choose your mode:");
+    }
+
+    public void moods() {
+        System.out.println("mode1\nmode2\nmode3");
+    }
+
+    public void storyGame() {
+        System.out.println("level1\nlevel2\nlevel3");
+    }
+
+    public void chooseOpponent() {
+        System.out.println("choose your opponent");
+    }
+
+    public void showUser(Account account) {
+        System.out.println(account.getUser());
     }
 }
