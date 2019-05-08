@@ -113,7 +113,7 @@ public class ShopMethods {
         return null;
     }
     public Card getCardByIdInCollection(int id){
-        for (Hero hero : Duelyst.currentAccount.accountHeroes) {
+        for (Hero hero : Duelyst.currentAccount.getAccountHeroes()) {
             if (hero.ID==id) {
                 return hero;
             }

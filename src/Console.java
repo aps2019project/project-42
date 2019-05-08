@@ -352,8 +352,8 @@ class Console {
         System.out.println("selected deck is invalid.");
     }
 
-    public void chooseHero() {
-        System.out.println("choose your hero.");
+    public void chooseYourDeck() {
+        System.out.println("choose your deck.");
     }
 
     public void chooseMood() {
@@ -374,5 +374,23 @@ class Console {
 
     public void showUser(Account account) {
         System.out.println(account.getUser());
+    }
+
+    public void singleCostumePlayer() {
+        chooseYourDeck();
+        chooseMood();
+        moods();
+    }
+
+    public void notValidMode() {
+        System.out.println("your chosen mode is not valid.");
+    }
+
+    public void notValidAcc() {
+        System.out.println("You can't choose yourself as your opponent.");
+    }
+
+    public void invalidNumOfFlags() {
+        System.out.println("The number of flags is invalid.");
     }
 }

@@ -149,7 +149,7 @@ class Player {
             i++;
         }
         hand.cards[i] = comingSoon.card;
-        comingSoon.card = deck.cards.get(0);
+        comingSoon.card = (SpellCard) deck.cards.get(0);
         deck.cards.remove(0);
     }
 
