@@ -13,7 +13,7 @@ public class Account {
     ArrayList<SpellCard> accountSpells=new ArrayList<>();
     Deck mainDeck;
     int mainDeckIndex;
-    int money=15000;
+    int money=150000;
     int itemCounter=0;
     CollectionMethods collectionMethods = new CollectionMethods();
     ShopMethods shopMethods=new ShopMethods();

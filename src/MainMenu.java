@@ -17,7 +17,7 @@ public class MainMenu extends Menu {
                 Duelyst.currentMenu = Collection.getInstance();
             } else if (command.matches("enter(\\s+)battle")) {
                 if (Duelyst.currentAccount.mainDeck!=null){
-                    Duelyst.currentMenu=BattleMenu.getInstance();
+                    Duelyst.currentMenu=BattleFirstMenu.getInstance();
                 } else {
                     console.invalidMainDeck();
                 }
