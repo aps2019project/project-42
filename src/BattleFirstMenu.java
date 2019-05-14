@@ -17,6 +17,8 @@ public class BattleFirstMenu extends Menu {
                 costumeGameSingle();
             } else if (command.equals("multi player")) {
                 multiPlayer();
+            } else if (command.equals("exit")) {
+                Duelyst.currentMenu = MainMenu.getInstance();
             } else {
                 console.invalidCommand();
             }
@@ -124,9 +126,13 @@ public class BattleFirstMenu extends Menu {
                 } else if (Duelyst.currentAccount.collectionMethods.getDeckByName(stringArray[2]) == null) {
                     console.deckNameNotFound();
                 }
-            } else {
+            } else if (string.equals("exit")){
+                Duelyst.currentMenu=MainMenu.getInstance();
+            }else {
                 console.invalidCommand();
             }
+        } else if (c1.equals("exit")) {
+            Duelyst.currentMenu = MainMenu.getInstance();
         } else {
             console.invalidCommand();
         }

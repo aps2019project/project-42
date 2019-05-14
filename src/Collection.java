@@ -40,7 +40,7 @@ class Collection extends Menu {
                 collectionMethods.selectMainDeck(commandArray[2]);
             } else if (command.matches("show(\\s+)all(\\s+)decks")) {
                 collectionMethods.showAllDecks();
-            } else if (command.matches("show(\\s+)deck(\\s+)[a-z][0-9]+")) {
+            } else if (command.matches("show(\\s+)deck(\\s+)[a-z0-9]+")) {
                 collectionMethods.showDeck(commandArray[2]);
             } else if (command.matches("help")) {
                 help();

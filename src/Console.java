@@ -254,7 +254,6 @@ class Console {
             System.out.println(counter+""+spellCard);
             counter++;
         }
-        counter = 1;
         for (Minion minion : Duelyst.getAllMinions()) {
             System.out.println(counter+""+minion);
             counter++;
@@ -286,8 +285,8 @@ class Console {
         System.out.println("To find an item id in your collection: search collection [item name]");
         System.out.println("To buy a card: buy [card name]");
         System.out.println("To buy an item: buy [item name]");
-        System.out.println("To sell your card: sell [card name]");
-        System.out.println("To sell your item: sell [item name]");
+        System.out.println("To sell your card: sell [card id]");
+        System.out.println("To sell your item: sell [item id]");
         System.out.println("To see shop: show");
         System.out.println("To return to mainMenu: exit");
     }
@@ -392,5 +391,13 @@ class Console {
 
     public void invalidNumOfFlags() {
         System.out.println("The number of flags is invalid.");
+    }
+
+    public void enterShop() {
+        System.out.println("You entered shop.");
+    }
+
+    public void enterCollection() {
+        System.out.println("You entered collection.");
     }
 }
