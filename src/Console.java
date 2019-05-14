@@ -400,4 +400,8 @@ class Console {
     public void enterCollection() {
         System.out.println("You entered collection.");
     }
+
+    public void deckNotValidateAnymore() {
+        System.out.println("Your main deck is not valid anymore.");
+    }
 }
