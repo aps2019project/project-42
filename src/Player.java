@@ -83,7 +83,7 @@ class Player {
             this.hand.cards[spell.targetDistance].MP+=spell.effectQuantity;
             return;
         }
-        else if () {
+        /*else if () {
 
         }
         else if () {
@@ -112,7 +112,7 @@ class Player {
         }
         else if () {
 
-        }
+        }*/
     }
 
     boolean rangeValidation(Cell originCell, Cell destinationCell) {
