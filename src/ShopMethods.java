@@ -37,7 +37,7 @@ public class ShopMethods {
         if (card == null) {
             console.cardNotFound();
         } else {
-            ArrayList<Deck> tempAccountDecks=new ArrayList<>(Duelyst.currentAccount.getDecks());
+            ArrayList<Deck> tempAccountDecks = new ArrayList<>(Duelyst.currentAccount.getDecks());
             if (!tempAccountDecks.isEmpty()) {
                 for (Deck deck : tempAccountDecks) {
                     if (deck.cards.contains(card)) {
@@ -56,6 +56,10 @@ public class ShopMethods {
             }
             Duelyst.currentAccount.money += card.price;
             console.sold(Duelyst.currentAccount.money);
+            if (Duelyst.currentAccount.mainDeck != null && Duelyst.currentAccount.mainDeck.cards.contains(card)) {
+                Duelyst.currentAccount.mainDeck = null;
+                console.deckNotValidateAnymore();
+            }
         }
     }
 
@@ -115,24 +119,25 @@ public class ShopMethods {
         }
         return null;
     }
-    public Card getCardByIdInCollection(int id){
+
+    public Card getCardByIdInCollection(int id) {
         for (Hero hero : Duelyst.currentAccount.getAccountHeroes()) {
-            if (hero.ID==id) {
+            if (hero.ID == id) {
                 return hero;
             }
         }
         for (SpellCard spell : Duelyst.currentAccount.getAccountSpellCards()) {
-            if (spell.ID==id) {
+            if (spell.ID == id) {
                 return spell;
             }
         }
         for (Minion minion : Duelyst.currentAccount.getAccountMinions()) {
-            if (minion.ID==id) {
+            if (minion.ID == id) {
                 return minion;
             }
         }
         for (Item item : Duelyst.currentAccount.getAccountItems()) {
-            if (item.ID==id) {
+            if (item.ID == id) {
                 return item;
             }
         }
