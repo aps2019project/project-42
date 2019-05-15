@@ -15,11 +15,17 @@ public class MainMenu extends Menu {
         try {
             if (command.matches("enter(\\s+)collection")) {
                 Duelyst.currentMenu = Collection.getInstance();
+                console.enterCollection();
             } else if (command.matches("enter(\\s+)battle")) {
-
+                if (Duelyst.currentAccount.mainDeck!=null){
+                    Duelyst.currentMenu=BattleFirstMenu.getInstance();
+                } else {
+                    console.invalidMainDeck();
+                }
             } else if (command.matches("enter(\\s+)shop")) {
                 Duelyst.currentMenu = Shop.getInstance();
-            } else if (command.matches("enter(\\s+)help")) {
+                console.enterShop();
+            } else if (command.matches("help")) {
                 help();
             } else if (command.matches("exit")) {
                 exit();

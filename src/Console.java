@@ -254,7 +254,6 @@ class Console {
             System.out.println(counter+""+spellCard);
             counter++;
         }
-        counter = 1;
         for (Minion minion : Duelyst.getAllMinions()) {
             System.out.println(counter+""+minion);
             counter++;
@@ -286,8 +285,8 @@ class Console {
         System.out.println("To find an item id in your collection: search collection [item name]");
         System.out.println("To buy a card: buy [card name]");
         System.out.println("To buy an item: buy [item name]");
-        System.out.println("To sell your card: sell [card name]");
-        System.out.println("To sell your item: sell [item name]");
+        System.out.println("To sell your card: sell [card id]");
+        System.out.println("To sell your item: sell [item id]");
         System.out.println("To see shop: show");
         System.out.println("To return to mainMenu: exit");
     }
@@ -346,5 +345,63 @@ class Console {
 
     public void noDeck() {
         System.out.println("You don't have any deck in your account");
+    }
+
+    public void invalidMainDeck() {
+        System.out.println("selected deck is invalid.");
+    }
+
+    public void chooseYourDeck() {
+        System.out.println("choose your deck.");
+    }
+
+    public void chooseMood() {
+        System.out.println("Choose your mode:");
+    }
+
+    public void moods() {
+        System.out.println("mode1\nmode2\nmode3");
+    }
+
+    public void storyGame() {
+        System.out.println("level1\nlevel2\nlevel3");
+    }
+
+    public void chooseOpponent() {
+        System.out.println("choose your opponent");
+    }
+
+    public void showUser(Account account) {
+        System.out.println(account.getUser());
+    }
+
+    public void singleCostumePlayer() {
+        chooseYourDeck();
+        chooseMood();
+        moods();
+    }
+
+    public void notValidMode() {
+        System.out.println("your chosen mode is not valid.");
+    }
+
+    public void notValidAcc() {
+        System.out.println("You can't choose yourself as your opponent.");
+    }
+
+    public void invalidNumOfFlags() {
+        System.out.println("The number of flags is invalid.");
+    }
+
+    public void enterShop() {
+        System.out.println("You entered shop.");
+    }
+
+    public void enterCollection() {
+        System.out.println("You entered collection.");
+    }
+
+    public void deckNotValidateAnymore() {
+        System.out.println("Your main deck is not valid anymore.");
     }
 }

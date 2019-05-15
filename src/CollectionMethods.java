@@ -32,6 +32,10 @@ public class CollectionMethods {
             Deck deck = getDeckByName(string);
             Duelyst.currentAccount.getDecks().remove(deck);
             console.deckDeleted();
+            if (Duelyst.currentAccount.mainDeck == deck) {
+                Duelyst.currentAccount.mainDeck = null;
+                console.deckNotValidateAnymore();
+            }
         }
     }
 
@@ -61,6 +65,10 @@ public class CollectionMethods {
                 deck.numOfCards++;
                 console.addCardToDeck();
             }
+            if (Duelyst.currentAccount.mainDeck != null && Duelyst.currentAccount.mainDeck.cards.contains(card)) {
+                Duelyst.currentAccount.mainDeck = null;
+                console.deckNotValidateAnymore();
+            }
         } else if (deck == null) {
             console.deckNameNotFound();
         } else {
@@ -85,7 +93,10 @@ public class CollectionMethods {
                 deck.cards.remove(card);
                 console.deleteCardFromDeck();
             }
-
+            if (Duelyst.currentAccount.mainDeck != null && Duelyst.currentAccount.mainDeck.cards.contains(card)) {
+                Duelyst.currentAccount.mainDeck = null;
+                console.deckNotValidateAnymore();
+            }
         } else if (deck == null) {
             console.deckNameNotFound();
         } else if (card == null) {

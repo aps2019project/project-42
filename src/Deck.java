@@ -6,12 +6,12 @@ class Deck {
     int numOfItems = 0;
     String name;
     Account account;
-    ArrayList<SpellCard> cards=new ArrayList<>();
+    ArrayList<Card> cards=new ArrayList<>();
     Hero hero;
     Item item;
     Item usable;
 
-    public ArrayList<SpellCard> getCards() {
+    public ArrayList<Card> getCards() {
         return cards;
     }
 

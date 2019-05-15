@@ -110,6 +110,8 @@ class Duelyst {
             shopHandler(string);
         } else if (currentMenu.equals(MainMenu.getInstance())) {
             mainMenuHandler(string);
+        } else if (currentMenu.equals(BattleFirstMenu.getInstance())){
+            battleMenuHandler(string);
         }
     }
 
@@ -126,6 +128,10 @@ class Duelyst {
     private void accountPageHandler(String command) {
         AccountPage accountPage = AccountPage.getInstance();
         accountPage.accountPageMenu(command);
+    }
+    private void battleMenuHandler(String command){
+        BattleFirstMenu battleFirstMenu=BattleFirstMenu.getInstance();
+        battleFirstMenu.battleMenu(command);
     }
 
     private void mainMenuHandler(String command) {
