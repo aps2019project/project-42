@@ -116,11 +116,10 @@ class Player {
                 force.castedSpells.add(spell);
             return;
         }
-        if (spell.targetKind.equals(TargetKind.player) &&spell.effect.equals(Effect.changeMana)) {
-            this.mana+=spell.effectQuantity;
+        if (spell.targetKind.equals(TargetKind.player) && spell.effect.equals(Effect.changeMana)) {
+            this.mana += spell.effectQuantity;
             return;
-        }
-        else if (spell.targetKind.equals(TargetKind.cell)) {
+        } else if (spell.targetKind.equals(TargetKind.cell)) {
             getCell().cellEffects.add(spell);
             return;
         }
@@ -525,6 +524,11 @@ class Player {
                 else
                     System.out.println("second player won");
             }
+            if (turn % 2 == 1)
+                battle.player = battle.firstPlayer;
+            else
+                battle.player = battle.secondPlayer;
+            battle.player.mana = (int) (turn / 2) + 2;
         }
     }
 
@@ -579,9 +583,14 @@ class Player {
         //console.showMinions(account);
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
-                if (battle.field.cells[i][j].force != null && Duelyst.currentAccount.getAccountMinions().contains(battle.field.cells[i][j].force) && Duelyst.getAllMinions().contains(battle.field.cells[i][j].force)) {
-                    Minion minion = (Minion) battle.field.cells[i][j].force;
-                    System.out.println(minion);
+                if (battle.field.cells[i][j].force != null && (Duelyst.currentAccount.getAccountMinions().contains(battle.field.cells[i][j].force) || Duelyst.currentAccount.getAccountHeroes().contains(battle.field.cells[i][j].force))) {
+                    if (Duelyst.currentAccount.getAccountMinions().contains(battle.field.cells[i][j].force)) {
+                        Minion minion = (Minion) battle.field.cells[i][j].force;
+                        System.out.println(minion);
+                    } else if (Duelyst.currentAccount.getAccountHeroes().contains(battle.field.cells[i][j].force)) {
+                        Hero hero = (Hero) battle.field.cells[i][j].force;
+                        System.out.println(hero);
+                    }
                 }
             }
         }
@@ -590,9 +599,10 @@ class Player {
     void showOpponentMinions() {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
-                if (battle.field.cells[i][j].force != null && !Duelyst.currentAccount.getAccountMinions().contains(battle.field.cells[i][j].force) && Duelyst.getAllMinions().contains(battle.field.cells[i][j].force)) {
-                    Minion minion = (Minion) battle.field.cells[i][j].force;
-                    System.out.println(minion);
+                if (battle.field.cells[i][j].force != null) {
+                    if (!Duelyst.currentAccount.getAccountMinions().contains(battle.field.cells[i][j].force)) {
+                        if (battle.field.cells[i][j].force.owner=)
+                    }
                 }
             }
         }

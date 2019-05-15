@@ -13,11 +13,11 @@ public class Account {
     ArrayList<SpellCard> accountSpells=new ArrayList<>();
     Deck mainDeck;
     int mainDeckIndex;
-    int money=15000;
+    int money=150000000;
     int itemCounter=0;
     CollectionMethods collectionMethods = new CollectionMethods();
     ShopMethods shopMethods=new ShopMethods();
-    Battle battle=new Battle();
+    Battle battle = new Battle();
 
     public ArrayList<Deck> getDecks() {
         return decks;

@@ -57,7 +57,7 @@ class Battle {
     Player firstPlayer;
     Player secondPlayer;
     Field field;
-    Player player;
+    Player player=firstPlayer;
 
     Battle(GameType gameType1, int flagNumber1, Account first, Account second) {
         gameType = gameType1;
@@ -76,5 +76,6 @@ class Battle {
         } else if (flagsNumber > 1) {
             fillFlags(field);
         }
+
     }
 }

@@ -1,11 +1,11 @@
 import java.util.Random;
 
 public class AI extends Player{
-    private AI ai;
-
     AI(Account account) {
         super(account);
     }
+
+
 
     void start(){
         int a = (int) (Math.random() * 8);

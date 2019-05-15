@@ -7,6 +7,7 @@ class Duelyst {
     public static Account currentAccount;
 
 
+    Account costumeLevel1;
     static ArrayList<Account> accounts = new ArrayList<Account>();
     static HashMap<String, Integer> wins = new HashMap<>();
     private static ArrayList<Minion> allMinions = new ArrayList<>();
@@ -16,8 +17,11 @@ class Duelyst {
     private static ArrayList<Item> allCollectibleItems = new ArrayList<>();
     public static Menu currentMenu = new Menu();
     static boolean finishGame = false;
+    AI costumeGameLevel1 = new AI(costumeLevel1);
     static Scanner scanner = new Scanner(System.in);
     String command;
+
+
 
     public static ArrayList<Item> getAllCollectibles() {
         return allCollectibleItems;
