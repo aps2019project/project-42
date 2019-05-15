@@ -12,14 +12,15 @@ class Battle {
         for (int i = 0; i < 9; i++) {
             if (Math.random() * 2 % 2 == 0)
                 continue;
-            else{
+            else {
                 int x = (int) Math.random() * 5;
                 int y = (int) Math.random() * 9;
                 if (field.cells[x][y].Collectible != null)
                     field.cells[x][y].Collectible = Duelyst.getAllCollectibles().get(i);
-                }
             }
         }
+    }
+
     void fillFlags(Field field) {
         if (flagsNumber % 2 == 1)
             field.cells[(int) (Math.random() * 2)][4].flag = true;

@@ -404,4 +404,10 @@ class Console {
     public void deckNotValidateAnymore() {
         System.out.println("Your main deck is not valid anymore.");
     }
+
+    public void showMinions(Account account) {
+        for (Minion minion:account.getAccountMinions()) {
+            System.out.println(minion);
+        }
+    }
 }
