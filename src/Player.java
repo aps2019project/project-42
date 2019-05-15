@@ -779,4 +779,13 @@ class Player {
     void showMenu() {
 
     }
+    void showField() {
+        for (int i = 0; i < 5; i++){
+            for (int j = 0; j < 9; j++){
+                if (battle.field.cells[i][j].force != null){
+                    System.out.println(i + "," + j + ": " + battle.field.cells[i][j].force.HP + " " + battle.field.cells[i][j].force.HP + "\n");
+                }
+            }
+        }
+    }
 }
