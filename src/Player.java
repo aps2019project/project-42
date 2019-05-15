@@ -529,6 +529,7 @@ class Player {
             else
                 battle.player = battle.secondPlayer;
             battle.player.mana = (int) (turn / 2) + 2;
+            fillingHand(battle.player.deck, battle.player.hand, battle.player.comingSoon);
         }
     }
 
