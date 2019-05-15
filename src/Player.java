@@ -3,6 +3,7 @@ import java.util.ArrayList;
 class Player {
     Console console = Console.getInstance();
     Account account;
+    Card selectedCard;
     int mana;
     int turn;
     int mood2counter = 0;
@@ -346,8 +347,40 @@ class Player {
         battle.lasting = false;
     }
 
-    void gameInfo() {
+    void gameInfo1() {
+        //System.out.println(account.mainDeck.hero.name + account.mainDeck.hero.HP);
+        for (int i = 0; i < 5; i++){
+            for (int j = 0; j < 9; j++){
+                if (battle.field.cells[i][j].force == account.mainDeck.hero){
+                    System.out.println(account.mainDeck.hero.name + account.mainDeck.hero.HP);
+                }
+            }
+        }
+    }
 
+    void gameInfo2(){
+        for (int i = 0; i < 5; i++){
+            for (int j = 0; j < 9; j++){
+                if (battle.field.cells[i][j].flag){
+                    if (battle.field.cells[i][j].force != null)
+                        System.out.println(battle.field.cells[i][j].force);
+                    if (battle.field.cells[i][j].force == null)
+                        System.out.println(battle.field.cells[i][j].getX() + " , " + battle.field.cells[i][j].getY());
+                }
+            }
+        }
+    }
+
+    void gameInfo3(){
+        for (int i = 0; i < 5; i++){
+            for (int j = 0; j < 9; j++){
+                if (battle.field.cells[i][j].flag){
+                    if (battle.field.cells[i][j].force != null){
+                        System.out.println(battle.field.cells[i][j].force.owner + " : " + battle.field.cells[i][j].force);
+                    }
+                }
+            }
+        }
     }
 
     void showMyMinions() {
@@ -366,9 +399,15 @@ class Player {
 
     }
 
-    void select() {
-
+    void select(int id) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (battle.field.cells[i][j].force == account.shopMethods.getCardByIdInCollection(id))
+                    selectedCard = account.shopMethods.getCardByIdInCollection(id);
+            }
+        }
     }
+
 
     void showCollectibles() {
 
