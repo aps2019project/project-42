@@ -54,7 +54,7 @@ class Duelyst {
     private void preStart() throws IOException {
         setCurrentMenu();
         final String[] names = {
-                "Heroes", "Items", "Minions", "SpellCards", "CollectibleItems"
+                "Heroes", "Items", "Minions", "SpellCards", "Collectibles"
         };
         for (String name : names) {
             File source = new File(name);
@@ -69,7 +69,7 @@ class Duelyst {
                         addMinion(file, Minion.class, Duelyst.getAllMinions());
                     } else if (name.contains("SpellCards")) {
                         addSpell(file, SpellCard.class, Duelyst.getAllSpellCards());
-                    } else if (name.contains("CollectibleItems")) {
+                    } else if (name.contains("Collectibles")) {
                         addItem(file, Item.class, Duelyst.getAllCollectibleItems());
                     }
                 }
