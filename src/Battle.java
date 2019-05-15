@@ -59,7 +59,7 @@ class Battle {
     Field field;
     Player player;
 
-    void Battle(GameType gameType1, int flagNumber1, Account first, Account second) {
+    Battle(GameType gameType1, int flagNumber1, Account first, Account second) {
         gameType = gameType1;
         flagsNumber = flagNumber1;
         firstPlayer = new Player(first);

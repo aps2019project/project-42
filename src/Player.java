@@ -524,7 +524,6 @@ class Player {
                     System.out.println("first player won");
                 else
                     System.out.println("second player won");
-            ...
             }
         }
     }
