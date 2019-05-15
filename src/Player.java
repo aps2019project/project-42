@@ -692,6 +692,8 @@ class Player {
             for (int j = 0; j < 9; j++) {
                 if (battle.field.cells[i][j].force == account.shopMethods.getCardByIdInCollection(id))
                     selectedCard = account.shopMethods.getCardByIdInCollection(id);
+                else if (battle.field.cells[i][j].collectible == account.shopMethods.getCardByIdInCollection(id))
+                    selectedCard = account.shopMethods.getCardByIdInCollection(id);
             }
         }
     }
