@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 class Cell{
-    Item Collectible;
+    Item collectible;
     boolean flag;
     Force force;
     ArrayList<Spell> cellEffects;
