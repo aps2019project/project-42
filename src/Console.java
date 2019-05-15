@@ -406,7 +406,7 @@ class Console {
     }
 
     public void showMinions(Account account) {
-        for (Minion minion:account.getAccountMinions()) {
+        for (Minion minion : account.getAccountMinions()) {
             System.out.println(minion);
         }
     }

@@ -1,1 +1,42 @@
-{"name":"poisonoussnake","desc":"poisons enemy force for 3 turns!","typeOfMinion":"minion","ID":418,"price":300,"AP":6,"HP":5,"MP":4,"combo":false,"rangeType":"ranged","range":4,"exhaustion":true,"spells":[{"targetNumber":1,"targetDistance":4,"effectQuantity":0,"staticQuantity":0,"time":"minionAttack","side":"foe","effect":"poison","staticState":"nothing","targetRange":"anyThing","targetStatic":"nothing","targetKind":"force","massacre":false,"immunity":false,"continuous":false,"choice":true,"goodness":false,"eternity":false,"locationImportance":false,"turns":[0,0,0],"locations":[]}]}
+{
+  "name": "poisonoussnake",
+  "desc": "poisons enemy force for 3 turns!",
+  "typeOfMinion": "minion",
+  "ID": 418,
+  "price": 300,
+  "AP": 6,
+  "HP": 5,
+  "MP": 4,
+  "combo": false,
+  "rangeType": "ranged",
+  "range": 4,
+  "exhaustion": true,
+  "spells": [
+    {
+      "targetNumber": 1,
+      "targetDistance": 4,
+      "effectQuantity": 0,
+      "staticQuantity": 0,
+      "time": "minionAttack",
+      "side": "foe",
+      "effect": "poison",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "nothing",
+      "targetKind": "force",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": false,
+      "eternity": false,
+      "locationImportance": false,
+      "turns": [
+        0,
+        0,
+        0
+      ],
+      "locations": []
+    }
+  ]
+}
