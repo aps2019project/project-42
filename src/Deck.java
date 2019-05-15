@@ -8,7 +8,6 @@ class Deck {
     Account account;
     ArrayList<Card> cards=new ArrayList<>();
     Hero hero;
-    Item item;
     Item usable;
 
     public ArrayList<Card> getCards() {

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BattleFirstMenu extends Menu {
@@ -87,6 +88,42 @@ public class BattleFirstMenu extends Menu {
     private void costumeGameSingle() {
         String c1 = scanner.nextLine();
         if (c1.equals("story")) {
+
+
+
+            Account levelOneAccount = new Account("username", "password");
+            AI levelOne = new AI(levelOneAccount);
+            levelOneAccount.owner = levelOne;
+            levelOne.account = levelOneAccount;
+            levelOne.deck.hero = Duelyst.getAllHeroes().get(0);     //add a hero
+            levelOne.deck.cards.add(Duelyst.getAllMinions().get(0));    //1 minion
+            levelOne.deck.cards.add(Duelyst.getAllMinions().get(1));    //2
+            levelOne.deck.cards.add(Duelyst.getAllMinions().get(2));    //3
+            levelOne.deck.cards.add(Duelyst.getAllMinions().get(3));    //4
+            levelOne.deck.cards.add(Duelyst.getAllMinions().get(4));    //5
+            levelOne.deck.cards.add(Duelyst.getAllMinions().get(5));    //6
+            levelOne.deck.cards.add(Duelyst.getAllMinions().get(6));    //7
+            levelOne.deck.cards.add(Duelyst.getAllMinions().get(7));    //8
+            levelOne.deck.cards.add(Duelyst.getAllMinions().get(8));    //9
+            levelOne.deck.cards.add(Duelyst.getAllMinions().get(9));    //10
+            levelOne.deck.cards.add(Duelyst.getAllMinions().get(10));    //11
+            levelOne.deck.cards.add(Duelyst.getAllMinions().get(11));    //12
+//            levelOne.deck.cards.add(Duelyst.getAllItems().get(0));
+            levelOne.deck.cards.add(Duelyst.getAllSpellCards().get(0)); //1
+            levelOne.deck.cards.add(Duelyst.getAllSpellCards().get(0)); //2
+            levelOne.deck.cards.add(Duelyst.getAllSpellCards().get(0)); //3
+            levelOne.deck.cards.add(Duelyst.getAllSpellCards().get(0)); //4
+            levelOne.deck.cards.add(Duelyst.getAllSpellCards().get(0)); //5
+            levelOne.deck.cards.add(Duelyst.getAllSpellCards().get(0)); //6
+            levelOne.deck.cards.add(Duelyst.getAllSpellCards().get(0)); //7
+            levelOne.deck.usable = Duelyst.getAllItems().get(0);
+            levelOneAccount.mainDeck = levelOne.deck;
+
+
+
+
+
+
             console.storyGame();
         } else if (c1.equals("costume game")) {
             console.singleCostumePlayer();
