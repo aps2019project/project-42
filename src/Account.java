@@ -17,7 +17,7 @@ public class Account {
     int itemCounter=0;
     CollectionMethods collectionMethods = new CollectionMethods();
     ShopMethods shopMethods=new ShopMethods();
-    Battle battle=new Battle();
+    Battle battle = new Battle();
 
     public ArrayList<Deck> getDecks() {
         return decks;
