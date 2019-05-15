@@ -12,6 +12,7 @@ public class BattleFirstMenu extends Menu {
 
     void battleMenu(String command) {
         Battle battle = Duelyst.currentAccount.battle;
+//        String[] commandArray = command.split("\\s+");
         try {
             if (command.equals("single player")) {
                 costumeGameSingle();

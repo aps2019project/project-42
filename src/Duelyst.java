@@ -6,6 +6,7 @@ import java.util.*;
 class Duelyst {
     public static Account currentAccount;
 
+
     static ArrayList<Account> accounts = new ArrayList<Account>();
     static HashMap<String, Integer> wins = new HashMap<>();
     private static ArrayList<Minion> allMinions = new ArrayList<>();
@@ -18,7 +19,7 @@ class Duelyst {
     static Scanner scanner = new Scanner(System.in);
     String command;
 
-    public static ArrayList<Item> getAllCollectibleItems() {
+    public static ArrayList<Item> getAllCollectibles() {
         return allCollectibleItems;
     }
 
@@ -69,8 +70,8 @@ class Duelyst {
                         addMinion(file, Minion.class, Duelyst.getAllMinions());
                     } else if (name.contains("SpellCards")) {
                         addSpell(file, SpellCard.class, Duelyst.getAllSpellCards());
-                    } else if (name.contains("Collectibles")) {
-                        addItem(file, Item.class, Duelyst.getAllCollectibleItems());
+                    } else if (name.contains("CollectibleItems")) {
+                        addItem(file, Item.class, Duelyst.getAllCollectibles());
                     }
                 }
             }

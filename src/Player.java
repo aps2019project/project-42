@@ -74,46 +74,46 @@ class Player {
         return true;
     }
 
-    void castSpell(Battle battle, Card card, Spell spell) {
-        if (spell.targetKind.equals(TargetKind.player) &&spell.effect.equals(Effect.changeMana)) {
-            this.mana+=spell.effectQuantity;
-            return;
-        }
-        else if (spell.targetKind.equals(TargetKind.player) &&spell.effect.equals(Effect.changeMP)) {
-            this.hand.cards[spell.targetDistance].MP+=spell.effectQuantity;
-            return;
-        }
-        /*else if () {
-
-        }
-        else if () {
-
-        }
-        else if () {
-
-        }
-        else if () {
-
-        }
-        else if () {
-
-        }
-        else if () {
-
-        }
-        else if () {
-
-        }
-        else if () {
-
-        }
-        else if () {
-
-        }
-        else if () {
-
-        }*/
-    }
+//    void castSpell(Battle battle, Card card, Spell spell) {
+//        if (spell.targetKind.equals(TargetKind.player) &&spell.effect.equals(Effect.changeMana)) {
+//            this.mana+=spell.effectQuantity;
+//            return;
+//        }
+//        else if (spell.targetKind.equals(TargetKind.player) &&spell.effect.equals(Effect.changeMP)) {
+//            this.hand.cards[spell.targetDistance].MP+=spell.effectQuantity;
+//            return;
+//        }
+//        else if () {
+//
+//        }
+//        else if () {
+//
+//        }
+//        else if () {
+//
+//        }
+//        else if () {
+//
+//        }
+//        else if () {
+//
+//        }
+//        else if () {
+//
+//        }
+//        else if () {
+//
+//        }
+//        else if () {
+//
+//        }
+//        else if () {
+//
+//        }
+//        else if () {
+//
+//        }
+//    }
 
     boolean rangeValidation(Cell originCell, Cell destinationCell) {
         if (((originCell.force.rangeType.equals(RangeType.melee)) && ((Math.abs(destinationCell.getX() - originCell.getX()) > 1) || (Math.abs(destinationCell.getY() - originCell.getY()) > 1))) || ((originCell.force.rangeType.equals(RangeType.ranged)) && ((Math.abs(destinationCell.getX() - originCell.getX()) + Math.abs(destinationCell.getY() - originCell.getY()) > originCell.force.range) || ((Math.abs(destinationCell.getX() - originCell.getX()) > 1) || (Math.abs(destinationCell.getY() - originCell.getY()) < 2)))) || ((originCell.force.rangeType.equals(RangeType.hybrid)) && (Math.abs(destinationCell.getX() - originCell.getX()) + Math.abs(destinationCell.getY() - originCell.getY()) > originCell.force.range)))
@@ -227,7 +227,7 @@ class Player {
             hand.cards[index] = null;
             for (int i = 0; i < force.spells.size(); i++) {
                 if (force.spells.get(i).time.equals(Time.spawn)) {
-                    castSpell(battle, force, force.spells.get(i));
+                    //castSpell(battle, force, force.spells.get(i));
                 }
             }
         }
@@ -238,7 +238,7 @@ class Player {
             console.notEnoughMana();
         } else {
             for (int i = 0; i < spellCard.spells.size(); i++) {
-                castSpell(battle, spellCard, spellCard.spells.get(i));
+                //castSpell(battle, spellCard, spellCard.spells.get(i));
             }
         }
     }
@@ -312,8 +312,8 @@ class Player {
 
     void specialPower(Cell cell) {
         for (Spell s : this.deck.hero.spells)
-            castSpell(battle, this.deck.hero, s);
-        cooldown = this.deck.hero.coolDown;
+            //castSpell(battle, this.deck.hero, s);
+            cooldown = this.deck.hero.coolDown;
     }
 
     void endTurn() {
@@ -351,19 +351,67 @@ class Player {
     }
 
     void showMyMinions() {
-
+        //console.showMinions(account);
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (battle.field.cells[i][j].force != null && Duelyst.currentAccount.getAccountMinions().contains(battle.field.cells[i][j].force) && Duelyst.getAllMinions().contains(battle.field.cells[i][j].force)) {
+                    Minion minion = (Minion) battle.field.cells[i][j].force;
+                    System.out.println(minion);
+                }
+            }
+        }
     }
 
-    void showOppenontMinions() {
-
+    void showOpponentMinions() {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (battle.field.cells[i][j].force != null && !Duelyst.currentAccount.getAccountMinions().contains(battle.field.cells[i][j].force) && Duelyst.getAllMinions().contains(battle.field.cells[i][j].force)) {
+                    Minion minion = (Minion) battle.field.cells[i][j].force;
+                    System.out.println(minion);
+                }
+            }
+        }
     }
 
-    void showCardInfo(Card card) {
-
+    void showCardInfo(int id) {
+        Card card = Duelyst.currentAccount.shopMethods.getCardByIdInCollection(id);
+        if (card != null) {
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 9; j++) {
+                    if (battle.field.cells[i][j].force == card) {
+                        if (Duelyst.getAllMinions().contains(card)) {
+                            Minion minion = (Minion) card;
+                            System.out.println(minion);
+                        } else if (Duelyst.getAllHeroes().contains(card)) {
+                            Hero hero = (Hero) card;
+                            System.out.println(hero);
+                        } else if (Duelyst.getAllSpellCards().contains(card)) {
+                            SpellCard spellCard = (SpellCard) card;
+                            System.out.println(spellCard);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     void showHand() {
-
+        for (int i = 0; i < 5; i++) {
+            Card card=hand.cards[i];
+            if (Duelyst.getAllMinions().contains(card)) {
+                Minion minion = (Minion) card;
+                System.out.println(minion);
+            } else if (Duelyst.getAllHeroes().contains(card)) {
+                Hero hero = (Hero) card;
+                System.out.println(hero);
+            } else if (Duelyst.getAllSpellCards().contains(card)) {
+                SpellCard spellCard = (SpellCard) card;
+                System.out.println(spellCard);
+            } else if (Duelyst.getAllItems().contains(card)){
+                Item item=(Item) card;
+                System.out.println(item);
+            }
+        }
     }
 
     void select() {
@@ -371,11 +419,23 @@ class Player {
     }
 
     void showCollectibles() {
-
+        for (Item item:Duelyst.getAllCollectibles()){
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 9; j++) {
+                    if (battle.field.cells[i][j].force == item){
+                        System.out.println(item);
+                    }
+                }
+            }
+        }
     }
 
-    void showItemInfo() {
-
+    void showItemInfo(int id) {
+        Card card=Duelyst.currentAccount.shopMethods.getCardByIdInCollection(id);
+        if (Duelyst.getAllCollectibles().contains(card) && items.contains(card)){
+            Item item=(Item) card;
+            System.out.println(item);
+        }
     }
 
     void useItem(Item item) { //use collectible
@@ -392,12 +452,35 @@ class Player {
 
     }
 
-    void showInfoInGraveYard(Card card) {
-
+    void showInfoInGraveYard(int id) {
+        Card card=Duelyst.currentAccount.shopMethods.getCardByIdInCollection(id);
+        if (graveYard.cards.contains(card)){
+            if (Duelyst.getAllMinions().contains(card)) {
+                Minion minion = (Minion) card;
+                System.out.println(minion);
+            } else if (Duelyst.getAllHeroes().contains(card)) {
+                Hero hero = (Hero) card;
+                System.out.println(hero);
+            } else if (Duelyst.getAllSpellCards().contains(card)) {
+                SpellCard spellCard = (SpellCard) card;
+                System.out.println(spellCard);
+            }
+        }
     }
 
     void showCardsInGraveYard() {
-
+        for (Card card:graveYard.cards) {
+            if (Duelyst.getAllMinions().contains(card)) {
+                Minion minion = (Minion) card;
+                System.out.println(minion);
+            } else if (Duelyst.getAllHeroes().contains(card)) {
+                Hero hero = (Hero) card;
+                System.out.println(hero);
+            } else if (Duelyst.getAllSpellCards().contains(card)) {
+                SpellCard spellCard = (SpellCard) card;
+                System.out.println(spellCard);
+            }
+        }
     }
 
     void help() {
@@ -407,7 +490,8 @@ class Player {
     void exit() {
 
     }
-// intelj asghal push kon
+
+    // intelj asghal push kon
     void showMenu() {
 
     }
