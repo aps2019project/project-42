@@ -1,15 +1,1 @@
-{
-  "name": "iraj",
-  "desc": "...",
-  "typeOfMinion": "minion",
-  "ID": 433,
-  "price": 500,
-  "AP": 20,
-  "HP": 6,
-  "MP": 4,
-  "combo": false,
-  "rangeType": "ranged",
-  "range": 3,
-  "exhaustion": true,
-  "spells": []
-}
+{"name":"iraj","desc":"...","typeOfMinion":"minion","ID":433,"price":500,"AP":20,"HP":6,"MP":4,"combo":false,"rangeType":"ranged","range":3,"exhaustion":true,"spells":[]}
