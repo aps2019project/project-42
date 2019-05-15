@@ -16,6 +16,7 @@ class Player {
     Item usable;
     Battle battle;
     ArrayList<Item> items;
+    Card selectedCard;
 
     void goinOrNotGoin(Cell cell) {
         if (cell.force.HP == 0) {
@@ -107,14 +108,16 @@ class Player {
         return output;
     }
 
-    void castSpell(Cell activationCell, Spell spell) {
-
-        if (spell.targetKind.equals(TargetKind.player) &&spell.effect.equals(Effect.changeMana)) {
-            this.mana+=spell.effectQuantity;
+    void castSpell(Cell activationCell, Force force, Spell spell) {
+        if (force != null) {
+            if (spell.effect.equals(Effect.fiery))
+                force.HP -= 2;
+            else
+                force.castedSpells.add(spell);
             return;
         }
-        else if (spell.targetKind.equals(TargetKind.player) &&spell.effect.equals(Effect.changeMP)) {
-            this.hand.cards[spell.targetDistance].MP+=spell.effectQuantity;
+        if (spell.targetKind.equals(TargetKind.player) &&spell.effect.equals(Effect.changeMana)) {
+            this.mana+=spell.effectQuantity;
             return;
         }
         else if (spell.targetKind.equals(TargetKind.cell)) {
@@ -389,7 +392,7 @@ class Player {
             hand.cards[index] = null;
             for (int i = 0; i < force.spells.size(); i++) {
                 if (force.spells.get(i).time.equals(Time.spawn)) {
-                    castSpell(cell, , force.spells.get(i));
+                    castSpell(cell, null, force.spells.get(i));
                 }
             }
         }
@@ -400,7 +403,7 @@ class Player {
             console.notEnoughMana();
         } else {
             for (int i = 0; i < spellCard.spells.size(); i++) {
-                castSpell(battle, spellCard, spellCard.spells.get(i));
+                castSpell(cell, null, spellCard.spells.get(i));
             }
         }
     }
@@ -473,7 +476,7 @@ class Player {
 
     void specialPower(Cell cell) {
         for (Spell s : this.deck.hero.spells)
-            castSpell(cell, s);
+            castSpell(cell, null, s);
         cooldown = this.deck.hero.coolDown;
     }
 
@@ -493,20 +496,37 @@ class Player {
             this.battle.secondPlayer.cooldown = 0;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
-                if (battle.field.cells[i][j].force.owner.equals(this) && !battle.field.cells[i][j].force.stunned)
+                if (battle.field.cells[i][j].force != null && battle.field.cells[i][j].force.owner.equals(this) && !battle.field.cells[i][j].force.stunned)
                     battle.field.cells[i][j].force.exhaustion = false;
+                for (Spell spell : battle.field.cells[i][j].cellEffects)
+                    castSpell(battle.field.cells[i][j], battle.field.cells[i][j].force, spell);
+                if (battle.field.cells[i][j].force != null)
+                    for (Spell spell : battle.field.cells[i][j].force.castedSpells) {
+                        if (spell.continuous && spell.eternity) {
+                            if (spell.effect.equals(Effect.disarm)) {
+                                battle.field.cells[i][j].force.armed = false;
+                            } else if (spell.effect.equals(Effect.stun)) {
+                                battle.field.cells[i][j].force.stunned = true;
+                            } else if (spell.effect.equals(Effect.holy)) {
+                                battle.field.cells[i][j].force.holiness = spell.effectQuantity;
+                            } else if (spell.effect.equals(Effect.changeAP)) {
+                                battle.field.cells[i][j].force.AP += spell.effectQuantity;
+                            } else if (spell.effect.equals(Effect.changeHP)) {
+                                battle.field.cells[i][j].force.HP += spell.effectQuantity;
+                            }
+                        }
+                    }
+            }
+            if (battle.lasting)
+                this.battle.turn++;
+            else {
+                if (battle.winner.equals(battle.firstPlayer))
+                    System.out.println("first player won");
+                else
+                    System.out.println("second player won");
+            ...
             }
         }
-        if(battle.lasting)
-            this.battle.turn++;
-        else{
-            if(battle.winner.equals(battle.firstPlayer))
-                System.out.println("first player won");
-            else
-                System.out.println("second player won");
-            ...
-        }
-
     }
 
     void conceit() {
@@ -650,7 +670,6 @@ class Player {
         }
     }
 
-
     void showNextCard() {
 
     }
@@ -698,7 +717,6 @@ class Player {
 
     }
 
-    // intelj asghal push kon
     void showMenu() {
 
     }
