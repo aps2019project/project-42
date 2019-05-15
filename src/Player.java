@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class Player {
     Console console = Console.getInstance();
@@ -23,31 +24,35 @@ class Player {
         }
     }
 
-    boolean targetValidation(Cell activatinCell,Cell targetCell, Spell spell) {
-        Force force=targetCell.force;
-        if (spell.targetKind.equals(TargetKind.player) || spell.targetKind.equals(TargetKind.player))
+    boolean targetValidation(Cell activationCell, Cell targetCell, Spell spell) {
+        if (spell.targetKind.equals(TargetKind.player))
             return true;
-        if ((force instanceof Hero && spell.targetKind.equals(TargetKind.minion)) || (force instanceof Minion && spell.targetKind.equals(TargetKind.hero)))
-            return false;
         if (spell.locationImportance) {
             boolean b = false;
             if (spell.targetDistance == 0) {
                 for (Cell c : spell.location) {
-                    if (c.equals(force.cell)) {
+                    if (c.equals(targetCell)) {
                         b = true;
                     }
                 }
             } else {
-                if (Math.abs(activatinCell.getX() + activatinCell.getY() - targetCell.getY() - targetCell.getX()) <= spell.targetDistance) {
+                if (Math.abs(activationCell.getX() + activationCell.getY() - targetCell.getY() - targetCell.getX()) <= spell.targetDistance) {
                     b = true;
                 }
             }
             if (!b)
                 return false;
         }
+        if (spell.targetKind.equals(TargetKind.cell))
+            return true;
+        if (targetCell.force == null)
+            return false;
+        if ((targetCell.force instanceof Hero && spell.targetKind.equals(TargetKind.minion)) || (targetCell.force instanceof Minion && spell.targetKind.equals(TargetKind.hero)))
+            return false;
+
         if (!spell.staticState.equals(StaticState.nothing)) {
             boolean b = false;
-            if (((spell.targetStatics.equals(TargetStatics.AP)) && (((spell.staticState.equals(StaticState.less)) && (spell.staticQuantity > force.AP)) || ((spell.staticState.equals(StaticState.exact)) && (spell.staticQuantity == force.AP)) || ((spell.staticState.equals(StaticState.more)) && (spell.staticQuantity > force.AP)))) || ((spell.targetStatics.equals(TargetStatics.HP)) && (((spell.staticState.equals(StaticState.less)) && (spell.staticQuantity > force.HP)) || ((spell.staticState.equals(StaticState.exact)) && (spell.staticQuantity == force.HP)) || ((spell.staticState.equals(StaticState.more)) && (spell.staticQuantity > force.HP)))) || ((spell.targetStatics.equals(TargetStatics.MP)) && (((spell.staticState.equals(StaticState.less)) && (spell.staticQuantity > force.MP)) || ((spell.staticState.equals(StaticState.exact)) && (spell.staticQuantity == force.MP)) || ((spell.staticState.equals(StaticState.more)) && (spell.staticQuantity > force.MP))))) {//AP:less,exact,more HP:less,exact,more MP:less,exact,more
+            if (((spell.targetStatics.equals(TargetStatics.AP)) && (((spell.staticState.equals(StaticState.less)) && (spell.staticQuantity > targetCell.force.AP)) || ((spell.staticState.equals(StaticState.exact)) && (spell.staticQuantity == targetCell.force.AP)) || ((spell.staticState.equals(StaticState.more)) && (spell.staticQuantity > targetCell.force.AP)))) || ((spell.targetStatics.equals(TargetStatics.HP)) && (((spell.staticState.equals(StaticState.less)) && (spell.staticQuantity > targetCell.force.HP)) || ((spell.staticState.equals(StaticState.exact)) && (spell.staticQuantity == targetCell.force.HP)) || ((spell.staticState.equals(StaticState.more)) && (spell.staticQuantity > targetCell.force.HP)))) || ((spell.targetStatics.equals(TargetStatics.MP)) && (((spell.staticState.equals(StaticState.less)) && (spell.staticQuantity > targetCell.force.MP)) || ((spell.staticState.equals(StaticState.exact)) && (spell.staticQuantity == targetCell.force.MP)) || ((spell.staticState.equals(StaticState.more)) && (spell.staticQuantity > targetCell.force.MP))))) {//AP:less,exact,more HP:less,exact,more MP:less,exact,more
                 b = true;
             }
             if (!b) {
@@ -56,7 +61,7 @@ class Player {
         }
         if (!spell.side.equals(Side.both)) {
             boolean b = false;
-            if (spell.side.equals(Side.friend) && force.owner.equals(this) || ((spell.side.equals(Side.foe)) && (!force.owner.equals(this)))) {
+            if (spell.side.equals(Side.friend) && targetCell.force.owner.equals(this) || ((spell.side.equals(Side.foe)) && (!targetCell.force.owner.equals(this)))) {
                 b = true;
             }
             if (!b) {
@@ -65,7 +70,7 @@ class Player {
         }
         if (!spell.targetRange.equals(TargetRange.anyThing)) {
             boolean b = false;
-            if (((spell.targetRange.equals(TargetRange.melee)) && (force.rangeType.equals(RangeType.melee))) || ((spell.targetRange.equals(TargetRange.ranged)) && (force.rangeType.equals(RangeType.ranged))) || ((spell.targetRange.equals(TargetRange.hybrid)) && (force.rangeType.equals(RangeType.hybrid))) || ((spell.targetRange.equals(TargetRange.hyged)) && (!force.rangeType.equals(RangeType.melee))) || ((spell.targetRange.equals(TargetRange.hylee)) && (!force.rangeType.equals(RangeType.ranged)))) {
+            if (((spell.targetRange.equals(TargetRange.melee)) && (targetCell.force.rangeType.equals(RangeType.melee))) || ((spell.targetRange.equals(TargetRange.ranged)) && (targetCell.force.rangeType.equals(RangeType.ranged))) || ((spell.targetRange.equals(TargetRange.hybrid)) && (targetCell.force.rangeType.equals(RangeType.hybrid))) || ((spell.targetRange.equals(TargetRange.hyged)) && (!targetCell.force.rangeType.equals(RangeType.melee))) || ((spell.targetRange.equals(TargetRange.hylee)) && (!targetCell.force.rangeType.equals(RangeType.ranged)))) {
                 b = true;
             }
             if (!b) {
@@ -75,7 +80,35 @@ class Player {
         return true;
     }
 
-    void castSpell(Cell activationCell,Cell targetCell, Spell spell) {
+    Cell getCell() {
+        System.out.println("tell me where do u want it, give me x and enter and y and another enter :)");
+        Scanner scanner = new Scanner(System.in);
+        int x = scanner.nextInt();
+        int y = scanner.nextInt();
+        return this.battle.field.cells[x - 1][y - 1];
+    }
+
+    ArrayList<Cell> validCellsForSpellCasting(Cell activationCell, Spell spell) {
+        ArrayList<Cell> output = new ArrayList<>();
+        if (!spell.choice) {
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 9; j++) {
+                    if (targetValidation(activationCell, this.battle.field.cells[i][j], spell) && ((spell.massacre) || (output.size() <= spell.targetsNumber)))
+                        output.add(this.battle.field.cells[i][j]);
+                }
+            }
+        } else {
+            for (int i = 0; i < spell.targetsNumber; i++) {
+                Cell cell = getCell();
+                if (targetValidation(activationCell, cell, spell))
+                    output.add(cell);
+            }
+        }
+        return output;
+    }
+
+    void castSpell(Cell activationCell, Spell spell) {
+
         if (spell.targetKind.equals(TargetKind.player) &&spell.effect.equals(Effect.changeMana)) {
             this.mana+=spell.effectQuantity;
             return;
@@ -85,34 +118,162 @@ class Player {
             return;
         }
         else if (spell.targetKind.equals(TargetKind.cell)) {
-            targetCell.cellEffects.add(spell);
+            getCell().cellEffects.add(spell);
+            return;
         }
-        else if () {
-
+        if (spell.immunity) {
+            ArrayList<Cell> cells = validCellsForSpellCasting(activationCell, spell);
+            for (int i = 0; i < cells.size(); i++) {
+                cells.get(i).force.castedSpells.add(spell);
+                if (spell.effect.equals(Effect.poison))
+                    cells.get(i).force.poisonImmune = true;
+                else if (spell.effect.equals(Effect.disarm))
+                    cells.get(i).force.disarmImmune = true;
+                else if (spell.effect.equals(Effect.changeAP))
+                    cells.get(i).force.apImmune = true;
+                else if (spell.effect.equals(Effect.changeHP))
+                    cells.get(i).force.hpImmune = true;
+                else if (spell.effect.equals(Effect.stun))
+                    cells.get(i).force.stunImmune = true;
+                else if (spell.effect.equals(Effect.holy))
+                    cells.get(i).force.holyImmune = true;
+                else if (spell.effect.equals(Effect.fiery))
+                    cells.get(i).force.fieryImmune = true;
+            }
+            return;
         }
-        else if () {
-
-        }
-        else if () {
-
-        }
-        else if () {
-
-        }
-        else if () {
-
-        }
-        else if () {
-
-        }
-        else if () {
-
-        }
-        else if () {
-
-        }
-        else if () {
-
+        if (spell.effect.equals(Effect.disarm)) {
+            ArrayList<Cell> cells = validCellsForSpellCasting(activationCell, spell);
+            for (int i = 0; i < cells.size(); i++) {
+                if (!cells.get(i).force.disarmImmune) {
+                    cells.get(i).force.armed = false;
+                    cells.get(i).force.castedSpells.add(spell);
+                }
+            }
+        } else if (spell.effect.equals(Effect.stun)) {
+            ArrayList<Cell> cells = validCellsForSpellCasting(activationCell, spell);
+            for (int i = 0; i < cells.size(); i++) {
+                if (!cells.get(i).force.stunImmune) {
+                    cells.get(i).force.stunned = true;
+                    cells.get(i).force.castedSpells.add(spell);
+                }
+            }
+        } else if (spell.effect.equals(Effect.holy)) {
+            ArrayList<Cell> cells = validCellsForSpellCasting(activationCell, spell);
+            for (int i = 0; i < cells.size(); i++) {
+                if (!cells.get(i).force.holyImmune) {
+                    cells.get(i).force.holiness = spell.effectQuantity;
+                    cells.get(i).force.castedSpells.add(spell);
+                }
+            }
+        } else if (spell.effect.equals(Effect.changeAP)) {
+            ArrayList<Cell> cells = validCellsForSpellCasting(activationCell, spell);
+            for (int i = 0; i < cells.size(); i++) {
+                if (!cells.get(i).force.apImmune) {
+                    cells.get(i).force.AP += spell.effectQuantity;
+                    cells.get(i).force.castedSpells.add(spell);
+                }
+            }
+        } else if (spell.effect.equals(Effect.changeHP)) {
+            ArrayList<Cell> cells = validCellsForSpellCasting(activationCell, spell);
+            for (int i = 0; i < cells.size(); i++) {
+                if (!cells.get(i).force.hpImmune) {
+                    cells.get(i).force.HP += spell.effectQuantity;
+                    cells.get(i).force.castedSpells.add(spell);
+                }
+            }
+        } else if (spell.effect.equals(Effect.dispel)) {
+            ArrayList<Cell> cells = validCellsForSpellCasting(activationCell, spell);
+            for (int i = 0; i < cells.size(); i++) {
+                for (int j = 0; j < cells.get(i).force.castedSpells.size(); j++) {
+                    if ((cells.get(i).force.castedSpells.get(j).goodness && !cells.get(i).force.owner.equals(this)) || (!cells.get(i).force.castedSpells.get(j).goodness && cells.get(i).force.owner.equals(this))) {
+                        if (cells.get(i).force.castedSpells.get(j).effect.equals(Effect.disarm)) {
+                            if (cells.get(i).force.castedSpells.get(j).immunity) {
+                                cells.get(i).force.disarmImmune = false;
+                                cells.get(i).force.castedSpells.remove(j);
+                                j--;
+                            } else {
+                                cells.get(i).force.armed = true;
+                                if (!cells.get(i).force.castedSpells.get(j).continuous) {
+                                    cells.get(i).force.castedSpells.remove(j);
+                                    j--;
+                                } else {
+                                    cells.get(i).force.castedSpells.get(j).eternity = true;
+                                }
+                            }
+                        } else if (cells.get(i).force.castedSpells.get(j).effect.equals(Effect.changeAP)) {
+                            if (cells.get(i).force.castedSpells.get(j).immunity) {
+                                cells.get(i).force.apImmune = false;
+                                cells.get(i).force.castedSpells.remove(j);
+                                j--;
+                            } else {
+                                cells.get(i).force.AP -= cells.get(i).force.castedSpells.get(j).effectQuantity;
+                                if (!cells.get(i).force.castedSpells.get(j).continuous) {
+                                    cells.get(i).force.castedSpells.remove(j);
+                                    j--;
+                                } else {
+                                    cells.get(i).force.castedSpells.get(j).eternity = true;
+                                }
+                            }
+                        } else if (cells.get(i).force.castedSpells.get(j).effect.equals(Effect.changeHP)) {
+                            if (cells.get(i).force.castedSpells.get(j).immunity) {
+                                cells.get(i).force.hpImmune = false;
+                                cells.get(i).force.castedSpells.remove(j);
+                                j--;
+                            } else {
+                                cells.get(i).force.HP -= cells.get(i).force.castedSpells.get(j).effectQuantity;
+                                if (!cells.get(i).force.castedSpells.get(j).continuous) {
+                                    cells.get(i).force.castedSpells.remove(j);
+                                    j--;
+                                } else {
+                                    cells.get(i).force.castedSpells.get(j).eternity = true;
+                                }
+                            }
+                        } else if (cells.get(i).force.castedSpells.get(j).effect.equals(Effect.stun)) {
+                            if (cells.get(i).force.castedSpells.get(j).immunity) {
+                                cells.get(i).force.stunImmune = false;
+                                cells.get(i).force.castedSpells.remove(j);
+                                j--;
+                            } else {
+                                cells.get(i).force.stunned = false;
+                                if (!cells.get(i).force.castedSpells.get(j).continuous) {
+                                    cells.get(i).force.castedSpells.remove(j);
+                                    j--;
+                                } else {
+                                    cells.get(i).force.castedSpells.get(j).eternity = true;
+                                }
+                            }
+                        } else if (cells.get(i).force.castedSpells.get(j).effect.equals(Effect.holy)) {
+                            if (cells.get(i).force.castedSpells.get(j).immunity) {
+                                cells.get(i).force.holyImmune = false;
+                                cells.get(i).force.castedSpells.remove(j);
+                                j--;
+                            } else {
+                                cells.get(i).force.holiness = 0;
+                                if (!cells.get(i).force.castedSpells.get(j).continuous) {
+                                    cells.get(i).force.castedSpells.remove(j);
+                                    j--;
+                                } else {
+                                    cells.get(i).force.castedSpells.get(j).eternity = true;
+                                }
+                            }
+                        } else if (cells.get(i).force.castedSpells.get(j).effect.equals(Effect.poison)) {
+                            if (cells.get(i).force.castedSpells.get(j).immunity) {
+                                cells.get(i).force.poisonImmune = false;
+                                cells.get(i).force.castedSpells.remove(j);
+                                j--;
+                            } else {
+                                if (!cells.get(i).force.castedSpells.get(j).continuous) {
+                                    cells.get(i).force.castedSpells.remove(j);
+                                    j--;
+                                } else {
+                                    cells.get(i).force.castedSpells.get(j).eternity = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -150,7 +311,7 @@ class Player {
             i++;
         }
         hand.cards[i] = comingSoon.card;
-        comingSoon.card = deck.cards.get(0);
+        comingSoon.card = (SpellCard) deck.cards.get(0);
         deck.cards.remove(0);
     }
 
@@ -226,14 +387,10 @@ class Player {
             cell.force = force;
             force.cell = cell;
             hand.cards[index] = null;
-            if()
-            {
-                for (int i = 0; i < force.spells.size(); i++) {
-                    if (force.spells.get(i).time.equals(Time.spawn)) {
-                        castSpell(battle, force, force.spells.get(i));
-                    }
-            }
-
+            for (int i = 0; i < force.spells.size(); i++) {
+                if (force.spells.get(i).time.equals(Time.spawn)) {
+                    castSpell(cell, , force.spells.get(i));
+                }
             }
         }
     }
@@ -277,7 +434,7 @@ class Player {
             originCell.force.exhaustion = true;
             if (destinationCell.force.HP < 0)
                 destinationCell.force.HP = 0;
-            if (rangeValidation(destinationCell, originCell)) {
+            if (rangeValidation(destinationCell, originCell) && destinationCell.force.armed) {
                 originCell.force.HP -= destinationCell.force.AP;
                 if (originCell.force.HP < 0)
                     originCell.force.HP = 0;
@@ -297,13 +454,12 @@ class Player {
         if (!b) {
             System.out.println("cant do that shit");
         } else {
-            // b=true;// unneeded
             for (int i = 0; i < originCells.length; i++) {
                 destinationCell.force.HP -= originCells[i].force.AP;
                 originCells[i].force.exhaustion = true;
                 if (destinationCell.force.HP < 0)
                     destinationCell.force.HP = 0;
-                if (rangeValidation(destinationCell, originCells[i]) && b) {
+                if (rangeValidation(destinationCell, originCells[i]) && i == originCells.length - 1 && destinationCell.force.armed) {
                     originCells[i].force.HP -= destinationCell.force.AP;
                     if (originCells[i].force.HP < 0)
                         originCells[i].force.HP = 0;
@@ -337,7 +493,7 @@ class Player {
             this.battle.secondPlayer.cooldown = 0;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
-                if (battle.field.cells[i][j].force.owner.equals(this))
+                if (battle.field.cells[i][j].force.owner.equals(this) && !battle.field.cells[i][j].force.stunned)
                     battle.field.cells[i][j].force.exhaustion = false;
             }
         }
@@ -364,37 +520,136 @@ class Player {
 
     }
 
-    void gameInfo() {
+    void gameInfo1() {
+        //System.out.println(account.mainDeck.hero.name + account.mainDeck.hero.HP);
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (battle.field.cells[i][j].force == account.mainDeck.hero) {
+                    System.out.println(account.mainDeck.hero.name + account.mainDeck.hero.HP);
+                }
+            }
+        }
+    }
 
+    void gameInfo2() {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (battle.field.cells[i][j].flag) {
+                    if (battle.field.cells[i][j].force != null)
+                        System.out.println(battle.field.cells[i][j].force);
+                    if (battle.field.cells[i][j].force == null)
+                        System.out.println(battle.field.cells[i][j].getX() + " , " + battle.field.cells[i][j].getY());
+                }
+            }
+        }
+    }
+
+    void gameInfo3() {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (battle.field.cells[i][j].flag) {
+                    if (battle.field.cells[i][j].force != null) {
+                        System.out.println(battle.field.cells[i][j].force.owner + " : " + battle.field.cells[i][j].force);
+                    }
+                }
+            }
+        }
     }
 
     void showMyMinions() {
-
+        //console.showMinions(account);
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (battle.field.cells[i][j].force != null && Duelyst.currentAccount.getAccountMinions().contains(battle.field.cells[i][j].force) && Duelyst.getAllMinions().contains(battle.field.cells[i][j].force)) {
+                    Minion minion = (Minion) battle.field.cells[i][j].force;
+                    System.out.println(minion);
+                }
+            }
+        }
     }
 
-    void showOppenontMinions() {
-
+    void showOpponentMinions() {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (battle.field.cells[i][j].force != null && !Duelyst.currentAccount.getAccountMinions().contains(battle.field.cells[i][j].force) && Duelyst.getAllMinions().contains(battle.field.cells[i][j].force)) {
+                    Minion minion = (Minion) battle.field.cells[i][j].force;
+                    System.out.println(minion);
+                }
+            }
+        }
     }
 
-    void showCardInfo(Card card) {
-
+    void showCardInfo(int id) {
+        Card card = Duelyst.currentAccount.shopMethods.getCardByIdInCollection(id);
+        if (card != null) {
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 9; j++) {
+                    if (battle.field.cells[i][j].force == card) {
+                        if (Duelyst.getAllMinions().contains(card)) {
+                            Minion minion = (Minion) card;
+                            System.out.println(minion);
+                        } else if (Duelyst.getAllHeroes().contains(card)) {
+                            Hero hero = (Hero) card;
+                            System.out.println(hero);
+                        } else if (Duelyst.getAllSpellCards().contains(card)) {
+                            SpellCard spellCard = (SpellCard) card;
+                            System.out.println(spellCard);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     void showHand() {
-
+        for (int i = 0; i < 5; i++) {
+            Card card = hand.cards[i];
+            if (Duelyst.getAllMinions().contains(card)) {
+                Minion minion = (Minion) card;
+                System.out.println(minion);
+            } else if (Duelyst.getAllHeroes().contains(card)) {
+                Hero hero = (Hero) card;
+                System.out.println(hero);
+            } else if (Duelyst.getAllSpellCards().contains(card)) {
+                SpellCard spellCard = (SpellCard) card;
+                System.out.println(spellCard);
+            } else if (Duelyst.getAllItems().contains(card)) {
+                Item item = (Item) card;
+                System.out.println(item);
+            }
+        }
     }
 
-    void select() {
-
+    void select(int id) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (battle.field.cells[i][j].force == account.shopMethods.getCardByIdInCollection(id))
+                    selectedCard = account.shopMethods.getCardByIdInCollection(id);
+            }
+        }
     }
+
 
     void showCollectibles() {
-
+        for (Item item : Duelyst.getAllCollectibles()) {
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 9; j++) {
+                    if (battle.field.cells[i][j].force == item) {
+                        System.out.println(item);
+                    }
+                }
+            }
+        }
     }
 
-    void showItemInfo() {
-
+    void showItemInfo(int id) {
+        Card card = Duelyst.currentAccount.shopMethods.getCardByIdInCollection(id);
+        if (Duelyst.getAllCollectibles().contains(card) && items.contains(card)) {
+            Item item = (Item) card;
+            System.out.println(item);
+        }
     }
+
 
     void showNextCard() {
 
@@ -404,12 +659,35 @@ class Player {
 
     }
 
-    void showInfoInGraveYard(Card card) {
-
+    void showInfoInGraveYard(int id) {
+        Card card = Duelyst.currentAccount.shopMethods.getCardByIdInCollection(id);
+        if (graveYard.cards.contains(card)) {
+            if (Duelyst.getAllMinions().contains(card)) {
+                Minion minion = (Minion) card;
+                System.out.println(minion);
+            } else if (Duelyst.getAllHeroes().contains(card)) {
+                Hero hero = (Hero) card;
+                System.out.println(hero);
+            } else if (Duelyst.getAllSpellCards().contains(card)) {
+                SpellCard spellCard = (SpellCard) card;
+                System.out.println(spellCard);
+            }
+        }
     }
 
     void showCardsInGraveYard() {
-
+        for (Card card : graveYard.cards) {
+            if (Duelyst.getAllMinions().contains(card)) {
+                Minion minion = (Minion) card;
+                System.out.println(minion);
+            } else if (Duelyst.getAllHeroes().contains(card)) {
+                Hero hero = (Hero) card;
+                System.out.println(hero);
+            } else if (Duelyst.getAllSpellCards().contains(card)) {
+                SpellCard spellCard = (SpellCard) card;
+                System.out.println(spellCard);
+            }
+        }
     }
 
     void help() {
@@ -420,6 +698,7 @@ class Player {
 
     }
 
+    // intelj asghal push kon
     void showMenu() {
 
     }

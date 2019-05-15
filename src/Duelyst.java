@@ -54,8 +54,7 @@ class Duelyst {
 
     private void preStart() throws IOException {
         setCurrentMenu();
-        final String[] names = {
-                "Heroes", "Items", "Minions", "SpellCards", "Collectibles"
+        final String[] names = {"Heroes", "Items", "Minions", "SpellCards", "Collectibles"
         };
         for (String name : names) {
             File source = new File(name);

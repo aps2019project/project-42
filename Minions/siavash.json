@@ -1,1 +1,38 @@
-{"name":"siavash","desc":"on death, deals 6 damgae to enemy hero","typeOfMinion":"minion","ID":438,"price":350,"AP":5,"HP":8,"MP":4,"combo":false,"rangeType":"melee","range":1,"exhaustion":true,"spells":[{"targetNumber":1,"targetDistance":-1,"effectQuantity":6,"staticQuantity":0,"time":"minionDeath","side":"foe","effect":"changeHP","staticState":"nothing","targetRange":"anyThing","targetStatic":"nothing","targetKind":"hero","massacre":false,"immunity":false,"continuous":false,"choice":true,"goodness":false,"eternity":false,"locationImportance":false,"turns":[],"locations":[]}]}
+{
+  "name": "siavash",
+  "desc": "on death, deals 6 damgae to enemy hero",
+  "typeOfMinion": "minion",
+  "ID": 438,
+  "price": 350,
+  "AP": 5,
+  "HP": 8,
+  "MP": 4,
+  "combo": false,
+  "rangeType": "melee",
+  "range": 1,
+  "exhaustion": true,
+  "spells": [
+    {
+      "targetNumber": 1,
+      "targetDistance": -1,
+      "effectQuantity": 6,
+      "staticQuantity": 0,
+      "time": "minionDeath",
+      "side": "foe",
+      "effect": "changeHP",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "nothing",
+      "targetKind": "hero",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": false,
+      "eternity": false,
+      "locationImportance": false,
+      "turns": [],
+      "locations": []
+    }
+  ]
+}

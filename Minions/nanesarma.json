@@ -1,1 +1,40 @@
-{"name":"nanesarma","desc":"enemy minions get stunned for one turn","typeOfMinion":"minion","ID":436,"price":500,"AP":4,"HP":3,"MP":3,"combo":false,"rangeType":"ranged","range":5,"exhaustion":true,"spells":[{"targetNumber":-1,"targetDistance":8,"effectQuantity":0,"staticQuantity":0,"time":"spawn","side":"foe","effect":"stun","staticState":"nothing","targetRange":"anyThing","targetStatic":"nothing","targetKind":"minion","massacre":true,"immunity":false,"continuous":false,"choice":true,"goodness":false,"eternity":false,"locationImportance":false,"turns":[0],"locations":[]}]}
+{
+  "name": "nanesarma",
+  "desc": "enemy minions get stunned for one turn",
+  "typeOfMinion": "minion",
+  "ID": 436,
+  "price": 500,
+  "AP": 4,
+  "HP": 3,
+  "MP": 3,
+  "combo": false,
+  "rangeType": "ranged",
+  "range": 5,
+  "exhaustion": true,
+  "spells": [
+    {
+      "targetNumber": -1,
+      "targetDistance": 8,
+      "effectQuantity": 0,
+      "staticQuantity": 0,
+      "time": "spawn",
+      "side": "foe",
+      "effect": "stun",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "nothing",
+      "targetKind": "minion",
+      "massacre": true,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": false,
+      "eternity": false,
+      "locationImportance": false,
+      "turns": [
+        0
+      ],
+      "locations": []
+    }
+  ]
+}

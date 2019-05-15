@@ -1,1 +1,38 @@
-{"name":"jen","desc":"gives a power buff to all friendly minions","typeOfMinion":"minion","ID":427,"price":500,"AP":4,"HP":10,"MP":5,"combo":false,"rangeType":"ranged","range":4,"exhaustion":true,"spells":[{"targetNumber":-1,"targetDistance":-1,"effectQuantity":1,"staticQuantity":0,"time":"spawn","side":"friend","effect":"changeAP","staticState":"nothing","targetRange":"anyThing","targetStatic":"nothing","targetKind":"minion","massacre":false,"immunity":false,"continuous":false,"choice":true,"goodness":true,"eternity":true,"locationImportance":false,"turns":[],"locations":[]}]}
+{
+  "name": "jen",
+  "desc": "gives a power buff to all friendly minions",
+  "typeOfMinion": "minion",
+  "ID": 427,
+  "price": 500,
+  "AP": 4,
+  "HP": 10,
+  "MP": 5,
+  "combo": false,
+  "rangeType": "ranged",
+  "range": 4,
+  "exhaustion": true,
+  "spells": [
+    {
+      "targetNumber": -1,
+      "targetDistance": -1,
+      "effectQuantity": 1,
+      "staticQuantity": 0,
+      "time": "spawn",
+      "side": "friend",
+      "effect": "changeAP",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "nothing",
+      "targetKind": "minion",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": true,
+      "eternity": true,
+      "locationImportance": false,
+      "turns": [],
+      "locations": []
+    }
+  ]
+}

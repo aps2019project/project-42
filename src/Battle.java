@@ -70,6 +70,7 @@ class Battle {
         field.battle = this;
         field.cells[2][0].force = firstPlayer.deck.hero;
         field.cells[2][8].force = firstPlayer.deck.hero;
+        fillCollectibles(field);
         if (flagsNumber == 1) {
             field.cells[2][4].flag = true;
         } else if (flagsNumber > 1) {
