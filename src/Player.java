@@ -568,19 +568,18 @@ class Player {
         battle.lasting = false;
     }
 
-    void useItem(Item item) {
-        Cell cell = getCell();
+    void useItem(int id, Cell cell) {
+        Item item = (Item) battle.firstPlayer.account.shopMethods.getCardByIdInCollection(id);
         for (Spell spell : item.spells) {
             castSpell(cell, null, spell);
         }
     }
 
     void gameInfo1() {
-        //System.out.println(account.mainDeck.hero.name + account.mainDeck.hero.HP);
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
                 if (battle.field.cells[i][j].force == account.mainDeck.hero) {
-                    System.out.println(account.mainDeck.hero.name + account.mainDeck.hero.HP);
+                    System.out.println(account.mainDeck.hero.name + " " + account.mainDeck.hero.HP);
                 }
             }
         }
@@ -612,17 +611,10 @@ class Player {
     }
 
     void showMyMinions() {
-        //console.showMinions(account);
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
-                if (battle.field.cells[i][j].force != null && (Duelyst.currentAccount.getAccountMinions().contains(battle.field.cells[i][j].force) || Duelyst.currentAccount.getAccountHeroes().contains(battle.field.cells[i][j].force))) {
-                    if (Duelyst.currentAccount.getAccountMinions().contains(battle.field.cells[i][j].force)) {
-                        Minion minion = (Minion) battle.field.cells[i][j].force;
-                        System.out.println(minion);
-                    } else if (Duelyst.currentAccount.getAccountHeroes().contains(battle.field.cells[i][j].force)) {
-                        Hero hero = (Hero) battle.field.cells[i][j].force;
-                        System.out.println(hero);
-                    }
+                if (battle.field.cells[i][j].force != null && battle.field.cells[i][j].force.owner.equals(this)) {
+                    System.out.println(battle.field.cells[i][j].force.name + " : HP: " + battle.field.cells[i][j].force.HP + " AP: " + battle.field.cells[i][j].force.AP + " row: " + (i + 1) + " column: " + (j + 1));
                 }
             }
         }
@@ -632,14 +624,8 @@ class Player {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
                 if (battle.field.cells[i][j].force != null) {
-                    if (!Duelyst.currentAccount.getAccountMinions().contains(battle.field.cells[i][j].force) && !Duelyst.currentAccount.getAccountHeroes().contains(battle.field.cells[i][j].force)) {
-                        if(Duelyst.getAllHeroes().contains(battle.field.cells[i][j].force)){
-                            Hero hero = (Hero) battle.field.cells[i][j].force;
-                            System.out.println(hero);
-                        } else if (Duelyst.getAllMinions().contains(battle.field.cells[i][j].force)){
-                            Minion minion=(Minion) battle.field.cells[i][j].force;
-                            System.out.println(minion);
-                        }
+                    if (battle.field.cells[i][j].force != null && !battle.field.cells[i][j].force.owner.equals(this)) {
+                        System.out.println(battle.field.cells[i][j].force.name + " : HP: " + battle.field.cells[i][j].force.HP + " AP: " + battle.field.cells[i][j].force.AP + " row: " + (i + 1) + " column: " + (j + 1));
                     }
                 }
             }
@@ -654,10 +640,10 @@ class Player {
                     if (battle.field.cells[i][j].force.equals(card)) {
                         if (Duelyst.getAllMinions().contains(card)) {
                             Minion minion = (Minion) card;
-                            System.out.println(minion+" row: "+(minion.cell.getX()+1)+" column: "+(minion.cell.getY()+1));
+                            System.out.println(minion + " row: " + (minion.cell.getX() + 1) + " column: " + (minion.cell.getY() + 1));
                         } else if (Duelyst.getAllHeroes().contains(card)) {
                             Hero hero = (Hero) card;
-                            System.out.println(hero+" row: "+(hero.cell.getX()+1)+" column: "+(hero.cell.getY()+1));
+                            System.out.println(hero + " row: " + (hero.cell.getX() + 1) + " column: " + (hero.cell.getY() + 1));
                         } else if (Duelyst.getAllSpellCards().contains(card)) {
                             SpellCard spellCard = (SpellCard) card;
                             System.out.println(spellCard);
@@ -718,7 +704,7 @@ class Player {
     }
 
     void showNextCard() {
-        Card card=comingSoon.card;
+        Card card = comingSoon.card;
         if (Duelyst.getAllMinions().contains(card)) {
             Minion minion = (Minion) card;
             System.out.println(minion);

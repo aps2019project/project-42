@@ -240,7 +240,7 @@ public class BattleFirstMenu extends Menu {
                 battle.player.endTurn();
             } else if (command.matches("show collectibles")) {
                 battle.player.showCollectibles();
-            } else if (command.matches("select (\\d+)")) {
+            } else if (command.matches("select collectible (\\d+)")) {
                 String command1 = scanner.nextLine().trim().toLowerCase();
                 String[] command1Array = command1.split("\\s");
                 boolean x = true;
@@ -248,7 +248,7 @@ public class BattleFirstMenu extends Menu {
                     if (command1.matches("show info")) {
                         battle.player.showItemInfo(Integer.parseInt(commandArray[1]));
                     } else if (command1.matches("use [0-8] [0-4]")) {
-
+                        battle.player.useItem(Integer.parseInt(commandArray[1]),battle.field.cells[Integer.parseInt(command1Array[1]) - 1][Integer.parseInt(command1Array[2]) - 1]);
                     } else if (command1.matches("exit")) {
                         x = false;
                     }
@@ -270,7 +270,10 @@ public class BattleFirstMenu extends Menu {
                 }
             } else if (command.matches("conceit")) {
                 battle.player.conceit();
-            } else if (command.matches("help")) {
+            }else if (command.matches("ettelaat")){
+                battle.player.showField();
+            }
+            else if (command.matches("help")) {
 
             }  else if (command.matches("exit")) {
                 Duelyst.currentMenu=MainMenu.getInstance();
