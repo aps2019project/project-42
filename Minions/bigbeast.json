@@ -1,15 +1,1 @@
-{
-  "name": "bigbeast",
-  "desc": "...",
-  "typeOfMinion": "minion",
-  "ID": 34,
-  "price": 600,
-  "AP": 8,
-  "HP": 30,
-  "MP": 9,
-  "combo": false,
-  "rangeType": "hybrid",
-  "range": 2,
-  "exhaustion": true,
-  "spells": []
-}
+{"name":"bigbeast","desc":"...","typeOfMinion":"minion","ID":34,"price":600,"AP":8,"HP":30,"MP":9,"combo":false,"rangeType":"hybrid","range":2,"exhaustion":true,"spells":[]}
