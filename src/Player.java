@@ -23,7 +23,8 @@ class Player {
         }
     }
 
-    boolean targetValidation(Cell cell, Spell spell, Force force) {
+    boolean targetValidation(Cell activatinCell,Cell targetCell, Spell spell) {
+        Force force=targetCell.force;
         if (spell.targetKind.equals(TargetKind.player) || spell.targetKind.equals(TargetKind.player))
             return true;
         if ((force instanceof Hero && spell.targetKind.equals(TargetKind.minion)) || (force instanceof Minion && spell.targetKind.equals(TargetKind.hero)))
@@ -37,7 +38,7 @@ class Player {
                     }
                 }
             } else {
-                if (Math.abs(force.cell.getX() + force.cell.getY() - cell.getY() - cell.getX()) <= spell.targetDistance) {
+                if (Math.abs(activatinCell.getX() + activatinCell.getY() - targetCell.getY() - targetCell.getX()) <= spell.targetDistance) {
                     b = true;
                 }
             }
@@ -74,7 +75,7 @@ class Player {
         return true;
     }
 
-    void castSpell(Battle battle, Card card, Spell spell) {
+    void castSpell(Cell activationCell,Cell targetCell, Spell spell) {
         if (spell.targetKind.equals(TargetKind.player) &&spell.effect.equals(Effect.changeMana)) {
             this.mana+=spell.effectQuantity;
             return;
@@ -83,8 +84,8 @@ class Player {
             this.hand.cards[spell.targetDistance].MP+=spell.effectQuantity;
             return;
         }
-        else if () {
-
+        else if (spell.targetKind.equals(TargetKind.cell)) {
+            targetCell.cellEffects.add(spell);
         }
         else if () {
 
@@ -188,7 +189,6 @@ class Player {
             }
         } else if (battle.flagsNumber == 1) {
             if (this.battle.field.cells[2][4].force.owner.mood2counter == 8) {
-                System.out.println("u lost piece of shit");
                 battle.looser = this;
                 battle.endGame();
                 battle.lasting = false;
@@ -218,6 +218,7 @@ class Player {
     void deploy(Force force, Cell cell) {
         int index = findInHand(hand, force);
         if (index == -1) {
+            System.out.println("there is no such thing");
         } else if (this.mana < force.MP) {
             console.notEnoughMana();
         } else {
@@ -225,10 +226,14 @@ class Player {
             cell.force = force;
             force.cell = cell;
             hand.cards[index] = null;
-            for (int i = 0; i < force.spells.size(); i++) {
-                if (force.spells.get(i).time.equals(Time.spawn)) {
-                    castSpell(battle, force, force.spells.get(i));
-                }
+            if()
+            {
+                for (int i = 0; i < force.spells.size(); i++) {
+                    if (force.spells.get(i).time.equals(Time.spawn)) {
+                        castSpell(battle, force, force.spells.get(i));
+                    }
+            }
+
             }
         }
     }
@@ -312,7 +317,7 @@ class Player {
 
     void specialPower(Cell cell) {
         for (Spell s : this.deck.hero.spells)
-            castSpell(battle, this.deck.hero, s);
+            castSpell(cell, s);
         cooldown = this.deck.hero.coolDown;
     }
 
@@ -336,7 +341,16 @@ class Player {
                     battle.field.cells[i][j].force.exhaustion = false;
             }
         }
-        this.battle.turn++;
+        if(battle.lasting)
+            this.battle.turn++;
+        else{
+            if(battle.winner.equals(battle.firstPlayer))
+                System.out.println("first player won");
+            else
+                System.out.println("second player won");
+            ...
+        }
+
     }
 
     void conceit() {
@@ -344,6 +358,10 @@ class Player {
         battle.looser = this;
         battle.endGame();
         battle.lasting = false;
+    }
+
+    void useItem(Item item) { //use collectible
+
     }
 
     void gameInfo() {
@@ -378,12 +396,6 @@ class Player {
 
     }
 
-    void useItem(Item item) { //use collectible
-        for (Item a : this.items) {
-            //cast spell a
-        }
-    }
-
     void showNextCard() {
 
     }
@@ -407,7 +419,7 @@ class Player {
     void exit() {
 
     }
-// intelj asghal push kon
+
     void showMenu() {
 
     }

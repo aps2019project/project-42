@@ -48,6 +48,7 @@ class Battle {
     Player firstPlayer;
     Player secondPlayer;
     Field field;
+    Player player;
 
     Battle(GameType gameType1, int flagNumber1, Account first, Account second) {
         gameType = gameType1;
