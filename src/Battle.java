@@ -15,8 +15,8 @@ class Battle {
             else {
                 int x = (int) Math.random() * 5;
                 int y = (int) Math.random() * 9;
-                if (field.cells[x][y].Collectible != null)
-                    field.cells[x][y].Collectible = Duelyst.getAllCollectibles().get(i);
+                if (field.cells[x][y].collectible != null)
+                    field.cells[x][y].collectible = Duelyst.getAllCollectibles().get(i);
             }
         }
     }
@@ -77,5 +77,11 @@ class Battle {
             fillFlags(field);
         }
 
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        Duelyst.currentMenu = MainMenu.getInstance();
+        super.finalize();
     }
 }

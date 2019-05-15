@@ -81,6 +81,13 @@ class Player {
         return true;
     }
 
+    void eatCollectible(Cell cell) {
+        if (cell.collectible != null) {
+            this.items.add(cell.collectible);
+            cell.collectible = null;
+        }
+    }
+
     Cell getCell() {
         System.out.println("tell me where do u want it, give me x and enter and y and another enter :)");
         Scanner scanner = new Scanner(System.in);
@@ -389,6 +396,7 @@ class Player {
             cell.force = force;
             force.cell = cell;
             hand.cards[index] = null;
+            eatCollectible(cell);
             for (int i = 0; i < force.spells.size(); i++) {
                 if (force.spells.get(i).time.equals(Time.spawn)) {
                     castSpell(cell, null, force.spells.get(i));
@@ -417,6 +425,7 @@ class Player {
         } else {
             destinationCell.force = originCell.force;
             originCell.force = null;
+            eatCollectible(destinationCell);
             //    destinationCell.force.x=destinationCell.getX();
             //  destinationCell.force.y=destinationCell.getY();
         }
@@ -519,10 +528,29 @@ class Player {
             if (battle.lasting)
                 this.battle.turn++;
             else {
-                if (battle.winner.equals(battle.firstPlayer))
+                MatchHistory a = new MatchHistory();
+                MatchHistory b = new MatchHistory();
+                if (battle.draw) {
+                    System.out.println("u both sucked equally");
+                    a.result = 0;
+                    b.result = 0;
+                } else if (battle.winner.equals(battle.firstPlayer)) {
                     System.out.println("first player won");
-                else
+                    a.result = 1;
+                    b.result = -1;
+                } else {
                     System.out.println("second player won");
+                    b.result = 1;
+                    a.result = -1;
+                }
+                a.enemy = this.battle.secondPlayer.account;
+                b.enemy = this.battle.firstPlayer.account;
+                this.battle.firstPlayer.account.matchList.add(a);
+                this.battle.firstPlayer.account.matchList.add(b);
+                try {
+                    battle.finalize();
+                } catch (Throwable throwable) {
+                }
             }
             if (turn % 2 == 1)
                 battle.player = battle.firstPlayer;
@@ -540,8 +568,11 @@ class Player {
         battle.lasting = false;
     }
 
-    void useItem(Item item) { //use collectible
-
+    void useItem(Item item) {
+        Cell cell = getCell();
+        for (Spell spell : item.spells) {
+            castSpell(cell, null, spell);
+        }
     }
 
     void gameInfo1() {
