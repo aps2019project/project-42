@@ -76,7 +76,10 @@ class Battle {
         } else if (flagsNumber > 1) {
             fillFlags(field);
         }
-
+        for (Spell spell : firstPlayer.usable.spells)
+            firstPlayer.castSpell(field.cells[0][0], null, spell);
+        for (Spell spell : secondPlayer.usable.spells)
+            secondPlayer.castSpell(field.cells[0][0], null, spell);
     }
 
     @Override
