@@ -4,8 +4,10 @@ public class AI extends Player{
     AI(Account account) {
         super(account);
     }
+
+
     void start(){
-        int i=(int)Math.random()*8;
+        int i=(int)(Math.random()*8);
         if(i==0){
 
         }

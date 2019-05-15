@@ -15,7 +15,7 @@
       "staticState": "nothing",
       "targetRange": "anyThing",
       "targetStatic": "nothing",
-      "targetKind": "hero",
+      "targetKind": "player",
       "massacre": false,
       "immunity": false,
       "continuous": false,
