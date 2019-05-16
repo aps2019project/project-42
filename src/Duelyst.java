@@ -17,7 +17,6 @@ class Duelyst {
     private static ArrayList<Item> allCollectibleItems = new ArrayList<>();
     public static Menu currentMenu = new Menu();
     static boolean finishGame = false;
-    AI costumeGameLevel1 = new AI(costumeLevel1);
     static Scanner scanner = new Scanner(System.in);
     String command;
 

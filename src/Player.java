@@ -8,12 +8,12 @@ class Player {
     int turn;
     int mood2counter = 0;
     int mood3counter = 0;
-    int cooldown = this.deck.hero.coolDown;
+    int coolDown;
+
     Hand hand = new Hand();
     GraveYard graveYard;
     ComingSoon comingSoon;
     Deck deck;
-    Item usable;
     Battle battle;
     ArrayList<Item> items;
     Card selectedCard;
@@ -336,8 +336,8 @@ class Player {
         this.account = account;
         this.mana = 2;
         this.deck = account.mainDeck;
-        this.usable = account.mainDeck.usable;
         this.deck = shuffleDeck(this.deck);
+        this.coolDown = this.deck.hero.coolDown;
         for (int i = 0; i < 5; i++) {
             fillingHand(this.deck, this.hand, this.comingSoon);
         }
@@ -485,7 +485,7 @@ class Player {
     void specialPower(Cell cell) {
         for (Spell s : this.deck.hero.spells)
             castSpell(cell, null, s);
-        cooldown = this.deck.hero.coolDown;
+        coolDown = this.deck.hero.coolDown;
     }
 
     void endTurn() {
@@ -496,12 +496,12 @@ class Player {
             this.battle.field.cells[2][4].force.owner.mood2counter = i + 1;
         }
         gameEnding();
-        this.battle.firstPlayer.cooldown--;
-        if (this.battle.firstPlayer.cooldown < 0)
-            this.battle.firstPlayer.cooldown = 0;
-        this.battle.secondPlayer.cooldown--;
-        if (this.battle.secondPlayer.cooldown < 0)
-            this.battle.secondPlayer.cooldown = 0;
+        this.battle.firstPlayer.coolDown--;
+        if (this.battle.firstPlayer.coolDown < 0)
+            this.battle.firstPlayer.coolDown = 0;
+        this.battle.secondPlayer.coolDown--;
+        if (this.battle.secondPlayer.coolDown < 0)
+            this.battle.secondPlayer.coolDown = 0;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
                 if (battle.field.cells[i][j].force != null && battle.field.cells[i][j].force.owner.equals(this) && !battle.field.cells[i][j].force.stunned)
@@ -684,7 +684,6 @@ class Player {
         }
     }
 
-
     void showCollectibles() {
         for (Item item : Duelyst.getAllCollectibles()) {
             for (int i = 0; i < 5; i++) {
@@ -765,6 +764,7 @@ class Player {
     void showMenu() {
 
     }
+
     void showField() {
         for (int i = 0; i < 5; i++){
             for (int j = 0; j < 9; j++){
