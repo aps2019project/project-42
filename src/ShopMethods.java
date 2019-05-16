@@ -41,6 +41,15 @@ public class ShopMethods {
             if (!tempAccountDecks.isEmpty()) {
                 for (Deck deck : tempAccountDecks) {
                     if (deck.cards.contains(card)) {
+                        if (Duelyst.getAllHeroes().contains(card)) {
+                            deck.hero = null;
+                            deck.numOfHeroes--;
+                        } else if (Duelyst.getAllItems().contains(card)) {
+                            deck.usable = null;
+                            deck.numOfItems--;
+                        } else if (Duelyst.getAllMinions().contains(card) || Duelyst.getAllSpellCards().contains(card)) {
+                            deck.numOfCards--;
+                        }
                         deck.cards.remove(card);
                     }
                 }

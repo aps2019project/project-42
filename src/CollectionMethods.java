@@ -46,6 +46,7 @@ public class CollectionMethods {
             if (Duelyst.getAllHeroes().contains(card)) {
                 if (deck.numOfHeroes < 1) {
                     deck.getCards().add(card);
+                    deck.hero=(Hero) card;
                     deck.numOfHeroes++;
                     console.addCardToDeck();
                 } else {
@@ -54,6 +55,7 @@ public class CollectionMethods {
             } else if (Duelyst.getAllItems().contains(card)) {
                 if (deck.numOfItems < 1) {
                     deck.numOfItems++;
+                    deck.usable=(Item) card;
                     deck.getCards().add(card);
                     console.addCardToDeck();
                 } else {
@@ -83,9 +85,11 @@ public class CollectionMethods {
             if (Duelyst.getAllHeroes().contains(card)) {
                 deck.cards.remove(card);
                 deck.numOfHeroes--;
+                deck.hero=null;
                 console.deleteCardFromDeck();
             } else if (Duelyst.getAllItems().contains(card)) {
                 deck.numOfItems--;
+                deck.usable=null;
                 deck.cards.remove(card);
                 console.deleteCardFromDeck();
             } else if ((Duelyst.getAllMinions().contains(card) || Duelyst.getAllSpellCards().contains(card))) {
