@@ -343,6 +343,11 @@ class Player {
         }
     }
 
+    void start() {
+        Scanner scanner = new Scanner(System.in);
+        BattleFirstMenu.battleGameMenu(battle, scanner);
+    }
+
     void gameEnding() {
         if (battle.flagsNumber == 0) {
             if (battle.secondPlayer.deck.hero.HP == 0 && battle.firstPlayer.deck.hero.HP == 0) {
@@ -558,6 +563,7 @@ class Player {
                 battle.player = battle.secondPlayer;
             battle.player.mana = (int) (turn / 2) + 2;
             fillingHand(battle.player.deck, battle.player.hand, battle.player.comingSoon);
+            battle.player.start();
         }
     }
 

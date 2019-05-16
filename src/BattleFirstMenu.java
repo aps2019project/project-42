@@ -46,7 +46,6 @@ public class BattleFirstMenu extends Menu {
                 if (c2.matches("start multiplayer game [123] (\\d)+")) {
                     String[] c2Array = c2.split("\\s");
                     Battle battle = new Battle(GameType.multi, Integer.parseInt(c2Array[4]), Duelyst.currentAccount, account);
-                    battleGameMenu(battle);
                    /* if (Integer.parseInt(c2Array[3]) == 1) {
                         boolean endGame = false;
                         while (!endGame) {
@@ -121,6 +120,8 @@ public class BattleFirstMenu extends Menu {
 
         if (c1.equals("story")) {
             console.storyGame();
+            int t = scanner.nextInt();
+            Battle battle = new Battle(GameType.multi, t, Duelyst.currentAccount, levelOneAccount);
         } else if (c1.equals("costume game")) {
             console.singleCostumePlayer();
             String string = scanner.nextLine();
@@ -176,8 +177,9 @@ public class BattleFirstMenu extends Menu {
         }
     }
 
-    void battleGameMenu(Battle battle) {
-        while (battle.lasting) {
+    static void battleGameMenu(Battle battle, Scanner scanner) {
+        boolean flag = true;
+        while (flag) {
             String command = scanner.nextLine().trim().toLowerCase();
             String[] commandArray = command.split("\\s+");
             if (command.matches("game(\\s+)info")) {
@@ -239,6 +241,7 @@ public class BattleFirstMenu extends Menu {
                     battle.player.deploy((SpellCard) card, battle.field.cells[Integer.parseInt(commandArray[3]) - 1][Integer.parseInt(commandArray[4]) - 1]);
             } else if (command.matches("end turn")) {
                 battle.player.endTurn();
+                flag = false;
             } else if (command.matches("show collectibles")) {
                 battle.player.showCollectibles();
             } else if (command.matches("select collectible (\\d+)")) {
