@@ -106,13 +106,13 @@ public class BattleFirstMenu extends Menu {
         deck.cards.add(Duelyst.getAllMinions().get(10));    //11
         deck.cards.add(Duelyst.getAllMinions().get(11));    //12
         deck.cards.add(Duelyst.getAllSpellCards().get(0)); //1
-        deck.cards.add(Duelyst.getAllSpellCards().get(0)); //2
-        deck.cards.add(Duelyst.getAllSpellCards().get(0)); //3
-        deck.cards.add(Duelyst.getAllSpellCards().get(0)); //4
-        deck.cards.add(Duelyst.getAllSpellCards().get(0)); //5
-        deck.cards.add(Duelyst.getAllSpellCards().get(0)); //6
-        deck.cards.add(Duelyst.getAllSpellCards().get(0)); //7
-        deck.cards.add(Duelyst.getAllSpellCards().get(0)); //8
+        deck.cards.add(Duelyst.getAllSpellCards().get(1)); //2
+        deck.cards.add(Duelyst.getAllSpellCards().get(2)); //3
+        deck.cards.add(Duelyst.getAllSpellCards().get(3)); //4
+        deck.cards.add(Duelyst.getAllSpellCards().get(4)); //5
+        deck.cards.add(Duelyst.getAllSpellCards().get(5)); //6
+        deck.cards.add(Duelyst.getAllSpellCards().get(6)); //7
+        deck.cards.add(Duelyst.getAllSpellCards().get(7)); //8
         deck.usable = Duelyst.getAllItems().get(0);
         levelOne.deck = deck;
         levelOneAccount.decks.add(deck);
