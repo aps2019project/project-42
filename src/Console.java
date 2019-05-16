@@ -363,10 +363,6 @@ class Console {
         System.out.println("mode1\nmode2\nmode3");
     }
 
-    public void storyGame() {
-        System.out.println("level1\nlevel2\nlevel3");
-    }
-
     public void chooseOpponent() {
         System.out.println("choose your opponent");
     }
@@ -409,5 +405,11 @@ class Console {
         for (Minion minion : account.getAccountMinions()) {
             System.out.println(minion);
         }
+    }
+
+    public void storyGame(){
+        System.out.println("Level 1: Hero: white demon, mode: first mode");
+        System.out.println("Level 2: Hero: Zahak, mode: second mode");
+        System.out.println("Level 3: Hero: Arash, mode: third mode");
     }
 }
