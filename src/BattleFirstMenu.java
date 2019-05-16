@@ -88,36 +88,100 @@ public class BattleFirstMenu extends Menu {
     private void costumeGameSingle() {
         String c1 = scanner.nextLine();
 
-        Account levelOneAccount = new Account("username", "password");
+        Account levelOneAccount = new Account("username1", "password1");
         AI levelOne = new AI(levelOneAccount);
         levelOneAccount.owner = levelOne;
         levelOne.account = levelOneAccount;
-        Deck deck = new Deck("one");
-        deck.hero = Duelyst.getAllHeroes().get(0);     //add a hero
-        deck.cards.add(Duelyst.getAllMinions().get(0));    //1 minion
-        deck.cards.add(Duelyst.getAllMinions().get(1));    //2
-        deck.cards.add(Duelyst.getAllMinions().get(2));    //3
-        deck.cards.add(Duelyst.getAllMinions().get(3));    //4
-        deck.cards.add(Duelyst.getAllMinions().get(4));    //5
-        deck.cards.add(Duelyst.getAllMinions().get(5));    //6
-        deck.cards.add(Duelyst.getAllMinions().get(6));    //7
-        deck.cards.add(Duelyst.getAllMinions().get(7));    //8
-        deck.cards.add(Duelyst.getAllMinions().get(8));    //9
-        deck.cards.add(Duelyst.getAllMinions().get(9));    //10
-        deck.cards.add(Duelyst.getAllMinions().get(10));    //11
-        deck.cards.add(Duelyst.getAllMinions().get(11));    //12
-        deck.cards.add(Duelyst.getAllSpellCards().get(0)); //1
-        deck.cards.add(Duelyst.getAllSpellCards().get(1)); //2
-        deck.cards.add(Duelyst.getAllSpellCards().get(2)); //3
-        deck.cards.add(Duelyst.getAllSpellCards().get(3)); //4
-        deck.cards.add(Duelyst.getAllSpellCards().get(4)); //5
-        deck.cards.add(Duelyst.getAllSpellCards().get(5)); //6
-        deck.cards.add(Duelyst.getAllSpellCards().get(6)); //7
-        deck.cards.add(Duelyst.getAllSpellCards().get(7)); //8
-        deck.usable = Duelyst.getAllItems().get(0);
-        levelOne.deck = deck;
-        levelOneAccount.decks.add(deck);
-        levelOneAccount.mainDeck = deck;
+        Deck levelOneDeck = new Deck("one");
+        levelOneDeck.hero = Duelyst.getAllHeroes().get(8);          //add white damon
+        levelOneDeck.cards.add(Duelyst.getAllMinions().get(12));     //1 persian archer
+        levelOneDeck.cards.add(Duelyst.getAllMinions().get(25));     //2 tooranian spear
+        levelOneDeck.cards.add(Duelyst.getAllMinions().get(27));     //3
+        levelOneDeck.cards.add(Duelyst.getAllMinions().get(3));     //black demon
+        levelOneDeck.cards.add(Duelyst.getAllMinions().get(4));     //5
+        levelOneDeck.cards.add(Duelyst.getAllMinions().get(5));     //6
+        levelOneDeck.cards.add(Duelyst.getAllMinions().get(6));     //7
+        levelOneDeck.cards.add(Duelyst.getAllMinions().get(7));     //8
+        levelOneDeck.cards.add(Duelyst.getAllMinions().get(8));     //9
+        levelOneDeck.cards.add(Duelyst.getAllMinions().get(9));     //10
+        levelOneDeck.cards.add(Duelyst.getAllMinions().get(10));    //11
+        levelOneDeck.cards.add(Duelyst.getAllMinions().get(11));    //12
+        levelOneDeck.cards.add(Duelyst.getAllSpellCards().get(0));  //1
+        levelOneDeck.cards.add(Duelyst.getAllSpellCards().get(1));  //2
+        levelOneDeck.cards.add(Duelyst.getAllSpellCards().get(2));  //3
+        levelOneDeck.cards.add(Duelyst.getAllSpellCards().get(3));  //4
+        levelOneDeck.cards.add(Duelyst.getAllSpellCards().get(4));  //5
+        levelOneDeck.cards.add(Duelyst.getAllSpellCards().get(5));  //6
+        levelOneDeck.cards.add(Duelyst.getAllSpellCards().get(6));  //7
+        levelOneDeck.cards.add(Duelyst.getAllSpellCards().get(7));  //8
+        levelOneDeck.usable = Duelyst.getAllItems().get(9);
+        levelOne.deck = levelOneDeck;
+        levelOneAccount.decks.add(levelOneDeck);
+        levelOneAccount.mainDeck = levelOneDeck;
+
+
+        Account levelTwoAccount = new Account("username2", "password2");
+        AI levelTwo = new AI(levelTwoAccount);
+        levelTwoAccount.owner = levelTwo;
+        levelTwo.account = levelTwoAccount;
+        Deck levelTwoDeck = new Deck("two");
+        levelTwoDeck.hero = Duelyst.getAllHeroes().get(0);          //add a hero
+        levelTwoDeck.cards.add(Duelyst.getAllMinions().get(0));     //1 minion
+        levelTwoDeck.cards.add(Duelyst.getAllMinions().get(1));     //2
+        levelTwoDeck.cards.add(Duelyst.getAllMinions().get(2));     //3
+        levelTwoDeck.cards.add(Duelyst.getAllMinions().get(3));     //4
+        levelTwoDeck.cards.add(Duelyst.getAllMinions().get(4));     //5
+        levelTwoDeck.cards.add(Duelyst.getAllMinions().get(5));     //6
+        levelTwoDeck.cards.add(Duelyst.getAllMinions().get(6));     //7
+        levelTwoDeck.cards.add(Duelyst.getAllMinions().get(7));     //8
+        levelTwoDeck.cards.add(Duelyst.getAllMinions().get(8));     //9
+        levelTwoDeck.cards.add(Duelyst.getAllMinions().get(9));     //10
+        levelTwoDeck.cards.add(Duelyst.getAllMinions().get(10));    //11
+        levelTwoDeck.cards.add(Duelyst.getAllMinions().get(11));    //12
+        levelTwoDeck.cards.add(Duelyst.getAllSpellCards().get(0));  //1
+        levelTwoDeck.cards.add(Duelyst.getAllSpellCards().get(1));  //2
+        levelTwoDeck.cards.add(Duelyst.getAllSpellCards().get(2));  //3
+        levelTwoDeck.cards.add(Duelyst.getAllSpellCards().get(3));  //4
+        levelTwoDeck.cards.add(Duelyst.getAllSpellCards().get(4));  //5
+        levelTwoDeck.cards.add(Duelyst.getAllSpellCards().get(5));  //6
+        levelTwoDeck.cards.add(Duelyst.getAllSpellCards().get(6));  //7
+        levelTwoDeck.cards.add(Duelyst.getAllSpellCards().get(7));  //8
+        levelTwoDeck.usable = Duelyst.getAllItems().get(0);
+        levelOne.deck = levelTwoDeck;
+        levelOneAccount.decks.add(levelTwoDeck);
+        levelOneAccount.mainDeck = levelTwoDeck;
+
+
+        Account levelThreeAccount = new Account("username3", "password3");
+        AI levelThree = new AI(levelThreeAccount);
+        levelThreeAccount.owner = levelThree;
+        levelThree.account = levelThreeAccount;
+        Deck levelThreeDeck = new Deck("three");
+        levelThreeDeck.hero = Duelyst.getAllHeroes().get(0);          //add a hero
+        levelThreeDeck.cards.add(Duelyst.getAllMinions().get(0));     //1 minion
+        levelThreeDeck.cards.add(Duelyst.getAllMinions().get(1));     //2
+        levelThreeDeck.cards.add(Duelyst.getAllMinions().get(2));     //3
+        levelThreeDeck.cards.add(Duelyst.getAllMinions().get(3));     //4
+        levelThreeDeck.cards.add(Duelyst.getAllMinions().get(4));     //5
+        levelThreeDeck.cards.add(Duelyst.getAllMinions().get(5));     //6
+        levelThreeDeck.cards.add(Duelyst.getAllMinions().get(6));     //7
+        levelThreeDeck.cards.add(Duelyst.getAllMinions().get(7));     //8
+        levelThreeDeck.cards.add(Duelyst.getAllMinions().get(8));     //9
+        levelThreeDeck.cards.add(Duelyst.getAllMinions().get(9));     //10
+        levelThreeDeck.cards.add(Duelyst.getAllMinions().get(10));    //11
+        levelThreeDeck.cards.add(Duelyst.getAllMinions().get(11));    //12
+        levelThreeDeck.cards.add(Duelyst.getAllSpellCards().get(0));  //1
+        levelThreeDeck.cards.add(Duelyst.getAllSpellCards().get(1));  //2
+        levelThreeDeck.cards.add(Duelyst.getAllSpellCards().get(2));  //3
+        levelThreeDeck.cards.add(Duelyst.getAllSpellCards().get(3));  //4
+        levelThreeDeck.cards.add(Duelyst.getAllSpellCards().get(4));  //5
+        levelThreeDeck.cards.add(Duelyst.getAllSpellCards().get(5));  //6
+        levelThreeDeck.cards.add(Duelyst.getAllSpellCards().get(6));  //7
+        levelThreeDeck.cards.add(Duelyst.getAllSpellCards().get(7));  //8
+        levelThreeDeck.usable = Duelyst.getAllItems().get(0);
+        levelThree.deck = levelThreeDeck;
+        levelThreeAccount.decks.add(levelThreeDeck);
+        levelThreeAccount.mainDeck = levelThreeDeck;
 
         if (c1.equals("story")) {
             console.storyGame();
