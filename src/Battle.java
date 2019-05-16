@@ -57,7 +57,7 @@ class Battle {
     Player firstPlayer;
     Player secondPlayer;
     Field field;
-    Player player=firstPlayer;
+    Player player;
 
     Battle(GameType gameType1, int flagNumber1, Account first, Account second) {
         gameType = gameType1;
@@ -68,6 +68,7 @@ class Battle {
         secondPlayer.battle = this;
         field = new Field();
         field.battle = this;
+        player = firstPlayer;
         field.cells[2][0].force = firstPlayer.deck.hero;
         field.cells[2][8].force = firstPlayer.deck.hero;
         fillCollectibles(field);
@@ -80,6 +81,7 @@ class Battle {
             firstPlayer.castSpell(field.cells[0][0], null, spell);
         for (Spell spell : secondPlayer.deck.usable.spells)
             secondPlayer.castSpell(field.cells[0][0], null, spell);
+        player.start();
     }
 
     @Override
