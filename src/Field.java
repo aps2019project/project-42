@@ -6,6 +6,7 @@ class Field{
     Field(){
         for (int i=0;i<5;i++){
             for (int j=0;j<9;j++){
+                cells[i][j] = new Cell();
                 cells[i][j].setX(i);
                 cells[i][j].setY(j);
                 cells[i][j].force = null;

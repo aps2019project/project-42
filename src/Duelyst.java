@@ -134,6 +134,7 @@ class Duelyst {
     }
     private void battleMenuHandler(String command){
         BattleFirstMenu battleFirstMenu=BattleFirstMenu.getInstance();
+        System.out.println("u entered battle");
         battleFirstMenu.battleMenu(command);
     }
 

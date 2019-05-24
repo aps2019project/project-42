@@ -17,6 +17,7 @@ class Shop extends Menu {
             ShopMethods shopMethods = Duelyst.currentAccount.shopMethods;
             String[] commandArray = command.split("\\s+");
             if (command.matches("exit")) {
+                Account lol = Duelyst.currentAccount;
                 exit();
             } else if (command.matches("show(\\s+)menu")) {
                 showMenu();

@@ -25,7 +25,6 @@ public class ShopMethods {
             /*for (Deck deck:Duelyst.currentAccount.decks) {
                 if (deck.cards.contains())
             }*/
-            card.owner = Duelyst.currentAccount.owner;
             Duelyst.currentAccount.money -= card.price;
             console.cardAdded(Duelyst.currentAccount.money);
         }

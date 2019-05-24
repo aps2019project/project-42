@@ -56,6 +56,7 @@ public class CollectionMethods {
                 if (deck.numOfItems < 1) {
                     deck.numOfItems++;
                     deck.usable=(Item) card;
+                    System.out.println("dorost shod");
                     deck.getCards().add(card);
                     console.addCardToDeck();
                 } else {

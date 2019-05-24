@@ -12,7 +12,7 @@ class Player {
 
     Hand hand = new Hand();
     GraveYard graveYard;
-    ComingSoon comingSoon;
+    ComingSoon comingSoon = new ComingSoon();
     Deck deck;
     Battle battle;
     ArrayList<Item> items;
@@ -296,11 +296,14 @@ class Player {
     Deck shuffleDeck(Deck deck) {
         ArrayList<Card> cards = new ArrayList<>();
         Deck shuffledDeck = new Deck(deck.name);
+        shuffledDeck.hero = deck.hero;
+        shuffledDeck.usable = deck.usable;
         while (deck.cards.size() != 0) {
             int m = (int) (Math.random() * deck.cards.size());
             shuffledDeck.cards.add(deck.cards.get(m));
             deck.cards.remove(m);
         }
+        deck.cards.addAll(shuffledDeck.cards);
         return shuffledDeck;
     }
 
@@ -334,10 +337,22 @@ class Player {
     Player(Account account) {
         this.turn = 1;
         this.account = account;
+        this.account.owner = this;
         this.mana = 2;
         this.deck = account.mainDeck;
         this.deck = shuffleDeck(this.deck);
         this.coolDown = this.deck.hero.coolDown;
+        if (this.deck.usable != null) {
+            this.deck.usable.owner = this;
+        }
+        this.deck.hero.owner = this;
+        for (Card card : this.deck.cards) {
+            card.owner = this;
+        }
+        comingSoon = new ComingSoon();
+        comingSoon.card = (SpellCard) deck.cards.get(0);
+        deck.cards.remove(0);
+
         for (int i = 0; i < 5; i++) {
             fillingHand(this.deck, this.hand, this.comingSoon);
         }
@@ -363,7 +378,7 @@ class Player {
                 battle.looser = battle.secondPlayer;
             }
         } else if (battle.flagsNumber == 1) {
-            if (this.battle.field.cells[2][4].force.owner.mood2counter == 8) {
+            if (this.battle.field.cells[2][4].force != null && this.battle.field.cells[2][4].force.owner.mood2counter == 8) {
                 battle.looser = this;
                 battle.endGame();
                 battle.lasting = false;
@@ -373,7 +388,7 @@ class Player {
             battle.secondPlayer.mood3counter = 0;
             for (int i = 0; i < 5; i++) {
                 for (int j = 0; j < 9; j++) {
-                    if (battle.field.cells[i][j].flag == true && battle.field.cells[i][j].force != null) {
+                    if (battle.field.cells[i][j].flag && battle.field.cells[i][j].force != null) {
                         battle.field.cells[i][j].force.owner.mood3counter++;
                     }
                 }
@@ -421,6 +436,7 @@ class Player {
     }
 
     void move(Cell originCell, Cell destinationCell) {
+
         if (originCell.force == null) {
             console.noOrigin();
         } else if (Math.abs(destinationCell.getX() - originCell.getX()) + Math.abs(destinationCell.getY() - originCell.getY()) > 2) {
@@ -629,10 +645,8 @@ class Player {
     void showOpponentMinions() {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
-                if (battle.field.cells[i][j].force != null) {
-                    if (battle.field.cells[i][j].force != null && !battle.field.cells[i][j].force.owner.equals(this)) {
-                        System.out.println(battle.field.cells[i][j].force.name + " : HP: " + battle.field.cells[i][j].force.HP + " AP: " + battle.field.cells[i][j].force.AP + " row: " + (i + 1) + " column: " + (j + 1));
-                    }
+                if (battle.field.cells[i][j].force != null && !battle.field.cells[i][j].force.owner.equals(this)) {
+                    System.out.println(battle.field.cells[i][j].force.name + " : HP: " + battle.field.cells[i][j].force.HP + " AP: " + battle.field.cells[i][j].force.AP + " row: " + (i + 1) + " column: " + (j + 1));
                 }
             }
         }
@@ -772,9 +786,9 @@ class Player {
     }
 
     void showField() {
-        for (int i = 0; i < 5; i++){
-            for (int j = 0; j < 9; j++){
-                if (battle.field.cells[i][j].force != null){
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (battle.field.cells[i][j].force != null) {
                     System.out.println(i + "," + j + ": " + battle.field.cells[i][j].force.HP + " " + battle.field.cells[i][j].force.HP + "\n");
                 }
             }

@@ -70,17 +70,23 @@ class Battle {
         field.battle = this;
         player = firstPlayer;
         field.cells[2][0].force = firstPlayer.deck.hero;
-        field.cells[2][8].force = firstPlayer.deck.hero;
+        field.cells[2][8].force = secondPlayer.deck.hero;
+        field.cells[2][0].force.cell = field.cells[2][0];
+        field.cells[2][8].force.cell = field.cells[2][8];
         fillCollectibles(field);
         if (flagsNumber == 1) {
             field.cells[2][4].flag = true;
         } else if (flagsNumber > 1) {
             fillFlags(field);
         }
-        for (Spell spell : firstPlayer.deck.usable.spells)
-            firstPlayer.castSpell(field.cells[0][0], null, spell);
-        for (Spell spell : secondPlayer.deck.usable.spells)
-            secondPlayer.castSpell(field.cells[0][0], null, spell);
+        if (firstPlayer.deck.usable != null) {
+            for (Spell spell : firstPlayer.deck.usable.spells)
+                firstPlayer.castSpell(field.cells[0][0], null, spell);
+        }
+        if (secondPlayer.deck.usable != null) {
+            for (Spell spell : secondPlayer.deck.usable.spells)
+                secondPlayer.castSpell(field.cells[0][0], null, spell);
+        }
         player.start();
     }
 
