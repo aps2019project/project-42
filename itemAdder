@@ -10,7 +10,7 @@ public class ItemAdder {
         Gson gson = new Gson();
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            ArrayList<Spell> spells = new ArrayList<>();
+            ArrayList<logic.Spell> spells = new ArrayList<>();
             System.out.println("what u scan here doesn't matter!!!");
             String a=scanner.nextLine();
             System.out.println("name:");
@@ -75,10 +75,10 @@ public class ItemAdder {
                 for (int j = 0; j < 2*row*column; j++) {
                     locations.add(0);
                 }
-                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity,locationImportance, turns, locations);
+                logic.Spell spell = new logic.Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity,locationImportance, turns, locations);
                 spells.add(spell);
             }
-            Item item = new Item(name, ID,desc, Integer.parseInt(price), spells);
+            logic.Item item = new logic.Item(name, ID,desc, Integer.parseInt(price), spells);
             String jsonString = gson.toJson(item);
 
             FileWriter fileWriter = new FileWriter("/home/dorna/IdeaProjects/project-42/Items/" + name + ".json");
@@ -88,14 +88,14 @@ public class ItemAdder {
     }
 }
 
-class Item {
+class logic.Item {
     String name;
     String desc;
     int ID;
     int price;
-    ArrayList<Spell> spells;
+    ArrayList<logic.Spell> spells;
 
-    Item(String name,int ID, String desc, int price, ArrayList<Spell> spells) {
+    logic.Item(String name,int ID, String desc, int price, ArrayList<logic.Spell> spells) {
         this.name = name;
         this.desc = desc;
         this.price = price;

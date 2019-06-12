@@ -10,7 +10,7 @@ public class HeroAdder {
         Gson gson = new Gson();
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            ArrayList<Spell> spells = new ArrayList<>();
+            ArrayList<logic.Spell> spells = new ArrayList<>();
             System.out.println("what u scan here doesn't matter!!!");
             String a=scanner.nextLine();
             System.out.println("name:");
@@ -85,10 +85,10 @@ public class HeroAdder {
                 for (int j = 0; j < 2*row*column; j++) {
                     locations.add(0);
                 }
-                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity,locationImportance, turns, locations);
+                logic.Spell spell = new logic.Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity,locationImportance, turns, locations);
                 spells.add(spell);
             }
-            Hero hero = new Hero(name,typeOfHero,ID,AP,HP,desc,Integer.parseInt(price),Integer.parseInt(mana),coolDown,spells);
+            logic.Hero hero = new logic.Hero(name,typeOfHero,ID,AP,HP,desc,Integer.parseInt(price),Integer.parseInt(mana),coolDown,spells);
             String jsonString = gson.toJson(hero);
 
             FileWriter fileWriter = new FileWriter("/home/dorna/IdeaProjects/project-42/Heroes/" + name + ".json");
@@ -98,7 +98,7 @@ public class HeroAdder {
     }
 }
 
-class Hero {
+class logic.Hero {
     String name;
     String typeOfHero;
     String desc;
@@ -108,9 +108,9 @@ class Hero {
     int AP;
     int HP;
     int MP;
-    ArrayList<Spell> spells;
+    ArrayList<logic.Spell> spells;
 
-    Hero(String name,String typeOfHero,int ID,int AP,int HP, String desc, int price, int MP,int coolDown, ArrayList<Spell> spells) {
+    logic.Hero(String name,String typeOfHero,int ID,int AP,int HP, String desc, int price, int MP,int coolDown, ArrayList<logic.Spell> spells) {
         this.price = price;
         this.ID=ID;
         this.coolDown=coolDown;

@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 
-public class Spell {
+public class logic.Spell {
     int targetNumber;
     int targetDistance;
     int effectQuantity;
     int staticQuantity;
-    Time time;
-    Side side;
-    Effect effect;
-    StaticState staticState;
-    TargetRange targetRange;
-    TargetStatics targetStatic;
-    TargetKind targetKind;
+    logic.Time time;
+    logic.Side side;
+    logic.Effect effect;
+    logic.StaticState staticState;
+    logic.TargetRange targetRange;
+    logic.TargetStatics targetStatic;
+    logic.TargetKind targetKind;
     boolean massacre;
     boolean immunity;
     boolean continuous;
@@ -21,18 +21,18 @@ public class Spell {
     ArrayList<Integer> turns;
     ArrayList<Integer> locations;
 
-    public Spell(String targetNumber1, String targetDistance1, String effectQuantity1, String staticQuantity1, String time1, String side1, String effect1, String staticState1, String targetRange1, String targetStatic1, String targetKind1, String massacre1, String immunity1, String continuous1,String choice1, String goodness1, String eternity1,ArrayList<Integer> turns,ArrayList<Integer> locations) {
+    public logic.Spell(String targetNumber1, String targetDistance1, String effectQuantity1, String staticQuantity1, String time1, String side1, String effect1, String staticState1, String targetRange1, String targetStatic1, String targetKind1, String massacre1, String immunity1, String continuous1,String choice1, String goodness1, String eternity1,ArrayList<Integer> turns,ArrayList<Integer> locations) {
         this.targetNumber = Integer.parseInt(targetNumber1);
         this.targetDistance = Integer.parseInt(targetDistance1);
         this.effectQuantity = Integer.parseInt(effectQuantity1);
         this.staticQuantity = Integer.parseInt(staticQuantity1);
-        this.time = Time.values()[Integer.parseInt(time1)];
-        this.side = Side.values()[Integer.parseInt(side1)];
-        this.effect = Effect.values()[Integer.parseInt(effect1)];
-        this.staticState = StaticState.values()[Integer.parseInt(staticState1)];
-        this.targetRange = TargetRange.values()[Integer.parseInt(targetRange1)];
-        this.targetStatic = TargetStatics.values()[Integer.parseInt(targetStatic1)];
-        this.targetKind = TargetKind.values()[Integer.parseInt(targetKind1)];
+        this.time = logic.Time.values()[Integer.parseInt(time1)];
+        this.side = logic.Side.values()[Integer.parseInt(side1)];
+        this.effect = logic.Effect.values()[Integer.parseInt(effect1)];
+        this.staticState = logic.StaticState.values()[Integer.parseInt(staticState1)];
+        this.targetRange = logic.TargetRange.values()[Integer.parseInt(targetRange1)];
+        this.targetStatic = logic.TargetStatics.values()[Integer.parseInt(targetStatic1)];
+        this.targetKind = logic.TargetKind.values()[Integer.parseInt(targetKind1)];
         this.massacre = massacre1.equals("1");
         this.immunity = immunity1.equals("1");
         this.continuous=continuous1.equals("1");

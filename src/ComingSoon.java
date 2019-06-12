@@ -1,3 +1,0 @@
-class ComingSoon {
-    SpellCard card;
-}

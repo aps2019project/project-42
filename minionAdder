@@ -10,7 +10,7 @@ public class MinionAdder {
         Gson gson = new Gson();
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            ArrayList<Spell> spells = new ArrayList<>();
+            ArrayList<logic.Spell> spells = new ArrayList<>();
             System.out.println("what u scan here doesn't matter!!!");
             String a=scanner.nextLine();
             System.out.println("name:");
@@ -91,10 +91,10 @@ public class MinionAdder {
                 for (int j = 0; j < 2*row*column; j++) {
                     locations.add(0);
                 }
-                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity,locationImportance, turns, locations);
+                logic.Spell spell = new logic.Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity, continuous,choice, goodness, eternity,locationImportance, turns, locations);
                 spells.add(spell);
             }
-            Minion minion = new Minion(name,typeOfMinion, ID,AP, HP,rangeType,range,exhaustion, desc, Integer.parseInt(price), Integer.parseInt(mana), combo,spells);
+            logic.Minion minion = new logic.Minion(name,typeOfMinion, ID,AP, HP,rangeType,range,exhaustion, desc, Integer.parseInt(price), Integer.parseInt(mana), combo,spells);
             String jsonString = gson.toJson(minion);
 
             FileWriter fileWriter = new FileWriter("/home/dorna/IdeaProjects/project-42/Minions/" + name + ".json");
@@ -104,7 +104,7 @@ public class MinionAdder {
     }
 }
 
-class Minion{
+class logic.Minion{
     String name;
     String desc;
     String typeOfMinion;
@@ -114,12 +114,12 @@ class Minion{
     int HP;
     int MP;
     boolean combo;
-    RangeType rangeType;
+    logic.RangeType rangeType;
     int range;
     boolean exhaustion;
 
-    ArrayList<Spell> spells;
-    Minion(String name,String typeOfMinion,int ID,int AP,int HP,String rangeType,int range,String exhaustion, String desc, int price, int MP,String combo, ArrayList<Spell> spells) {
+    ArrayList<logic.Spell> spells;
+    logic.Minion(String name,String typeOfMinion,int ID,int AP,int HP,String rangeType,int range,String exhaustion, String desc, int price, int MP,String combo, ArrayList<logic.Spell> spells) {
         this.price = price;
         this.name = name;
         this.typeOfMinion=typeOfMinion;
@@ -130,7 +130,7 @@ class Minion{
         this.MP = MP;
         this.spells=spells;
         this.combo=combo.equals("1");
-        this.rangeType=RangeType.values()[Integer.parseInt(rangeType)];
+        this.rangeType=logic.RangeType.values()[Integer.parseInt(rangeType)];
         this.range=range;
         this.exhaustion=exhaustion.equals("1");
     }

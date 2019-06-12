@@ -10,7 +10,7 @@ public class SpellCardAdder {
         Gson gson = new Gson();
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            ArrayList<Spell> spells = new ArrayList<>();
+            ArrayList<logic.Spell> spells = new ArrayList<>();
             System.out.println("what u scan here doesn't matter!!!");
             String a=scanner.nextLine();
             System.out.println("name:");
@@ -79,10 +79,10 @@ public class SpellCardAdder {
                 for (int j = 0; j < 2*row*column; j++) {
                     locations.add(0);
                 }
-                Spell spell = new Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity,continuous, choice, goodness, eternity,locationImportance,turns,locations);
+                logic.Spell spell = new logic.Spell(targetNumber, targetDistance, effectQuantity, staticQuantity, time, side, effect, staticState, targetRange, targetStatics, targetKind, massacre, immunity,continuous, choice, goodness, eternity,locationImportance,turns,locations);
                 spells.add(spell);
             }
-            SpellCard spellCard = new SpellCard(name,ID,desc,Integer.parseInt(price),Integer.parseInt(mana),spells);
+            logic.SpellCard spellCard = new logic.SpellCard(name,ID,desc,Integer.parseInt(price),Integer.parseInt(mana),spells);
             String jsonString = gson.toJson(spellCard);
 
             FileWriter fileWriter = new FileWriter("/home/dorna/IdeaProjects/project-42/SpellCards/" + name + ".json");
@@ -92,15 +92,15 @@ public class SpellCardAdder {
     }
 }
 
-class SpellCard {
+class logic.SpellCard {
     String name;
     String desc;
     int price;
     int MP;
     int ID;
-    ArrayList<Spell> spells;
+    ArrayList<logic.Spell> spells;
 
-    SpellCard(String name,int ID, String desc, int price, int MP, ArrayList<Spell> spells) {
+    logic.SpellCard(String name,int ID, String desc, int price, int MP, ArrayList<logic.Spell> spells) {
         this.name = name;
         this.ID=ID;
         this.desc = desc;
