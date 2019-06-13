@@ -52,8 +52,8 @@ public class Duelyst {
         preStart();
         while (true) {
             if (finishGame) break;
-            command = scanner.nextLine().trim().toLowerCase();
-            handler(currentMenu, command);
+            //command = scanner.nextLine().trim().toLowerCase();
+            //handler(currentMenu, command);
         }
     }
 
@@ -132,7 +132,7 @@ public class Duelyst {
 
     private void accountPageHandler(String command) {
         AccountPage accountPage = AccountPage.getInstance();
-        accountPage.accountPageMenu(command);
+        //accountPage.accountPageMenu(command);
     }
     private void battleMenuHandler(String command){
         BattleFirstMenu battleFirstMenu=BattleFirstMenu.getInstance();

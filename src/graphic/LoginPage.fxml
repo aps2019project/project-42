@@ -12,19 +12,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic.CreateAccountPage">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic.LoginPage">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/scenes/frostfire/background@2x.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="10.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/scenes/frostfire/foreground@2x.png" />
          </image>
       </ImageView>
-      <VBox alignment="CENTER" layoutX="27.0" layoutY="196.0" prefHeight="650.0" prefWidth="347.0" spacing="20.0">
+      <VBox alignment="CENTER" layoutX="37.0" layoutY="206.0" prefHeight="650.0" prefWidth="347.0" spacing="20.0">
          <children>
             <Label prefHeight="51.0" prefWidth="347.0" text="Enter Your UserName:" textFill="#8422ab">
                <font>
@@ -50,18 +50,19 @@
                   <InnerShadow />
                </effect>
             </Label>
-            <PasswordField fx:id="password" prefHeight="43.0" prefWidth="347.0" promptText="password...">
+            <PasswordField fx:id="password" prefHeight="48.0" prefWidth="347.0" promptText="password...">
                <font>
                   <Font name="Chilanka Regular" size="13.0" />
                </font>
             </PasswordField>
-            <Button mnemonicParsing="false" onMouseClicked="#createAcc" prefHeight="77.0" prefWidth="167.0" text="Create Account">
+            <Button mnemonicParsing="false" onMouseClicked="#login" prefHeight="77.0" prefWidth="167.0" text="Login">
                <font>
                   <Font name="Ani" size="20.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="CLOSED_HAND" />
-               </cursor></Button>
+               </cursor>
+            </Button>
             <Button mnemonicParsing="false" onMouseClicked="#exit" prefHeight="77.0" prefWidth="117.0" text="Back">
                <font>
                   <Font name="Ani" size="20.0" />

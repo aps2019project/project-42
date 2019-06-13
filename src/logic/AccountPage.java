@@ -1,5 +1,7 @@
 package logic;
 
+import javafx.scene.control.Alert;
+
 import java.util.*;
 
 public class AccountPage extends Menu {
@@ -14,40 +16,40 @@ public class AccountPage extends Menu {
 
     public Scanner scanner = Main.scanner;
 
-    void accountPageMenu(String command) {
-        try {
-            String[] commandArray = command.split("\\s+");
-            if (command.matches("exit")) {
-                quit();
-            } else if (command.matches("show(\\s+)menu")) {
-                showMenu();
-            } else if (command.matches("create(\\s+)account(\\s+)[0-9a-z]+")) {
-                boolean check = isCheck(commandArray[2]);
-                if (check) {
-                    console.getpassword1();
-                    String pass = scanner.nextLine();
-                    createAccount(commandArray[2], pass);
-                }
-            } else if (command.matches("login(\\s+)[0-9a-z]+")) {
-                console.getpassword2();
-                String pass = scanner.nextLine();
-                login(commandArray[1], pass);
-            } else if (command.matches("show(\\s+)leaderboard")) {
-                showLeaderBoard();
-            } else if (command.matches("save")) {
-                save();
-            } else if (command.matches("logout")) {
-                logOut();
-            } else if (command.matches("help")) {
-                help();
-            } else {
-                console.invalidCommand();
-            }
-
-        } catch (NullPointerException e) {
-            e.getMessage();
-        }
-    }
+//    void accountPageMenu(String command) {
+//        try {
+//            String[] commandArray = command.split("\\s+");
+//            if (command.matches("exit")) {
+//                quit();
+//            } else if (command.matches("show(\\s+)menu")) {
+//                showMenu();
+//            } else if (command.matches("create(\\s+)account(\\s+)[0-9a-z]+")) {
+//                boolean check = isCheck(commandArray[2]);
+//                if (check) {
+//                    console.getpassword1();
+//                    String pass = scanner.nextLine();
+//                    createAccount(commandArray[2], pass);
+//                }
+//            } else if (command.matches("login(\\s+)[0-9a-z]+")) {
+//                console.getpassword2();
+//                String pass = scanner.nextLine();
+//                login(commandArray[1], pass);
+//            } else if (command.matches("show(\\s+)leaderboard")) {
+//                showLeaderBoard();
+//            } else if (command.matches("save")) {
+//                save();
+//            } else if (command.matches("logout")) {
+//                logOut();
+//            } else if (command.matches("help")) {
+//                help();
+//            } else {
+//                console.invalidCommand();
+//            }
+//
+//        } catch (NullPointerException e) {
+//            e.getMessage();
+//        }
+//    }
 
     private boolean isCheck(String string) {
         boolean check = true;
@@ -70,7 +72,9 @@ public class AccountPage extends Menu {
         Account account = new Account(user, pass);
         for (Account account1 : Duelyst.accounts) {
             if (account1.getUser().equals(user)) {
-                console.userExists();
+                Alert userExist = new Alert(Alert.AlertType.ERROR);
+                userExist.setContentText("This username already exists.");
+                userExist.show();
                 check = false;
             }
         }
@@ -79,25 +83,25 @@ public class AccountPage extends Menu {
             account.setUser(user);
             account.setPass(pass);
             Duelyst.accounts.add(account);
-            console.creation();
+            Alert created = new Alert(Alert.AlertType.INFORMATION);
+            created.setContentText("Welcome. You can login to enter your account.");
+            created.show();
         }
     }
 
-    void login(String user, String pass) {
+    public boolean login(String user, String pass) {
         Account account = new Account(user, pass);
-        boolean ok = false;
         for (Account account1 : Duelyst.accounts) {
             if (account1.getUser().equals(user) && account1.getPass().equals(pass)) {
                 Duelyst.currentMenu = MainMenu.getInstance();
-                Duelyst.currentAccount=account;
-                //System.out.println(account.getUser());
-                console.welcome();
-                ok = true;
+                Duelyst.currentAccount = account;
+                return true;
             }
         }
-        if (!ok){
-            console.loginError();
-        }
+        Alert invalid = new Alert(Alert.AlertType.ERROR);
+        invalid.setContentText("Invalid username or password.");
+        invalid.show();
+        return false;
     }
 
     void showLeaderBoard() {

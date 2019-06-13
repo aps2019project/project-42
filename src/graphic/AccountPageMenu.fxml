@@ -20,7 +20,7 @@
          </viewport></ImageView>
       <VBox layoutX="33.0" layoutY="139.0" prefHeight="504.0" prefWidth="174.0" spacing="40.0">
          <children>
-            <Button blendMode="COLOR_DODGE" mnemonicParsing="false" prefHeight="49.0" prefWidth="154.0" text="Login">
+            <Button blendMode="COLOR_DODGE" mnemonicParsing="false" onMouseClicked="#login" prefHeight="49.0" prefWidth="154.0" text="Login">
                <cursor>
                   <Cursor fx:constant="CLOSED_HAND" />
                </cursor>
@@ -36,7 +36,7 @@
                   <Font name="Ani" size="20.0" />
                </font>
             </Button>
-            <Button blendMode="COLOR_DODGE" mnemonicParsing="false" prefHeight="47.0" prefWidth="154.0" text="Leader Board">
+            <Button blendMode="COLOR_DODGE" mnemonicParsing="false" onMouseClicked="#showLeaderBoard" prefHeight="47.0" prefWidth="154.0" text="Leader Board">
                <cursor>
                   <Cursor fx:constant="CLOSED_HAND" />
                </cursor>
@@ -52,7 +52,7 @@
                   <Font name="Ani" size="20.0" />
                </font>
             </Button>
-            <Button blendMode="COLOR_DODGE" mnemonicParsing="false" prefHeight="48.0" prefWidth="154.0" text="Help">
+            <Button blendMode="COLOR_DODGE" mnemonicParsing="false" onMouseClicked="#AccountPageHelp" prefHeight="48.0" prefWidth="154.0" text="Help">
                <cursor>
                   <Cursor fx:constant="CLOSED_HAND" />
                </cursor>

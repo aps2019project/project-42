@@ -33,4 +33,28 @@ public class AccountPageMenu {
         primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
+
+    public void login(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(LoginPage.class.getResource("LoginPage.fxml"));
+        primaryStage.stage.setTitle("Duelyst");
+        primaryStage.stage.setScene(new Scene(root));
+        primaryStage.stage.setMaximized(true);
+        primaryStage.stage.show();
+    }
+
+    public void showLeaderBoard(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(LeaderBoardPage.class.getResource("LeaderBoardPage.fxml"));
+        primaryStage.stage.setTitle("Duelyst");
+        primaryStage.stage.setScene(new Scene(root));
+        primaryStage.stage.setMaximized(true);
+        primaryStage.stage.show();
+    }
+
+    public void AccountPageHelp(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(HelpAccountPage.class.getResource("HelpAccountPage.fxml"));
+        primaryStage.stage.setTitle("Duelyst");
+        primaryStage.stage.setScene(new Scene(root));
+        primaryStage.stage.setMaximized(true);
+        primaryStage.stage.show();
+    }
 }
