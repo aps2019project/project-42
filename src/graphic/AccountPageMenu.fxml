@@ -44,6 +44,14 @@
                   <Font name="Ani" size="20.0" />
                </font>
             </Button>
+            <Button blendMode="COLOR_DODGE" mnemonicParsing="false" onMouseClicked="#logOut" prefHeight="49.0" prefWidth="154.0" text="Logout">
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+               <font>
+                  <Font name="Ani" size="20.0" />
+               </font>
+            </Button>
             <Button blendMode="COLOR_DODGE" mnemonicParsing="false" prefHeight="48.0" prefWidth="153.0" text="Save">
                <cursor>
                   <Cursor fx:constant="CLOSED_HAND" />

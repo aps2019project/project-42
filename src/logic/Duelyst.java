@@ -57,7 +57,7 @@ public class Duelyst {
         }
     }
 
-    private void preStart() throws IOException {
+    public void preStart() throws IOException {
         setCurrentMenu();
         final String[] names = {"Heroes", "Items", "Minions", "SpellCards", "Collectibles"
         };

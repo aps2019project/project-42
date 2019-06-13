@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import logic.AccountPage;
 import logic.Duelyst;
 
 import java.io.IOException;
@@ -56,5 +57,10 @@ public class AccountPageMenu {
         primaryStage.stage.setScene(new Scene(root));
         primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
+    }
+
+    public void logOut(MouseEvent mouseEvent) {
+        AccountPage accountPage=new AccountPage();
+        accountPage.logOut();
     }
 }

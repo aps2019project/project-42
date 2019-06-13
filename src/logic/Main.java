@@ -25,8 +25,9 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws IOException {
+        Duelyst duelyst = new Duelyst();
+        duelyst.preStart();
         launch(args);
-        //logic.Duelyst duelyst = new logic.Duelyst();
         //duelyst.main();
     }
 }

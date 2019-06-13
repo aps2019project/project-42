@@ -132,9 +132,13 @@ public class AccountPage extends Menu {
         console.savedAccount();
     }
 
-    void logOut() {
+    public void logOut() {
         Duelyst.currentMenu = AccountPage.getInstance();
-        console.logoutMessage();
+        Duelyst.currentAccount=null;
+        Alert logout=new Alert(Alert.AlertType.INFORMATION);
+        logout.setContentText("You logged out.");
+        logout.show();
+        //console.logoutMessage();
     }
 
 
