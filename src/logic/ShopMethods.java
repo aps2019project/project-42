@@ -24,9 +24,6 @@ public class ShopMethods {
             } else if (Duelyst.getAllSpellCards().contains(card)) {
                 Duelyst.currentAccount.getAccountSpellCards().add((SpellCard) card);
             }
-            /*for (logic.Deck deck:logic.Duelyst.currentAccount.decks) {
-                if (deck.cards.contains())
-            }*/
             Duelyst.currentAccount.money -= card.price;
             console.cardAdded(Duelyst.currentAccount.money);
         }

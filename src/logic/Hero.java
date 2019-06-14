@@ -1,15 +1,43 @@
 package logic;
 
-class Hero extends Force {
+import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+
+import java.io.FileNotFoundException;
+
+public class Hero extends Force {
     int coolDown;
     String typeOfHero;
 
-    public Hero(String name) {
+    public Hero(String name) throws FileNotFoundException {
         super(name);
     }
 
     @Override
     public String toString() {
         return " : name : " + this.name + " - AP : " + this.AP + " - HP : " + this.HP + " - class : " + this.typeOfHero + " - cool down : " + this.coolDown + " - special power : " + this.desc + " - price : " + this.price;
+    }
+
+    public VBox makeCard() {
+        VBox card = new VBox();
+        ImageView image = new ImageView(this.image);
+        Label name = new Label("Name : " + this.name);
+        Label AP = new Label("AP : " + this.AP);
+        Label HP = new Label("HP : " + this.HP);
+        Label typeOfHero = new Label("Class : " + this.typeOfHero);
+        Label coolDown = new Label("Cool Down : " + this.coolDown);
+        Label desc = new Label("Special Power : " + this.desc);
+        Label price = new Label("Price : " + this.price);
+        card.getChildren().addAll(image, name, AP, HP, typeOfHero, coolDown, desc, price);
+        card.setSpacing(20);
+        //card.setBackground(new Background(new BackgroundFill(Color.web("#000000"), CornerRadii.EMPTY, Insets.EMPTY)));
+        return card;
     }
 }

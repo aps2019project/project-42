@@ -53,7 +53,7 @@ public class Duelyst {
         while (true) {
             if (finishGame) break;
             //command = scanner.nextLine().trim().toLowerCase();
-            //handler(currentMenu, command);
+            handler(currentMenu, command);
         }
     }
 
@@ -92,6 +92,7 @@ public class Duelyst {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         Minion minion = new Gson().fromJson(reader, cardClass);
         list.add(minion);
+        minion.makeCard();
     }
 
     private void addItem(File file, Class<Item> cardClass, ArrayList<Item> list) throws FileNotFoundException {

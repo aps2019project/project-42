@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic.CollectionMenu">
    <children>
@@ -19,10 +23,88 @@
             <Image url="@../resources/scenes/magaari_ember_highlands/magaari_ember_highlands_trees_001@2x.png" />
          </image>
       </ImageView>
-      <VBox layoutX="170.0" layoutY="137.0" prefHeight="418.0" prefWidth="243.0">
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="387.0" prefWidth="137.0" spacing="20.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="251.0" text="Button" />
+            <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="48.0" prefWidth="252.0" text="My Decks">
+               <font>
+                  <Font name="Ani" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </Button>
+            <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="48.0" prefWidth="252.0" text="CreateDeck">
+               <font>
+                  <Font name="Ani" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </Button>
+            <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="48.0" prefWidth="252.0" text="Search In Collection">
+               <font>
+                  <Font name="Ani" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </Button>
+            <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="48.0" prefWidth="252.0" text="Search Deck">
+               <font>
+                  <Font name="Ani" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </Button>
+            <Button blendMode="OVERLAY" mnemonicParsing="false" onMouseClicked="#quit" prefHeight="48.0" prefWidth="252.0" text="Back">
+               <font>
+                  <Font name="Ani" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </Button>
          </children>
       </VBox>
+      <VBox fx:id="shop" layoutX="409.0" layoutY="116.0" prefHeight="893.0" prefWidth="1275.0">
+         <children>
+            <ScrollPane prefHeight="300.0" prefWidth="1275.0">
+               <content>
+                  <HBox fx:id="heroes" prefHeight="298.0" spacing="5.0" />
+               </content>
+            </ScrollPane>
+            <ScrollPane prefHeight="300.0" prefWidth="1275.0">
+               <content>
+                  <HBox fx:id="items" prefHeight="298.0" spacing="5.0" />
+               </content>
+            </ScrollPane>
+            <ScrollPane prefHeight="298.0" prefWidth="1275.0">
+               <content>
+                  <HBox fx:id="minions" prefHeight="298.0" spacing="5.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+      <Label layoutX="249.0" layoutY="213.0" text="Heroes:">
+         <font>
+            <Font name="Karumbi Regular" size="77.0" />
+         </font>
+      </Label>
+      <Label layoutX="276.0" layoutY="483.0" text="Items:">
+         <font>
+            <Font name="Karumbi Regular" size="77.0" />
+         </font>
+      </Label>
+      <Label layoutX="233.0" layoutY="782.0" text="Minions:">
+         <font>
+            <Font name="Karumbi Regular" size="77.0" />
+         </font>
+      </Label>
+      <Button blendMode="COLOR_BURN" layoutX="1703.0" layoutY="156.0" mnemonicParsing="false" onMouseClicked="#show" prefHeight="48.0" prefWidth="135.0" text="Show">
+         <font>
+            <Font name="Ani" size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

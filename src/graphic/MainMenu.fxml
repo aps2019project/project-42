@@ -51,6 +51,14 @@
                   <Font name="Ani" size="20.0" />
                </font>
             </Button>
+            <Button blendMode="COLOR_DODGE" mnemonicParsing="false" onMouseClicked="#enterCostume" prefHeight="47.0" prefWidth="154.0" text="Costume Cart">
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+               <font>
+                  <Font name="Ani" size="20.0" />
+               </font>
+            </Button>
             <Button blendMode="COLOR_DODGE" mnemonicParsing="false" onMouseClicked="#enterMainMenuHelp" prefHeight="49.0" prefWidth="154.0" text="Help">
                <cursor>
                   <Cursor fx:constant="CLOSED_HAND" />

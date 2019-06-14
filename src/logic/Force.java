@@ -1,5 +1,6 @@
 package logic;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Force extends SpellCard {
@@ -20,7 +21,7 @@ public class Force extends SpellCard {
     boolean fieryImmune = false;
     boolean poisonImmune = false;
     ArrayList<Spell> castedSpells;
-    public Force(String name) {
+    public Force(String name) throws FileNotFoundException {
         super(name);
     }
 }

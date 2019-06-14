@@ -49,4 +49,12 @@ public class MainMenu {
         primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
+
+    public void enterCostume(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(CostumeMenu.class.getResource("CostumeMenu.fxml"));
+        primaryStage.stage.setTitle("Duelyst");
+        primaryStage.stage.setScene(new Scene(root));
+        primaryStage.stage.setMaximized(true);
+        primaryStage.stage.show();
+    }
 }
