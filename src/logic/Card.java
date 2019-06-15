@@ -1,10 +1,7 @@
 package logic;
 
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 class Card {
@@ -13,7 +10,7 @@ class Card {
     Player owner;
     int ID;//needed in shop
     int price;
-    Image image=new Image(new FileInputStream("1.png"));;
+    Image image = new Image("logic/1.jpg");
 
 
     public static Card getCardByName(String name) {
@@ -32,14 +29,13 @@ class Card {
                 return minion;
             }
         }
-        for (Item item:Duelyst.getAllItems()){
-            if (item.name.equals(name)){
+        for (Item item : Duelyst.getAllItems()) {
+            if (item.name.equals(name)) {
                 return item;
             }
         }
         return null;
     }
-
 
 
     public Card(String name) throws FileNotFoundException {

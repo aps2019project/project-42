@@ -22,11 +22,13 @@ public class Item extends Card {
 
     public VBox makeCard() {
         VBox card = new VBox();
-        ImageView image = new ImageView(this.image);
-        Label name = new Label("Name : " + this.name);
-        Label desc = new Label("Desc : " + this.desc);
-        Label price = new Label("Price : " + this.price);
-        card.getChildren().addAll(image, name, desc, price);
+        ImageView image = new ImageView();
+        image.setImage(this.image);
+        image.setFitHeight(30);
+        image.setFitWidth(30);
+        Label info = new Label("Name : " + this.name + "\nDesc : " + this.desc + "\nPrice : " + this.price);
+        info.setStyle("-fx-font: 24 Nazli");
+        card.getChildren().addAll(image, info);
         card.setSpacing(20);
         return card;
     }

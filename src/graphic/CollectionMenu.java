@@ -16,7 +16,7 @@ public class CollectionMenu {
     PrimaryStage primaryStage = PrimaryStage.getInstance();
 
 
-    public void show(MouseEvent mouseEvent) {
+    public void initialize(){
         for (Hero hero : Duelyst.currentAccount.getAccountHeroes()) {
             heroes.getChildren().add(hero.makeCard());
         }

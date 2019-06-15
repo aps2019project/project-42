@@ -28,15 +28,9 @@ public class Minion extends Force {
     public VBox makeCard() {
         VBox card = new VBox();
         ImageView image = new ImageView(this.image);
-        Label name = new Label("Name : " + this.name);
-        Label type = new Label("Minion");
-        Label typeOfMinion = new Label("Class : " + this.typeOfMinion);
-        Label AP = new Label("AP : " + this.AP);
-        Label HP = new Label("HP : " + this.HP);
-        Label MP = new Label("MP : " + this.MP);
-        Label desc = new Label("Desc : " + this.desc);
-        Label price = new Label("Price : " + this.price);
-        card.getChildren().addAll(image, name, type, typeOfMinion, AP, HP, MP, desc, price);
+        Label info = new Label("Name : " + this.name + "\nMinion\nClass : " + this.typeOfMinion + "\nAP : " + this.AP + "\nHP : " + this.HP + "\nMP : " + this.MP + "\nDesc : " + this.desc + "\nPrice : " + this.price);
+        info.setStyle("-fx-font: 24 Nazli");
+        card.getChildren().addAll(image,info);
         card.setSpacing(20);
         return card;
     }

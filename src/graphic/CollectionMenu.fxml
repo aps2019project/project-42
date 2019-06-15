@@ -15,12 +15,12 @@
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../resources/scenes/magaari_ember_highlands/magaari_ember_highlands_background@2x.jpg" />
+            <Image url="@../../resources/scenes/magaari_ember_highlands/magaari_ember_highlands_background@2x.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="641.0" fitWidth="280.0" layoutX="1444.0" layoutY="485.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../resources/scenes/magaari_ember_highlands/magaari_ember_highlands_trees_001@2x.png" />
+            <Image url="@../../resources/scenes/magaari_ember_highlands/magaari_ember_highlands_trees_001@2x.png" />
          </image>
       </ImageView>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="387.0" prefWidth="137.0" spacing="20.0">
@@ -67,7 +67,7 @@
             </Button>
          </children>
       </VBox>
-      <VBox fx:id="shop" layoutX="409.0" layoutY="116.0" prefHeight="893.0" prefWidth="1275.0">
+      <VBox fx:id="shop" layoutX="674.0" layoutY="57.0" prefHeight="797.0" prefWidth="1151.0">
          <children>
             <ScrollPane prefHeight="300.0" prefWidth="1275.0">
                <content>
@@ -86,25 +86,20 @@
             </ScrollPane>
          </children>
       </VBox>
-      <Label layoutX="249.0" layoutY="213.0" text="Heroes:">
+      <Label layoutX="510.0" layoutY="145.0" text="Heroes:" textFill="WHITE">
          <font>
             <Font name="Karumbi Regular" size="77.0" />
          </font>
       </Label>
-      <Label layoutX="276.0" layoutY="483.0" text="Items:">
+      <Label layoutX="537.0" layoutY="393.0" text="Items:" textFill="WHITE">
          <font>
             <Font name="Karumbi Regular" size="77.0" />
          </font>
       </Label>
-      <Label layoutX="233.0" layoutY="782.0" text="Minions:">
+      <Label layoutX="494.0" layoutY="646.0" text="Minions:" textFill="WHITE">
          <font>
             <Font name="Karumbi Regular" size="77.0" />
          </font>
       </Label>
-      <Button blendMode="COLOR_BURN" layoutX="1703.0" layoutY="156.0" mnemonicParsing="false" onMouseClicked="#show" prefHeight="48.0" prefWidth="135.0" text="Show">
-         <font>
-            <Font name="Ani" size="24.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

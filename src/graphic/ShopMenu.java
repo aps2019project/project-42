@@ -15,7 +15,7 @@ public class ShopMenu {
     public HBox minions;
     PrimaryStage primaryStage = PrimaryStage.getInstance();
 
-    public void show() {
+    public void initialize() {
         for (Hero hero : Duelyst.getAllHeroes()) {
             heroes.getChildren().add(hero.makeCard());
         }
