@@ -14,10 +14,10 @@ public class Account {
     ArrayList<Minion> accountMinions=new ArrayList<>();
     ArrayList<SpellCard> accountSpells=new ArrayList<>();
     Deck mainDeck;
-    int money=150000000;
+    int money=15000;
     int itemCounter=0;
     CollectionMethods collectionMethods = new CollectionMethods();
-    ShopMethods shopMethods=new ShopMethods();
+    public ShopMethods shopMethods=new ShopMethods();
 
     public ArrayList<Deck> getDecks() {
         return decks;

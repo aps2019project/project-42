@@ -1,6 +1,6 @@
 {
   "name": "hellfire",
-  "desc": "make firey buff in a 2*2 square that you choose, for 2 turns",
+  "desc": "make firey buff in a 2*2 square \nthat you choose, for 2 turns",
   "price": 600,
   "MP": 3,
   "ID": 106,

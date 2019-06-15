@@ -1,6 +1,6 @@
 {
   "name": "dispel",
-  "desc": "removing positive enemy buffs or negative self forces buffs",
+  "desc": "removing positive enemy buffs \nor negative self forces buffs",
   "price": 2100,
   "MP": 0,
   "ID": 112,

@@ -1,6 +1,6 @@
 {
   "name": "madness",
-  "desc": "add 3 units to a self force AP, but it will get disarm",
+  "desc": "add 3 units to a self force AP, \nbut it will get disarm",
   "price": 650,
   "MP": 0,
   "ID": 109,

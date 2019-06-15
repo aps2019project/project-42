@@ -1,6 +1,6 @@
 {
   "name": "poisonousdagger",
-  "desc": "on a friendly attack, for 1 turn, activates a poison buff on a random enemy force",
+  "desc": "on a friendly attack, for 1 turn, \nactivates a poison buff on a \nrandom enemy force",
   "ID": 308,
   "price": 7000,
   "spells": [

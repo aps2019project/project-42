@@ -1,6 +1,6 @@
 {
   "name": "kamaandaamool",
-  "desc": "only for ranged and hybrid: when your hero attacks, the enemy force beomes disarmed.",
+  "desc": "only for ranged and hybrid:\nwhen your hero attacks,\nthe enemy force beomes disarmed.",
   "ID": 303,
   "price": 30000,
   "spells": [

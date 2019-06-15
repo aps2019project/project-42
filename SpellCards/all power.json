@@ -1,6 +1,6 @@
 {
   "name": "allpower",
-  "desc": "give a power buff with 2 units adding to AP to all of the self forces",
+  "desc": "give a power buff with 2 units \nadding to AP to all of the self \nforces",
   "price": 2000,
   "MP": 4,
   "ID": 115,

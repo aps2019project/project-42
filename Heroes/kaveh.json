@@ -1,7 +1,7 @@
 {
   "name": "kaveh",
   "typeOfHero": "melee",
-  "desc": "make a cell holy for 3 turns",
+  "desc": "make a cell holy for \n3 turns",
   "ID": 206,
   "coolDown": 3,
   "price": 8000,

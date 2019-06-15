@@ -1,6 +1,6 @@
 {
   "name": "fireball",
-  "desc": "attack 4 units to an enemy force",
+  "desc": "attack 4 units to an \nenemy force",
   "price": 400,
   "MP": 1,
   "ID": 104,

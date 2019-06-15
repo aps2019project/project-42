@@ -1,6 +1,6 @@
 {
   "name": "powerup",
-  "desc": "give a power buff to a self force with 6 units adding to its AP",
+  "desc": "give a power buff to a self force \nwith 6 units adding to its AP",
   "price": 2500,
   "MP": 2,
   "ID": 114,

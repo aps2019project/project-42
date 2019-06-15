@@ -1,1 +1,15 @@
-{"name":"persianarcher","desc":"...","typeOfMinion":"minion","ID":401,"price":300,"AP":4,"HP":6,"MP":2,"combo":false,"rangeType":"hybrid","range":7,"exhaustion":true,"spells":[]}
+{
+  "name": "persianarcher",
+  "desc": "...",
+  "typeOfMinion": "minion",
+  "ID": 401,
+  "price": 300,
+  "AP": 4,
+  "HP": 6,
+  "MP": 2,
+  "combo": false,
+  "rangeType": "hybrid",
+  "range": 7,
+  "exhaustion": true,
+  "spells": []
+}

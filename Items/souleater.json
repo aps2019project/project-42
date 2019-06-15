@@ -1,6 +1,6 @@
 {
   "name": "souleater",
-  "desc": "when your force dies, a power buff with an increment of AP by 1 activates on a random friendly force.",
+  "desc": "when your force dies, \na power buff with an increment of \nAP by 1 activates on a random \nfriendly force.",
   "ID": 310,
   "price": 25000,
   "spells": [

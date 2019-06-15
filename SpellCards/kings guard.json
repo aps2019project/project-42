@@ -1,6 +1,6 @@
 {
   "name": "kingsguard",
-  "desc": "kills a random enemy minion in 8 cells around self hero",
+  "desc": "kills a random enemy minion in \n8 cells around self hero",
   "price": 1750,
   "MP": 9,
   "ID": 119,

@@ -1,7 +1,7 @@
 {
   "name": "whitedamon",
   "typeOfHero": "melee",
-  "desc": "make a power buff with adding 4 units to its AP frequently",
+  "desc": "make a power buff with adding \n4 units to its AP frequently",
   "ID": 201,
   "coolDown": 2,
   "price": 8000,

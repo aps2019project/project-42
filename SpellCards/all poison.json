@@ -1,6 +1,6 @@
 {
   "name": "allpoison",
-  "desc": "poisoning all of enemy forces for 4 turns",
+  "desc": "poisoning all of enemy forces for \n4 turns",
   "price": 1500,
   "MP": 8,
   "ID": 111,

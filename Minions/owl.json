@@ -1,1 +1,38 @@
-{"name":"owl","desc":"has 10 units of power buff with HP increasement!","typeOfMinion":"minion","ID":415,"price":200,"AP":2,"HP":0,"MP":2,"combo":false,"rangeType":"ranged","range":3,"exhaustion":true,"spells":[{"targetNumber":1,"targetDistance":0,"effectQuantity":10,"staticQuantity":0,"time":"spawn","side":"friend","effect":"changeHP","staticState":"nothing","targetRange":"ranged","targetStatic":"nothing","targetKind":"minion","massacre":false,"immunity":false,"continuous":false,"choice":true,"goodness":true,"eternity":true,"locationImportance":false,"turns":[],"locations":[]}]}
+{
+  "name": "owl",
+  "desc": "has 10 units of power buff \nwith HP increasement!",
+  "typeOfMinion": "minion",
+  "ID": 415,
+  "price": 200,
+  "AP": 2,
+  "HP": 0,
+  "MP": 2,
+  "combo": false,
+  "rangeType": "ranged",
+  "range": 3,
+  "exhaustion": true,
+  "spells": [
+    {
+      "targetNumber": 1,
+      "targetDistance": 0,
+      "effectQuantity": 10,
+      "staticQuantity": 0,
+      "time": "spawn",
+      "side": "friend",
+      "effect": "changeHP",
+      "staticState": "nothing",
+      "targetRange": "ranged",
+      "targetStatic": "nothing",
+      "targetKind": "minion",
+      "massacre": false,
+      "immunity": false,
+      "continuous": false,
+      "choice": true,
+      "goodness": true,
+      "eternity": true,
+      "locationImportance": false,
+      "turns": [],
+      "locations": []
+    }
+  ]
+}

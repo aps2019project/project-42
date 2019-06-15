@@ -1,6 +1,6 @@
 {
   "name": "terrorhood",
-  "desc": "on attack, a weakness buff with a decrement of AP by 2 for a random enemy force activates.",
+  "desc": "on attack, a weakness buff with \na decrement of AP by 2 for a random\nenemy force activates.",
   "ID": 305,
   "price": 5000,
   "spells": [

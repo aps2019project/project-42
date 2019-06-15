@@ -11,7 +11,7 @@ class Shop extends Menu {
     }
 
 
-    void shopMenu(String command) {
+    /*void shopMenu(String command) {
         try {
             ShopMethods shopMethods = Duelyst.currentAccount.shopMethods;
             String[] commandArray = command.split("\\s+");
@@ -41,7 +41,7 @@ class Shop extends Menu {
             e.getMessage();
         }
 
-    }
+    }*/
 
     private void showMenu() {
         console.shopMenu();

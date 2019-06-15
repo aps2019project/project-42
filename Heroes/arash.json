@@ -1,7 +1,7 @@
 {
   "name": "arash",
   "typeOfHero": "ranged",
-  "desc": "attack 4units to all forces in its row",
+  "desc": "attack 4units to \nall forces in its row",
   "ID": 207,
   "coolDown": 2,
   "price": 10000,

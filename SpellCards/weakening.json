@@ -1,6 +1,6 @@
 {
   "name": "weakening",
-  "desc": "make a weakness buff with decreasing 4 units from AP of an enemy minion",
+  "desc": "make a weakness buff with decreasing \n4 units from AP of an enemy minion",
   "price": 1000,
   "MP": 1,
   "ID": 117,

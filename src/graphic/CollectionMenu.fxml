@@ -15,41 +15,12 @@
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/scenes/magaari_ember_highlands/magaari_ember_highlands_background@2x.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="641.0" fitWidth="280.0" layoutX="1444.0" layoutY="485.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../resources/scenes/magaari_ember_highlands/magaari_ember_highlands_trees_001@2x.png" />
+            <Image url="@/scenes/magaari_ember_highlands/magaari_ember_highlands_background@2x.jpg" />
          </image>
       </ImageView>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="387.0" prefWidth="137.0" spacing="20.0">
          <children>
             <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="48.0" prefWidth="252.0" text="My Decks">
-               <font>
-                  <Font name="Ani" size="20.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="CLOSED_HAND" />
-               </cursor>
-            </Button>
-            <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="48.0" prefWidth="252.0" text="CreateDeck">
-               <font>
-                  <Font name="Ani" size="20.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="CLOSED_HAND" />
-               </cursor>
-            </Button>
-            <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="48.0" prefWidth="252.0" text="Search In Collection">
-               <font>
-                  <Font name="Ani" size="20.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="CLOSED_HAND" />
-               </cursor>
-            </Button>
-            <Button blendMode="OVERLAY" mnemonicParsing="false" prefHeight="48.0" prefWidth="252.0" text="Search Deck">
                <font>
                   <Font name="Ani" size="20.0" />
                </font>

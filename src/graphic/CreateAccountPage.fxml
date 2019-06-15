@@ -16,12 +16,12 @@
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/scenes/frostfire/background@2x.jpg" />
+            <Image url="@/scenes/frostfire/background@2x.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/scenes/frostfire/foreground@2x.png" />
+            <Image url="@/scenes/frostfire/foreground@2x.png" />
          </image>
       </ImageView>
       <VBox alignment="CENTER" layoutX="27.0" layoutY="196.0" prefHeight="650.0" prefWidth="347.0" spacing="20.0">

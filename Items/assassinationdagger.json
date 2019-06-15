@@ -1,6 +1,6 @@
 {
   "name": "assassinationdagger",
-  "desc": "when inserting a force, attacks the enemy hero by one.",
+  "desc": "when inserting a force, \nattacks the enemy hero by one.",
   "ID": 307,
   "price": 15000,
   "spells": [

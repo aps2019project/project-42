@@ -1,6 +1,6 @@
 {
   "name": "shockhammer",
-  "desc": "on attack, hero disarms enemy force for one turn.",
+  "desc": "on attack, hero disarms enemy \nforce for one turn.",
   "ID": 309,
   "price": 15000,
   "spells": [

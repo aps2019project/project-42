@@ -1,18 +1,26 @@
 package logic;
 
+import javafx.scene.control.Alert;
+
 import java.util.ArrayList;
 
 public class ShopMethods {
     Console console = Console.getInstance();
 
-    void buyCard(String string) {
+    public void buyCard(String string) {
         Card card = Card.getCardByName(string);
         if (card == null) {
-            console.cardNotInShop();
+            Alert buy = new Alert(Alert.AlertType.INFORMATION);
+            buy.setContentText("Card not found!");
+            buy.show();
         } else if (card.price > Duelyst.currentAccount.money) {
-            console.insufficientMoney();
+            Alert buy = new Alert(Alert.AlertType.INFORMATION);
+            buy.setContentText("Not enough money!");
+            buy.show();
         } else if (Duelyst.getAllItems().contains(card) && Duelyst.currentAccount.itemCounter == 3) {
-            console.cantBuyItem();
+            Alert buy = new Alert(Alert.AlertType.INFORMATION);
+            buy.setContentText("You can't buy item anymore");
+            buy.show();
         } else {
             if (Duelyst.getAllHeroes().contains(card)) {
                 Duelyst.currentAccount.getAccountHeroes().add((Hero) card);
@@ -25,15 +33,19 @@ public class ShopMethods {
                 Duelyst.currentAccount.getAccountSpellCards().add((SpellCard) card);
             }
             Duelyst.currentAccount.money -= card.price;
-            console.cardAdded(Duelyst.currentAccount.money);
+            Alert buy = new Alert(Alert.AlertType.INFORMATION);
+            buy.setContentText("This card added to your collection successfully.\nYour remaining money : " + Duelyst.currentAccount.money);
+            buy.show();
         }
     }
 
 
-    void sellCard(int id) {
-        Card card = getCardByIdInCollection(id);
+    public void sellCard(String string) {
+        Card card = getCardByNameInCollection(string);
         if (card == null) {
-            console.cardNotFound();
+            Alert sell = new Alert(Alert.AlertType.INFORMATION);
+            sell.setContentText("Card not found!");
+            sell.show();
         } else {
             ArrayList<Deck> tempAccountDecks = new ArrayList<>(Duelyst.currentAccount.getDecks());
             if (!tempAccountDecks.isEmpty()) {
@@ -61,12 +73,17 @@ public class ShopMethods {
             } else if (Duelyst.getAllSpellCards().contains(card)) {
                 Duelyst.currentAccount.getAccountSpellCards().remove(card);
             }
-            Duelyst.currentAccount.money += card.price;
-            console.sold(Duelyst.currentAccount.money);
             if (Duelyst.currentAccount.mainDeck != null && Duelyst.currentAccount.mainDeck.cards.contains(card)) {
                 Duelyst.currentAccount.mainDeck = null;
-                console.deckNotValidateAnymore();
+                Alert sell = new Alert(Alert.AlertType.INFORMATION);
+                sell.setContentText("You sold this cart successfully.\nYour remaining money : " + Duelyst.currentAccount.money + "\nYour deck isn't valid anymore.");
+                sell.show();
+            } else {
+                Alert sell = new Alert(Alert.AlertType.INFORMATION);
+                sell.setContentText("You sold this cart successfully.\nYour remaining money : " + Duelyst.currentAccount.money);
+                sell.show();
             }
+            Duelyst.currentAccount.money += card.price;
         }
     }
 
@@ -78,28 +95,29 @@ public class ShopMethods {
         console.showShop();
     }
 
-    void searchShop(String string) {
+    public void searchShop(String string) {
         Card card = Card.getCardByName(string);
-        if (Duelyst.getAllHeroes().contains(card)) {
-            console.print(card.ID);
-        } else if (Duelyst.getAllItems().contains(card)) {
-            console.print(card.ID);
-        } else if (Duelyst.getAllMinions().contains(card)) {
-            console.print(card.ID);
-        } else if (Duelyst.getAllSpellCards().contains(card)) {
-            console.print(card.ID);
+        if (Duelyst.getAllHeroes().contains(card) || Duelyst.getAllItems().contains(card) || Duelyst.getAllMinions().contains(card) || Duelyst.getAllSpellCards().contains(card)) {
+            Alert id = new Alert(Alert.AlertType.INFORMATION);
+            id.setContentText("Card ID is : " + card.ID);
+            id.show();
         } else {
-            console.cardNotInShop();
+            Alert idNotFound = new Alert(Alert.AlertType.INFORMATION);
+            idNotFound.setContentText("Card not found!");
+            idNotFound.show();
         }
-
     }
 
-    void searchCollection(String string) {
+    public void searchCollection(String string) {
         Card card = getCardByNameInCollection(string);
         if (card != null) {
-            console.print(card.ID);
+            Alert id = new Alert(Alert.AlertType.INFORMATION);
+            id.setContentText("Card ID is : " + card.ID);
+            id.show();
         } else {
-            console.cardNotFound();
+            Alert idNotFound = new Alert(Alert.AlertType.INFORMATION);
+            idNotFound.setContentText("Card not found!");
+            idNotFound.show();
         }
     }
 

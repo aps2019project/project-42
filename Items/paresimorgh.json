@@ -1,6 +1,6 @@
 {
   "name": "paresimorgh",
-  "desc": "for hybrid and ranged: decrement of enemy hero AP by 2",
+  "desc": "for hybrid and ranged: decrement \nof enemy hero AP by 2",
   "ID": 304,
   "price": 3500,
   "spells": [

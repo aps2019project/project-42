@@ -1,7 +1,7 @@
 {
   "name": "rakhsh",
   "typeOfHero": "melee",
-  "desc": "stun an enemy force for 1 turn",
+  "desc": "stun an enemy force for \n1 turn",
   "ID": 204,
   "coolDown": 2,
   "price": 8000,

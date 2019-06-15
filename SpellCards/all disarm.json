@@ -1,6 +1,6 @@
 {
   "name": "alldisarm",
-  "desc": "disarm all enemy forces for 1 turn",
+  "desc": "disarm all enemy forces for \n1 turn",
   "price": 2000,
   "MP": 9,
   "ID": 110,

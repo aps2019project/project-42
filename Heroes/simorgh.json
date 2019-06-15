@@ -1,7 +1,7 @@
 {
   "name": "simorgh",
   "typeOfHero": "melee",
-  "desc": "stun all of enemy forces for one turn",
+  "desc": "stun all of enemy forces \nfor one turn",
   "ID": 202,
   "coolDown": 8,
   "price": 9000,

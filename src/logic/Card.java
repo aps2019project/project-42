@@ -10,7 +10,7 @@ class Card {
     Player owner;
     int ID;//needed in shop
     int price;
-    Image image = new Image("logic/1.jpg");
+    Image image;
 
 
     public static Card getCardByName(String name) {

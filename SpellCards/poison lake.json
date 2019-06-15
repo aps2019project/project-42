@@ -1,6 +1,6 @@
 {
   "name": "poisonlake",
-  "desc": "poisoning a 3*3 square that you choose for 1 turn",
+  "desc": "poisoning a 3*3 square that you \nchoose for 1 turn",
   "price": 900,
   "MP": 5,
   "ID": 108,

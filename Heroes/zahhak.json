@@ -1,7 +1,7 @@
 {
   "name": "zahhak",
   "typeOfHero": "melee",
-  "desc": "poisoning a force when attacks to it for 3 turns",
+  "desc": "poisoning a force when attacks \nto it for 3 turns",
   "ID": 205,
   "coolDown": 0,
   "price": 10000,

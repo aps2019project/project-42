@@ -1,6 +1,6 @@
 {
   "name": "sacrifice",
-  "desc": "give a self minion a weakness buff with 6units decreasing HP and 8units increasing AP",
+  "desc": "give a self minion a weakness buff \nwith 6units decreasing HP and \n8units increasing AP",
   "price": 1600,
   "MP": 2,
   "ID": 118,

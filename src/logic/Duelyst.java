@@ -123,7 +123,7 @@ public class Duelyst {
 
     private void shopHandler(String command) {
         Shop shop = Shop.getInstance();
-        shop.shopMenu(command);
+        //shop.shopMenu(command);
     }
 
     private void collectionHandler(String command) {

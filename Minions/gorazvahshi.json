@@ -1,1 +1,40 @@
-{"name":"gorazvahshi","desc":"doesn't get disarmed","typeOfMinion":"minion","ID":428,"price":500,"AP":14,"HP":10,"MP":6,"combo":false,"rangeType":"melee","range":1,"exhaustion":true,"spells":[{"targetNumber":1,"targetDistance":0,"effectQuantity":0,"staticQuantity":0,"time":"minionDefend","side":"enemy","effect":"disarm","staticState":"nothing","targetRange":"anyThing","targetStatic":"nothing","targetKind":"force","massacre":false,"immunity":true,"continuous":false,"choice":true,"goodness":true,"eternity":false,"locationImportance":false,"turns":[0],"locations":[]}]}
+{
+  "name": "gorazvahshi",
+  "desc": "doesn't get disarmed",
+  "typeOfMinion": "minion",
+  "ID": 428,
+  "price": 500,
+  "AP": 14,
+  "HP": 10,
+  "MP": 6,
+  "combo": false,
+  "rangeType": "melee",
+  "range": 1,
+  "exhaustion": true,
+  "spells": [
+    {
+      "targetNumber": 1,
+      "targetDistance": 0,
+      "effectQuantity": 0,
+      "staticQuantity": 0,
+      "time": "minionDefend",
+      "side": "enemy",
+      "effect": "disarm",
+      "staticState": "nothing",
+      "targetRange": "anyThing",
+      "targetStatic": "nothing",
+      "targetKind": "force",
+      "massacre": false,
+      "immunity": true,
+      "continuous": false,
+      "choice": true,
+      "goodness": true,
+      "eternity": false,
+      "locationImportance": false,
+      "turns": [
+        0
+      ],
+      "locations": []
+    }
+  ]
+}
