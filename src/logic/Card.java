@@ -4,13 +4,12 @@ import javafx.scene.image.Image;
 
 import java.io.FileNotFoundException;
 
-class Card {
+public class Card {
     String name;
     String desc;//Description
     Player owner;
     int ID;//needed in shop
     int price;
-    Image image;
 
 
     public static Card getCardByName(String name) {
@@ -37,6 +36,25 @@ class Card {
         return null;
     }
 
+    /*public void setImage(Image image) {
+        for (Hero hero : Duelyst.getAllHeroes()) {
+        }*/
+        /*for (SpellCard spell : Duelyst.getAllSpellCards()) {
+            if (spell.name.equals(name)) {
+                return spell;
+            }
+        }
+        for (Minion minion : Duelyst.getAllMinions()) {
+            if (minion.name.equals(name)) {
+                return minion;
+            }
+        }
+        for (Item item : Duelyst.getAllItems()) {
+            if (item.name.equals(name)) {
+                return item;
+            }
+        }*/
+//    }
 
     public Card(String name) throws FileNotFoundException {
         this.name = name;

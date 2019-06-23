@@ -33,7 +33,7 @@ class Player {
         if (spell.locationImportance) {
             boolean b = false;
             if (spell.targetDistance == 0) {
-                for (Cell c : spell.location) {
+                for (Cell c : spell.locations) {
                     if (c.equals(targetCell)) {
                         b = true;
                     }
@@ -55,7 +55,7 @@ class Player {
 
         if (!spell.staticState.equals(StaticState.nothing)) {
             boolean b = false;
-            if (((spell.targetStatics.equals(TargetStatics.AP)) && (((spell.staticState.equals(StaticState.less)) && (spell.staticQuantity > targetCell.force.AP)) || ((spell.staticState.equals(StaticState.exact)) && (spell.staticQuantity == targetCell.force.AP)) || ((spell.staticState.equals(StaticState.more)) && (spell.staticQuantity > targetCell.force.AP)))) || ((spell.targetStatics.equals(TargetStatics.HP)) && (((spell.staticState.equals(StaticState.less)) && (spell.staticQuantity > targetCell.force.HP)) || ((spell.staticState.equals(StaticState.exact)) && (spell.staticQuantity == targetCell.force.HP)) || ((spell.staticState.equals(StaticState.more)) && (spell.staticQuantity > targetCell.force.HP)))) || ((spell.targetStatics.equals(TargetStatics.MP)) && (((spell.staticState.equals(StaticState.less)) && (spell.staticQuantity > targetCell.force.MP)) || ((spell.staticState.equals(StaticState.exact)) && (spell.staticQuantity == targetCell.force.MP)) || ((spell.staticState.equals(StaticState.more)) && (spell.staticQuantity > targetCell.force.MP))))) {//AP:less,exact,more HP:less,exact,more MP:less,exact,more
+            if (((spell.targetStatic.equals(TargetStatics.AP)) && (((spell.staticState.equals(StaticState.less)) && (spell.staticQuantity > targetCell.force.AP)) || ((spell.staticState.equals(StaticState.exact)) && (spell.staticQuantity == targetCell.force.AP)) || ((spell.staticState.equals(StaticState.more)) && (spell.staticQuantity > targetCell.force.AP)))) || ((spell.targetStatic.equals(TargetStatics.HP)) && (((spell.staticState.equals(StaticState.less)) && (spell.staticQuantity > targetCell.force.HP)) || ((spell.staticState.equals(StaticState.exact)) && (spell.staticQuantity == targetCell.force.HP)) || ((spell.staticState.equals(StaticState.more)) && (spell.staticQuantity > targetCell.force.HP)))) || ((spell.targetStatic.equals(TargetStatics.MP)) && (((spell.staticState.equals(StaticState.less)) && (spell.staticQuantity > targetCell.force.MP)) || ((spell.staticState.equals(StaticState.exact)) && (spell.staticQuantity == targetCell.force.MP)) || ((spell.staticState.equals(StaticState.more)) && (spell.staticQuantity > targetCell.force.MP))))) {//AP:less,exact,more HP:less,exact,more MP:less,exact,more
                 b = true;
             }
             if (!b) {
@@ -103,12 +103,12 @@ class Player {
         if (!spell.choice) {
             for (int i = 0; i < 5; i++) {
                 for (int j = 0; j < 9; j++) {
-                    if (targetValidation(activationCell, this.battle.field.cells[i][j], spell) && ((spell.massacre) || (output.size() <= spell.targetsNumber)))
+                    if (targetValidation(activationCell, this.battle.field.cells[i][j], spell) && ((spell.massacre) || (output.size() <= spell.targetNumber)))
                         output.add(this.battle.field.cells[i][j]);
                 }
             }
         } else {
-            for (int i = 0; i < spell.targetsNumber; i++) {
+            for (int i = 0; i < spell.targetNumber; i++) {
                 Cell cell = getCell();
                 if (targetValidation(activationCell, cell, spell))
                     output.add(cell);

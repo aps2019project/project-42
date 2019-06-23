@@ -52,7 +52,6 @@ public class Duelyst {
         preStart();
         while (true) {
             if (finishGame) break;
-            //command = scanner.nextLine().trim().toLowerCase();
             handler(currentMenu, command);
         }
     }
@@ -80,6 +79,8 @@ public class Duelyst {
                 }
             }
         }
+        System.out.println(Duelyst.getAllMinions());
+
     }
 
     private void addSpell(File file, Class<SpellCard> cardClass, ArrayList<SpellCard> list) throws FileNotFoundException {
@@ -128,7 +129,7 @@ public class Duelyst {
 
     private void collectionHandler(String command) {
         Collection collection = Collection.getInstance();
-        collection.collectionMenu(command);
+        //collection.collectionMenu(command);
     }
 
     private void accountPageHandler(String command) {

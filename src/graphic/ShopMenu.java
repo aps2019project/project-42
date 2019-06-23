@@ -31,6 +31,7 @@ public class ShopMenu {
         for (Item item : Duelyst.getAllItems()) {
             items.getChildren().add(item.makeCard());
         }
+
     }
 
     public void quit(MouseEvent mouseEvent) throws IOException {

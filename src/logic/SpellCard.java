@@ -22,10 +22,10 @@ public class SpellCard extends Item {
 
     public VBox makeCard() {
         VBox card = new VBox();
-        ImageView image = new ImageView(this.image);
+//        ImageView image = new ImageView(this.image);
         Label info = new Label("Name : " + this.name + "\nSpell" + "\nMP : " + this.MP + "\nDesc : " + this.desc + "\nPrice : " + this.price);
         info.setStyle("-fx-font: 24 Nazli");
-        card.getChildren().addAll(image, info);
+//        card.getChildren().addAll(image, info);
         card.setSpacing(20);
         return card;
     }

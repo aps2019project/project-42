@@ -23,7 +23,7 @@ public class Item extends Card {
     public VBox makeCard() {
         VBox card = new VBox();
         ImageView image = new ImageView();
-        image.setImage(this.image);
+//        image.setImage(this.image);
         image.setFitHeight(30);
         image.setFitWidth(30);
         Label info = new Label("Name : " + this.name + "\nDesc : " + this.desc + "\nPrice : " + this.price);

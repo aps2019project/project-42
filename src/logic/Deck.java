@@ -2,7 +2,7 @@ package logic;
 
 import java.util.ArrayList;
 
-class Deck {
+public class Deck {
     int numOfHeroes = 0;
     int numOfCards = 0;
     int numOfItems = 0;

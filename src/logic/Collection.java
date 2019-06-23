@@ -11,7 +11,7 @@ class Collection extends Menu {
     }
 
 
-    void collectionMenu(String command) {
+    /*void collectionMenu(String command) {
         CollectionMethods collectionMethods = Duelyst.currentAccount.collectionMethods;
         try {
             String[] commandArray = command.split("\\s+");
@@ -50,7 +50,7 @@ class Collection extends Menu {
             e.getMessage();
         }
 
-    }
+    }*/
 
     private void showMenu() {
         console.collectionMenu();

@@ -16,7 +16,7 @@ public class Account {
     Deck mainDeck;
     int money=15000;
     int itemCounter=0;
-    CollectionMethods collectionMethods = new CollectionMethods();
+    public CollectionMethods collectionMethods = new CollectionMethods();
     public ShopMethods shopMethods=new ShopMethods();
 
     public ArrayList<Deck> getDecks() {

@@ -27,10 +27,10 @@ public class Hero extends Force {
 
     public VBox makeCard() {
         VBox card = new VBox();
-        ImageView image = new ImageView(this.image);
+//        ImageView image = new ImageView(this.image);
         Label info = new Label("Name : " + this.name + "\nClass : " + this.typeOfHero + "\nAP : " + this.AP + "\nHP : " + this.HP + "\nSpecial Power : " + this.desc + "\nPrice : " + this.price);
         info.setStyle("-fx-font: 24 Nazli");
-        card.getChildren().addAll(image,info);
+//        card.getChildren().addAll(image,info);
         card.setSpacing(20);
         //card.setBackground(new Background(new BackgroundFill(Color.web("#000000"), CornerRadii.EMPTY, Insets.EMPTY)));
         return card;

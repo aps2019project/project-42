@@ -8,7 +8,7 @@ class Spell {
     boolean immunity;
     boolean continuous;
     boolean locationImportance;
-    int targetsNumber;
+    int targetNumber;
     int staticQuantity;
     Time time;
     Side side;
@@ -18,9 +18,9 @@ class Spell {
     Effect effect;
     StaticState staticState;
     TargetRange targetRange;
-    TargetStatics targetStatics;
+    TargetStatics targetStatic;
     int targetDistance;// zero by default, natural number when it needs to be, index for change MP effect
     int effectQuantity;
     TargetKind targetKind;
-    ArrayList<Cell> location;
+    ArrayList<Cell> locations;
 }

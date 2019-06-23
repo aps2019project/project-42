@@ -94,7 +94,7 @@ class Console {
     }
 
     void deckAdded() {
-        System.out.println("logic.Deck added successfully.");
+        System.out.println("Deck added successfully.");
     }
 
     void deckExists() {
@@ -116,7 +116,7 @@ class Console {
 
 
     void deckDeleted() {
-        System.out.println("logic.Deck deleted successfully.");
+        System.out.println("Deck deleted successfully.");
     }
 
     void addCardToDeck() {
@@ -174,12 +174,12 @@ class Console {
 
     void showSingleDeck(Deck deck) {
         int cardCounter = 1;
-        System.out.println(deck.name + " :");
+        //System.out.println(deck.name + " :");
         deckShowing(deck, cardCounter);
     }
 
     private void deckShowing(Deck deck, int cardCounter) {
-        System.out.println("heroes :");
+        /*//System.out.println("heroes :");
         for (Card card : deck.cards) {
             if (Duelyst.getAllHeroes().contains(card)) {
                 Hero hero = (Hero) card;
@@ -211,7 +211,9 @@ class Console {
                 System.out.println(cardCounter + "" + spellCard);
                 cardCounter++;
             }
-        }
+        }*/
+
+
     }
 
     void collectionHelp() {
