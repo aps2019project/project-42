@@ -10,34 +10,6 @@ public class MainMenu extends Menu {
         return mainMenu;
     }
 
-    void mainMenu(String command) {
-        try {
-            if (command.matches("enter(\\s+)collection")) {
-                Duelyst.currentMenu = Collection.getInstance();
-                console.enterCollection();
-            } else if (command.matches("enter(\\s+)battle")) {
-                if (Duelyst.currentAccount.mainDeck!=null){
-                    Duelyst.currentMenu=BattleFirstMenu.getInstance();
-                } else {
-                    console.invalidMainDeck();
-                }
-            } else if (command.matches("enter(\\s+)shop")) {
-                Duelyst.currentMenu = Shop.getInstance();
-                console.enterShop();
-            } else if (command.matches("help")) {
-                help();
-            } else if (command.matches("exit")) {
-                exit();
-            } else if (command.matches("show(\\s+)menu")) {
-                showMenu();
-            } else {
-                console.invalidCommand();
-            }
-        } catch (NullPointerException e) {
-            e.getMessage();
-        }
-
-    }
 
     private void exit() {
         Duelyst.currentMenu = AccountPage.getInstance();

@@ -2,10 +2,12 @@ package graphic;
 
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.ImageCursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import logic.AccountPage;
 
@@ -25,6 +27,8 @@ public class CreateAccountPage {
 
     public void exit(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(AccountPageMenu.class.getResource("AccountPageMenu.fxml"));
+        Image image = new Image("ui/mouse_attack@2x.png");
+        root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
         primaryStage.stage.setScene(new Scene(root));
         primaryStage.stage.setMaximized(true);

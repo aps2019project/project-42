@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import java.io.FileNotFoundException;
 
 public class Card {
+    Image image;
     String name;
     String desc;//Description
     Player owner;
@@ -38,8 +39,9 @@ public class Card {
 
     /*public void setImage(Image image) {
         for (Hero hero : Duelyst.getAllHeroes()) {
-        }*/
-        /*for (SpellCard spell : Duelyst.getAllSpellCards()) {
+            hero.image = new Image("card_backgrounds_/unusable_spell.png");
+        }
+        for (SpellCard spell : Duelyst.getAllSpellCards()) {
             if (spell.name.equals(name)) {
                 return spell;
             }
@@ -53,8 +55,8 @@ public class Card {
             if (item.name.equals(name)) {
                 return item;
             }
-        }*/
-//    }
+        }
+    }*/
 
     public Card(String name) throws FileNotFoundException {
         this.name = name;

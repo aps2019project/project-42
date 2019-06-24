@@ -1,10 +1,9 @@
 package logic;
 
-import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.FileNotFoundException;
@@ -25,13 +24,13 @@ public class Minion extends Force {
         return " type : minion - name : " + this.name + " - class : " + this.typeOfMinion + " - AP : " + this.AP + " - HP : " + this.HP + " - MP : " + this.MP + " - special power : " + this.desc + " - price : " + this.price;
     }
 
-    public VBox makeCard() {
-        VBox card = new VBox();
-//        ImageView image = new ImageView(this.image);
+    public StackPane makeCard() {
+        StackPane card = new StackPane();
+        ImageView image = new ImageView(this.image);
+        image.setOpacity(0.5);
         Label info = new Label("Name : " + this.name + "\nMinion\nClass : " + this.typeOfMinion + "\nAP : " + this.AP + "\nHP : " + this.HP + "\nMP : " + this.MP + "\nDesc : " + this.desc + "\nPrice : " + this.price);
         info.setStyle("-fx-font: 24 Nazli");
-//        card.getChildren().addAll(image,info);
-        card.setSpacing(20);
+        card.getChildren().addAll(info);
         return card;
     }
 }

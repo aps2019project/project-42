@@ -4,12 +4,7 @@ import javafx.scene.control.Alert;
 
 public class CollectionMethods {
     Console console = Console.getInstance();
-    Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
-
-    void show() {
-        console.showCollection(Duelyst.currentAccount);
-    }
 
     public void search(String string) {
         Duelyst.currentAccount.shopMethods.searchCollection(string);
@@ -72,7 +67,6 @@ public class CollectionMethods {
                 if (deck.numOfItems < 1) {
                     deck.numOfItems++;
                     deck.usable = (Item) card;
-                    System.out.println("dorost shod");
                     deck.getCards().add(card);
                     Alert add = new Alert(Alert.AlertType.INFORMATION);
                     add.setContentText("Card added to deck.");
@@ -159,11 +153,11 @@ public class CollectionMethods {
 
     public void validationDeck(String string) {
         if (validateDeck(string)) {
-            Alert valid=new Alert(Alert.AlertType.ERROR);
+            Alert valid = new Alert(Alert.AlertType.ERROR);
             valid.setContentText("Invalid deck.");
             valid.show();
         } else {
-            Alert notValid=new Alert(Alert.AlertType.ERROR);
+            Alert notValid = new Alert(Alert.AlertType.ERROR);
             notValid.setContentText("Invalid deck.");
             notValid.show();
         }
@@ -199,14 +193,6 @@ public class CollectionMethods {
         }
     }
 
-    public void showDeck(String string) {
-        Deck deck = Duelyst.currentAccount.collectionMethods.getDeckByName(string);
-        if (deck != null) {
-            console.showSingleDeck(deck);
-        } else {
-            console.deckNameNotFound();
-        }
-    }
 
     public Deck getDeckByName(String string) {
         for (Deck deck : Duelyst.currentAccount.getDecks()) {

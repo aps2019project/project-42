@@ -31,7 +31,7 @@
             </Button>
          </children>
       </VBox>
-      <VBox fx:id="shop" layoutX="674.0" layoutY="57.0" prefHeight="797.0" prefWidth="1151.0">
+      <VBox fx:id="shop" layoutX="674.0" layoutY="57.0" prefHeight="865.0" prefWidth="1151.0">
          <children>
             <ScrollPane prefHeight="300.0" prefWidth="1275.0">
                <content>
@@ -43,7 +43,7 @@
                   <HBox fx:id="items" prefHeight="298.0" spacing="5.0" />
                </content>
             </ScrollPane>
-            <ScrollPane prefHeight="298.0" prefWidth="1275.0">
+            <ScrollPane prefHeight="298.0" prefWidth="1151.0">
                <content>
                   <HBox fx:id="minions" prefHeight="298.0" spacing="5.0" />
                </content>
@@ -129,7 +129,7 @@
             </Button>
          </children>
       </VBox>
-      <VBox alignment="TOP_CENTER" layoutX="200.0" layoutY="467.0" prefHeight="387.0" prefWidth="301.0" spacing="5.0">
+      <VBox alignment="TOP_CENTER" layoutX="200.0" layoutY="530.0" prefHeight="387.0" prefWidth="301.0" spacing="5.0">
          <children>
             <TextField fx:id="showDeck" prefHeight="48.0" prefWidth="301.0" promptText="Enter deck name...">
                <font>
@@ -186,6 +186,23 @@
                <cursor>
                   <Cursor fx:constant="CLOSED_HAND" />
                </cursor>
+            </Button>
+         </children>
+      </VBox>
+      <VBox fx:id="decks" alignment="TOP_CENTER" layoutX="190.0" layoutY="11.0" prefHeight="516.0" prefWidth="321.0" spacing="10.0">
+         <children>
+            <ScrollPane prefHeight="421.0" prefWidth="321.0">
+               <content>
+                  <VBox fx:id="deck1" prefHeight="389.0" prefWidth="320.0" />
+               </content>
+            </ScrollPane>
+            <Button blendMode="OVERLAY" mnemonicParsing="false" onMouseClicked="#invisible" text="Collection">
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+               <font>
+                  <Font name="Ani" size="20.0" />
+               </font>
             </Button>
          </children>
       </VBox>

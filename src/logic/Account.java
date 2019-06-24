@@ -13,7 +13,7 @@ public class Account {
     ArrayList<Item> accountItems=new ArrayList<>();
     ArrayList<Minion> accountMinions=new ArrayList<>();
     ArrayList<SpellCard> accountSpells=new ArrayList<>();
-    Deck mainDeck;
+    public Deck mainDeck;
     int money=15000;
     int itemCounter=0;
     public CollectionMethods collectionMethods = new CollectionMethods();

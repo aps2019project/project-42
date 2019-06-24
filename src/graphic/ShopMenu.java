@@ -1,9 +1,11 @@
 package graphic;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.ImageCursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import logic.*;
@@ -36,6 +38,8 @@ public class ShopMenu {
 
     public void quit(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(MainMenu.class.getResource("MainMenu.fxml"));
+        Image image = new Image("ui/mouse_attack@2x.png");
+        root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
         primaryStage.stage.setScene(new Scene(root));
         primaryStage.stage.setMaximized(true);
@@ -60,6 +64,8 @@ public class ShopMenu {
 
     public void showCollection(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(CollectionMenu.class.getResource("CollectionMenu.fxml"));
+        Image image = new Image("ui/mouse_attack@2x.png");
+        root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
         primaryStage.stage.setScene(new Scene(root));
         primaryStage.stage.setMaximized(true);

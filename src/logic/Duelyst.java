@@ -3,14 +3,16 @@ package logic;
 import com.google.gson.Gson;
 
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class Duelyst {
     public static Account currentAccount;
 
 
     Account costumeLevel1;
-    static ArrayList<Account> accounts = new ArrayList<Account>();
+    public static ArrayList<Account> accounts = new ArrayList<Account>();
     static HashMap<String, Integer> wins = new HashMap<>();
     private static ArrayList<Minion> allMinions = new ArrayList<>();
     private static ArrayList<SpellCard> allSpells = new ArrayList<>();
@@ -20,8 +22,6 @@ public class Duelyst {
     public static Menu currentMenu = new Menu();
     static boolean finishGame = false;
     static Scanner scanner = new Scanner(System.in);
-    String command;
-
 
 
     public static ArrayList<Item> getAllCollectibles() {
@@ -48,14 +48,6 @@ public class Duelyst {
         this.currentMenu = AccountPage.getInstance();
     }
 
-    void main() throws IOException {
-        preStart();
-        while (true) {
-            if (finishGame) break;
-            handler(currentMenu, command);
-        }
-    }
-
     public void preStart() throws IOException {
         setCurrentMenu();
         final String[] names = {"Heroes", "Items", "Minions", "SpellCards", "Collectibles"
@@ -79,8 +71,6 @@ public class Duelyst {
                 }
             }
         }
-        System.out.println(Duelyst.getAllMinions());
-
     }
 
     private void addSpell(File file, Class<SpellCard> cardClass, ArrayList<SpellCard> list) throws FileNotFoundException {
@@ -93,7 +83,6 @@ public class Duelyst {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         Minion minion = new Gson().fromJson(reader, cardClass);
         list.add(minion);
-        minion.makeCard();
     }
 
     private void addItem(File file, Class<Item> cardClass, ArrayList<Item> list) throws FileNotFoundException {
@@ -107,48 +96,4 @@ public class Duelyst {
         Hero hero = new Gson().fromJson(reader, cardClass);
         list.add(hero);
     }
-
-    void handler(Menu currentMenu, String string) {
-        if (currentMenu.equals(AccountPage.getInstance())) {
-            accountPageHandler(string);
-        } else if (currentMenu.equals(Collection.getInstance())) {
-            collectionHandler(string);
-        } else if (currentMenu.equals(Shop.getInstance())) {
-            shopHandler(string);
-        } else if (currentMenu.equals(MainMenu.getInstance())) {
-            mainMenuHandler(string);
-        } else if (currentMenu.equals(BattleFirstMenu.getInstance())){
-            battleMenuHandler(string);
-        }
-    }
-
-    private void shopHandler(String command) {
-        Shop shop = Shop.getInstance();
-        //shop.shopMenu(command);
-    }
-
-    private void collectionHandler(String command) {
-        Collection collection = Collection.getInstance();
-        //collection.collectionMenu(command);
-    }
-
-    private void accountPageHandler(String command) {
-        AccountPage accountPage = AccountPage.getInstance();
-        //accountPage.accountPageMenu(command);
-    }
-    private void battleMenuHandler(String command){
-        BattleFirstMenu battleFirstMenu=BattleFirstMenu.getInstance();
-        System.out.println("u entered battle");
-        battleFirstMenu.battleMenu(command);
-    }
-
-    private void mainMenuHandler(String command) {
-        MainMenu mainMenu = MainMenu.getInstance();
-        mainMenu.mainMenu(command);
-    }
-
-    void start(Scanner scanner) {
-
-    }
-
 }

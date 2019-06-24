@@ -1,14 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="graphic.BattleFirstMenu"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic.BattleFirstMenu">
+   <children>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/scenes/shimzar/bg@2x.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/scenes/shimzar/midground@2x.png" />
+         </image>
+      </ImageView>
+      <StackPane fx:id="single" layoutX="1208.0" layoutY="553.0" prefHeight="111.0" prefWidth="282.0">
+         <children>
+            <ImageView fitHeight="101.0" fitWidth="282.0" onMouseClicked="#singlePlayer" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/ui/button_secondary_glow@2x.png" />
+               </image>
+            </ImageView>
+            <Label onMouseClicked="#singlePlayer" text="Single Player">
+               <font>
+                  <Font name="Ani" size="26.0" />
+               </font>
+            </Label>
+            <StackPane fx:id="story" prefHeight="111.0" prefWidth="282.0" visible="false">
+               <children>
+                  <ImageView fitHeight="101.0" fitWidth="282.0" onMouseClicked="#enterStory" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/button_secondary_glow@2x.png" />
+                     </image>
+                  </ImageView>
+                  <Label onMouseClicked="#enterStory" text="Story">
+                     <font>
+                        <Font name="Ani" size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+         </children>
+      </StackPane>
+      <StackPane fx:id="multi" layoutX="1208.0" layoutY="664.0" prefHeight="111.0" prefWidth="282.0">
+         <children>
+            <ImageView fitHeight="101.0" fitWidth="282.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/ui/button_secondary_glow@2x.png" />
+               </image>
+            </ImageView>
+            <Label text="Multi Player">
+               <font>
+                  <Font name="Ani" size="26.0" />
+               </font>
+            </Label>
+            <StackPane fx:id="costume" prefHeight="111.0" prefWidth="282.0" visible="false">
+               <children>
+                  <ImageView fitHeight="101.0" fitWidth="282.0" onMouseClicked="#enterCostume" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/button_secondary_glow@2x.png" />
+                     </image>
+                  </ImageView>
+                  <Label onMouseClicked="#enterCostume" text="Costume">
+                     <font>
+                        <Font name="Ani" size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+         </children>
+      </StackPane>
+      <ImageView fitHeight="150.0" fitWidth="466.0" layoutX="35.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/ui/brand_duelyst@2x.png" />
+         </image>
+      </ImageView>
+      <HBox fx:id="modes" layoutX="59.0" layoutY="198.0" prefHeight="768.0" prefWidth="1222.0" spacing="10.0" visible="false">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="685.0" fitWidth="705.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/challenges/gate_003@2x.jpg" />
+                     </image>
+                  </ImageView>
+                  <StackPane onMouseClicked="#enterBattle" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="80.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/ui/button_end_turn_mine_glow.png" />
+                           </image></ImageView>
+                        <Label text="Mode 1">
+                           <font>
+                              <Font name="Ani" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="684.0" fitWidth="397.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/challenges/gate_005@2x.jpg" />
+                     </image>
+                  </ImageView>
+                  <StackPane onMouseClicked="#enterBattle" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="80.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/ui/button_end_turn_mine_glow.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Mode 2">
+                           <font>
+                              <Font name="Ani" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="685.0" fitWidth="412.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/challenges/gate_015@2x.jpg" />
+                     </image>
+                  </ImageView>
+                  <StackPane onMouseClicked="#enterBattle" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="80.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/ui/button_end_turn_mine_glow.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Mode 3">
+                           <font>
+                              <Font name="Ani" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox fx:id="decks" layoutX="1221.0" layoutY="619.0" prefHeight="313.0" prefWidth="622.0" spacing="10.0" visible="false">
+         <children>
+            <ScrollPane prefHeight="215.0" prefWidth="396.0">
+               <content>
+                  <VBox fx:id="decks1" prefHeight="313.0" prefWidth="395.0" />
+               </content>
+            </ScrollPane>
+            <VBox prefHeight="189.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="deckName" prefHeight="45.0" prefWidth="200.0" promptText="Deck Name...">
+                     <font>
+                        <Font name="Chilanka Regular" size="13.0" />
+                     </font>
+                  </TextField>
+                  <StackPane onMouseClicked="#enterBattle" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="80.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/ui/button_end_turn_mine_glow.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Choose Deck">
+                           <font>
+                              <Font name="Ani" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
 </AnchorPane>
