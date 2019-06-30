@@ -33,11 +33,11 @@ class Player {
         if (spell.locationImportance) {
             boolean b = false;
             if (spell.targetDistance == 0) {
-                /*for (Cell c : spell.locations) {
+                for (Cell c : spell.locations) {
                     if (c.equals(targetCell)) {
                         b = true;
                     }
-                }*/
+                }
             } else {
                 if (Math.abs(activationCell.getX() + activationCell.getY() - targetCell.getY() - targetCell.getX()) <= spell.targetDistance) {
                     b = true;
@@ -593,7 +593,7 @@ class Player {
     }
 
     void useItem(int id, Cell cell) {
-        Item item = (Item) battle.firstPlayer.account.shopMethods.getCardByIdInCollection(id);
+        Item item = (Item) battle.firstPlayer.account.shopMethods.getCardBySerialInCollection(id);
         for (Spell spell : item.spells) {
             castSpell(cell, null, spell);
         }
@@ -655,7 +655,7 @@ class Player {
     }
 
     void showCardInfo(int id) {
-        Card card = Duelyst.currentAccount.shopMethods.getCardByIdInCollection(id);
+        Card card = Duelyst.currentAccount.shopMethods.getCardBySerialInCollection(id);
         if (card != null) {
             for (int i = 0; i < 5; i++) {
                 for (int j = 0; j < 9; j++) {
@@ -698,10 +698,10 @@ class Player {
     void select(int id) {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
-                if (battle.field.cells[i][j].force == account.shopMethods.getCardByIdInCollection(id))
-                    selectedCard = account.shopMethods.getCardByIdInCollection(id);
-                else if (battle.field.cells[i][j].collectible == account.shopMethods.getCardByIdInCollection(id))
-                    selectedCard = account.shopMethods.getCardByIdInCollection(id);
+                if (battle.field.cells[i][j].force == account.shopMethods.getCardBySerialInCollection(id))
+                    selectedCard = account.shopMethods.getCardBySerialInCollection(id);
+                else if (battle.field.cells[i][j].collectible == account.shopMethods.getCardBySerialInCollection(id))
+                    selectedCard = account.shopMethods.getCardBySerialInCollection(id);
             }
         }
     }
@@ -719,7 +719,7 @@ class Player {
     }
 
     void showItemInfo(int id) {
-        Card card = Duelyst.currentAccount.shopMethods.getCardByIdInCollection(id);
+        Card card = Duelyst.currentAccount.shopMethods.getCardBySerialInCollection(id);
         if (Duelyst.getAllCollectibles().contains(card) && items.contains(card)) {
             Item item = (Item) card;
             System.out.println(item);
@@ -745,7 +745,7 @@ class Player {
     }
 
     void showInfoInGraveYard(int id) {
-        Card card = Duelyst.currentAccount.shopMethods.getCardByIdInCollection(id);
+        Card card = Duelyst.currentAccount.shopMethods.getCardBySerialInCollection(id);
         if (graveYard.cards.contains(card)) {
             if (Duelyst.getAllMinions().contains(card)) {
                 Minion minion = (Minion) card;

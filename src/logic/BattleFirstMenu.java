@@ -287,12 +287,12 @@ public class BattleFirstMenu extends Menu {
                     }
                 }
             } else if (command.matches("attack combo (\\d+)( (\\d+))*")) {
-                Force force = (Force) battle.secondPlayer.account.shopMethods.getCardByIdInCollection(Integer.parseInt(commandArray[1]));
+                Force force = (Force) battle.secondPlayer.account.shopMethods.getCardBySerialInCollection(Integer.parseInt(commandArray[1]));
                 Cell cell1 = force.cell;
                 Cell[] cells = new Cell[commandArray.length - 3];
                 if (cell1 != null) {
                     for (int i = 3; i < commandArray.length; i++) {
-                        cells[i] = ((Force) battle.firstPlayer.account.shopMethods.getCardByIdInCollection(Integer.parseInt(commandArray[i]))).cell;
+                        cells[i] = ((Force) battle.firstPlayer.account.shopMethods.getCardBySerialInCollection(Integer.parseInt(commandArray[i]))).cell;
                     }
                     battle.player.comboAttack(cell1, cells);
                 }

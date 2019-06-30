@@ -11,6 +11,7 @@ public class Card {
     Player owner;
     int ID;//needed in shop
     int price;
+    String serial;
 
 
     public static Card getCardByName(String name) {
@@ -60,6 +61,57 @@ public class Card {
 
     public Card(String name) throws FileNotFoundException {
         this.name = name;
+    }
+
+    Card duplicate() throws FileNotFoundException{
+        if(this instanceof Minion) {
+            Minion duplicatedCard=new Minion(this.name);
+            duplicatedCard.combo=((Minion) this).combo;
+            duplicatedCard.ID=((Minion) this).ID;
+            duplicatedCard.price=((Minion) this).price;
+            duplicatedCard.desc=((Minion) this).desc;
+            duplicatedCard.spells=((Minion) this).spells;
+            duplicatedCard.typeOfMinion=((Minion) this).typeOfMinion;
+            duplicatedCard.HP=((Minion) this).HP;
+            duplicatedCard.AP=((Minion) this).AP;
+            duplicatedCard.range=((Minion) this).range;
+            duplicatedCard.rangeType=((Minion) this).rangeType;
+            duplicatedCard.MP=((Minion) this).MP;
+            return duplicatedCard;
+        }
+        else if(this instanceof Item) {
+            Item duplicatedCard=new Item(this.name);
+            duplicatedCard.ID=((Item) this).ID;
+            duplicatedCard.price=((Item) this).price;
+            duplicatedCard.desc=((Item) this).desc;
+            duplicatedCard.spells=((Item) this).spells;
+            return duplicatedCard;
+        }
+        else if(this instanceof Hero) {
+            Hero duplicatedCard=new Hero(this.name);
+            duplicatedCard.ID=((Hero) this).ID;
+            duplicatedCard.price=((Hero) this).price;
+            duplicatedCard.desc=((Hero) this).desc;
+            duplicatedCard.spells=((Hero) this).spells;
+            duplicatedCard.HP=((Hero) this).HP;
+            duplicatedCard.AP=((Hero) this).AP;
+            duplicatedCard.range=((Hero) this).range;
+            duplicatedCard.rangeType=((Hero) this).rangeType;
+            duplicatedCard.MP=((Hero) this).MP;
+            duplicatedCard.coolDown=((Hero) this).coolDown;
+            duplicatedCard.typeOfHero=((Hero) this).typeOfHero;
+            return duplicatedCard;
+        }
+        else if(this instanceof SpellCard) {
+            SpellCard duplicatedCard=new SpellCard(this.name);
+            duplicatedCard.ID=((Hero) this).ID;
+            duplicatedCard.price=((Hero) this).price;
+            duplicatedCard.desc=((Hero) this).desc;
+            duplicatedCard.spells=((Hero) this).spells;
+            duplicatedCard.MP=((Hero) this).MP;
+            return duplicatedCard;
+        }
+        return null;
     }
 
 }

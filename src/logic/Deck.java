@@ -21,9 +21,11 @@ public class Deck {
     public Deck(String name) {
         this.name = name;
     }
+
     public Label showDeck(){
         Label info=new Label(this.name+" Num of cards:"+this.cards.size()+"\nHero:"+this.hero.name);
         info.setStyle("-fx-font: 24 Nazli");
         return info;
     }
+
 }
