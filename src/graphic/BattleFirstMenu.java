@@ -37,6 +37,7 @@ public class BattleFirstMenu {
         single.setVisible(false);
         multi.setVisible(false);
         modes.setVisible(true);
+        decks.setVisible(false);
     }
 
 
@@ -44,8 +45,8 @@ public class BattleFirstMenu {
         single.setVisible(false);
         multi.setVisible(false);
         modes.setVisible(false);
-        story.setVisible(false);
-        costume.setVisible(false);
+        story.setVisible(true);
+        costume.setVisible(true);
         decks.setVisible(true);
         for (Deck deck: Duelyst.currentAccount.getDecks()) {
             decks1.getChildren().add(deck.showDeck());
@@ -57,8 +58,8 @@ public class BattleFirstMenu {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root));
-        primaryStage.stage.setMaximized(true);
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
+primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
 }

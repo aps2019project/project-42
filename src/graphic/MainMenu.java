@@ -36,16 +36,16 @@ public class MainMenu {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root));
-        primaryStage.stage.setMaximized(true);
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
+primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
 
     public void enterShop(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(ShopMenu.class.getResource("ShopMenu.fxml"));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root));
-        primaryStage.stage.setMaximized(true);
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
+primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
 
@@ -54,8 +54,8 @@ public class MainMenu {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root));
-        primaryStage.stage.setMaximized(true);
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
+primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
 
@@ -64,8 +64,8 @@ public class MainMenu {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root));
-        primaryStage.stage.setMaximized(true);
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
+primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
 
@@ -74,8 +74,8 @@ public class MainMenu {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root));
-        primaryStage.stage.setMaximized(true);
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
+primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
 }

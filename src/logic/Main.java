@@ -9,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -23,7 +22,7 @@ public class Main extends Application {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.setTitle("Duelyst");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.setMaximized(true);
         primaryStage.show();
     }

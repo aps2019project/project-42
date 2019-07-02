@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import logic.*;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ShopMenu {
@@ -41,8 +42,8 @@ public class ShopMenu {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root));
-        primaryStage.stage.setMaximized(true);
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
+primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
 
@@ -54,7 +55,7 @@ public class ShopMenu {
         shopMethods.searchCollection(search.getText());
     }
 
-    public void buy(MouseEvent mouseEvent) {
+    public void buy(MouseEvent mouseEvent) throws FileNotFoundException {
         shopMethods.buyCard(search.getText());
     }
 
@@ -67,8 +68,8 @@ public class ShopMenu {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root));
-        primaryStage.stage.setMaximized(true);
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
+primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
 }

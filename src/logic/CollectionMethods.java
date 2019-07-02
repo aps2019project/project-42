@@ -46,7 +46,7 @@ public class CollectionMethods {
         }
     }
 
-    public void addToDeck(int id, String string) {
+    public void addToDeck(String id, String string) {
         Card card = Duelyst.currentAccount.shopMethods.getCardBySerialInCollection(id);
         Deck deck = Duelyst.currentAccount.collectionMethods.getDeckByName(string);
         if (deck != null && card != null) {
@@ -101,7 +101,7 @@ public class CollectionMethods {
         }
     }
 
-    public void removeFromDeck(int id, String string) {
+    public void removeFromDeck(String id, String string) {
         Card card = Duelyst.currentAccount.shopMethods.getCardBySerialInCollection(id);
         Deck deck = Duelyst.currentAccount.collectionMethods.getDeckByName(string);
         if (deck != null && card != null && deck.cards.contains(card)) {

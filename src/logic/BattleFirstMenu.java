@@ -246,7 +246,7 @@ public class BattleFirstMenu extends Menu {
     static void battleGameMenu(Battle battle, Scanner scanner) {
         boolean flag = true;
         while (flag) {
-            String command = scanner.nextLine().trim().toLowerCase();
+            /*String command = scanner.nextLine().trim().toLowerCase();
             String[] commandArray = command.split("\\s+");
             if (command.matches("game(\\s+)info")) {
                 if (battle.flagsNumber == 0) {
@@ -264,11 +264,11 @@ public class BattleFirstMenu extends Menu {
                 //console.showOpponentMinions();
             } else if (command.matches("show card info (\\d+)")) {
                 battle.player.showCardInfo(Integer.parseInt(commandArray[3]));
-/*            if (logic.Duelyst.currentAccount.shopMethods.getCardByIdInCollection(Integer.parseInt(commandArray[3]))!=null)
+*//*            if (logic.Duelyst.currentAccount.shopMethods.getCardByIdInCollection(Integer.parseInt(commandArray[3]))!=null)
             console.cardInfo(commandArray[3]);
             else {
                 console.cardNotFound();
-            }*/
+            }*//*
             } else if (command.matches("select (\\d+)")) {
                 int cardId = Integer.parseInt(commandArray[1]);
                 String command1 = scanner.nextLine().toLowerCase().trim();
@@ -287,12 +287,12 @@ public class BattleFirstMenu extends Menu {
                     }
                 }
             } else if (command.matches("attack combo (\\d+)( (\\d+))*")) {
-                Force force = (Force) battle.secondPlayer.account.shopMethods.getCardBySerialInCollection(Integer.parseInt(commandArray[1]));
+                Force force = (Force) battle.secondPlayer.account.shopMethods.getCardBySerialInCollection(commandArray[1]);
                 Cell cell1 = force.cell;
                 Cell[] cells = new Cell[commandArray.length - 3];
                 if (cell1 != null) {
                     for (int i = 3; i < commandArray.length; i++) {
-                        cells[i] = ((Force) battle.firstPlayer.account.shopMethods.getCardBySerialInCollection(Integer.parseInt(commandArray[i]))).cell;
+                        cells[i] = ((Force) battle.firstPlayer.account.shopMethods.getCardBySerialInCollection(commandArray[i])).cell;
                     }
                     battle.player.comboAttack(cell1, cells);
                 }
@@ -348,7 +348,7 @@ public class BattleFirstMenu extends Menu {
 
             }  else if (command.matches("exit")) {
                 Duelyst.currentMenu=MainMenu.getInstance();
-            }
+            }*/
         }
     }
 }
