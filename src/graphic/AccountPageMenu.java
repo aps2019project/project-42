@@ -22,7 +22,6 @@ public class AccountPageMenu {
 
     Duelyst duelyst = new Duelyst();
 
-
     public void quit(MouseEvent mouseEvent) {
         primaryStage.stage.close();
     }

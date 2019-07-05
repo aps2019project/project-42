@@ -3,7 +3,7 @@ package logic;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Player {
+public class Player {
     Console console = Console.getInstance();
     Account account;
     int mana;
@@ -13,7 +13,7 @@ class Player {
     int coolDown;
 
     Hand hand = new Hand();
-    GraveYard graveYard;
+    public GraveYard graveYard;
     ComingSoon comingSoon = new ComingSoon();
     Deck deck;
     Battle battle;

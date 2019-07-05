@@ -19,9 +19,9 @@ public class LoginPage {
 
 
     public void login(MouseEvent mouseEvent) throws IOException {
-        AccountPage accountPage=new AccountPage();
-        accountPage.login(username.getText(),password.getText());
-        if (accountPage.login(username.getText(),password.getText())) {
+        AccountPage accountPage = new AccountPage();
+        accountPage.login(username.getText(), password.getText());
+        if (accountPage.login(username.getText(), password.getText())) {
             Parent root = FXMLLoader.load(MainMenu.class.getResource("MainMenu.fxml"));
             Image image = new Image("ui/mouse_attack@2x.png");
             root.setCursor(new ImageCursor(image));
@@ -37,8 +37,8 @@ public class LoginPage {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
-primaryStage.stage.setMaximized(true);
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
+        primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
 }

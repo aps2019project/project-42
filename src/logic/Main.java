@@ -1,6 +1,7 @@
 package logic;
 
 import graphic.AccountPageMenu;
+import graphic.Battle;
 import graphic.PrimaryStage;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +19,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         PrimaryStage.setPrimaryStage(primaryStage);
-        Parent root = FXMLLoader.load(AccountPageMenu.class.getResource("AccountPageMenu.fxml"));
+        Parent root = FXMLLoader.load(Battle.class.getResource("Battle.fxml"));
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.setTitle("Duelyst");
