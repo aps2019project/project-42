@@ -69,7 +69,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a5bbd0" height="85.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="82.0" />
                </children>
             </StackPane>
-            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
+            <StackPane fx:id="myHero" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a5bbd0" height="85.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="82.0" />
                </children>
@@ -269,7 +269,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a5bbd0" height="85.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="82.0" />
                </children>
             </StackPane>
-            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="2">
+            <StackPane fx:id="anotherHero" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="2">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a5bbd0" height="85.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="82.0" />
                </children>
@@ -289,7 +289,7 @@
       </GridPane>
       <HBox layoutX="360.0" layoutY="824.0" prefHeight="208.0" prefWidth="1200.0">
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="one" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -303,7 +303,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="two" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -317,7 +317,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="three" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -331,7 +331,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="four" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -345,7 +345,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="five" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -359,7 +359,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="six" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -417,7 +417,6 @@
             </Label>
          </children>
       </StackPane>
-      <ImageView fx:id="firstView" fitHeight="253.0" fitWidth="262.0" layoutX="72.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
       <StackPane fx:id="comingSoon" layoutX="66.0" layoutY="735.0" prefHeight="208.0" prefWidth="262.0">
          <children>
             <ImageView fitHeight="257.0" fitWidth="348.0" pickOnBounds="true" preserveRatio="true">
@@ -437,7 +436,6 @@
             </ImageView>
          </children>
       </StackPane>
-      <ImageView fx:id="secondView" fitHeight="253.0" fitWidth="262.0" layoutX="1535.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
       <VBox fx:id="graveYard" alignment="CENTER_LEFT" layoutX="72.0" layoutY="478.0" prefHeight="181.0" prefWidth="406.0" spacing="10.0" visible="false">
          <children>
             <ScrollPane prefHeight="187.0" prefWidth="394.0">
@@ -449,5 +447,7 @@
          </children>
       </VBox>
       <StackPane prefHeight="150.0" prefWidth="200.0" />
+      <HBox fx:id="firstView" alignment="CENTER_LEFT" layoutX="97.0" layoutY="51.0" prefHeight="253.0" prefWidth="504.0" />
+      <HBox fx:id="secondView" alignment="CENTER_RIGHT" layoutX="1136.0" layoutY="51.0" prefHeight="253.0" prefWidth="570.0" />
    </children>
 </AnchorPane>
