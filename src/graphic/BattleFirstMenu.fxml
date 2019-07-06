@@ -70,7 +70,8 @@
                         <ImageView fitHeight="80.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@/ui/button_end_turn_mine_glow.png" />
-                           </image></ImageView>
+                           </image>
+                        </ImageView>
                         <Label text="Mode 1">
                            <font>
                               <Font name="Ani" size="22.0" />

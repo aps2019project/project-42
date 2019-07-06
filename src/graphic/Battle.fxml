@@ -16,26 +16,27 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic.Battle">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/maps/redrock/background@2x.jpg" />
+            <Image url="@/maps/redrock/background@2x.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/maps/redrock/foreground@2x.png" />
+            <Image url="@/maps/redrock/foreground@2x.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/maps/redrock/midground@2x.png" />
+            <Image url="@/maps/redrock/midground@2x.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/maps/redrock/midground_glow@2x.png" />
+            <Image url="@/maps/redrock/midground_glow@2x.png" />
          </image>
       </ImageView>
       <GridPane layoutX="577.0" layoutY="347.0" prefHeight="496.0" prefWidth="827.0">
@@ -292,12 +293,12 @@
                <children>
                   <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/ui/card_background@2x.png" />
+                        <Image url="@/ui/card_background@2x.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="44.0" layoutX="78.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/ui/icon_mana@2x.png" />
+                        <Image url="@/ui/icon_mana@2x.png" />
                      </image>
                   </ImageView>
                </children>
@@ -306,12 +307,12 @@
                <children>
                   <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/ui/card_background@2x.png" />
+                        <Image url="@/ui/card_background@2x.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="44.0" layoutX="78.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/ui/icon_mana@2x.png" />
+                        <Image url="@/ui/icon_mana@2x.png" />
                      </image>
                   </ImageView>
                </children>
@@ -320,12 +321,12 @@
                <children>
                   <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/ui/card_background@2x.png" />
+                        <Image url="@/ui/card_background@2x.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="44.0" layoutX="78.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/ui/icon_mana@2x.png" />
+                        <Image url="@/ui/icon_mana@2x.png" />
                      </image>
                   </ImageView>
                </children>
@@ -334,12 +335,12 @@
                <children>
                   <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/ui/card_background@2x.png" />
+                        <Image url="@/ui/card_background@2x.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="44.0" layoutX="78.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/ui/icon_mana@2x.png" />
+                        <Image url="@/ui/icon_mana@2x.png" />
                      </image>
                   </ImageView>
                </children>
@@ -348,12 +349,12 @@
                <children>
                   <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/ui/card_background@2x.png" />
+                        <Image url="@/ui/card_background@2x.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="44.0" layoutX="78.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/ui/icon_mana@2x.png" />
+                        <Image url="@/ui/icon_mana@2x.png" />
                      </image>
                   </ImageView>
                </children>
@@ -362,12 +363,12 @@
                <children>
                   <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/ui/card_background@2x.png" />
+                        <Image url="@/ui/card_background@2x.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="44.0" layoutX="78.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../resources/ui/icon_mana@2x.png" />
+                        <Image url="@/ui/icon_mana@2x.png" />
                      </image>
                   </ImageView>
                </children>
@@ -378,7 +379,7 @@
          <children>
             <ImageView fitHeight="80.0" fitWidth="221.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/ui/button_end_turn_mine_glow.png" />
+                  <Image url="@/ui/button_end_turn_mine_glow.png" />
                </image>
             </ImageView>
             <Label text="End Turn">
@@ -392,7 +393,7 @@
          <children>
             <ImageView fitHeight="88.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/ui/button_end_turn_mine_glow.png" />
+                  <Image url="@/ui/button_end_turn_mine_glow.png" />
                </image>
             </ImageView>
             <Label onMouseClicked="#quit" text="Menu">
@@ -406,7 +407,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/ui/button_end_turn_mine_glow@2x.png" />
+                  <Image url="@/ui/button_end_turn_mine_glow@2x.png" />
                </image>
             </ImageView>
             <Label text="Grave Yard">
@@ -421,17 +422,17 @@
          <children>
             <ImageView fitHeight="257.0" fitWidth="348.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/ui/replace_background@2x.png" />
+                  <Image url="@/ui/replace_background@2x.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="253.0" fitWidth="361.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/ui/replace_inner_ring@2x.png" />
+                  <Image url="@/ui/replace_inner_ring@2x.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="249.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/ui/replace_outer_ring_smoke@2x.png" />
+                  <Image url="@/ui/replace_outer_ring_smoke@2x.png" />
                </image>
             </ImageView>
          </children>
@@ -447,5 +448,6 @@
             <Button mnemonicParsing="false" onMouseClicked="#quitGraveYard" text="Quit GraveYard" />
          </children>
       </VBox>
+      <StackPane prefHeight="150.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
