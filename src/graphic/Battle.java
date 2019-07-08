@@ -5,7 +5,6 @@ import javafx.geometry.Pos;
 import javafx.scene.ImageCursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,7 +13,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.TextAlignment;
 import logic.*;
 
 import java.io.IOException;
@@ -49,37 +47,26 @@ public class Battle {
     }
 
     public void initialize() {
-        //int x=0;
-        int x = random.nextInt() % 5;
-        Image heroGif;
-        Image first;
-        switch (x) {
-            case 0:
-                first = new Image("generals/general_portrait_image_hex_f6@2x.png");
-                heroGif = new Image("unit_gifs/f6_tier2general_breathing.gif");
-                break;
-            case 2:
-                first = new Image("generals/general_portrait_image_hex_calibero@2x.png");
-                heroGif = new Image("unit_gifs/boss_harmony_breathing.gif");
-                break;
-            case 3:
-                first = new Image("generals/general_portrait_image_hex_draugar@2x.png");
-                heroGif = new Image("unit_gifs/f4_altgeneraltier2_breathing.gif");
-                break;
-            case 4:
-                first = new Image("generals/general_portrait_image_hex_f1@2x.png");
-                heroGif = new Image("unit_gifs/f1_tier2general_breathing.gif");
-                break;
-            default:
-                first = new Image("generals/general_portrait_image_hex_f1-alt@2x.png");
-                heroGif = new Image("unit_gifs/f2_altgeneraltier2_breathing.gif");
-                break;
-        }
-        ImageView imageView = new ImageView(first);
-        imageView.setFitWidth(300);
-        imageView.setFitHeight(300);
-        firstView.getChildren().add(imageView);
-        myHero.getChildren().add(new ImageView(heroGif));
+        setMyHero();
+        setSecondHero();
+//        int index=random.nextInt()%20;
+//        /*if (!Duelyst.getAllHeroes().contains(Duelyst.currentAccount.mainDeck.getCards().get(index))){
+//            one.getChildren().add(new Label(Duelyst.currentAccount.mainDeck.getCards().get(index).name));
+//        }*/
+        showDeck();
+    }
+
+    private void showDeck() {
+        one.getChildren().add(new ImageView(new Image("unit_gifs/boss_chaosknight_breathing.gif")));
+        two.getChildren().add(new ImageView(new Image("unit_gifs/boss_borealjuggernaut_breathing.gif")));
+        three.getChildren().add(new ImageView(new Image("unit_gifs/boss_cindera_breathing.gif")));
+        four.getChildren().add(new ImageView(new Image("unit_gifs/boss_orias_breathing.gif")));
+        five.getChildren().add(new ImageView(new Image("unit_gifs/boss_oriasidol_breathing.gif")));
+        six.getChildren().add(new ImageView(new Image("unit_gifs/boss_gol_breathing.gif")));
+        comingSoon.getChildren().add(new ImageView(new Image("unit_gifs/boss_legion_breathing.gif")));
+    }
+
+    private void setSecondHero() {
         int y = random.nextInt() % 5;
         Image heroGif2;
         Image second;
@@ -111,7 +98,39 @@ public class Battle {
         secondView.setAlignment(Pos.CENTER_RIGHT);
         anotherHero.getChildren().add(new ImageView(heroGif2));
         secondView.getChildren().addAll(imageView1);
-        one.getChildren().add(new ImageView(new Image("unit_gifs/boss_chaosknight_breathing.gif")));
+    }
+
+    private void setMyHero() {
+        int x = random.nextInt() % 5;
+        Image heroGif;
+        Image first;
+        switch (x) {
+            case 0:
+                first = new Image("generals/general_portrait_image_hex_f6@2x.png");
+                heroGif = new Image("unit_gifs/f6_tier2general_breathing.gif");
+                break;
+            case 2:
+                first = new Image("generals/general_portrait_image_hex_calibero@2x.png");
+                heroGif = new Image("unit_gifs/boss_harmony_breathing.gif");
+                break;
+            case 3:
+                first = new Image("generals/general_portrait_image_hex_draugar@2x.png");
+                heroGif = new Image("unit_gifs/f4_altgeneraltier2_breathing.gif");
+                break;
+            case 4:
+                first = new Image("generals/general_portrait_image_hex_f1@2x.png");
+                heroGif = new Image("unit_gifs/f1_tier2general_breathing.gif");
+                break;
+            default:
+                first = new Image("generals/general_portrait_image_hex_f1-alt@2x.png");
+                heroGif = new Image("unit_gifs/f2_altgeneraltier2_breathing.gif");
+                break;
+        }
+        ImageView imageView = new ImageView(first);
+        imageView.setFitWidth(300);
+        imageView.setFitHeight(300);
+        firstView.getChildren().add(imageView);
+        myHero.getChildren().add(new ImageView(heroGif));
     }
 
     public void enterGraveYard(MouseEvent mouseEvent) {

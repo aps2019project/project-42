@@ -1,12 +1,13 @@
 package logic;
 
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 
 import java.io.FileNotFoundException;
 
 public class Card {
     Image image;
-    String name;
+    public String name;
     String desc;//Description
     Player owner;
     int ID;//needed in shop

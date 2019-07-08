@@ -23,7 +23,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         PrimaryStage.setPrimaryStage(primaryStage);
-        Parent root = FXMLLoader.load(Battle.class.getResource("Battle.fxml"));
+        Parent root = FXMLLoader.load(AccountPageMenu.class.getResource("AccountPageMenu.fxml"));
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         //String musicFile = "resources/music/mainmenu.mp3";
