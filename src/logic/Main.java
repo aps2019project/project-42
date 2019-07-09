@@ -32,6 +32,5 @@ public class Main extends Application {
         Duelyst duelyst = new Duelyst();
         duelyst.preStart();
         launch(args);
-        //duelyst.main();
     }
 }
