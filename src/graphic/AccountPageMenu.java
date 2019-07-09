@@ -22,7 +22,6 @@ public class AccountPageMenu {
 
     Duelyst duelyst = new Duelyst();
 
-
     public void quit(MouseEvent mouseEvent) {
         primaryStage.stage.close();
     }
@@ -32,7 +31,7 @@ public class AccountPageMenu {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root));
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
@@ -42,7 +41,7 @@ public class AccountPageMenu {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root));
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
@@ -52,7 +51,7 @@ public class AccountPageMenu {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root));
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
@@ -62,13 +61,13 @@ public class AccountPageMenu {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root));
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
 
     public void logOut(MouseEvent mouseEvent) {
-        AccountPage accountPage=new AccountPage();
+        AccountPage accountPage = new AccountPage();
         accountPage.logOut();
     }
 }

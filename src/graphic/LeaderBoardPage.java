@@ -20,11 +20,12 @@ public class LeaderBoardPage {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root));
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
-    public void initialize(){
+
+    public void initialize() {
         leaderBoard.getChildren().add(AccountPage.getInstance().showLeaderBoard());
     }
 }

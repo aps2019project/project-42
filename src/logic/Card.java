@@ -1,12 +1,13 @@
 package logic;
 
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 
 import java.io.FileNotFoundException;
 
 public class Card {
     Image image;
-    String name;
+    public String name;
     String desc;//Description
     Player owner;
     int ID;//needed in shop
@@ -64,7 +65,7 @@ public class Card {
     }
 
     Card duplicate() throws FileNotFoundException{
-        if(this instanceof Minion) {
+        if(Duelyst.getAllMinions().contains(this)) {
             Minion duplicatedCard=new Minion(this.name);
             duplicatedCard.combo=((Minion) this).combo;
             duplicatedCard.ID=((Minion) this).ID;
@@ -79,7 +80,7 @@ public class Card {
             duplicatedCard.MP=((Minion) this).MP;
             return duplicatedCard;
         }
-        else if(this instanceof Item) {
+        else if(Duelyst.getAllItems().contains(this)) {
             Item duplicatedCard=new Item(this.name);
             duplicatedCard.ID=((Item) this).ID;
             duplicatedCard.price=((Item) this).price;
@@ -87,7 +88,7 @@ public class Card {
             duplicatedCard.spells=((Item) this).spells;
             return duplicatedCard;
         }
-        else if(this instanceof Hero) {
+        else if(Duelyst.getAllHeroes().contains(this)) {
             Hero duplicatedCard=new Hero(this.name);
             duplicatedCard.ID=((Hero) this).ID;
             duplicatedCard.price=((Hero) this).price;
@@ -102,7 +103,7 @@ public class Card {
             duplicatedCard.typeOfHero=((Hero) this).typeOfHero;
             return duplicatedCard;
         }
-        else if(this instanceof SpellCard) {
+        else if(Duelyst.getAllSpellCards().contains(this)) {
             SpellCard duplicatedCard=new SpellCard(this.name);
             duplicatedCard.ID=((Hero) this).ID;
             duplicatedCard.price=((Hero) this).price;

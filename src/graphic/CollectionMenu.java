@@ -35,8 +35,8 @@ public class CollectionMenu {
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root));
-        primaryStage.stage.setMaximized(true);
+        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
+primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
 
@@ -45,11 +45,11 @@ public class CollectionMenu {
     }
 
     public void addToDeck(MouseEvent mouseEvent) {
-        collectionMethods.addToDeck(Integer.parseInt(id.getText()), deck.getText());
+        collectionMethods.addToDeck(id.getText(), deck.getText());
     }
 
     public void removeFromDeck(MouseEvent mouseEvent) {
-        collectionMethods.removeFromDeck(Integer.parseInt(id.getText()), deck.getText());
+        collectionMethods.removeFromDeck(id.getText(), deck.getText());
     }
 
     public void showDeck(MouseEvent mouseEvent) {

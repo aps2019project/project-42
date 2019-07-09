@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic.Battle">
    <children>
@@ -64,7 +69,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a5bbd0" height="85.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="82.0" />
                </children>
             </StackPane>
-            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
+            <StackPane fx:id="myHero" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a5bbd0" height="85.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="82.0" />
                </children>
@@ -264,7 +269,7 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a5bbd0" height="85.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="82.0" />
                </children>
             </StackPane>
-            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="2">
+            <StackPane fx:id="anotherHero" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="2">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a5bbd0" height="85.0" opacity="0.66" stroke="BLACK" strokeType="INSIDE" width="82.0" />
                </children>
@@ -282,41 +287,95 @@
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </GridPane>
-      <HBox layoutX="360.0" layoutY="824.0" prefHeight="100.0" prefWidth="200.0">
+      <HBox layoutX="360.0" layoutY="824.0" prefHeight="208.0" prefWidth="1200.0">
          <children>
-            <ImageView fitHeight="200.0" fitWidth="204.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/ui/card_background@2x.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="200.0" fitWidth="204.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/ui/card_background@2x.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="200.0" fitWidth="204.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/ui/card_background@2x.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="200.0" fitWidth="204.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/ui/card_background@2x.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="200.0" fitWidth="204.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/ui/card_background@2x.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="200.0" fitWidth="204.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/ui/card_background@2x.png" />
-               </image>
-            </ImageView>
+            <Pane fx:id="one" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/card_background@2x.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="44.0" layoutX="78.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/icon_mana@2x.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="two" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/card_background@2x.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="44.0" layoutX="78.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/icon_mana@2x.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="three" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/card_background@2x.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="44.0" layoutX="78.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/icon_mana@2x.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="four" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/card_background@2x.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="44.0" layoutX="78.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/icon_mana@2x.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="five" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/card_background@2x.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="44.0" layoutX="78.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/icon_mana@2x.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="six" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="200.0" fitWidth="204.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/card_background@2x.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="44.0" layoutX="78.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/icon_mana@2x.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </HBox>
-      <StackPane layoutX="1667.0" layoutY="831.0" prefHeight="150.0" prefWidth="188.0">
+      <StackPane layoutX="1575.0" layoutY="815.0" prefHeight="150.0" prefWidth="188.0">
          <children>
             <ImageView fitHeight="80.0" fitWidth="221.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -330,11 +389,11 @@
             </Label>
          </children>
       </StackPane>
-      <StackPane layoutX="1698.0" layoutY="939.0" prefHeight="85.0" prefWidth="139.0">
+      <StackPane layoutX="1600.0" layoutY="923.0" prefHeight="85.0" prefWidth="139.0">
          <children>
-            <ImageView fitHeight="80.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="88.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/ui/button_end_turn_mine_glow.png" />
+                  <Image url="@/ui/button_end_turn_mine_glow.png" />
                </image>
             </ImageView>
             <Label onMouseClicked="#quit" text="Menu">
@@ -344,5 +403,51 @@
             </Label>
          </children>
       </StackPane>
+      <StackPane layoutX="97.0" layoutY="952.0" onMouseClicked="#enterGraveYard" prefHeight="71.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/ui/button_end_turn_mine_glow@2x.png" />
+               </image>
+            </ImageView>
+            <Label text="Grave Yard">
+               <font>
+                  <Font name="Ani" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <StackPane fx:id="comingSoon" layoutX="66.0" layoutY="735.0" prefHeight="208.0" prefWidth="262.0">
+         <children>
+            <ImageView fitHeight="257.0" fitWidth="348.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/ui/replace_background@2x.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="253.0" fitWidth="361.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/ui/replace_inner_ring@2x.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="249.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/ui/replace_outer_ring_smoke@2x.png" />
+               </image>
+            </ImageView>
+         </children>
+      </StackPane>
+      <VBox fx:id="graveYard" alignment="CENTER_LEFT" layoutX="72.0" layoutY="478.0" prefHeight="181.0" prefWidth="406.0" spacing="10.0" visible="false">
+         <children>
+            <ScrollPane prefHeight="187.0" prefWidth="394.0">
+               <content>
+                  <VBox fx:id="graveYardCards" prefHeight="436.0" prefWidth="407.0" />
+               </content>
+            </ScrollPane>
+            <Button mnemonicParsing="false" onMouseClicked="#quitGraveYard" text="Quit GraveYard" />
+         </children>
+      </VBox>
+      <StackPane prefHeight="150.0" prefWidth="200.0" />
+      <HBox fx:id="firstView" alignment="CENTER_LEFT" layoutX="97.0" layoutY="51.0" prefHeight="253.0" prefWidth="504.0" />
+      <HBox fx:id="secondView" alignment="CENTER_RIGHT" layoutX="1136.0" layoutY="51.0" prefHeight="253.0" prefWidth="570.0" />
    </children>
 </AnchorPane>

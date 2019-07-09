@@ -22,5 +22,5 @@ class Spell {
     int targetDistance;// zero by default, natural number when it needs to be, index for change MP effect
     int effectQuantity;
     TargetKind targetKind;
-    ArrayList<Cell> locations;
+    ArrayList<Integer> locations;
 }

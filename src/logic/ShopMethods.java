@@ -43,15 +43,14 @@ public class ShopMethods {
     }
 
 
-    public void sellCard(int id) {
-        String serial = Integer.toString(id) + "~" + howManyCards(id) + "~" + Duelyst.currentAccount.user;
+    public void sellCard(String id) {
+        String serial = id + "~" + howManyCards(id) + "~" + Duelyst.currentAccount.user;
         Card card = getCardBySerialInCollection(serial);
         if (card == null) {
             Alert sell = new Alert(Alert.AlertType.INFORMATION);
             sell.setContentText("Card not found!");
             sell.show();
         } else {
-
             ArrayList<Deck> tempAccountDecks = new ArrayList<>(Duelyst.currentAccount.getDecks());
             if (!tempAccountDecks.isEmpty()) {
                 for (Deck deck : tempAccountDecks) {

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Account {
     String user;
     private String pass;
-    Player owner;
+    public Player owner;
     ArrayList<MatchHistory> matchList;
     ArrayList<Deck> decks=new ArrayList<>();
     //ArrayList<logic.Card> cards;
