@@ -15,6 +15,12 @@ public class Hero extends Force {
         super(name);
     }
 
+    public Hero(String name, String typeOfHero, int AP, int HP, int MP, String desc, int price, int id,int coolDown) throws FileNotFoundException {
+        super(name, desc, id, price, MP,HP,AP);
+        this.typeOfHero=typeOfHero;
+        this.coolDown=coolDown;
+    }
+
     @Override
     public String toString() {
         return " : name : " + this.name + " - AP : " + this.AP + " - HP : " + this.HP + " - class : " + this.typeOfHero + " - cool down : " + this.coolDown + " - special power : " + this.desc + " - price : " + this.price;

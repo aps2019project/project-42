@@ -64,6 +64,13 @@ public class Card {
         this.name = name;
     }
 
+    public Card(String name,String desc,int id,int price) throws FileNotFoundException {
+        this.name = name;
+        this.desc=desc;
+        this.ID=id;
+        this.price=price;
+    }
+
     Card duplicate() throws FileNotFoundException{
         if(Duelyst.getAllMinions().contains(this)) {
             Minion duplicatedCard=new Minion(this.name);

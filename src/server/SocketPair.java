@@ -8,7 +8,7 @@ public class SocketPair {
     private Socket socket;
     private Formatter formatter;
 
-    SocketPair(Socket socket) throws IOException {
+    public SocketPair(Socket socket) throws IOException {
         this.socket = socket;
         this.formatter = new Formatter(socket.getOutputStream());
     }

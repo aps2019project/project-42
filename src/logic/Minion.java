@@ -13,6 +13,11 @@ public class Minion extends Force {
     String typeOfMinion;
     ArrayList<HashMap<Integer, Integer>> nemesis;//logic.Card ID , number of attacks
 
+    public Minion(String name,String typeOfMinion,int AP,int HP,int MP,String desc,int price,int id) throws FileNotFoundException {
+        super(name, desc, id, price, MP,HP,AP);
+        this.typeOfMinion=typeOfMinion;
+    }
+
     public Minion(String name) throws FileNotFoundException {
         super(name);
     }

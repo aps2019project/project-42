@@ -21,7 +21,14 @@ public class Force extends SpellCard {
     boolean fieryImmune = false;
     boolean poisonImmune = false;
     ArrayList<Spell> castedSpells;
+
     public Force(String name) throws FileNotFoundException {
         super(name);
+    }
+
+    public Force(String name, String desc, int id, int price, int MP, int HP, int AP) throws FileNotFoundException {
+        super(name, desc, id, price, MP);
+        this.AP = AP;
+        this.HP = HP;
     }
 }

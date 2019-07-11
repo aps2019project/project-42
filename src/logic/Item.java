@@ -13,6 +13,10 @@ public class Item extends Card {
 
     ArrayList<Spell> spells;
 
+    public Item(String name,String desc,int id,int price) throws FileNotFoundException {
+        super(name,desc,id,price);
+    }
+
     public Item(String name) throws FileNotFoundException {
         super(name);
     }

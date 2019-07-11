@@ -4,6 +4,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 public class AccountPage extends Menu {
@@ -18,7 +22,7 @@ public class AccountPage extends Menu {
 
 
 
-    public void createAccount(String user, String pass) {
+    public void createAccount(String user, String pass) throws IOException {
         boolean check = true;
         Account account = new Account(user, pass);
         for (Account account1 : Duelyst.accounts) {
@@ -33,6 +37,8 @@ public class AccountPage extends Menu {
             Duelyst.wins.putIfAbsent(user, 0);
             account.setUser(user);
             account.setPass(pass);
+            PrintWriter accounts = new PrintWriter(new BufferedWriter(new FileWriter("accounts.txt")));
+            accounts.println(user+pass);
             Duelyst.accounts.add(account);
             Alert created = new Alert(Alert.AlertType.INFORMATION);
             created.setContentText("Welcome. You can login to enter your account.");

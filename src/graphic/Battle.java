@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import logic.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -35,6 +36,7 @@ public class Battle {
     public Pane six;
     PrimaryStage primaryStage = PrimaryStage.getInstance();
     private Random random = new Random();
+    Card selected;
 
     public void quit(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(MainMenu.class.getResource("MainMenu.fxml"));
@@ -50,15 +52,13 @@ public class Battle {
     public void initialize() {
         setMyHero();
         setSecondHero();
-//        int index=random.nextInt()%20;
-//        /*if (!Duelyst.getAllHeroes().contains(Duelyst.currentAccount.mainDeck.getCards().get(index))){
-//            one.getChildren().add(new Label(Duelyst.currentAccount.mainDeck.getCards().get(index).name));
-//        }*/
         showDeck();
     }
 
     private void showDeck() {
-        one.getChildren().add(new ImageView(new Image("unit_gifs/boss_chaosknight_breathing.gif")));
+        Deck gameDeck=Duelyst.currentAccount.mainDeck;
+        int x=random.nextInt()%20;
+        one.getChildren().addAll(new ImageView(new Image("unit_gifs/boss_chaosknight_breathing.gif")),new Label(gameDeck.getCards().get(x).name));
         two.getChildren().add(new ImageView(new Image("unit_gifs/boss_borealjuggernaut_breathing.gif")));
         three.getChildren().add(new ImageView(new Image("unit_gifs/boss_cindera_breathing.gif")));
         four.getChildren().add(new ImageView(new Image("unit_gifs/boss_orias_breathing.gif")));

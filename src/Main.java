@@ -9,8 +9,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import logic.Duelyst;
 import logic.Message;
-import java.io.IOException;
-import java.io.OutputStream;
+
+import java.io.*;
 import java.net.Socket;
 import java.util.Formatter;
 import java.util.Scanner;
@@ -26,29 +26,39 @@ public class Main extends Application {
         root.setCursor(new ImageCursor(image));
         Duelyst.playMusic();
         primaryStage.setTitle("Duelyst");
-        primaryStage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
+        primaryStage.setScene(new Scene(root));
         primaryStage.setMaximized(true);
         primaryStage.show();
     }
 
     public static void main(String[] args) {
-        new Thread(() -> {
-            Duelyst duelyst = new Duelyst();
-            try {
-                duelyst.preStart();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            launch(args);
-        });
+
+        new Thread(Main::consoleChat);
+        Duelyst duelyst = new Duelyst();
         try {
-            Socket socket = new Socket("192.168.198.101", 8989);
+            duelyst.preStart();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        launch(args);
+    }
+
+    private static void consoleChat() {
+        try {
+            File file = new File(".config");
+            String ip = "localhost";
+            int port = 8989;
+
+            if (file.exists()) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+                ip = bufferedReader.readLine();
+                port = Integer.parseInt(bufferedReader.readLine());
+            }
+            Socket socket = new Socket(ip,port);
             OutputStream outputStream = socket.getOutputStream();
             Formatter formatter = new Formatter(outputStream);
-
             System.out.println("Enter your username:");
             String clientName = scanner.nextLine();
-
             new Thread(() -> {
                 String message = scanner.nextLine();
                 while (socket.isConnected()) {

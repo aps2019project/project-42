@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic.CostumeMenu">
+   <children>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/scenes/magaari_ember_highlands/magaari_ember_highlands_background@2x.jpg" />
+         </image>
+      </ImageView>
+      <VBox layoutX="56.0" layoutY="133.0" prefHeight="200.0" prefWidth="245.0" spacing="10.0">
+         <children>
+            <TextField fx:id="name" prefHeight="26.0" prefWidth="178.0" promptText="Choose Name">
+               <font>
+                  <Font name="Chilanka Regular" size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="price" prefHeight="26.0" prefWidth="178.0" promptText="Choose Price">
+               <font>
+                  <Font name="Chilanka Regular" size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="id" prefHeight="26.0" prefWidth="178.0" promptText="Choose ID">
+               <font>
+                  <Font name="Chilanka Regular" size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="desc" prefHeight="26.0" prefWidth="178.0" promptText="Write Description">
+               <font>
+                  <Font name="Chilanka Regular" size="13.0" />
+               </font>
+            </TextField>
+            <SplitMenuButton mnemonicParsing="false" prefHeight="17.0" prefWidth="165.0" text="Choose Type:">
+              <items>
+                <MenuItem id="minion" mnemonicParsing="false" onAction="#minionChoose" text="Minion" />
+                <MenuItem mnemonicParsing="false" onAction="#heroChoose" text="Hero" />
+                  <MenuItem mnemonicParsing="false" onAction="#itemChoose" text="Item" />
+                  <MenuItem mnemonicParsing="false" onAction="#spellCardChoose" text="SpellCard" />
+              </items>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </SplitMenuButton>
+         </children>
+      </VBox>
+      <VBox fx:id="minionChoosing" layoutX="431.0" layoutY="133.0" prefHeight="200.0" prefWidth="223.0" spacing="10.0" visible="false">
+         <children>
+            <TextField fx:id="mp" promptText="Choose MP" />
+            <TextField fx:id="typeOfMinion" promptText="Choose Type Of Minion" />
+            <TextField fx:id="ap" promptText="Choose AP" />
+            <TextField fx:id="hp" promptText="Choose HP" />
+            <StackPane onMouseClicked="#createMinion" prefHeight="38.0" prefWidth="223.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/button_primary_middle_glow@2x.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="36.0" prefWidth="130.0" text="Create Minion" textFill="#b8f0fc">
+                     <font>
+                        <Font name="Ani" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+      <VBox fx:id="heroChoosing" layoutX="56.0" layoutY="428.0" prefHeight="243.0" prefWidth="245.0" spacing="10.0" visible="false">
+         <children>
+            <TextField fx:id="mp1" promptText="Choose MP" />
+            <TextField fx:id="typeOfHero" promptText="Choose Type Of Hero" />
+            <TextField fx:id="ap1" promptText="Choose AP" />
+            <TextField fx:id="hp1" promptText="Choose HP" />
+            <TextField fx:id="coolDown" promptText="Choose CoolDown" />
+            <StackPane onMouseClicked="#createHero" prefHeight="150.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/button_primary_middle_glow@2x.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Create Hero" textFill="#b8f0fc">
+                     <font>
+                        <Font name="Ani" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+      <StackPane fx:id="itemChoosing" layoutX="71.0" layoutY="333.0" onMouseClicked="#createItem" prefHeight="62.0" prefWidth="200.0" visible="false">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/ui/button_primary_middle_glow@2x.png" />
+               </image>
+            </ImageView>
+            <Label text="Create Item" textFill="#b8f0fc">
+               <font>
+                  <Font name="Ani" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <VBox fx:id="spellCardChoose" layoutX="317.0" layoutY="133.0" prefHeight="98.0" prefWidth="223.0" visible="false">
+         <children>
+            <TextField fx:id="mp2" promptText="Choose MP" />
+            <StackPane onMouseClicked="#createSpellCard" prefHeight="38.0" prefWidth="223.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/button_primary_middle_glow@2x.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Create SpellCard" textFill="#b8f0fc">
+                     <font>
+                        <Font name="Ani" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+      <Button layoutX="48.0" layoutY="44.0" mnemonicParsing="false" onMouseClicked="#quit" prefHeight="30.0" prefWidth="83.0" text="Back" />
+   </children>
+</AnchorPane>

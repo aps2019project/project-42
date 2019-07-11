@@ -15,6 +15,11 @@ public class SpellCard extends Item {
         super(name);
     }
 
+    public SpellCard(String name,String desc,int id,int price,int MP) throws FileNotFoundException {
+        super(name,desc,id,price);
+        this.MP=MP;
+    }
+
     @Override
     public String toString() {
         return " : type : spell - : name : " + this.name + " - MP : " + this.MP + " - desc : " + this.desc + " - price : " + this.price;
