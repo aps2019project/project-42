@@ -30,9 +30,9 @@ public class ShopMethods {
             } else if (theCard instanceof Item) {
                 Duelyst.currentAccount.getAccountItems().add((Item) theCard);
                 Duelyst.currentAccount.itemCounter++;
-            } else if (theCard instanceof Minion) {
+            } else if (Duelyst.getAllMinions().contains(theCard)) {
                 Duelyst.currentAccount.getAccountMinions().add((Minion) theCard);
-            } else if (theCard instanceof SpellCard) {
+            } else if (Duelyst.getAllSpellCards().contains(theCard)) {
                 Duelyst.currentAccount.getAccountSpellCards().add((SpellCard) theCard);
             }
             Duelyst.currentAccount.money -= theCard.price;
@@ -45,7 +45,7 @@ public class ShopMethods {
 
     public void sellCard(String id) {
         String serial = id + "~" + howManyCards(id) + "~" + Duelyst.currentAccount.user;
-        Card card = getCardBySerialInCollection(serial);
+        Card card = getCardByIdInCollection(Integer.parseInt(id));
         if (card == null) {
             Alert sell = new Alert(Alert.AlertType.INFORMATION);
             sell.setContentText("Card not found!");

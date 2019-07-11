@@ -1,0 +1,82 @@
+[
+  {
+    "@type": "logic.Account",
+    "@val": {
+      "user": "salman",
+      "pass": "1234",
+      "decks": [],
+      "accountHeroes": [],
+      "accountItems": [],
+      "accountMinions": [],
+      "accountSpells": [],
+      "money": 15000,
+      "itemCounter": 0,
+      "collectionMethods": {
+        "console": {}
+      },
+      "shopMethods": {
+        "console": "@root.0.collectionMethods.console"
+      }
+    }
+  },
+  {
+    "@type": "logic.Account",
+    "@val": {
+      "user": "dorna",
+      "pass": "1234",
+      "decks": [],
+      "accountHeroes": [],
+      "accountItems": [],
+      "accountMinions": [],
+      "accountSpells": [],
+      "money": 15000,
+      "itemCounter": 0,
+      "collectionMethods": {
+        "console": {}
+      },
+      "shopMethods": {
+        "console": "@root.1.collectionMethods.console"
+      }
+    }
+  },
+  {
+    "@type": "logic.Account",
+    "@val": {
+      "user": "a",
+      "pass": "1234",
+      "decks": [],
+      "accountHeroes": [],
+      "accountItems": [],
+      "accountMinions": [],
+      "accountSpells": [],
+      "money": 15000,
+      "itemCounter": 0,
+      "collectionMethods": {
+        "console": {}
+      },
+      "shopMethods": {
+        "console": "@root.2.collectionMethods.console"
+      }
+    }
+  },
+  {
+    "@type": "logic.Account",
+    "@val": {
+      "user": "x",
+      "pass": "x",
+      "decks": [],
+      "accountHeroes": [],
+      "accountItems": [],
+      "accountMinions": [],
+      "accountSpells": [],
+      "money": 15000,
+      "itemCounter": 0,
+      "collectionMethods": {
+        "console": {}
+      },
+      "shopMethods": {
+        "console": "@root.3.collectionMethods.console"
+      }
+    }
+  }
+]

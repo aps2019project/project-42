@@ -32,8 +32,7 @@ public class CreateAccountPage {
         root.setCursor(new ImageCursor(image));
         Duelyst.playMusic();
         primaryStage.stage.setTitle("Duelyst");
-        primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
-        primaryStage.stage.setMaximized(true);
+primaryStage.stage.setScene(new Scene(root));primaryStage.stage.setMaximized(true);
         primaryStage.stage.show();
     }
 }

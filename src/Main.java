@@ -1,3 +1,5 @@
+import com.gilecode.yagson.YaGson;
+import com.gilecode.yagson.YaGsonBuilder;
 import graphic.AccountPageMenu;
 import graphic.PrimaryStage;
 import javafx.application.Application;
@@ -7,10 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import logic.Account;
 import logic.Duelyst;
 import logic.Message;
 
 import java.io.*;
+import java.lang.reflect.Type;
 import java.net.Socket;
 import java.util.Formatter;
 import java.util.Scanner;
@@ -31,16 +35,34 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException {
+        loadAccounts();
         new Thread(Main::consoleChat);
         Duelyst duelyst = new Duelyst();
+        duelyst.preStart();
+        launch(args);
+//        try {
+//            duelyst.preStart();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        launch(args);
+    }
+
+    private static void loadAccounts() {
         try {
-            duelyst.preStart();
-        } catch (IOException e) {
+            YaGson yaGson = new YaGsonBuilder().setPrettyPrinting().create();
+            Reader reader = new FileReader("accounts.json");
+            Account[] accounts = yaGson.fromJson(reader, (Type) Account[].class);
+            if (accounts != null) {
+                for (Account account : accounts) {
+                    Duelyst.accounts.add(account);
+                    System.out.println(account.getUser() + " added!");
+                }
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        launch(args);
     }
 
     private static void consoleChat() {

@@ -7,17 +7,17 @@ public class Account {
     private String pass;
     public Player owner;
     ArrayList<MatchHistory> matchList;
-    ArrayList<Deck> decks=new ArrayList<>();
+    ArrayList<Deck> decks = new ArrayList<>();
     //ArrayList<logic.Card> cards;
-    ArrayList<Hero> accountHeroes=new ArrayList<>();
-    ArrayList<Item> accountItems=new ArrayList<>();
-    ArrayList<Minion> accountMinions=new ArrayList<>();
-    ArrayList<SpellCard> accountSpells=new ArrayList<>();
+    ArrayList<Hero> accountHeroes = new ArrayList<>();
+    ArrayList<Item> accountItems = new ArrayList<>();
+    ArrayList<Minion> accountMinions = new ArrayList<>();
+    ArrayList<SpellCard> accountSpells = new ArrayList<>();
     public Deck mainDeck;
-    int money=15000;
-    int itemCounter=0;
+    int money = 15000;
+    int itemCounter = 0;
     public CollectionMethods collectionMethods = new CollectionMethods();
-    public ShopMethods shopMethods=new ShopMethods();
+    public ShopMethods shopMethods = new ShopMethods();
 
     public ArrayList<Deck> getDecks() {
         return decks;
@@ -59,6 +59,5 @@ public class Account {
         this.user = user;
         this.pass = pass;
     }
-
 
 }
