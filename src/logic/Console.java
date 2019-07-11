@@ -324,7 +324,7 @@ class Console {
     }
 
     void showMainHelp() {
-        System.out.println("logic.Main menu commands:");
+        //System.out.println("Main menu commands:");
         System.out.println("To manage your cards: enter collection");
         System.out.println("To buy or sell cards and items: enter shop");
         System.out.println("To play game: enter battle");

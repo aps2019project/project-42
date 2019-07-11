@@ -30,6 +30,7 @@ public class AccountPageMenu {
         Parent root = FXMLLoader.load(CreateAccountPage.class.getResource("CreateAccountPage.fxml"));
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
+        Duelyst.playMusic();
         primaryStage.stage.setTitle("Duelyst");
         primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);
@@ -40,6 +41,7 @@ public class AccountPageMenu {
         Parent root = FXMLLoader.load(LoginPage.class.getResource("LoginPage.fxml"));
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
+        Duelyst.playMusic();
         primaryStage.stage.setTitle("Duelyst");
         primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);
@@ -50,6 +52,7 @@ public class AccountPageMenu {
         Parent root = FXMLLoader.load(LeaderBoardPage.class.getResource("LeaderBoardPage.fxml"));
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
+        Duelyst.playMusic();
         primaryStage.stage.setTitle("Duelyst");
         primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);
@@ -60,6 +63,7 @@ public class AccountPageMenu {
         Parent root = FXMLLoader.load(HelpAccountPage.class.getResource("HelpAccountPage.fxml"));
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
+        Duelyst.playMusic();
         primaryStage.stage.setTitle("Duelyst");
         primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);

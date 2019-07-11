@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import logic.AccountPage;
+import logic.Duelyst;
 
 import java.io.IOException;
 
@@ -25,6 +26,7 @@ public class LoginPage {
             Parent root = FXMLLoader.load(MainMenu.class.getResource("MainMenu.fxml"));
             Image image = new Image("ui/mouse_attack@2x.png");
             root.setCursor(new ImageCursor(image));
+            Duelyst.playMusic();
             primaryStage.stage.setTitle("Duelyst");
             primaryStage.stage.setScene(new Scene(root));
             primaryStage.stage.setMaximized(true);
@@ -36,6 +38,7 @@ public class LoginPage {
         Parent root = FXMLLoader.load(AccountPageMenu.class.getResource("AccountPageMenu.fxml"));
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
+        Duelyst.playMusic();
         primaryStage.stage.setTitle("Duelyst");
         primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);

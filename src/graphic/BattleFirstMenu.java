@@ -57,6 +57,7 @@ public class BattleFirstMenu {
         Parent root = FXMLLoader.load(Battle.class.getResource("Battle.fxml"));
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
+        Duelyst.playMusic();
         primaryStage.stage.setTitle("Duelyst");
         primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);

@@ -1,6 +1,8 @@
 package logic;
 
 import com.google.gson.Gson;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -95,5 +97,15 @@ public class Duelyst {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         Hero hero = new Gson().fromJson(reader, cardClass);
         list.add(hero);
+    }
+
+    public static void playMusic() {
+        try {
+            Media sound = new Media(new File("resources/music/mainmenu.mp3").toURI().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(sound);
+            mediaPlayer.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

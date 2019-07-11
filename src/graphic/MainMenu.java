@@ -19,6 +19,7 @@ public class MainMenu {
         Parent root = FXMLLoader.load(BattleFirstMenu.class.getResource("BattleFirstMenu.fxml"));
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
+        Duelyst.playMusic();
         primaryStage.stage.setTitle("Duelyst");
         primaryStage.stage.setScene(new Scene(root));
         primaryStage.stage.setMaximized(true);
@@ -35,6 +36,7 @@ public class MainMenu {
         Parent root = FXMLLoader.load(CollectionMenu.class.getResource("CollectionMenu.fxml"));
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
+        Duelyst.playMusic();
         primaryStage.stage.setTitle("Duelyst");
         primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);
@@ -43,6 +45,9 @@ public class MainMenu {
 
     public void enterShop(MouseEvent mouseEvent) throws IOException {
         Parent root = FXMLLoader.load(ShopMenu.class.getResource("ShopMenu.fxml"));
+        Image image = new Image("ui/mouse_attack@2x.png");
+        root.setCursor(new ImageCursor(image));
+        Duelyst.playMusic();
         primaryStage.stage.setTitle("Duelyst");
         primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);
@@ -53,6 +58,7 @@ public class MainMenu {
         Parent root = FXMLLoader.load(MainMenuHelp.class.getResource("MainMenuHelp.fxml"));
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
+        Duelyst.playMusic();
         primaryStage.stage.setTitle("Duelyst");
         primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);

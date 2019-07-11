@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import logic.AccountPage;
+import logic.Duelyst;
 
 import java.io.IOException;
 
@@ -19,6 +20,7 @@ public class LeaderBoardPage {
         Parent root = FXMLLoader.load(MainMenu.class.getResource("MainMenu.fxml"));
         Image image = new Image("ui/mouse_attack@2x.png");
         root.setCursor(new ImageCursor(image));
+        Duelyst.playMusic();
         primaryStage.stage.setTitle("Duelyst");
         primaryStage.stage.setScene(new Scene(root, Double.MAX_VALUE, Double.MAX_VALUE));
         primaryStage.stage.setMaximized(true);
